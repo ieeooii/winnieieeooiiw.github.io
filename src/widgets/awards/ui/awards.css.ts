@@ -18,13 +18,13 @@ export const titleBlock = style({
 })
 
 export const title = style({
-  fontSize: 'clamp(2.5rem, 5vw, 3.75rem)',
+  fontSize: vars.fontSize['6xl'],
   fontWeight: vars.fontWeight.bold,
   lineHeight: vars.lineHeight.tight,
 })
 
 export const subtitle = style({
-  fontSize: 'clamp(2rem, 4vw, 3rem)',
+  fontSize: vars.fontSize['5xl'],
   fontWeight: vars.fontWeight.medium,
   color: vars.color.gray[400],
 })

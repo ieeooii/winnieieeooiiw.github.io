@@ -10,7 +10,6 @@ export const header = style({
   backgroundColor: 'rgba(255, 255, 255, 0.8)',
   backdropFilter: 'blur(12px)',
   WebkitBackdropFilter: 'blur(12px)',
-  borderBottom: `1px solid ${vars.color.gray[100]}`,
 })
 
 export const inner = style({

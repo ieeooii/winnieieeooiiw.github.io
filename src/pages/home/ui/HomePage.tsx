@@ -7,7 +7,7 @@ import { Footer } from '../../../widgets/footer/ui/Footer'
 export const HomePage = () => (
   <>
     <Navbar />
-    <main style={{ paddingTop: '5rem' }}>
+    <main style={{ paddingTop: '8rem' }}>
       <Hero />
       <Projects />
       <Awards />

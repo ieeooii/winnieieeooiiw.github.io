@@ -29,7 +29,7 @@ export const top = style({
 export const brand = style({})
 
 export const logo = style({
-  fontSize: 'clamp(2rem, 5vw, 2.5rem)',
+  fontSize: vars.fontSize['4xl'],
   fontWeight: vars.fontWeight.extrabold,
   letterSpacing: vars.letterSpacing.tighter,
   display: 'block',
@@ -38,7 +38,7 @@ export const logo = style({
 
 export const tagline = style({
   color: vars.color.gray[400],
-  maxWidth: '18rem',
+  maxWidth: '20rem',
   fontSize: vars.fontSize.lg,
   lineHeight: vars.lineHeight.relaxed,
 })

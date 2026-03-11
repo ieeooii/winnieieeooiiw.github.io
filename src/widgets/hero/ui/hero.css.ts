@@ -5,7 +5,6 @@ export const section = style({
   position: 'relative',
   overflow: 'hidden',
   marginBottom: vars.space[32],
-  paddingTop: vars.space[32],
 })
 
 export const container = style({
@@ -42,10 +41,10 @@ export const headingHighlight = style({
   '::after': {
     content: '""',
     position: 'absolute',
-    bottom: '0.25em',
+    bottom: '1rem',
     left: 0,
     width: '100%',
-    height: '0.15em',
+    height: '0.5rem',
     backgroundColor: vars.color.brand,
     zIndex: -1,
   },
@@ -61,7 +60,7 @@ export const badgeRow = style({
 export const badgeCard = style({
   padding: vars.space[4],
   backgroundColor: vars.color.gray[50],
-  borderRadius: vars.radii.lg,
+  borderRadius: vars.radii.md,
   border: `1px solid ${vars.color.gray[100]}`,
   textAlign: 'center',
   width: '6rem',
