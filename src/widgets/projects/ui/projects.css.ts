@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { vars } from '../../../shared/styles/tokens.css'
+export { container } from '../../../shared/styles/layout.css'
 
 export const section = style({
   paddingTop: vars.space[24],
@@ -7,11 +8,6 @@ export const section = style({
   backgroundColor: vars.color.gray[50],
 })
 
-export const container = style({
-  maxWidth: '1400px',
-  margin: '0 auto',
-  padding: `0 ${vars.space[8]}`,
-})
 
 export const sectionTitle = style({
   fontSize: 'clamp(2rem, 5vw, 3rem)',

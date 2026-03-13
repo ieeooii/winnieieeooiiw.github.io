@@ -1,32 +1,28 @@
 import { style } from '@vanilla-extract/css'
 import { vars } from '../../../shared/styles/tokens.css'
+export { container } from '../../../shared/styles/layout.css'
 
 export const section = style({
   paddingTop: vars.space[32],
   paddingBottom: vars.space[32],
-  backgroundColor: vars.color.white,
+  backgroundColor: vars.color.gray[50],
 })
 
-export const container = style({
-  maxWidth: '1400px',
-  margin: '0 auto',
-  padding: `0 ${vars.space[8]}`,
-})
 
 export const titleBlock = style({
   marginBottom: vars.space[20],
 })
 
 export const title = style({
-  fontSize: vars.fontSize['6xl'],
+  fontSize: 'clamp(2rem, 5vw, 3rem)',
   fontWeight: vars.fontWeight.bold,
   lineHeight: vars.lineHeight.tight,
 })
 
 export const subtitle = style({
-  fontSize: vars.fontSize['5xl'],
+  fontSize: 'clamp(2rem, 5vw, 3rem)',
   fontWeight: vars.fontWeight.medium,
-  color: vars.color.gray[400],
+  color: vars.color.gray[700],
 })
 
 export const list = style({
@@ -36,8 +32,8 @@ export const list = style({
 
 export const row = style({
   display: 'grid',
-  gridTemplateColumns: '3rem 1fr 2fr',
-  gap: vars.space[8],
+  gridTemplateColumns: '2fr 1fr 2fr',
+  gap: vars.space[16],
   alignItems: 'start',
   paddingTop: vars.space[8],
   paddingBottom: vars.space[8],
@@ -58,26 +54,33 @@ export const row = style({
 })
 
 export const rowSlash = style({
-  color: vars.color.gray[400],
-  fontFamily: 'monospace',
+  color: vars.color.gray[500],
+  fontFamily: vars.font.mono,
   paddingTop: '0.2em',
 })
 
 export const rowName = style({
-  fontSize: vars.fontSize['2xl'],
-  fontWeight: vars.fontWeight.bold,
+  fontSize: vars.fontSize.lg,
+  fontWeight: vars.fontWeight.medium,
+  textAlign: 'right',
 })
 
 export const rowNameAccent = style({
   color: vars.color.brand,
 })
 
+export const rowNamePrefix = style({
+  fontWeight: vars.fontWeight.normal,
+  color: vars.color.gray[700],
+})
+
 export const rowItems = style({
   display: 'flex',
-  flexWrap: 'wrap',
-  gap: `${vars.space[2]} ${vars.space[12]}`,
+  flexDirection: 'column',
+  gap: vars.space[2],
   color: vars.color.gray[700],
   fontSize: vars.fontSize.lg,
+  listStyle: 'none',
 
   '@media': {
     '(max-width: 768px)': {

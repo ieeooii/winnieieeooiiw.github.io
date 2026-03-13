@@ -19,6 +19,7 @@ export const vars = createGlobalTheme(':root', {
   },
   font: {
     body: "'Inter', sans-serif",
+    mono: "'Fira Code', 'Cascadia Code', monospace",
   },
   fontWeight: {
     normal: '400',
@@ -28,6 +29,8 @@ export const vars = createGlobalTheme(':root', {
     extrabold: '800',
   },
   fontSize: {
+    badge: '0.5rem',
+    badgeTitle: '0.625rem',
     xs: '0.75rem',
     sm: '0.875rem',
     base: '1rem',

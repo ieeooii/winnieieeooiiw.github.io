@@ -1,18 +1,15 @@
 import { style } from '@vanilla-extract/css'
 import { vars } from '../../../shared/styles/tokens.css'
+export { container } from '../../../shared/styles/layout.css'
 
 export const footer = style({
-  backgroundColor: vars.color.dark,
-  color: vars.color.white,
+  backgroundColor: vars.color.gray[50],
+  color: vars.color.dark,
   paddingTop: vars.space[24],
   paddingBottom: vars.space[24],
+  borderTop: `1px solid ${vars.color.gray[200]}`,
 })
 
-export const container = style({
-  maxWidth: '1400px',
-  margin: '0 auto',
-  padding: `0 ${vars.space[8]}`,
-})
 
 export const top = style({
   display: 'flex',
@@ -68,11 +65,11 @@ export const navGroupLabel = style({
 })
 
 export const navLink = style({
-  color: vars.color.white,
+  color: vars.color.dark,
   textDecoration: 'none',
   transition: `color ${vars.transition.base}`,
   ':hover': {
-    color: vars.color.brand,
+    color: vars.color.gray[500],
   },
 })
 
@@ -83,7 +80,7 @@ export const navText = style({
 export const bottom = style({
   marginTop: vars.space[24],
   paddingTop: vars.space[8],
-  borderTop: `1px solid rgba(255,255,255,0.1)`,
+  borderTop: `1px solid ${vars.color.gray[200]}`,
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -104,10 +101,10 @@ export const socialLinks = style({
 })
 
 export const socialLink = style({
-  color: vars.color.gray[500],
+  color: vars.color.gray[700],
   textDecoration: 'none',
   transition: `color ${vars.transition.base}`,
   ':hover': {
-    color: vars.color.white,
+    color: vars.color.dark,
   },
 })

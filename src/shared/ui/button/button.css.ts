@@ -20,7 +20,7 @@ export const button = styleVariants({
     base,
     {
       padding: `${vars.space[3]} ${vars.space[6]}`,
-      borderRadius: vars.radii.lg,
+      borderRadius: vars.radii.full,
       backgroundColor: vars.color.brand,
       color: vars.color.dark,
       ':hover': {
@@ -36,7 +36,7 @@ export const button = styleVariants({
       padding: `${vars.space[2]} ${vars.space[6]}`,
       borderRadius: vars.radii.full,
       backgroundColor: 'transparent',
-      color: vars.color.gray[500],
+      color: vars.color.gray[700],
       ':hover': {
         color: vars.color.dark,
       },
