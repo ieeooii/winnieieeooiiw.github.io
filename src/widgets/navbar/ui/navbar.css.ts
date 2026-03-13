@@ -1,16 +1,26 @@
 import { style } from '@vanilla-extract/css'
 import { vars } from '../../../shared/styles/tokens.css'
 
-export const header = style({
+const headerBase = style({
   position: 'fixed',
   top: 0,
   left: 0,
   width: '100%',
   zIndex: vars.zIndex.sticky,
-  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+  transition: 'background-color 0.3s ease, backdrop-filter 0.3s ease',
+})
+
+export const header = style([headerBase, {
+  backgroundColor: 'rgba(250, 250, 250, 0.8)',
   backdropFilter: 'blur(12px)',
   WebkitBackdropFilter: 'blur(12px)',
-})
+}])
+
+export const headerTransparent = style([headerBase, {
+  backgroundColor: 'transparent',
+  backdropFilter: 'none',
+  WebkitBackdropFilter: 'none',
+}])
 
 export const inner = style({
   maxWidth: '1400px',
@@ -19,6 +29,12 @@ export const inner = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+})
+
+export const right = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: vars.space[8],
 })
 
 export const logo = style({
@@ -33,7 +49,7 @@ export const pillGroup = style({
   display: 'flex',
   alignItems: 'center',
   gap: vars.space[1],
-  backgroundColor: vars.color.gray[100],
+  backgroundColor: vars.color.white,
   padding: vars.space[1],
   borderRadius: vars.radii.full,
 })
