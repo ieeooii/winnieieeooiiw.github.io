@@ -1,4 +1,4 @@
-import { EMAIL, MAILTO } from '../../../shared/config/contact'
+import { EMAIL, MAILTO, LINKEDIN } from '../../../shared/config/contact'
 import * as s from './footer.css'
 
 export const Footer = () => (
@@ -22,11 +22,8 @@ export const Footer = () => (
       <div className={s.bottom}>
         <p>© 2026 ieeooii. All rights reserved.</p>
         <div className={s.socialLinks}>
-          <a href="https://github.com/ieeooii" target="_blank" rel="noopener noreferrer" className={s.socialLink}>
-            GitHub
-          </a>
-          <a href="#" className={s.socialLink}>Twitter</a>
-          <a href="#" className={s.socialLink}>LinkedIn</a>
+          <a href="https://github.com/ieeooii" target="_blank" rel="noopener noreferrer" className={s.socialLink}>GitHub</a>
+          <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className={s.socialLink}>LinkedIn</a>
         </div>
       </div>
     </div>
