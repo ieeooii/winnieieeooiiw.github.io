@@ -8,7 +8,7 @@ export const Footer = () => (
         <div className={s.brand}>
           <span className={s.logo}>ieeooii</span>
           <p className={s.tagline}>
-            Building clean, performant interfaces — one component at a time.
+            Problems become structure.<br />— AI is just how I work.
           </p>
         </div>
 

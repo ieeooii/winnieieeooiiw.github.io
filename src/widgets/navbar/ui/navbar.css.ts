@@ -11,7 +11,7 @@ const headerBase = style({
 })
 
 export const header = style([headerBase, {
-  backgroundColor: 'rgba(250, 250, 250, 0.8)',
+  backgroundColor: 'rgba(243, 244, 246, 0.8)',
   backdropFilter: 'blur(12px)',
   WebkitBackdropFilter: 'blur(12px)',
 }])
