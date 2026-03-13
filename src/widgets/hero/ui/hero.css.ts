@@ -4,7 +4,8 @@ import { vars } from '../../../shared/styles/tokens.css'
 export const section = style({
   position: 'relative',
   overflow: 'hidden',
-  marginBottom: vars.space[32],
+  paddingTop: vars.space[32],
+  paddingBottom: vars.space[24],
 })
 
 export const container = style({
@@ -27,14 +28,24 @@ export const container = style({
 export const content = style({})
 
 export const heading = style({
-  fontWeight: vars.fontWeight.bold,
+  fontSize: 'clamp(3rem, 8vw, 6rem)',
+  fontWeight: vars.fontWeight.semibold,
   letterSpacing: vars.letterSpacing.tight,
   lineHeight: vars.lineHeight.tight,
-  marginBottom: vars.space[8],
-  // clamp handled via global style override in component
+  marginBottom: 0,
+  maxWidth: '20ch',
+})
+
+export const headingNoWrap = style({
+  whiteSpace: 'nowrap',
 })
 
 export const headingHighlight = style({
+  display: 'inline-block',
+  minWidth: '10ch',
+})
+
+export const headingHighlightText = style({
   position: 'relative',
   display: 'inline-block',
 
@@ -51,40 +62,12 @@ export const headingHighlight = style({
 })
 
 export const badgeRow = style({
-  marginTop: vars.space[16],
+  marginTop: '24rem',
   display: 'flex',
   gap: vars.space[4],
   flexWrap: 'wrap',
 })
 
-export const badgeCard = style({
-  padding: vars.space[4],
-  backgroundColor: vars.color.gray[50],
-  borderRadius: vars.radii.md,
-  border: `1px solid ${vars.color.gray[100]}`,
-  textAlign: 'center',
-  width: '6rem',
-})
-
-export const badgeLabel = style({
-  fontSize: '0.5rem',
-  fontWeight: vars.fontWeight.bold,
-  letterSpacing: vars.letterSpacing.widest,
-  textTransform: 'uppercase',
-  marginBottom: vars.space[1],
-})
-
-export const badgeTitle = style({
-  fontSize: '0.625rem',
-  fontWeight: vars.fontWeight.bold,
-  lineHeight: vars.lineHeight.snug,
-})
-
-export const badgeSub = style({
-  fontSize: '0.5rem',
-  color: vars.color.gray[400],
-  marginTop: vars.space[1],
-})
 
 export const visual = style({
   position: 'relative',
@@ -96,6 +79,15 @@ export const visual = style({
       display: 'none',
     },
   },
+})
+
+export const glowBlob = style({
+  position: 'absolute',
+  inset: 0,
+  width: '100%',
+  height: '100%',
+  zIndex: 0,
+  pointerEvents: 'none',
 })
 
 export const glow = style({
