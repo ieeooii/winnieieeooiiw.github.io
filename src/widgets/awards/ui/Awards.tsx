@@ -1,65 +1,48 @@
 import * as s from './awards.css'
 
-type AwardRow = {
+type StackRow = {
   id: string
-  count: string
-  platform: string
+  category: string
   items: string[]
 }
 
-const AWARDS: AwardRow[] = [
+const STACK: StackRow[] = [
   {
-    id: 'awwwards',
-    count: '29',
-    platform: 'AWWWARDS',
-    items: ['Site Of The Day', 'Honourable Mention', 'Mobile Excellence'],
+    id: 'frontend',
+    category: 'Frontend',
+    items: ['React.js', 'Next.js', 'TypeScript'],
   },
   {
-    id: 'cssda',
-    count: '29',
-    platform: 'CSSDA',
-    items: ['Website Of The Day', 'Special Kudos', 'Best UI Design', 'Best UX Design', 'Best Innovation'],
+    id: 'state',
+    category: 'State Management',
+    items: ['TanStack Query', 'Jotai'],
   },
   {
-    id: 'behance',
-    count: '60',
-    platform: 'Behance',
-    items: [
-      'Best of Behance',
-      'Featured in UI/UX',
-      'Featured in Logo',
-      'Featured in Illustrator',
-      'Featured in XD',
-      'Featured in Stock',
-    ],
+    id: 'styling',
+    category: 'Styling',
+    items: ['Emotion.js', 'Tailwind CSS'],
   },
   {
-    id: 'others',
-    count: '50',
-    platform: 'Others',
-    items: [
-      'WebGuru', 'Top Design King', 'CssLight',
-      'Orpetron', 'Design Nominees', 'CSSWinner',
-      'CSSNectar', 'CSSReel', 'CSSBest',
-      'WD Awards',
-    ],
+    id: 'tools',
+    category: 'Tools',
+    items: ['Jira', 'Slack', 'GitHub', 'WebStorm', 'Visual Studio Code', 'Figma', 'Claude.ai', 'Gemini'],
   },
 ]
 
 export const Awards = () => (
-  <section className={s.section} id="awards">
+  <section className={s.section} id="skills">
     <div className={s.container}>
       <div className={s.titleBlock}>
-        <h2 className={s.title}>Awards</h2>
-        <p className={s.subtitle}>we are proud of</p>
+        <h2 className={s.title}>Key Skills</h2>
+        <p className={s.subtitle}>what I work with</p>
       </div>
 
       <ul className={s.list} role="list">
-        {AWARDS.map(({ id, count, platform, items }) => (
+        {STACK.map(({ id, category, items }) => (
           <li key={id} className={s.row}>
             <span className={s.rowSlash} aria-hidden="true">//</span>
             <h3 className={s.rowName}>
-              <span className={s.rowNameAccent}>x</span> {count} {platform}
+              <span className={s.rowNamePrefix}>x </span>{category}
             </h3>
             <ul className={s.rowItems} role="list">
               {items.map((item) => (

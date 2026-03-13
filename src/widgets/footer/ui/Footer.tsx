@@ -1,32 +1,22 @@
+import { EMAIL, MAILTO } from '../../../shared/config/contact'
 import * as s from './footer.css'
 
 export const Footer = () => (
-  <footer className={s.footer}>
+  <footer className={s.footer} id="contact">
     <div className={s.container}>
       <div className={s.top}>
         <div className={s.brand}>
           <span className={s.logo}>ieeooii</span>
           <p className={s.tagline}>
-            Crafting exceptional digital experiences for ambitious brands globally.
+            Building clean, performant interfaces — one component at a time.
           </p>
         </div>
 
-        <nav className={s.nav} aria-label="Footer navigation">
-          <div className={s.navGroup}>
-            <p className={s.navGroupLabel}>Navigation</p>
-            <a href="#" className={s.navLink}>Home</a>
-            <a href="#works" className={s.navLink}>Works</a>
-            <a href="#skills" className={s.navLink}>Skills</a>
-            <a href="#contact" className={s.navLink}>Contact</a>
-          </div>
-          <div className={s.navGroup}>
-            <p className={s.navGroupLabel}>Contact</p>
-            <a href="mailto:hello@ieeooii.dev" className={s.navLink}>
-              hello@ieeooii.dev
-            </a>
-            <p className={s.navText}>Seoul, Korea</p>
-          </div>
-        </nav>
+        <div className={s.navGroup}>
+          <p className={s.navGroupLabel}>Contact</p>
+          <a href={MAILTO} className={s.navLink}>{EMAIL}</a>
+          <p className={s.navText}>Seoul, Korea</p>
+        </div>
       </div>
 
       <div className={s.bottom}>

@@ -14,7 +14,7 @@ globalStyle('html', {
 globalStyle('body', {
   fontFamily: vars.font.body,
   color: vars.color.dark,
-  backgroundColor: vars.color.white,
+  backgroundColor: vars.color.gray[50],
   lineHeight: vars.lineHeight.normal,
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
