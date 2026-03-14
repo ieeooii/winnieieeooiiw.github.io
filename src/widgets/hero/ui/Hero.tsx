@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { GlowBlob } from './GlowBlob'
 import { BadgeCard } from '../../../shared/ui/badge/BadgeCard'
+import { PROJECTS } from '../../../pages/portfolio/data/projects'
 import * as s from './hero.css'
 
 const WORDS = ['systems', 'architectures', 'AI workflows', 'solutions', 'products', 'experiences']
@@ -11,7 +12,7 @@ const PAUSE_AFTER_DELETE = 400
 
 const BADGES = [
   { label: 'Experience', title: '6+ YRS', sub: 'FRONTEND' },
-  { label: 'Projects', title: '20+', sub: 'SHIPPED' },
+  { label: 'Projects', title: `${PROJECTS.length}`, sub: 'COMPLETED' },
   { label: 'Focus', title: 'REACT', sub: 'TYPESCRIPT' },
 ]
 
