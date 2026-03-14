@@ -24,6 +24,7 @@ export const Footer = () => (
         <div className={s.socialLinks}>
           <a href="https://github.com/ieeooii" target="_blank" rel="noopener noreferrer" className={s.socialLink}>GitHub</a>
           <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className={s.socialLink}>LinkedIn</a>
+          <a href="https://ieeooii.notion.site/" target="_blank" rel="noopener noreferrer" className={s.socialLink}>Blog</a>
         </div>
       </div>
     </div>
