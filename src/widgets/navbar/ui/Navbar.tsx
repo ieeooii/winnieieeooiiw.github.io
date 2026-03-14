@@ -6,7 +6,7 @@ import * as s from './navbar.css'
 
 const NAV_ITEMS = [
   { label: 'Home',  href: '/' },
-  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Projects', href: '/projects' },
   { label: 'Blog',  href: '/blog' },
 ]
 

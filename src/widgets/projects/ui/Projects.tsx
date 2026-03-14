@@ -48,7 +48,7 @@ export const Projects = () => (
   <section className={s.section} id="works">
     <div className={s.container}>
       <h2 className={s.sectionTitle}>
-        Selected <span className={s.titleItalic}>portfolio</span>
+        Selected <span className={s.titleItalic}>projects</span>
       </h2>
 
       <div className={s.grid}>

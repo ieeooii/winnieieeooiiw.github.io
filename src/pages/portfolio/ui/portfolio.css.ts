@@ -1,0 +1,455 @@
+import { style } from '@vanilla-extract/css'
+import { vars } from '../../../shared/styles/tokens.css'
+
+export const page = style({
+  minHeight: '100vh',
+  backgroundColor: vars.color.gray[100],
+  paddingTop: '80px', // navbar height
+})
+
+// ── Grid page ─────────────────────────────────────────────────────────────────
+
+export const gridContainer = style({
+  maxWidth: '1400px',
+  margin: '0 auto',
+  padding: `0 ${vars.space[8]}`,
+  paddingTop: vars.space[16],
+  paddingBottom: vars.space[24],
+  '@media': {
+    '(max-width: 640px)': {
+      padding: `${vars.space[8]} ${vars.space[6]} ${vars.space[16]}`,
+    },
+  },
+})
+
+export const gridHeader = style({
+  marginBottom: vars.space[16],
+})
+
+export const gridTitle = style({
+  fontSize: 'clamp(4rem, 10vw, 6rem)',
+  fontWeight: vars.fontWeight.bold,
+  letterSpacing: vars.letterSpacing.tighter,
+  lineHeight: vars.lineHeight.none,
+  color: vars.color.dark,
+})
+
+export const projectGrid = style({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  columnGap: vars.space[12],
+  rowGap: vars.space[16],
+  '@media': {
+    '(max-width: 1024px)': {
+      gridTemplateColumns: 'repeat(2, 1fr)',
+    },
+    '(max-width: 580px)': {
+      gridTemplateColumns: '1fr',
+    },
+  },
+})
+
+export const projectCard = style({
+  display: 'flex',
+  flexDirection: 'column',
+  cursor: 'pointer',
+})
+
+export const cardThumb = style({
+  borderRadius: vars.radii.xl,
+  aspectRatio: '4 / 3',
+  marginBottom: vars.space[6],
+  overflow: 'hidden',
+  transition: 'transform 0.5s ease',
+  selectors: {
+    [`${projectCard}:hover &`]: {
+      transform: 'scale(1.02)',
+    },
+  },
+})
+
+export const cardTitle = style({
+  fontSize: vars.fontSize['2xl'],
+  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.dark,
+  marginBottom: vars.space[4],
+  lineHeight: vars.lineHeight.snug,
+})
+
+export const cardTagRow = style({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: vars.space[2],
+  marginBottom: vars.space[2],
+  selectors: {
+    '&:last-child': { marginBottom: 0 },
+  },
+})
+
+export const tagOutline = style({
+  padding: `6px ${vars.space[4]}`,
+  border: `1px solid ${vars.color.gray[200]}`,
+  borderRadius: vars.radii.full,
+  fontSize: vars.fontSize.xs,
+  fontWeight: vars.fontWeight.medium,
+  color: vars.color.gray[700],
+  lineHeight: '1',
+})
+
+export const tagBrand = style({
+  padding: `6px ${vars.space[4]}`,
+  backgroundColor: vars.color.brandMuted,
+  borderRadius: vars.radii.full,
+  fontSize: vars.fontSize.xs,
+  fontWeight: vars.fontWeight.medium,
+  color: vars.color.brand,
+  lineHeight: '1',
+})
+
+// ── Detail page ───────────────────────────────────────────────────────────────
+
+export const detailContainer = style({
+  maxWidth: '900px',
+  margin: '0 auto',
+  padding: `${vars.space[8]} ${vars.space[8]} ${vars.space[24]}`,
+  '@media': {
+    '(max-width: 640px)': {
+      padding: `${vars.space[6]} ${vars.space[6]} ${vars.space[16]}`,
+    },
+  },
+})
+
+export const backButton = style({
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: vars.space[2],
+  color: vars.color.gray[500],
+  fontSize: vars.fontSize.sm,
+  fontWeight: vars.fontWeight.medium,
+  marginBottom: vars.space[8],
+  cursor: 'pointer',
+  border: 'none',
+  background: 'none',
+  padding: 0,
+  transition: vars.transition.fast,
+  selectors: {
+    '&:hover': { color: vars.color.dark },
+  },
+})
+
+export const layout = style({
+  maxWidth: '1400px',
+  margin: '0 auto',
+  padding: `0 ${vars.space[8]}`,
+  display: 'grid',
+  gridTemplateColumns: '260px 1fr',
+  gap: vars.space[12],
+  alignItems: 'start',
+  paddingTop: vars.space[16],
+  paddingBottom: vars.space[24],
+  '@media': {
+    '(max-width: 900px)': {
+      gridTemplateColumns: '1fr',
+      paddingTop: vars.space[8],
+    },
+  },
+})
+
+// ── Sidebar ──────────────────────────────────────────────────────────────────
+
+export const sidebar = style({
+  position: 'sticky',
+  top: '96px',
+  '@media': {
+    '(max-width: 900px)': {
+      position: 'static',
+    },
+  },
+})
+
+export const sidebarTitle = style({
+  fontSize: vars.fontSize.xs,
+  fontWeight: vars.fontWeight.semibold,
+  letterSpacing: vars.letterSpacing.wider,
+  textTransform: 'uppercase',
+  color: vars.color.gray[400],
+  marginBottom: vars.space[3],
+})
+
+export const navList = style({
+  listStyle: 'none',
+  padding: 0,
+  margin: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: vars.space[1],
+})
+
+export const navItem = style({
+  padding: `${vars.space[2]} ${vars.space[3]}`,
+  borderRadius: vars.radii.md,
+  cursor: 'pointer',
+  transition: vars.transition.fast,
+  color: vars.color.gray[500],
+  fontSize: vars.fontSize.sm,
+  fontWeight: vars.fontWeight.medium,
+  lineHeight: vars.lineHeight.snug,
+  border: 'none',
+  background: 'none',
+  width: '100%',
+  textAlign: 'left',
+  selectors: {
+    '&:hover': {
+      backgroundColor: vars.color.gray[200],
+      color: vars.color.gray[700],
+    },
+  },
+})
+
+export const navItemActive = style({
+  backgroundColor: vars.color.white,
+  color: vars.color.dark,
+  fontWeight: vars.fontWeight.semibold,
+  boxShadow: vars.shadow.sm,
+  selectors: {
+    '&:hover': {
+      backgroundColor: vars.color.white,
+    },
+  },
+})
+
+// ── Content ───────────────────────────────────────────────────────────────────
+
+export const content = style({
+  minWidth: 0,
+})
+
+export const projectHeader = style({
+  marginBottom: vars.space[8],
+})
+
+export const company = style({
+  fontSize: vars.fontSize.xs,
+  fontWeight: vars.fontWeight.semibold,
+  letterSpacing: vars.letterSpacing.wider,
+  textTransform: 'uppercase',
+  color: vars.color.brand,
+  marginBottom: vars.space[2],
+})
+
+export const projectTitle = style({
+  fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+  fontWeight: vars.fontWeight.bold,
+  letterSpacing: vars.letterSpacing.tight,
+  lineHeight: vars.lineHeight.tight,
+  color: vars.color.dark,
+  marginBottom: vars.space[6],
+})
+
+export const metaTable = style({
+  borderCollapse: 'collapse',
+  width: '100%',
+  marginBottom: vars.space[8],
+  fontSize: vars.fontSize.sm,
+})
+
+export const metaRow = style({
+  borderBottom: `1px solid ${vars.color.gray[200]}`,
+  selectors: {
+    '&:last-child': {
+      borderBottom: 'none',
+    },
+  },
+})
+
+export const metaLabel = style({
+  padding: `${vars.space[3]} ${vars.space[4]} ${vars.space[3]} 0`,
+  color: vars.color.gray[400],
+  fontWeight: vars.fontWeight.medium,
+  whiteSpace: 'nowrap',
+  width: '100px',
+  verticalAlign: 'top',
+})
+
+export const metaValue = style({
+  padding: `${vars.space[3]} 0`,
+  color: vars.color.gray[700],
+  lineHeight: vars.lineHeight.normal,
+})
+
+export const stackList = style({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: vars.space[2],
+  listStyle: 'none',
+  padding: 0,
+  margin: 0,
+})
+
+export const stackChip = style({
+  backgroundColor: vars.color.gray[200],
+  color: vars.color.gray[700],
+  fontSize: vars.fontSize.xs,
+  fontWeight: vars.fontWeight.medium,
+  padding: `2px ${vars.space[2]}`,
+  borderRadius: vars.radii.sm,
+  fontFamily: vars.font.mono,
+})
+
+// ── Description ───────────────────────────────────────────────────────────────
+
+export const descSection = style({
+  marginBottom: vars.space[8],
+})
+
+export const descList = style({
+  listStyle: 'none',
+  padding: 0,
+  margin: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: vars.space[3],
+})
+
+export const descItem = style({
+  paddingLeft: vars.space[4],
+  borderLeft: `2px solid ${vars.color.brand}`,
+  color: vars.color.gray[700],
+  fontSize: vars.fontSize.base,
+  lineHeight: vars.lineHeight.relaxed,
+})
+
+// ── Implementations ────────────────────────────────────────────────────────────
+
+export const implSection = style({
+  marginBottom: vars.space[8],
+})
+
+export const sectionHeading = style({
+  fontSize: vars.fontSize.lg,
+  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.dark,
+  marginBottom: vars.space[6],
+  paddingBottom: vars.space[3],
+  borderBottom: `1px solid ${vars.color.gray[200]}`,
+})
+
+export const implCard = style({
+  backgroundColor: vars.color.white,
+  borderRadius: vars.radii.lg,
+  padding: vars.space[6],
+  marginBottom: vars.space[4],
+  boxShadow: vars.shadow.card,
+})
+
+export const implTitle = style({
+  fontSize: vars.fontSize.base,
+  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.dark,
+  marginBottom: vars.space[4],
+})
+
+export const implRow = style({
+  display: 'grid',
+  gridTemplateColumns: '80px 1fr',
+  gap: `${vars.space[2]} ${vars.space[4]}`,
+  marginBottom: vars.space[3],
+  alignItems: 'start',
+  selectors: {
+    '&:last-child': {
+      marginBottom: 0,
+    },
+  },
+})
+
+export const implLabel = style({
+  fontSize: vars.fontSize.xs,
+  fontWeight: vars.fontWeight.semibold,
+  letterSpacing: vars.letterSpacing.wide,
+  textTransform: 'uppercase',
+  paddingTop: '3px',
+})
+
+export const implLabelProblem = style({
+  color: '#e05252',
+})
+
+export const implLabelSolve = style({
+  color: vars.color.brand,
+})
+
+export const implLabelResult = style({
+  color: '#5b8dee',
+})
+
+export const implLabelInsight = style({
+  color: vars.color.gray[400],
+})
+
+export const implText = style({
+  fontSize: vars.fontSize.sm,
+  color: vars.color.gray[700],
+  lineHeight: vars.lineHeight.relaxed,
+})
+
+export const implBulletList = style({
+  listStyle: 'none',
+  padding: 0,
+  margin: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: vars.space[2],
+})
+
+export const implBullet = style({
+  fontSize: vars.fontSize.sm,
+  color: vars.color.gray[700],
+  lineHeight: vars.lineHeight.relaxed,
+  paddingLeft: vars.space[4],
+  position: 'relative',
+  selectors: {
+    '&::before': {
+      content: '"—"',
+      position: 'absolute',
+      left: 0,
+      color: vars.color.gray[300],
+    },
+  },
+})
+
+// ── Retrospective ─────────────────────────────────────────────────────────────
+
+export const retroSection = style({
+  marginBottom: vars.space[8],
+})
+
+export const retroCard = style({
+  backgroundColor: vars.color.gray[200],
+  borderRadius: vars.radii.lg,
+  padding: vars.space[6],
+})
+
+export const retroList = style({
+  listStyle: 'none',
+  padding: 0,
+  margin: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: vars.space[3],
+})
+
+export const retroItem = style({
+  fontSize: vars.fontSize.sm,
+  color: vars.color.gray[700],
+  lineHeight: vars.lineHeight.relaxed,
+  paddingLeft: vars.space[4],
+  position: 'relative',
+  selectors: {
+    '&::before': {
+      content: '"•"',
+      position: 'absolute',
+      left: 0,
+      color: vars.color.gray[400],
+    },
+  },
+})

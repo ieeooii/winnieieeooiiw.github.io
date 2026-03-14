@@ -4,6 +4,7 @@ import '../shared/styles/global.css'
 import { RootLayout } from './layouts/RootLayout'
 import { HomePage } from '../pages/home/ui/HomePage'
 import { PortfolioPage } from '../pages/portfolio/ui/PortfolioPage'
+import { ProjectDetailPage } from '../pages/portfolio/ui/ProjectDetailPage'
 import { BlogPage } from '../pages/blog/ui/BlogPage'
 
 export const App = () => (
@@ -11,7 +12,8 @@ export const App = () => (
     <RootLayout>
       <Switch>
         <Route path="/" component={HomePage} />
-        <Route path="/portfolio" component={PortfolioPage} />
+        <Route path="/projects" component={PortfolioPage} />
+        <Route path="/projects/:id" component={ProjectDetailPage} />
         <Route path="/blog" component={BlogPage} />
       </Switch>
     </RootLayout>
