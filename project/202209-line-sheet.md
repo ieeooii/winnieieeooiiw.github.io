@@ -3,7 +3,7 @@
 | 항목 | 내용 |
 |------|------|
 | 회사 | CLO Virtual Fashion |
-| 서비스 | CLOSET |
+| 서비스 | CLO-SET |
 | 기술 스택 | Next.js, TypeScript, AG Grid, React Query, Emotion.js |
 | 개발 기간 | 2022.09 ~ 2023.06 (Beta → Phase 1 → Phase 2) |
 | 인원 | 프론트엔드 (담당) |
@@ -13,11 +13,9 @@
 
 패션 MD(머천다이저)가 시즌별 상품 기획·관리에 사용하는 스프레드시트형 문서를 CLOSET 안에서 3D 의류 에셋과 연동한 인터랙티브 Line Sheet(시즌별 상품 목록표)로 구현했다. Beta(썸네일 그리드 + 무한스크롤) → Phase 1(AG Grid 인라인 편집) → Phase 2(Excel Export) 단계별로 개발했다.
 
----
-
 ## 주요 구현
 
-### | 셀 타입별 커스텀 Cell Editor / Renderer (Phase 1 핵심)
+### 셀 타입별 커스텀 Cell Editor / Renderer (Phase 1 핵심)
 
 - **Problem**: 패션 MD가 편집하는 데이터는 단순 텍스트가 아니다. 워크플로우 상태·날짜·수량·판매채널(다중 체크박스)·태그·이월 여부 등 8가지 이상의 서로 다른 셀 타입이 존재하며, 각각 다른 UI와 검증 로직이 필요했다. 또한 편집 불가 셀과 편집 가능 셀을 시각적으로 구분해야 했다.
 - **Solve**: AG Grid의 `cellEditor` / `cellRenderer` 인터페이스로 셀 타입별 독립 컴포넌트를 제작했다.
@@ -30,23 +28,15 @@
   - `LineSheetThumbnailCellRenderer` — turntable 미지원 케이스 tooltip 포함
 - **Result**: 스프레드시트 수준의 인터랙티브 편집 UX 구현. 셀 타입별 독립 컴포넌트로 분리되어 신규 셀 타입 추가 시 기존 컴포넌트에 영향 없이 확장 가능한 구조.
 
----
-
-### | React Query + Intersection Observer 무한 스크롤 안정화
-
+### React Query + Intersection Observer 무한 스크롤 안정화
 - **Problem**: `useInfiniteQuery`와 Intersection Observer 조합에서 중복 요청 버그 발생. observer가 mount 시점에 즉시 트리거되어 이미 로딩 중인 상태에서 `fetchNextPage`가 한 번 더 호출됐다. 썸네일/리스트 모드 전환 시 데이터 상태가 꼬이는 케이스도 있었다.
 - **Solve**: `useThumbnailModeInfinityScroll` 커스텀 훅으로 분리하고, observer 콜백 내에서 `isFetching` 상태 체크로 중복 요청 차단. 모드 전환 시 React Query 캐시 초기화 로직 추가.
 - **Result**: 중복 요청 없이 안정적인 무한 스크롤 동작, 모드 전환 시 데이터 일관성 유지
 
----
-
-### | 셀 행 병합(Row Spanning) — 스타일 1개 : 컬러웨이(색상 변형) N개 구조
-
+### 셀 행 병합(Row Spanning) — 스타일 1개 : 컬러웨이(색상 변형) N개 구조
 - **Problem**: Line Sheet 데이터 구조는 스타일 아이템 1개 : 컬러웨이 N개의 1:N 관계다. 스타일 공통 속성(썸네일, 이름 등)은 컬러웨이 행 수만큼 병합해야 하는데, AG Grid에서 Row Spanning 적용 시 스타일이 의도대로 되지 않는 문제가 있었다.
 - **Solve**: AG Grid의 `rowSpan` 콜백을 컬럼 정의에 추가하고, spanning 대상 셀에 `.show-cell` CSS 클래스를 동적으로 부여해 병합된 셀만 보이도록 처리. 배경색과 보더 스타일도 병합 셀 기준으로 별도 조정.
 - **Result**: 1:N 컬러웨이 구조가 시각적으로 자연스럽게 병합 표시되어 스프레드시트 UX와 동일한 수준의 가독성 확보
-
----
 
 ## 회고
 

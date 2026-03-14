@@ -1,4 +1,5 @@
 import { useLocation } from 'wouter'
+import { tag } from '../../../shared/ui'
 import { PROJECTS } from '../data/projects'
 import * as s from './portfolio.css'
 
@@ -18,6 +19,9 @@ export const PortfolioPage = () => {
       <div className={s.gridContainer}>
         <header className={s.gridHeader}>
           <h1 className={s.gridTitle}>Projects</h1>
+          <p className={s.gridSubtitle}>
+            Frontend engineering work across product, infrastructure, and developer experience.
+          </p>
         </header>
 
         <section className={s.projectGrid}>
@@ -34,12 +38,11 @@ export const PortfolioPage = () => {
               <h3 className={s.cardTitle}>{project.title}</h3>
               <div className={s.cardTagRow}>
                 {project.stack.slice(0, 3).map((tech) => (
-                  <span key={tech} className={s.tagOutline}>{tech}</span>
+                  <span key={tech} className={tag.outline}>{tech}</span>
                 ))}
               </div>
               <div className={s.cardTagRow}>
-                <span className={s.tagBrand}>{project.company}</span>
-                <span className={s.tagBrand}>{project.period.split(' ')[0]}</span>
+                <span className={tag.brand}>{project.company}</span>
               </div>
             </article>
           ))}

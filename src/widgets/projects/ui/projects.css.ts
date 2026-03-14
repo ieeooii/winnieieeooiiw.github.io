@@ -38,6 +38,7 @@ export const imageWrap = style({
   overflow: 'hidden',
   backgroundColor: vars.color.white,
   boxShadow: vars.shadow.card,
+  minHeight: '200px',
 })
 
 export const image = style({

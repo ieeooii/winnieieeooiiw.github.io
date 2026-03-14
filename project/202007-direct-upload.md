@@ -1,9 +1,9 @@
-# CLO3D 소프트웨어 → 플랫폼 직접 3D 파일 업로드 기능 개발
+# 그래픽 소프트웨어 → 플랫폼 직접 3D 파일 업로드 기능 개발
 
 | 항목 | 내용 |
 |------|------|
 | 회사 | CLO Virtual Fashion |
-| 서비스 | CLOSET |
+| 서비스 | CLO-SET |
 | 기술 스택 | Next.js, React.js, TypeScript, MobX, Emotion.js, SCSS, jQuery, Jest, Enzyme |
 | 개발 기간 | 2020.07 ~ 2020.11 |
 | 인원 | 프론트엔드 (담당) |
@@ -13,38 +13,27 @@
 
 CLO 소프트웨어에서 작업한 3D 의류 파일(`.zprj`, `.zpac` 등)을 CLOSET에 직접 업로드하는 기능이다. 파일 선택 → 스타일 아이템 매핑 → 어셈블리 그룹핑 → 렌더링 설정의 멀티 스텝 플로우로, 여러 3D 파일을 한꺼번에 처리하고 각 파일이 어떤 스타일 아이템에 속하는지를 사용자가 직접 매핑하는 구조다.
 
----
-
 ## 주요 구현
 
-### | 3D 의상 그래픽 소프트웨어에서 바로 웹 플랫폼으로 업로드 할 수 있는 기능 개발
+### 3D 의상 그래픽 소프트웨어에서 바로 웹 플랫폼으로 업로드 할 수 있는 기능 개발
 - 백엔드 엔지니어와 회사 3D 그래픽 소프트웨어 제품(CLO3D, MD)에서 Unity 원시 데이터 웹 업로드 기능 개발
 - Enzyme  으로 행위 주도 테스트 코드 작성
 - jQuery  로 개발된 페이지를  React.js  마이그레이션
 
-### | Upload to Marketplace 팝업
-
+### Upload to Marketplace 팝업
 - **Problem**: Step 2의 가격 계산 로직이 UI 입력값을 직접 읽는 방식이어서 할인율 변경 시 계산 결과가 즉시 갱신되지 않는 동기화 버그가 있었다. 또한 당시 주요 고객사가 IE를 사용하는 경우가 있어 IE 파일 업로드 호환성도 필요했다.
 - **Solve**: store에서 가격/할인 상태를 MobX observable로 일원화. `RightPriceCalculation.tsx`가 store의 observable 값을 구독하여 자동 갱신되도록 변경. IE 파일 업로드는 폴리필 적용으로 해결.
 - **Result**: 할인율 변경 시 가격 계산 즉시 반영, IE 호환성 확보
 
----
-
-### | ItemSelectModal 리팩토링
-
+### ItemSelectModal 리팩토링
 - **Problem**: `ItemSelectModal.tsx`가 단일 파일에 선택된 파일 목록·어셈블리별 그룹핑 구조·그룹 간 전환 시 선택 상태 초기화·auto-numbering 카운터를 모두 관리하고 있었다. 상태 의존성이 뒤엉켜 그룹을 전환할 때 다른 그룹의 선택 상태가 오염되는 버그가 반복 발생했다.
 - **Solve**: TypeScript로 전환하며 상태를 역할별로 분리. 어셈블리 그룹핑 로직을 별도 모듈로 추출하고, 그룹 전환 시 해당 그룹의 선택 상태만 초기화되도록 범위를 명확히 제한. "Keep current thumbnail" 체크박스 기능과 auto-numbering 툴팁 추가. 렌더링 설정 값은 localStorage에 저장하여 재방문 시 복원.
 - **Result**: 그룹 전환 시 상태 오염 버그 해소, 상태별 책임 분리로 이후 기능 추가 시 수정 범위 예측 가능
 
----
-
-### | SCSS → Emotion.js 마이그레이션 + 접근성 버그 수정 (2023.04)
-
+### SCSS → Emotion.js 마이그레이션 + 접근성 버그 수정 (2023.04)
 - **Problem**: 업로드 컴포넌트가 SCSS 모듈로 스타일링되어 있어 디자인 시스템 토큰 적용이 불가능했다. 조건부 스타일링을 `className` 문자열 연결로 처리해 조건이 늘어날수록 코드 추적이 어려웠다. upload 시 content name 의 label이 잘못된 요소를 가리키는 접근성 버그도 있었다.
 - **Solve**: Emotion.js 기반으로 전면 마이그레이션. 조건부 스타일은 `css` prop과 template literal로 처리하여 조건별 스타일이 명확히 파악되도록 수정. label `htmlFor` 속성 수정으로 접근성 버그 해소.
 - **Result**: 디자인 시스템 토큰 적용 가능, 스타일 조건 추적 용이, 접근성 개선
-
----
 
 ## 회고
 

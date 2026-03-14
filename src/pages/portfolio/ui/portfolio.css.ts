@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css'
+import { globalStyle, style } from '@vanilla-extract/css'
 import { vars } from '../../../shared/styles/tokens.css'
 
 export const page = style({
@@ -23,7 +23,25 @@ export const gridContainer = style({
 })
 
 export const gridHeader = style({
-  marginBottom: vars.space[16],
+  marginBottom: vars.space[32],
+  display: 'flex',
+  alignItems: 'flex-start',
+  justifyContent: 'space-between',
+  gap: vars.space[8],
+  '@media': {
+    '(max-width: 640px)': {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+    },
+  },
+})
+
+export const gridSubtitle = style({
+  fontSize: vars.fontSize.base,
+  color: vars.color.gray[700],
+  lineHeight: vars.lineHeight.relaxed,
+  maxWidth: '480px',
+  paddingTop: vars.space[2],
 })
 
 export const gridTitle = style({
@@ -136,6 +154,121 @@ export const backButton = style({
     '&:hover': { color: vars.color.dark },
   },
 })
+
+// ── Markdown body ─────────────────────────────────────────────────────────────
+
+export const markdownBody = style({
+  color: vars.color.gray[700],
+  fontSize: vars.fontSize.base,
+  lineHeight: vars.lineHeight.relaxed,
+})
+
+globalStyle(`${markdownBody} h1`, {
+  fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+  fontWeight: vars.fontWeight.bold,
+  letterSpacing: vars.letterSpacing.tight,
+  color: vars.color.dark,
+  marginBottom: vars.space[6],
+})
+
+globalStyle(`${markdownBody} h2`, {
+  fontSize: vars.fontSize.lg,
+  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.dark,
+  marginTop: vars.space[12],
+  marginBottom: vars.space[6],
+  paddingBottom: vars.space[3],
+  borderBottom: `1px solid ${vars.color.gray[200]}`,
+})
+
+globalStyle(`${markdownBody} h3`, {
+  fontSize: vars.fontSize.base,
+  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.dark,
+  marginTop: vars.space[6],
+  marginBottom: vars.space[3],
+  paddingLeft: vars.space[3],
+  borderLeft: `3px solid ${vars.color.brand}`,
+})
+
+globalStyle(`${markdownBody} p`, {
+  marginBottom: vars.space[4],
+  lineHeight: vars.lineHeight.relaxed,
+})
+
+globalStyle(`${markdownBody} ul`, {
+  listStyle: 'none',
+  padding: 0,
+  margin: `0 0 ${vars.space[4]}`,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: vars.space[2],
+})
+
+globalStyle(`${markdownBody} li`, {
+  paddingLeft: vars.space[4],
+  position: 'relative',
+  lineHeight: vars.lineHeight.relaxed,
+  fontSize: vars.fontSize.sm,
+})
+
+globalStyle(`${markdownBody} li::before`, {
+  content: '"—"',
+  position: 'absolute',
+  left: 0,
+  color: vars.color.gray[300],
+})
+
+globalStyle(`${markdownBody} strong`, {
+  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.dark,
+})
+
+globalStyle(`${markdownBody} table`, {
+  borderCollapse: 'collapse',
+  width: '100%',
+  marginBottom: vars.space[8],
+  fontSize: vars.fontSize.sm,
+})
+
+globalStyle(`${markdownBody} td`, {
+  padding: `${vars.space[3]} ${vars.space[4]} ${vars.space[3]} 0`,
+  borderBottom: `1px solid ${vars.color.gray[200]}`,
+  verticalAlign: 'top',
+  lineHeight: vars.lineHeight.normal,
+})
+
+globalStyle(`${markdownBody} th`, {
+  padding: `${vars.space[3]} ${vars.space[4]} ${vars.space[3]} 0`,
+  borderBottom: `1px solid ${vars.color.gray[200]}`,
+  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.gray[400],
+  fontSize: vars.fontSize.xs,
+  letterSpacing: vars.letterSpacing.wider,
+  textTransform: 'uppercase',
+  textAlign: 'left',
+  display: 'none',
+})
+
+globalStyle(`${markdownBody} td:first-child`, {
+  color: vars.color.gray[400],
+  fontWeight: vars.fontWeight.medium,
+  whiteSpace: 'nowrap',
+  width: '100px',
+})
+
+globalStyle(`${markdownBody} hr`, {
+  border: 'none',
+  borderTop: `1px solid ${vars.color.gray[200]}`,
+  margin: `${vars.space[8]} 0`,
+})
+
+globalStyle(`${markdownBody} a`, {
+  color: vars.color.brand,
+  textDecoration: 'underline',
+})
+
+// ── Legacy layout (unused but kept) ──────────────────────────────────────────
 
 export const layout = style({
   maxWidth: '1400px',
