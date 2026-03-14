@@ -15,7 +15,7 @@
 
 ### AI 보조 개발 환경 구축
 - **Solve**: AGENTS.md로 코드 컨벤션·보안 규칙을 정의해 Claude.ai 기반 AI 보조 개발에서도 팀 기준 준수. Gemini를 GitHub에 연동해 PR 단위 자동 코드 리뷰 환경 구성.
-- **Result**: PR 코드 리뷰 속도 단축 및 컨벤션 위반 감소. 타 업무 병행 기준 개발 속도 약 50~60% 향상 (5일 → 2~2.5일).
+- **Result**: PR 코드 리뷰 속도 단축 및 컨벤션 위반 감소. 타 업무 병행 기준 개발 속도 약 50 ~ 60% 향상 (5일 → 2 ~ 2.5일).
 
 ### 브랜치 전략 재설계 및 코드 품질 자동화
 - **Solve**: enterprise·feature·fix·release 브랜치를 추가한 변형 Git Flow 전략 설계. Husky + ESLint 기반 pre-commit 린트·빌드 체크로 커밋 전 코드 품질 자동 검증. Branch Protection Rules로 리뷰어 승인 필수 및 특정 브랜치 머지 제한.

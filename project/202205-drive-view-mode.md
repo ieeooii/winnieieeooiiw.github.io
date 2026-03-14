@@ -16,7 +16,7 @@
 
 ## 주요 구현
 
-### Colorway View Mode 개발 (2022.05~2022.07)
+### Colorway View Mode 개발 (2022.05 ~ 2022.07)
 - **Problem**: 콘텐츠 페이지가 스타일 아이템 단위 보기만 지원하고 있어 패션 MD가 각 색상 변형의 썸네일을 한눈에 비교하기 어려웠다. 모드 전환 시 페이지를 다시 로드하지 않고 즉시 전환해야 했고(콘텐츠 목록 API 중복 호출 방지), 모드 선택 상태를 새로고침 후에도 유지해야 했다.
 - **Solve**: `ContentViewModeSettingBar.tsx`에 View Mode 토글 UI 구현. 이미 로드된 데이터를 컴포넌트 레벨에서 컬러웨이 단위로 재조합하여 표시(API 재호출 없음). 선택된 모드는 `cookie`에 저장하여 새로고침·페이지 이동 후에도 복원. 컬러웨이별 체크박스 선택 상태는 `StyleItem.tsx`에서 별도 관리.
 - **Result**: API 추가 호출 없이 View Mode 전환, 새로고침 후 모드 상태 복원, 컬러웨이 단위 썸네일 비교 가능
@@ -26,7 +26,7 @@
 - **Solve**: 컬러웨이 모드 여부를 Context Menu 로직에 전달하여 선택 범위를 컬러웨이 단위로 재계산. tooltip 표시 조건에 `isColorwayMode` 분기 추가.
 - **Result**: 컬러웨이 모드에서도 다중 선택 + Context Menu 정상 동작, tooltip 오표시 해소
 
-### 컬러웨이 워크플로우 인라인 편집 연동 (2023.08~2023.09)
+### 컬러웨이 워크플로우 인라인 편집 연동 (2023.08 ~ 2023.09)
 - **Problem**: Line Sheet에서 컬러웨이별 워크플로우 상태를 편집하는 기능을 콘텐츠 상세 페이지에서도 제공해야 했다. `ColorwayInfoItem.tsx`에서 인라인으로 워크플로우 상태를 드롭다운 편집하고 즉시 서버에 반영하는 UX가 필요했다. 추가로 `getRangePlanSelection` API 파라미터 불일치로 인한 목록 조회 오류도 존재했다.
 - **Solve**: `ColorwayItemTextField.tsx` 신규 개발(컬러웨이 이름 인라인 편집). `ColorwayInfoItem.tsx`에 Select 드롭다운 UI 추가. `useLineSheetColorwayStatusMutation.tsx` 훅을 통해 상태 변경 API와 연동. API 파라미터 오류 수정.
 - **Result**: 콘텐츠 상세 페이지에서 컬러웨이 워크플로우 인라인 편집 가능, API 오류 해소
