@@ -3,6 +3,7 @@
 | 항목 | 내용 |
 |------|------|
 | 회사 | CLO Virtual Fashion |
+| 카테고리 | SaaS |
 | 서비스 | CLO-SET |
 | 기술 스택 | Next.js, TypeScript, SCSS, MobX |
 | 개발 기간 | 2020.03 ~ 2020.04 |
@@ -30,6 +31,6 @@ CLO Virtual Fashion의 기업의 B2B 서비스 소개(About Us)·지원(Support)
 - **Solve**: `TermsOfServicePartOne.tsx` ~ `TermsOfServicePartFifteen.tsx`로 섹션별 컴포넌트 분리. i18next 기반 다국어 텍스트 분리로 언어별 독립 관리 가능하게 구성. 각 섹션 컴포넌트는 `dynamic import`로 필요 시점에만 로드.
 - **Result**: 15개 섹션 × 6개 언어 문서 구조화 완료, 섹션 단위 독립 수정 가능
 
-## 회고 / 아쉬웠던
+## 회고 / 아쉬웠던 점
 
 정적 페이지라고 해서 기술적 난이도가 낮은 것은 아니다. 특히 크로스 디바이스 대응은 "내 환경에서 잘 보인다"는 것이 의미 없는 영역이다. iOS Safari의 `100vh` 문제나 Android Chrome의 Flexbox 호환성 차이처럼 환경별 브라우저 렌더링 차이를 사전에 파악하고 defensive하게 작성하는 습관을 이 작업에서 기르게 됐다.

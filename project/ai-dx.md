@@ -3,6 +3,7 @@
 | 항목 | 내용 |
 |------|------|
 | 회사 | CLO Virtual Fashion |
+| 카테고리 | SaaS |
 | 기술 스택 | Claude.ai, Gemini, Husky, ESLint, GitHub Actions |
 | 인원 | 프론트엔드 1, 데브옵스 1 (프론트엔드 담당) |
 

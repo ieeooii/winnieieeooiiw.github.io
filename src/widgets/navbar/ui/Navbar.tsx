@@ -7,7 +7,7 @@ import * as s from './navbar.css'
 const NAV_ITEMS = [
   { label: 'Home',  href: '/' },
   { label: 'Projects', href: '/projects' },
-  { label: 'Blog',  href: '/blog' },
+  { label: 'About', href: '/about' },
 ]
 
 export const Navbar = () => {

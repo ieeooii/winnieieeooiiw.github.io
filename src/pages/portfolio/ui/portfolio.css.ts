@@ -23,7 +23,7 @@ export const gridContainer = style({
 })
 
 export const gridHeader = style({
-  marginBottom: vars.space[32],
+  marginBottom: '8rem',
   display: 'flex',
   alignItems: 'flex-start',
   justifyContent: 'space-between',
@@ -46,11 +46,44 @@ export const gridSubtitle = style({
 
 export const gridTitle = style({
   fontSize: 'clamp(4rem, 10vw, 6rem)',
-  fontWeight: vars.fontWeight.bold,
+  fontWeight: vars.fontWeight.medium,
   letterSpacing: vars.letterSpacing.tighter,
   lineHeight: vars.lineHeight.none,
   color: vars.color.dark,
 })
+
+export const filterRow = style({
+  display: 'flex',
+  gap: vars.space[2],
+  marginBottom: vars.space[12],
+})
+
+const filterBase = style({
+  padding: `${vars.space[2]} ${vars.space[4]}`,
+  borderRadius: vars.radii.full,
+  fontSize: vars.fontSize.sm,
+  fontWeight: vars.fontWeight.medium,
+  cursor: 'pointer',
+  border: `1px solid ${vars.color.gray[300]}`,
+  transition: vars.transition.fast,
+})
+
+export const filterTag = style([filterBase, {
+  backgroundColor: 'transparent',
+  color: vars.color.gray[500],
+  selectors: {
+    '&:hover': {
+      borderColor: vars.color.dark,
+      color: vars.color.dark,
+    },
+  },
+}])
+
+export const filterTagActive = style([filterBase, {
+  backgroundColor: vars.color.dark,
+  borderColor: vars.color.dark,
+  color: vars.color.white,
+}])
 
 export const projectGrid = style({
   display: 'grid',

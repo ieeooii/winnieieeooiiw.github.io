@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import { useLocation } from 'wouter'
 import { tag } from '../../../shared/ui'
 import { PROJECTS } from '../data/projects'
 import * as s from './portfolio.css'
+
+const FILTERS = ['All', 'SaaS', 'E-Commerce', 'CLO Virtual Fashion']
 
 const CARD_GRADIENTS = [
   'linear-gradient(135deg, #c8f5dc, #90e8b8)',
@@ -13,6 +16,13 @@ const CARD_GRADIENTS = [
 
 export const PortfolioPage = () => {
   const [, navigate] = useLocation()
+  const [activeFilter, setActiveFilter] = useState('All')
+
+  const filtered = activeFilter === 'All'
+    ? PROJECTS
+    : activeFilter === 'CLO Virtual Fashion'
+      ? PROJECTS.filter(p => p.company === activeFilter)
+      : PROJECTS.filter(p => p.category === activeFilter)
 
   return (
     <main className={s.page}>
@@ -24,8 +34,20 @@ export const PortfolioPage = () => {
           </p>
         </header>
 
+        <div className={s.filterRow}>
+          {FILTERS.map(f => (
+            <button
+              key={f}
+              className={activeFilter === f ? s.filterTagActive : s.filterTag}
+              onClick={() => setActiveFilter(f)}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+
         <section className={s.projectGrid}>
-          {PROJECTS.map((project, i) => (
+          {filtered.map((project, i) => (
             <article
               key={project.id}
               className={s.projectCard}
@@ -43,6 +65,9 @@ export const PortfolioPage = () => {
               </div>
               <div className={s.cardTagRow}>
                 <span className={tag.brand}>{project.company}</span>
+                {project.category && (
+                  <span className={tag.brand}>{project.category}</span>
+                )}
               </div>
             </article>
           ))}

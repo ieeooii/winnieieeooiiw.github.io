@@ -3,6 +3,7 @@
 | 항목 | 내용 |
 |------|------|
 | 회사 | CLO Virtual Fashion |
+| 카테고리 | SaaS |
 | 서비스 | CLO-SET |
 | 기술 스택 | Next.js, TypeScript, React Query |
 | 개발 기간 | 2021.05 |

@@ -3,6 +3,7 @@
 | 항목 | 내용 |
 |------|------|
 | 회사 | CLO Virtual Fashion |
+| 카테고리 | SaaS |
 | 서비스 | CLO-SET |
 | 기술 스택 | Next.js (App Router), React.js, TypeScript, TanStack Query, Jotai, Yarn Berry PnP, ESLint, Husky, commitlint, esbuild, axios |
 | 개발 기간 | 2023.05 ~ 2024.03 |

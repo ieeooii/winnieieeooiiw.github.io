@@ -3,6 +3,7 @@
 | 항목 | 내용 |
 |------|------|
 | 회사 | CLO Virtual Fashion |
+| 카테고리 | SaaS |
 | 서비스 | CLO-SET |
 | 기술 스택 | Next.js, Next.js (App Router), TypeScript, React Query v5, Emotion.js, Storybook, Datadog, next/font |
 | 개발 기간 | 2023.09 ~ 2023.10 |

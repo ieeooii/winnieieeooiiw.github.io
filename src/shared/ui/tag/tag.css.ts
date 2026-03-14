@@ -4,7 +4,7 @@ import { vars } from '../../styles/tokens.css'
 const base = style({
   display: 'inline-flex',
   alignItems: 'center',
-  padding: `${vars.space[1]} ${vars.space[3]}`,
+  padding: `${vars.space[2]} ${vars.space[4]}`,
   borderRadius: vars.radii.full,
   fontSize: vars.fontSize.xs,
   fontWeight: vars.fontWeight.medium,

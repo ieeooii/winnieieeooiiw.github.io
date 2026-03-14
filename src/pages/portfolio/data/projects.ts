@@ -8,6 +8,7 @@ export type Project = {
   id: string
   title: string
   company: string
+  category: string
   period: string
   stack: string[]
   rawContent: string
@@ -32,11 +33,12 @@ function parseProject(path: string, content: string): Project {
   const title = titleLine ? titleLine.slice(2).trim() : ''
   const id = path.split('/').pop()!.replace('.md', '').replace(/^\d{6}-/, '')
   const company = getTableValue(content, '회사')
+  const category = getTableValue(content, '카테고리')
   const period = getTableValue(content, '개발 기간')
   const stackRaw = getTableValue(content, '기술 스택')
   const stack = stackRaw.split(',').map(s => s.trim()).filter(Boolean)
 
-  return { id, title, company, period, stack, rawContent: content }
+  return { id, title, company, category, period, stack, rawContent: content }
 }
 
 export const PROJECTS: Project[] = Object.entries(rawFiles)

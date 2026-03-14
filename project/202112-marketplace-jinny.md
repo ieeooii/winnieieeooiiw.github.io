@@ -3,6 +3,7 @@
 | 항목 | 내용 |
 |------|------|
 | 회사 | CLO Virtual Fashion |
+| 카테고리 | E-Commerce |
 | 서비스 | CONNECT |
 | 기술 스택 | Next.js, TypeScript, Emotion.js, Swiper |
 | 개발 기간 | 2021.12 |

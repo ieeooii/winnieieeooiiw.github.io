@@ -3,8 +3,9 @@
 | 항목 | 내용 |
 |------|------|
 | 회사 | CLO Virtual Fashion |
+| 카테고리 | SaaS |
 | 서비스 | CLO-SET |
-| 기술 스택 | React, TypeScript, Jotai 3D Engine API |
+| 기술 스택 | React, TypeScript, Jotai, 3D Engine API |
 | 개발 기간 | 2025.07 ~ 2026.03 |
 | 인원 | 프론트엔드 1 , 그래픽 엔지니어 1, 프로덕트 디자이너 2 (프론트엔드 담당) |
 

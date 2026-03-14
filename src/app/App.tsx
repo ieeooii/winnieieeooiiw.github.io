@@ -5,7 +5,7 @@ import { RootLayout } from './layouts/RootLayout'
 import { HomePage } from '../pages/home/ui/HomePage'
 import { PortfolioPage } from '../pages/portfolio/ui/PortfolioPage'
 import { ProjectDetailPage } from '../pages/portfolio/ui/ProjectDetailPage'
-import { BlogPage } from '../pages/blog/ui/BlogPage'
+import { AboutPage } from '../pages/about/ui/AboutPage'
 
 export const App = () => (
   <Router hook={useHashLocation}>
@@ -14,7 +14,7 @@ export const App = () => (
         <Route path="/" component={HomePage} />
         <Route path="/projects" component={PortfolioPage} />
         <Route path="/projects/:id" component={ProjectDetailPage} />
-        <Route path="/blog" component={BlogPage} />
+        <Route path="/about" component={AboutPage} />
       </Switch>
     </RootLayout>
   </Router>

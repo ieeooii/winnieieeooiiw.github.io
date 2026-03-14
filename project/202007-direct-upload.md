@@ -3,6 +3,7 @@
 | 항목 | 내용 |
 |------|------|
 | 회사 | CLO Virtual Fashion |
+| 카테고리 | SaaS |
 | 서비스 | CLO-SET |
 | 기술 스택 | Next.js, React.js, TypeScript, MobX, Emotion.js, SCSS, jQuery, Jest, Enzyme |
 | 개발 기간 | 2020.07 ~ 2020.11 |
