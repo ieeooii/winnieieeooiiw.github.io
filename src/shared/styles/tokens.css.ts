@@ -2,9 +2,9 @@ import { createGlobalTheme } from '@vanilla-extract/css'
 
 export const vars = createGlobalTheme(':root', {
   color: {
-    brand: '#c1ff70',
-    brandHover: '#b0f060',
-    brandMuted: 'rgba(193, 255, 112, 0.3)',
+    brand: '#5dd98f',
+    brandHover: '#4dcc82',
+    brandMuted: 'rgba(93, 217, 143, 0.15)',
     dark: '#111111',
     white: '#ffffff',
     gray: {

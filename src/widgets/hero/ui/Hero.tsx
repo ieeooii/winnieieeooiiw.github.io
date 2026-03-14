@@ -77,6 +77,7 @@ export const Hero = () => {
         </div>
 
         <div className={s.visual} />
+        <p className={s.name} aria-hidden="true">WOOJIN LEE</p>
       </div>
     </section>
   )

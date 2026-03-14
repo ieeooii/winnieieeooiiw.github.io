@@ -30,7 +30,7 @@ export const logo = style({
   fontWeight: vars.fontWeight.extrabold,
   letterSpacing: vars.letterSpacing.tighter,
   display: 'block',
-  marginBottom: vars.space[8],
+  marginBottom: vars.space[3],
 })
 
 export const tagline = style({

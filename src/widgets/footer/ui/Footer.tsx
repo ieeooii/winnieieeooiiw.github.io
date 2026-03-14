@@ -6,7 +6,7 @@ export const Footer = () => (
     <div className={s.container}>
       <div className={s.top}>
         <div className={s.brand}>
-          <span className={s.logo}>ieeooii</span>
+          <span className={s.logo}>Woojin Lee</span>
           <p className={s.tagline}>
             Problems become structure.<br />— AI is just how I work.
           </p>
@@ -20,7 +20,7 @@ export const Footer = () => (
       </div>
 
       <div className={s.bottom}>
-        <p>© 2026 ieeooii. All rights reserved.</p>
+        <p>© 2026 Woojin Lee. All rights reserved.</p>
         <div className={s.socialLinks}>
           <a href="https://github.com/ieeooii" target="_blank" rel="noopener noreferrer" className={s.socialLink}>GitHub</a>
           <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className={s.socialLink}>LinkedIn</a>

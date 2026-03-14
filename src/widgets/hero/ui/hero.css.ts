@@ -27,6 +27,22 @@ export const container = style({
 
 export const content = style({})
 
+export const name = style({
+  position: 'absolute',
+  bottom: vars.space[12],
+  right: vars.space[8],
+  fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+  fontWeight: vars.fontWeight.bold,
+  letterSpacing: vars.letterSpacing.tighter,
+  color: '#e5fff3',
+  userSelect: 'none',
+  '@media': {
+    '(max-width: 768px)': {
+      display: 'none',
+    },
+  },
+})
+
 export const heading = style({
   fontSize: 'clamp(3rem, 8vw, 6rem)',
   fontWeight: vars.fontWeight.semibold,

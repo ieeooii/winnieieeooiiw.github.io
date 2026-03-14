@@ -5,8 +5,8 @@ export const GlowBlob = () => (
     <svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
       <defs>
         <radialGradient id="g1" cx="50%" cy="50%" r="50%">
-          <stop offset="0%"   stopColor="#c1ff70" stopOpacity="1" />
-          <stop offset="100%" stopColor="#c1ff70" stopOpacity="0" />
+          <stop offset="0%"   stopColor="#5dd98f" stopOpacity="1" />
+          <stop offset="100%" stopColor="#5dd98f" stopOpacity="0" />
         </radialGradient>
         <filter id="blur">
           <feGaussianBlur stdDeviation="36" />
