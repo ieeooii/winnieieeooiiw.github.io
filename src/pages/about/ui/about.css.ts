@@ -60,7 +60,15 @@ export const bio = style({
 })
 
 export const section = style({
-  marginBottom: vars.space[12],
+  marginBottom: vars.space[16],
+  paddingBottom: vars.space[16],
+  borderBottom: `1px solid ${vars.color.gray[200]}`,
+  selectors: {
+    '&:last-child': {
+      borderBottom: 'none',
+      paddingBottom: 0,
+    },
+  },
 })
 
 export const sectionTitle = style({
@@ -70,6 +78,66 @@ export const sectionTitle = style({
   textTransform: 'uppercase',
   color: vars.color.gray[400],
   marginBottom: vars.space[6],
+})
+
+export const companyName = style({
+  fontSize: vars.fontSize['2xl'],
+  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.dark,
+  marginBottom: vars.space[1],
+})
+
+export const companyMeta = style({
+  fontSize: vars.fontSize.sm,
+  color: vars.color.gray[400],
+  marginBottom: vars.space[8],
+})
+
+export const expList = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: vars.space[8],
+  paddingLeft: vars.space[4],
+  borderLeft: `2px solid ${vars.color.gray[200]}`,
+})
+
+export const expItem = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: vars.space[1],
+  position: 'relative',
+  selectors: {
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      left: '-17px',
+      top: '8px',
+      width: '8px',
+      height: '8px',
+      borderRadius: vars.radii.full,
+      backgroundColor: vars.color.gray[300],
+      outline: `8px solid ${vars.color.gray[100]}`,
+      transform: 'translateX(-50%)',
+    },
+  },
+})
+
+export const expRole = style({
+  fontSize: vars.fontSize.lg,
+  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.dark,
+})
+
+export const expMeta = style({
+  fontSize: vars.fontSize.sm,
+  color: vars.color.gray[400],
+})
+
+export const expDesc = style({
+  fontSize: vars.fontSize.sm,
+  color: vars.color.gray[500],
+  lineHeight: vars.lineHeight.relaxed,
+  marginTop: vars.space[2],
 })
 
 export const itemList = style({
