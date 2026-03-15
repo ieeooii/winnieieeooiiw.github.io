@@ -24,30 +24,6 @@ export const AboutPage = () => (
       </p>
 
       <div className={s.section}>
-        <h2 className={s.sectionTitle}>Education</h2>
-        <div className={s.itemList}>
-          <div className={s.item}>
-            <div className={s.itemBody}>
-              <span className={s.itemTitle}>한양대학교 대학원 공학석사</span>
-              <span className={s.itemSub}>컴퓨터공학 전공 · GPA 4.17 / 4.5</span>
-              <span className={s.itemNote}>
-                Thesis: "Session-based Enhanced Model Using BERT for Personalized Web Interface Recommendation"
-              </span>
-            </div>
-            <span className={s.itemPeriod}>August 2025</span>
-          </div>
-
-          <div className={s.item}>
-            <div className={s.itemBody}>
-              <span className={s.itemTitle}>시각디자인학 전공</span>
-              <span className={s.itemSub}>전문학사 GPA 4.2 / 4.5 · 학사 GPA 3.89 / 4.5</span>
-            </div>
-            <span className={s.itemPeriod}>August 2018</span>
-          </div>
-        </div>
-      </div>
-
-      <div className={s.section}>
         <h2 className={s.sectionTitle}>Experience</h2>
         <a href="https://www.clovirtualfashion.com/" target="_blank" rel="noopener noreferrer" className={s.companyName}>CLO Virtual Fashion Inc.</a>
         <div className={s.expList}>
@@ -75,6 +51,61 @@ export const AboutPage = () => (
             <p className={s.expDesc}>NXP(New Experience Platform) Team</p>
           </div>
         </div>
+      </div>
+
+      <div className={s.section}>
+        <h2 className={s.sectionTitle}>Education</h2>
+        <div className={s.itemList}>
+          <div className={s.item}>
+            <div className={s.itemBody}>
+              <span className={s.itemTitle}>한양대학교 대학원 공학석사</span>
+              <span className={s.itemSub}>컴퓨터공학 전공 · GPA 4.17 / 4.5</span>
+            </div>
+            <span className={s.itemPeriod}>August 2025</span>
+          </div>
+
+          <div className={s.item}>
+            <div className={s.itemBody}>
+              <span className={s.itemTitle}>시각디자인학 전공</span>
+              <span className={s.itemSub}>전문학사 GPA 4.2 / 4.5 · 학사 GPA 3.89 / 4.5</span>
+            </div>
+            <span className={s.itemPeriod}>August 2018</span>
+          </div>
+        </div>
+      </div>
+
+      <div className={s.section}>
+        <h2 className={s.sectionTitle}>Publication</h2>
+        <a
+          href="https://hanyang.dcollection.net/srch/srchDetail/200000889057"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={s.pubTitle}
+        >
+          Session-based Enhanced Model Using BERT for Personalized Web Interface Recommendation
+        </a>
+        <p className={s.pubMeta}>Hanyang University, Graduate School of Engineering · August 21, 2025</p>
+        <p className={s.pubKeywords}>Session-based · Recommendation · BERT · Transformer · Machine Learning · Deep Learning</p>
+        <details className={s.pubDetails}>
+          <summary className={s.pubSummary}>Abstract ↓</summary>
+          <p className={s.pubAbstract}>
+            In recent years, transformer-based models and session-based personalization studies have been actively
+            conducted. This study aims to solve the problem of increasing churn and low residual rate caused by
+            providing a uniform web interface that does not take into account the characteristics of users in a B2B
+            service environment. To address this issue, we propose an approach to learn the user-feature interaction
+            in a session by entering the user event sequence and privilege information, and to recommend a
+            personalized web interface. The proposed model, SpriBERT (Session-based Personalized Recommender
+            Interface using BERT), combines BERT (Bidirectional Encoder Representations from Transformers) and MLP
+            (Multi-Layer Perceptron) to predict the association between users and functions based on the interaction
+            between users and functions in a session. Considering that information on user preference is limited in
+            session-based scenarios, the model calculates a personalization score based on the user's permissions
+            and event data in each session. One of the most comprehensive datasets, the RetailRocket dataset, was
+            reorganized and utilized for the B2B environment, and the recommendation performance was evaluated
+            through three representative HR, MRR, and nDCG indicators. As a result, the SpriBERT model recorded
+            0.468 at HR@10, 0.317 at MRR@10, and 0.672 at nDCG@10, which shows superior performance in terms of
+            precision and ranking-based evaluation compared to Baseline.
+          </p>
+        </details>
       </div>
 
       <div className={s.section}>

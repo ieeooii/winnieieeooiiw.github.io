@@ -80,8 +80,63 @@ export const sectionTitle = style({
   marginBottom: vars.space[6],
 })
 
+export const pubTitle = style({
+  display: 'inline-block',
+  fontSize: vars.fontSize.xl,
+  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.dark,
+  lineHeight: vars.lineHeight.snug,
+  marginBottom: vars.space[2],
+  textDecoration: 'none',
+  selectors: {
+    '&:hover': { color: vars.color.brand },
+  },
+})
+
+export const pubMeta = style({
+  fontSize: vars.fontSize.base,
+  color: vars.color.gray[700],
+  marginBottom: vars.space[4],
+})
+
+export const pubKeywords = style({
+  fontSize: vars.fontSize.sm,
+  color: vars.color.gray[400],
+  fontWeight: vars.fontWeight.semibold,
+  marginBottom: vars.space[4],
+})
+
+export const pubDetails = style({
+  cursor: 'default',
+  width: 'fit-content',
+})
+
+export const pubSummary = style({
+  fontSize: vars.fontSize.sm,
+  fontWeight: vars.fontWeight.medium,
+  color: vars.color.brand,
+  cursor: 'pointer',
+  userSelect: 'none',
+  listStyle: 'none',
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: vars.space[2],
+  selectors: {
+    '&::-webkit-details-marker': { display: 'none' },
+    [`${pubDetails}[open] &`]: { marginBottom: vars.space[4] },
+  },
+})
+
+export const pubAbstract = style({
+  fontSize: vars.fontSize.sm,
+  color: vars.color.gray[500],
+  lineHeight: vars.lineHeight.relaxed,
+  paddingLeft: vars.space[4],
+  borderLeft: `2px solid ${vars.color.gray[200]}`,
+})
+
 export const companyName = style({
-  display: 'block',
+  display: 'inline-block',
   fontSize: vars.fontSize['2xl'],
   fontWeight: vars.fontWeight.semibold,
   color: vars.color.dark,
