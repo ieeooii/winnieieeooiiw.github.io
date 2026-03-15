@@ -5,4 +5,9 @@ export const container = style({
   maxWidth: '1400px',
   margin: '0 auto',
   padding: `0 ${vars.space[8]}`,
+  '@media': {
+    '(max-width: 640px)': {
+      padding: `0 ${vars.space[6]}`,
+    },
+  },
 })

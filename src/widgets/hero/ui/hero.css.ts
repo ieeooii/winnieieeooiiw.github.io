@@ -6,6 +6,12 @@ export const section = style({
   overflow: 'hidden',
   paddingTop: vars.space[32],
   paddingBottom: vars.space[24],
+  '@media': {
+    '(max-width: 640px)': {
+      paddingTop: vars.space[24],
+      paddingBottom: vars.space[16],
+    },
+  },
 })
 
 export const container = style({
@@ -44,7 +50,7 @@ export const name = style({
 })
 
 export const heading = style({
-  fontSize: 'clamp(3rem, 8vw, 6rem)',
+  fontSize: 'clamp(2.5rem, 8vw, 6rem)',
   fontWeight: vars.fontWeight.semibold,
   letterSpacing: vars.letterSpacing.tight,
   lineHeight: vars.lineHeight.tight,
@@ -54,11 +60,21 @@ export const heading = style({
 
 export const headingNoWrap = style({
   whiteSpace: 'nowrap',
+  '@media': {
+    '(max-width: 640px)': {
+      whiteSpace: 'normal',
+    },
+  },
 })
 
 export const headingHighlight = style({
   display: 'inline-block',
   minWidth: '10ch',
+  '@media': {
+    '(max-width: 640px)': {
+      minWidth: 'unset',
+    },
+  },
 })
 
 export const headingHighlightText = style({
@@ -68,7 +84,7 @@ export const headingHighlightText = style({
   '::after': {
     content: '""',
     position: 'absolute',
-    bottom: '1rem',
+    bottom: '0.15em',
     left: 0,
     width: '100%',
     height: '0.5rem',
@@ -78,7 +94,7 @@ export const headingHighlightText = style({
 })
 
 export const badgeRow = style({
-  marginTop: '24rem',
+  marginTop: '12rem',
   display: 'flex',
   gap: vars.space[4],
   flexWrap: 'wrap',
@@ -100,8 +116,6 @@ export const visual = style({
 export const glowBlob = style({
   position: 'absolute',
   inset: 0,
-  width: '100%',
-  height: '100%',
   zIndex: 0,
   pointerEvents: 'none',
 })

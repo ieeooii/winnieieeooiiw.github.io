@@ -18,6 +18,7 @@ globalStyle('body', {
   lineHeight: vars.lineHeight.normal,
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
+  overflowX: 'hidden',
 })
 
 globalStyle('a', {
@@ -34,4 +35,12 @@ globalStyle('img', {
   maxWidth: '100%',
   height: 'auto',
   display: 'block',
+})
+
+globalStyle('body.menu-open', {
+  '@media': {
+    '(max-width: 640px)': {
+      overflow: 'hidden',
+    },
+  },
 })

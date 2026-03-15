@@ -54,6 +54,7 @@ export const gridTitle = style({
 
 export const filterRow = style({
   display: 'flex',
+  flexWrap: 'wrap',
   gap: vars.space[2],
   marginBottom: vars.space[12],
 })
