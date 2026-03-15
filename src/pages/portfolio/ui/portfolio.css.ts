@@ -193,12 +193,12 @@ export const backButton = style({
 
 export const markdownBody = style({
   color: vars.color.gray[700],
-  fontSize: vars.fontSize.base,
+  fontSize: vars.fontSize.lg,
   lineHeight: vars.lineHeight.relaxed,
 })
 
 globalStyle(`${markdownBody} h1`, {
-  fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+  fontSize: 'clamp(2rem, 4vw, 3rem)',
   fontWeight: vars.fontWeight.bold,
   letterSpacing: vars.letterSpacing.tight,
   color: vars.color.dark,
@@ -206,7 +206,7 @@ globalStyle(`${markdownBody} h1`, {
 })
 
 globalStyle(`${markdownBody} h2`, {
-  fontSize: vars.fontSize.lg,
+  fontSize: vars.fontSize.xl,
   fontWeight: vars.fontWeight.semibold,
   color: vars.color.dark,
   marginTop: vars.space[12],
@@ -216,7 +216,7 @@ globalStyle(`${markdownBody} h2`, {
 })
 
 globalStyle(`${markdownBody} h3`, {
-  fontSize: vars.fontSize.base,
+  fontSize: vars.fontSize.lg,
   fontWeight: vars.fontWeight.semibold,
   color: vars.color.dark,
   marginTop: vars.space[6],
@@ -243,7 +243,7 @@ globalStyle(`${markdownBody} li`, {
   paddingLeft: vars.space[4],
   position: 'relative',
   lineHeight: vars.lineHeight.relaxed,
-  fontSize: vars.fontSize.sm,
+  fontSize: vars.fontSize.base,
 })
 
 globalStyle(`${markdownBody} li::before`, {
