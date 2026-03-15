@@ -23,9 +23,9 @@ export const headerTransparent = style([headerBase, {
 }])
 
 export const inner = style({
-  maxWidth: '1400px',
+  maxWidth: '1920px',
   margin: '0 auto',
-  padding: `${vars.space[6]} ${vars.space[8]}`,
+  padding: `${vars.space[8]} ${vars.space[8]}`,
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -38,7 +38,7 @@ export const right = style({
 })
 
 export const logo = style({
-  fontSize: vars.fontSize['2xl'],
+  fontSize: '1.875rem',
   fontWeight: vars.fontWeight.extrabold,
   letterSpacing: vars.letterSpacing.tighter,
   color: vars.color.dark,

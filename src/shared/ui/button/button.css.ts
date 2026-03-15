@@ -9,7 +9,7 @@ const base = style({
   cursor: 'pointer',
   fontFamily: vars.font.body,
   fontWeight: vars.fontWeight.bold,
-  fontSize: vars.fontSize.sm,
+  fontSize: vars.fontSize.base,
   textDecoration: 'none',
   transition: `background-color ${vars.transition.base}`,
   whiteSpace: 'nowrap',
@@ -33,7 +33,7 @@ export const button = styleVariants({
   navPill: [
     base,
     {
-      padding: `${vars.space[2]} ${vars.space[6]}`,
+      padding: `${vars.space[3]} ${vars.space[6]}`,
       borderRadius: vars.radii.full,
       backgroundColor: 'transparent',
       color: vars.color.gray[700],
@@ -46,7 +46,7 @@ export const button = styleVariants({
   navPillActive: [
     base,
     {
-      padding: `${vars.space[2]} ${vars.space[6]}`,
+      padding: `${vars.space[3]} ${vars.space[6]}`,
       borderRadius: vars.radii.full,
       backgroundColor: vars.color.brand,
       color: vars.color.dark,

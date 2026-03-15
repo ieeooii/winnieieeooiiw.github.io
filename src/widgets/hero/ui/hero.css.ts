@@ -4,10 +4,14 @@ import { vars } from '../../../shared/styles/tokens.css'
 export const section = style({
   position: 'relative',
   overflow: 'hidden',
+  minHeight: '100vh',
+  height: '100vh',
   paddingTop: vars.space[32],
   paddingBottom: vars.space[24],
   '@media': {
     '(max-width: 640px)': {
+      minHeight: '70vh',
+      height: '70vh',
       paddingTop: vars.space[24],
       paddingBottom: vars.space[16],
     },
@@ -15,7 +19,7 @@ export const section = style({
 })
 
 export const container = style({
-  maxWidth: '1400px',
+  maxWidth: '1920px',
   margin: '0 auto',
   padding: `0 ${vars.space[8]}`,
   position: 'relative',
@@ -24,6 +28,7 @@ export const container = style({
   gridTemplateColumns: '1fr 1fr',
   gap: vars.space[12],
   alignItems: 'center',
+  height: '100%',
   '@media': {
     '(max-width: 768px)': {
       gridTemplateColumns: '1fr',
@@ -31,7 +36,12 @@ export const container = style({
   },
 })
 
-export const content = style({})
+export const content = style({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  height: '100%',
+})
 
 export const name = style({
   position: 'absolute',
@@ -50,12 +60,12 @@ export const name = style({
 })
 
 export const heading = style({
-  fontSize: 'clamp(2.5rem, 8vw, 6rem)',
-  fontWeight: vars.fontWeight.semibold,
+  fontSize: 'clamp(2.5rem, 8vw, 7.5rem)',
+  fontWeight: vars.fontWeight.medium,
   letterSpacing: vars.letterSpacing.tight,
   lineHeight: vars.lineHeight.tight,
   marginBottom: 0,
-  maxWidth: '20ch',
+  maxWidth: '14ch',
 })
 
 export const headingNoWrap = style({
@@ -94,7 +104,6 @@ export const headingHighlightText = style({
 })
 
 export const badgeRow = style({
-  marginTop: '12rem',
   display: 'flex',
   gap: vars.space[4],
   flexWrap: 'wrap',

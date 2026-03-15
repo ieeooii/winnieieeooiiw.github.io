@@ -34,10 +34,8 @@ export const projectCard = style({
 })
 
 export const imageWrap = style({
-  borderRadius: vars.radii.xl,
   overflow: 'hidden',
   backgroundColor: vars.color.white,
-  boxShadow: vars.shadow.card,
   minHeight: '200px',
 })
 

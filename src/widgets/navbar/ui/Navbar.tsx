@@ -24,7 +24,10 @@ const useScrolled = () => {
 const useMobileMenu = (pathname: string) => {
   const [open, setOpen] = useState(false)
 
-  useEffect(() => { setOpen(false) }, [pathname])
+  useEffect(() => {
+    setOpen(false)
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', open)
@@ -36,11 +39,14 @@ const useMobileMenu = (pathname: string) => {
 
 // ── Sub-components ────────────────────────────────────────────────────────────
 
+const isActive = (href: string, pathname: string) =>
+  href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(href + '/')
+
 const DesktopNav = ({ pathname }: { pathname: string }) => (
   <div className={s.right}>
     <nav className={s.pillGroup} aria-label="Primary navigation">
       {NAV_ITEMS.map(({ label, href }) => (
-        <Link key={label} href={href} className={pathname === href ? button.navPillActive : button.navPill}>
+        <Link key={label} href={href} className={isActive(href, pathname) ? button.navPillActive : button.navPill}>
           {label}
         </Link>
       ))}
@@ -72,7 +78,7 @@ const MobileMenu = ({ pathname }: { pathname: string }) => (
   <div className={s.mobileMenu} aria-label="Mobile navigation">
     <nav className={s.mobileNavList}>
       {NAV_ITEMS.map(({ label, href }) => (
-        <Link key={label} href={href} className={pathname === href ? s.mobileNavItemActive : s.mobileNavItem}>
+        <Link key={label} href={href} className={isActive(href, pathname) ? s.mobileNavItemActive : s.mobileNavItem}>
           {label}
         </Link>
       ))}

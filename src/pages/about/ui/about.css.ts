@@ -9,9 +9,9 @@ export const page = style({
 })
 
 export const container = style({
-  maxWidth: '1400px',
+  maxWidth: '1920px',
   margin: '0 auto',
-  padding: `${vars.space[16]} ${vars.space[8]} ${vars.space[24]}`,
+  padding: `${vars.space[20]} ${vars.space[8]} ${vars.space[24]}`,
   '@media': {
     '(max-width: 640px)': {
       padding: `${vars.space[12]} ${vars.space[6]} ${vars.space[16]}`,
@@ -25,7 +25,7 @@ export const gridHeader = style({
 })
 
 export const gridTitle = style({
-  fontSize: 'clamp(4rem, 10vw, 6rem)',
+  fontSize: 'clamp(4rem, 10vw, 7rem)',
   fontWeight: vars.fontWeight.medium,
   letterSpacing: vars.letterSpacing.tighter,
   lineHeight: vars.lineHeight.none,

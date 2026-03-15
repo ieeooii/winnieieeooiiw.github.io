@@ -10,10 +10,10 @@ export const page = style({
 // ── Grid page ─────────────────────────────────────────────────────────────────
 
 export const gridContainer = style({
-  maxWidth: '1400px',
+  maxWidth: '1920px',
   margin: '0 auto',
   padding: `0 ${vars.space[8]}`,
-  paddingTop: vars.space[16],
+  paddingTop: vars.space[20],
   paddingBottom: vars.space[24],
   '@media': {
     '(max-width: 640px)': {
@@ -37,15 +37,15 @@ export const gridHeader = style({
 })
 
 export const gridSubtitle = style({
-  fontSize: vars.fontSize.base,
+  fontSize: vars.fontSize.lg,
   color: vars.color.gray[700],
   lineHeight: vars.lineHeight.relaxed,
-  maxWidth: '480px',
+  maxWidth: '500px',
   paddingTop: vars.space[2],
 })
 
 export const gridTitle = style({
-  fontSize: 'clamp(4rem, 10vw, 6rem)',
+  fontSize: 'clamp(4rem, 10vw, 7rem)',
   fontWeight: vars.fontWeight.medium,
   letterSpacing: vars.letterSpacing.tighter,
   lineHeight: vars.lineHeight.none,
@@ -56,7 +56,7 @@ export const filterRow = style({
   display: 'flex',
   flexWrap: 'wrap',
   gap: vars.space[2],
-  marginBottom: vars.space[12],
+  marginBottom: vars.space[20],
 })
 
 const filterBase = style({
@@ -65,12 +65,13 @@ const filterBase = style({
   fontSize: vars.fontSize.sm,
   fontWeight: vars.fontWeight.medium,
   cursor: 'pointer',
-  border: `1px solid ${vars.color.gray[300]}`,
+  border: 'none',
+  fontSize: vars.fontSize.base,
   transition: vars.transition.fast,
 })
 
 export const filterTag = style([filterBase, {
-  backgroundColor: 'transparent',
+  backgroundColor: vars.color.white,
   color: vars.color.gray[500],
   selectors: {
     '&:hover': {
@@ -90,7 +91,7 @@ export const projectGrid = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
   columnGap: vars.space[12],
-  rowGap: vars.space[16],
+  rowGap: vars.space[12],
   '@media': {
     '(max-width: 1024px)': {
       gridTemplateColumns: 'repeat(2, 1fr)',
@@ -108,7 +109,6 @@ export const projectCard = style({
 })
 
 export const cardThumb = style({
-  borderRadius: vars.radii.xl,
   aspectRatio: '4 / 3',
   marginBottom: vars.space[6],
   overflow: 'hidden',
@@ -142,7 +142,7 @@ export const tagOutline = style({
   padding: `6px ${vars.space[4]}`,
   border: `1px solid ${vars.color.gray[200]}`,
   borderRadius: vars.radii.full,
-  fontSize: vars.fontSize.xs,
+  fontSize: vars.fontSize.sm,
   fontWeight: vars.fontWeight.medium,
   color: vars.color.gray[700],
   lineHeight: '1',
@@ -152,7 +152,7 @@ export const tagBrand = style({
   padding: `6px ${vars.space[4]}`,
   backgroundColor: vars.color.brandMuted,
   borderRadius: vars.radii.full,
-  fontSize: vars.fontSize.xs,
+  fontSize: vars.fontSize.sm,
   fontWeight: vars.fontWeight.medium,
   color: vars.color.brand,
   lineHeight: '1',
@@ -163,7 +163,7 @@ export const tagBrand = style({
 export const detailContainer = style({
   maxWidth: '900px',
   margin: '0 auto',
-  padding: `${vars.space[8]} ${vars.space[8]} ${vars.space[24]}`,
+  padding: `${vars.space[24]} ${vars.space[8]} ${vars.space[24]}`,
   '@media': {
     '(max-width: 640px)': {
       padding: `${vars.space[6]} ${vars.space[6]} ${vars.space[16]}`,
@@ -305,7 +305,7 @@ globalStyle(`${markdownBody} a`, {
 // ── Legacy layout (unused but kept) ──────────────────────────────────────────
 
 export const layout = style({
-  maxWidth: '1400px',
+  maxWidth: '1920px',
   margin: '0 auto',
   padding: `0 ${vars.space[8]}`,
   display: 'grid',

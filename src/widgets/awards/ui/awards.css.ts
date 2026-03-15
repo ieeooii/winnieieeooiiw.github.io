@@ -32,7 +32,7 @@ export const list = style({
 
 export const row = style({
   display: 'grid',
-  gridTemplateColumns: '2fr 1fr 2fr',
+  gridTemplateColumns: '3fr 1fr 2fr',
   gap: vars.space[16],
   alignItems: 'start',
   paddingTop: vars.space[8],
