@@ -81,10 +81,15 @@ export const sectionTitle = style({
 })
 
 export const companyName = style({
+  display: 'block',
   fontSize: vars.fontSize['2xl'],
   fontWeight: vars.fontWeight.semibold,
   color: vars.color.dark,
-  marginBottom: vars.space[1],
+  marginBottom: vars.space[8],
+  textDecoration: 'none',
+  selectors: {
+    '&:hover': { color: vars.color.brand },
+  },
 })
 
 export const companyMeta = style({
@@ -96,7 +101,7 @@ export const companyMeta = style({
 export const expList = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: vars.space[8],
+  gap: vars.space[6],
   paddingLeft: vars.space[4],
   borderLeft: `2px solid ${vars.color.gray[200]}`,
 })
@@ -131,6 +136,16 @@ export const expRole = style({
 export const expMeta = style({
   fontSize: vars.fontSize.sm,
   color: vars.color.gray[400],
+})
+
+export const expLink = style({
+  color: vars.color.gray[500],
+  fontWeight: vars.fontWeight.medium,
+  textDecoration: 'underline',
+  textUnderlineOffset: '3px',
+  selectors: {
+    '&:hover': { color: vars.color.gray[700] },
+  },
 })
 
 export const expDesc = style({

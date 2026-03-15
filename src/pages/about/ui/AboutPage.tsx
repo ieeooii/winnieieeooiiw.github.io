@@ -24,37 +24,6 @@ export const AboutPage = () => (
       </p>
 
       <div className={s.section}>
-        <h2 className={s.sectionTitle}>Experience</h2>
-        <p className={s.companyName}>CLO Virtual Fashion Inc.</p>
-        <p className={s.companyMeta}>정규직 · 6년 4개월</p>
-        <div className={s.expList}>
-          <div className={s.expItem}>
-            <span className={s.expRole}>Frontend Engineer</span>
-            <span className={s.expMeta}>2022. 02 – 현재 · 4년 2개월 · 서울, 하이브리드</span>
-            <p className={s.expDesc}>
-              CLO-SET | CLO's Next digital fashion Platform<br />
-              Hugo Boss, GAP, Bestseller 등 글로벌 패션 회사에서 사용 중인 플랫폼으로, 디자인·개발·생산·리테일·소비로 이어지는 의류 Lifecycle 클라우드 기반 3D 의상 B2B 서비스
-            </p>
-          </div>
-
-          <div className={s.expItem}>
-            <span className={s.expRole}>Frontend Developer</span>
-            <span className={s.expMeta}>2020. 11 – 2022. 01 · 1년 3개월 · 재택근무</span>
-            <p className={s.expDesc}>
-              CONNECT - The Best 3D Clothing Models<br />
-              3D 의상 공유, 커뮤니케이션, 판매, 구매 글로벌 디지털 의상 커뮤니티 B2C 서비스
-            </p>
-          </div>
-
-          <div className={s.expItem}>
-            <span className={s.expRole}>Web Developer</span>
-            <span className={s.expMeta}>2019. 11. 18 – 2020. 10 · 11개월 · 서울, 하이브리드</span>
-            <p className={s.expDesc}>workflow, commit/code convention 정립 및 개선</p>
-          </div>
-        </div>
-      </div>
-
-      <div className={s.section}>
         <h2 className={s.sectionTitle}>Education</h2>
         <div className={s.itemList}>
           <div className={s.item}>
@@ -74,6 +43,36 @@ export const AboutPage = () => (
               <span className={s.itemSub}>전문학사 GPA 4.2 / 4.5 · 학사 GPA 3.89 / 4.5</span>
             </div>
             <span className={s.itemPeriod}>August 2018</span>
+          </div>
+        </div>
+      </div>
+
+      <div className={s.section}>
+        <h2 className={s.sectionTitle}>Experience</h2>
+        <a href="https://www.clovirtualfashion.com/" target="_blank" rel="noopener noreferrer" className={s.companyName}>CLO Virtual Fashion Inc.</a>
+        <div className={s.expList}>
+          <div className={s.expItem}>
+            <span className={s.expRole}>Frontend Engineer</span>
+            <span className={s.expMeta}>2022. 02 – 현재</span>
+            <p className={s.expDesc}>
+              <a href="https://clo-set.com" target="_blank" rel="noopener noreferrer" className={s.expLink}>CLO-SET | CLO's Next digital fashion Platform</a><br />
+              Hugo Boss, GAP, Bestseller 등 글로벌 패션 회사에서 사용 중인 플랫폼으로, 디자인·개발·생산·리테일·소비로 이어지는 의류 Lifecycle 클라우드 기반 3D 의상 SaaS
+            </p>
+          </div>
+
+          <div className={s.expItem}>
+            <span className={s.expRole}>Frontend Developer</span>
+            <span className={s.expMeta}>2020. 11 – 2022. 01</span>
+            <p className={s.expDesc}>
+              <a href="https://connect.clo-set.com" target="_blank" rel="noopener noreferrer" className={s.expLink}>CONNECT - The Best 3D Clothing Models</a><br />
+              3D 의상 공유, 커뮤니케이션, 판매, 구매 글로벌 디지털 의상 커뮤니티 Open Marketplace | E-Commerce 서비스
+            </p>
+          </div>
+
+          <div className={s.expItem}>
+            <span className={s.expRole}>Web Developer</span>
+            <span className={s.expMeta}>2019. 11. 18 – 2020. 10</span>
+            <p className={s.expDesc}>NXP(New Experience Platform) Team</p>
           </div>
         </div>
       </div>
