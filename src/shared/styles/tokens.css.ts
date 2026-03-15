@@ -7,6 +7,11 @@ export const vars = createGlobalTheme(':root', {
     brandMuted: 'rgba(93, 217, 143, 0.15)',
     dark: '#111111',
     white: '#ffffff',
+    nameText: '#e5fff3',
+    semantic: {
+      problem: '#e05252',
+      result: '#5b8dee',
+    },
     gray: {
       50: '#fafafa',
       100: '#f3f4f6',
@@ -37,6 +42,7 @@ export const vars = createGlobalTheme(':root', {
     lg: '1.125rem',
     xl: '1.25rem',
     '2xl': '1.5rem',
+    '3xl': '1.875rem',
     '4xl': '2.25rem',
     '5xl': '3rem',
     '6xl': '3.75rem',
@@ -46,6 +52,7 @@ export const vars = createGlobalTheme(':root', {
     2: '0.5rem',
     3: '0.75rem',
     4: '1rem',
+    5: '1.25rem',
     6: '1.5rem',
     8: '2rem',
     12: '3rem',
@@ -80,6 +87,7 @@ export const vars = createGlobalTheme(':root', {
     fast: '0.15s ease',
     base: '0.2s ease',
     slow: '0.3s ease',
+    navbar: '0.3s ease',
   },
   shadow: {
     sm: '0 1px 3px rgba(0,0,0,0.08)',
@@ -88,5 +96,8 @@ export const vars = createGlobalTheme(':root', {
   zIndex: {
     sticky: '50',
     modal: '100',
+  },
+  layout: {
+    navbarHeight: '80px',
   },
 })

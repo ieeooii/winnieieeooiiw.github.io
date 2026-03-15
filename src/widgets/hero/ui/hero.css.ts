@@ -50,7 +50,7 @@ export const name = style({
   fontSize: 'clamp(2rem, 4vw, 3.5rem)',
   fontWeight: vars.fontWeight.bold,
   letterSpacing: vars.letterSpacing.tighter,
-  color: '#e5fff3',
+  color: vars.color.nameText,
   userSelect: 'none',
   '@media': {
     '(max-width: 768px)': {

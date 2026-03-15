@@ -1,20 +1,22 @@
 import { style } from '@vanilla-extract/css'
 import { vars } from '../../../shared/styles/tokens.css'
 
+export { container } from '../../../shared/styles/layout.css'
+
 export const page = style({
   minHeight: '100vh',
   backgroundColor: vars.color.gray[100],
-  paddingTop: '80px',
+  paddingTop: vars.layout.navbarHeight,
   position: 'relative',
 })
 
-export const container = style({
-  maxWidth: '1920px',
-  margin: '0 auto',
-  padding: `${vars.space[20]} ${vars.space[8]} ${vars.space[24]}`,
+export const containerPadding = style({
+  paddingTop: vars.space[20],
+  paddingBottom: vars.space[24],
   '@media': {
     '(max-width: 640px)': {
-      padding: `${vars.space[12]} ${vars.space[6]} ${vars.space[16]}`,
+      paddingTop: vars.space[12],
+      paddingBottom: vars.space[16],
     },
   },
 })

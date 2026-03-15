@@ -1,14 +1,10 @@
-import { useEffect, useState } from 'react'
 import { GlowBlob } from './GlowBlob'
 import { BadgeCard } from '../../../shared/ui/badge/BadgeCard'
 import { PROJECTS } from '../../../pages/portfolio/data/projects'
+import { useTypeWriter } from '../../../shared/hooks'
 import * as s from './hero.css'
 
 const WORDS = ['systems', 'architectures', 'AI workflows', 'solutions', 'products', 'experiences']
-const TYPE_SPEED = 80
-const DELETE_SPEED = 50
-const PAUSE_AFTER_TYPE = 1500
-const PAUSE_AFTER_DELETE = 400
 
 const BADGES = [
   { label: 'Experience', title: '6+ YRS', sub: 'FRONTEND' },
@@ -17,40 +13,7 @@ const BADGES = [
 ]
 
 export const Hero = () => {
-  const [wordIndex, setWordIndex] = useState(0)
-  const [displayed, setDisplayed] = useState('')
-  const [isDeleting, setIsDeleting] = useState(false)
-
-  const currentWord = WORDS[wordIndex]
-
-  useEffect(() => {
-    if (!isDeleting && displayed.length < currentWord.length) {
-      const timeout = setTimeout(() => {
-        setDisplayed(currentWord.slice(0, displayed.length + 1))
-      }, TYPE_SPEED)
-      return () => clearTimeout(timeout)
-    }
-
-    if (!isDeleting && displayed.length === currentWord.length) {
-      const timeout = setTimeout(() => setIsDeleting(true), PAUSE_AFTER_TYPE)
-      return () => clearTimeout(timeout)
-    }
-
-    if (isDeleting && displayed.length > 0) {
-      const timeout = setTimeout(() => {
-        setDisplayed(currentWord.slice(0, displayed.length - 1))
-      }, DELETE_SPEED)
-      return () => clearTimeout(timeout)
-    }
-
-    if (isDeleting && displayed.length === 0) {
-      const timeout = setTimeout(() => {
-        setIsDeleting(false)
-        setWordIndex((prev) => (prev + 1) % WORDS.length)
-      }, PAUSE_AFTER_DELETE)
-      return () => clearTimeout(timeout)
-    }
-  }, [displayed, isDeleting, currentWord])
+  const displayed = useTypeWriter(WORDS)
 
   return (
     <section className={s.section} id="home">

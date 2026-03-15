@@ -7,7 +7,7 @@ const headerBase = style({
   left: 0,
   width: '100%',
   zIndex: 100,
-  transition: 'background-color 0.3s ease, backdrop-filter 0.3s ease',
+  transition: `background-color ${vars.transition.navbar}, backdrop-filter ${vars.transition.navbar}`,
 })
 
 export const header = style([headerBase, {
@@ -38,7 +38,7 @@ export const right = style({
 })
 
 export const logo = style({
-  fontSize: '1.875rem',
+  fontSize: vars.fontSize['3xl'],
   fontWeight: vars.fontWeight.extrabold,
   letterSpacing: vars.letterSpacing.tighter,
   color: vars.color.dark,
@@ -87,7 +87,7 @@ export const mobileMenu = style({
   backgroundColor: vars.color.gray[100],
   display: 'flex',
   flexDirection: 'column',
-  padding: `120px ${vars.space[8]} ${vars.space[8]}`,
+  padding: `120px ${vars.space[8]} ${vars.space[8]}`, // 120px = navbar height (80px) + extra spacing
 })
 
 export const mobileNavList = style({

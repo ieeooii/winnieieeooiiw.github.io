@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'wouter'
 import { Button, button } from '../../../shared/ui'
 import { MAILTO } from '../../../shared/config/contact'
+import { useScrolled, useMobileMenu } from '../../../shared/hooks'
+import { isActiveRoute } from '../../../shared/utils'
 import * as s from './navbar.css'
 
 const NAV_ITEMS = [
@@ -10,43 +11,13 @@ const NAV_ITEMS = [
   { label: 'About', href: '/about' },
 ]
 
-const useScrolled = () => {
-  const [scrolled, setScrolled] = useState(false)
-  useEffect(() => {
-    const handle = () => setScrolled(window.scrollY > 0)
-    handle()
-    window.addEventListener('scroll', handle, { passive: true })
-    return () => window.removeEventListener('scroll', handle)
-  }, [])
-  return scrolled
-}
-
-const useMobileMenu = (pathname: string) => {
-  const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    setOpen(false)
-    window.scrollTo(0, 0)
-  }, [pathname])
-
-  useEffect(() => {
-    document.body.classList.toggle('menu-open', open)
-    return () => { document.body.classList.remove('menu-open') }
-  }, [open])
-
-  return { open, toggle: () => setOpen(o => !o) }
-}
-
 // ── Sub-components ────────────────────────────────────────────────────────────
-
-const isActive = (href: string, pathname: string) =>
-  href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(href + '/')
 
 const DesktopNav = ({ pathname }: { pathname: string }) => (
   <div className={s.right}>
     <nav className={s.pillGroup} aria-label="Primary navigation">
       {NAV_ITEMS.map(({ label, href }) => (
-        <Link key={label} href={href} className={isActive(href, pathname) ? button.navPillActive : button.navPill}>
+        <Link key={label} href={href} className={isActiveRoute(href, pathname) ? button.navPillActive : button.navPill}>
           {label}
         </Link>
       ))}
@@ -78,7 +49,7 @@ const MobileMenu = ({ pathname }: { pathname: string }) => (
   <div className={s.mobileMenu} aria-label="Mobile navigation">
     <nav className={s.mobileNavList}>
       {NAV_ITEMS.map(({ label, href }) => (
-        <Link key={label} href={href} className={isActive(href, pathname) ? s.mobileNavItemActive : s.mobileNavItem}>
+        <Link key={label} href={href} className={isActiveRoute(href, pathname) ? s.mobileNavItemActive : s.mobileNavItem}>
           {label}
         </Link>
       ))}

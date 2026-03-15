@@ -2,7 +2,7 @@ import * as s from './about.css'
 
 export const AboutPage = () => (
   <main className={s.page}>
-    <div className={s.container}>
+    <div className={`${s.container} ${s.containerPadding}`}>
       <header className={s.gridHeader}>
         <h1 className={s.gridTitle}>About</h1>
       </header>
