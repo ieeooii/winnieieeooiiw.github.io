@@ -1,6 +1,11 @@
-import { globalStyle } from '@vanilla-extract/css'
+import { globalStyle, style } from '@vanilla-extract/css'
 import { vars } from './tokens.css'
-import { markdownBody } from '../../pages/portfolio/ui/portfolio.css'
+
+export const markdownBody = style({
+  color: vars.color.gray[700],
+  fontSize: vars.fontSize.lg,
+  lineHeight: vars.lineHeight.relaxed,
+})
 
 globalStyle(`${markdownBody} h1`, {
   fontSize: 'clamp(2rem, 4vw, 3rem)',

@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { vars } from '../../../shared/styles/tokens.css'
-import '../../../shared/styles/markdown.css'
+export { markdownBody } from '../../../shared/styles/markdown.css'
 
 export const page = style({
   minHeight: '100vh',
@@ -169,15 +169,6 @@ export const backButton = style({
     '&:hover': { color: vars.color.dark },
   },
 })
-
-// ── Markdown body ─────────────────────────────────────────────────────────────
-
-export const markdownBody = style({
-  color: vars.color.gray[700],
-  fontSize: vars.fontSize.lg,
-  lineHeight: vars.lineHeight.relaxed,
-})
-
 
 // ── Legacy layout (unused but kept) ──────────────────────────────────────────
 
