@@ -32,22 +32,36 @@ export const GlowBlob = () => {
         </defs>
 
         <g filter="url(#blur)">
-          <ellipse cx="750" cy="140" rx="180" ry="160" fill="url(#g1)" opacity="0.65" />
-          <ellipse cx="500" cy="350" rx="300" ry="60"  fill="url(#g1)" opacity="0.5" />
-          <ellipse cx="200" cy="560" rx="150" ry="130" fill="url(#g1)" opacity="0.55" />
-          <ellipse cx="820" cy="520" rx="200" ry="55"  fill="url(#g1)" opacity="0.45"
-            transform="rotate(-30 820 520)" />
-          <ellipse cx="160" cy="180" rx="110" ry="100" fill="url(#g1)" opacity="0.4" />
-          <ellipse cx="680" cy="400" rx="60"  ry="180" fill="url(#g1)" opacity="0.4" />
-
-          <animateTransform
-            attributeName="transform"
-            type="rotate"
-            from="0 500 350"
-            to="360 500 350"
-            dur="30s"
-            repeatCount="indefinite"
-          />
+          {/* 대형 — 우상단 */}
+          <ellipse cx="720" cy="160" rx="260" ry="240" fill="url(#g1)" opacity="0.6">
+            <animate attributeName="cx" values="720;600;800;640;720" dur="28s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1" />
+            <animate attributeName="cy" values="160;260;90;230;160" dur="34s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1" />
+          </ellipse>
+          {/* 대형 — 좌하단 납작 */}
+          <ellipse cx="280" cy="580" rx="340" ry="80" fill="url(#g1)" opacity="0.5" transform="rotate(-15 280 580)">
+            <animate attributeName="cx" values="280;430;200;390;280" dur="38s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1" />
+            <animate attributeName="cy" values="580;490;625;510;580" dur="30s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1" />
+          </ellipse>
+          {/* 중형 — 세로 길쭉 */}
+          <ellipse cx="500" cy="320" rx="55" ry="200" fill="url(#g1)" opacity="0.45">
+            <animate attributeName="cx" values="500;380;610;420;500" dur="26s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1" />
+            <animate attributeName="cy" values="320;440;230;410;320" dur="35s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1" />
+          </ellipse>
+          {/* 소형 — 좌상단 */}
+          <ellipse cx="140" cy="150" rx="70" ry="65" fill="url(#g1)" opacity="0.55">
+            <animate attributeName="cx" values="140;280;90;250;140" dur="22s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1" />
+            <animate attributeName="cy" values="150;60;250;90;150" dur="19s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1" />
+          </ellipse>
+          {/* 소형 — 우하단 사선 */}
+          <ellipse cx="860" cy="500" rx="160" ry="30" fill="url(#g1)" opacity="0.4" transform="rotate(-40 860 500)">
+            <animate attributeName="cx" values="860;720;910;750;860" dur="42s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1" />
+            <animate attributeName="cy" values="500;590;430;560;500" dur="31s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1" />
+          </ellipse>
+          {/* 극소형 — 중앙 좌측 */}
+          <ellipse cx="220" cy="340" rx="40" ry="40" fill="url(#g1)" opacity="0.5">
+            <animate attributeName="cx" values="220;390;160;360;220" dur="18s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1" />
+            <animate attributeName="cy" values="340;200;430;210;340" dur="23s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1" />
+          </ellipse>
         </g>
       </svg>
     </div>

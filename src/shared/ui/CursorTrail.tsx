@@ -1,11 +1,12 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { vars } from '../styles/tokens.css'
 
 export const CursorTrail = () => {
   const dotRef = useRef<SVGSVGElement>(null)
+  const [visible] = useState(() => !window.matchMedia('(pointer: coarse)').matches)
 
   useEffect(() => {
-    if (window.matchMedia('(pointer: coarse)').matches) return
+    if (!visible) return
 
     let rafId: number
     let pending = { x: 0, y: 0 }
@@ -25,7 +26,9 @@ export const CursorTrail = () => {
       window.removeEventListener('mousemove', onMouseMove)
       cancelAnimationFrame(rafId)
     }
-  }, [])
+  }, [visible])
+
+  if (!visible) return null
 
   return (
     <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 9999 }}>
