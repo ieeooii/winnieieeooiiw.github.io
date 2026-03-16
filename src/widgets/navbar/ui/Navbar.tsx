@@ -37,7 +37,7 @@ const DesktopNav = ({ pathname, theme, onThemeToggle }: { pathname: string; them
         </Link>
       ))}
     </nav>
-    <ThemeToggle theme={theme} onToggle={onThemeToggle} />
+    <span className={s.desktopOnly}><ThemeToggle theme={theme} onToggle={onThemeToggle} /></span>
     <Button as="a" href={MAILTO} className={`${button.primary} ${s.desktopOnly}`}>
       Hire me
       <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
