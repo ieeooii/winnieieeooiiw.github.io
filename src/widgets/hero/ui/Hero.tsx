@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { GlowBlob } from './GlowBlob'
 import { BadgeCard } from '../../../shared/ui/badge/BadgeCard'
 import { getProjects } from '../../../pages/portfolio/data/projects'
@@ -8,7 +9,7 @@ import * as s from './hero.css'
 export const Hero = () => {
   const { t, lang } = useLanguage()
   const displayed = useTypeWriter(t.hero.words)
-  const projectCount = getProjects(lang).length
+  const projectCount = useMemo(() => getProjects(lang).length, [lang])
 
   return (
     <section className={s.section} id="home">

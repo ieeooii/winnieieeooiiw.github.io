@@ -7,14 +7,24 @@ export const CursorTrail = () => {
   useEffect(() => {
     if (window.matchMedia('(pointer: coarse)').matches) return
 
+    let rafId: number
+    let pending = { x: 0, y: 0 }
+
     const onMouseMove = (e: MouseEvent) => {
-      const dot = dotRef.current
-      if (!dot) return
-      dot.style.transform = `translate(${e.clientX - 18}px, ${e.clientY - 18}px)`
+      pending = { x: e.clientX, y: e.clientY }
+      cancelAnimationFrame(rafId)
+      rafId = requestAnimationFrame(() => {
+        const dot = dotRef.current
+        if (!dot) return
+        dot.style.transform = `translate(${pending.x - 18}px, ${pending.y - 18}px)`
+      })
     }
 
     window.addEventListener('mousemove', onMouseMove)
-    return () => window.removeEventListener('mousemove', onMouseMove)
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove)
+      cancelAnimationFrame(rafId)
+    }
   }, [])
 
   return (

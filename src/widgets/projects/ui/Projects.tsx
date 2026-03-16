@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { useHashLocation } from 'wouter/use-hash-location'
 import { Tag, tag } from '../../../shared/ui'
 import { getProjects } from '../../../pages/portfolio/data/projects'
@@ -9,10 +10,12 @@ const FEATURED_IDS = ['monorepo', 'error-system', 'pricing']
 export const Projects = () => {
   const [, navigate] = useHashLocation()
   const { t, lang } = useLanguage()
-  const projects = getProjects(lang)
-  const featured = FEATURED_IDS
-    .map(id => projects.find(p => p.id === id))
-    .filter(Boolean) as ReturnType<typeof getProjects>
+  const featured = useMemo(() => {
+    const projects = getProjects(lang)
+    return FEATURED_IDS
+      .map(id => projects.find(p => p.id === id))
+      .filter(Boolean) as ReturnType<typeof getProjects>
+  }, [lang])
 
   return (
     <section className={s.section} id="works">
