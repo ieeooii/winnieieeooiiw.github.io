@@ -1,4 +1,5 @@
 export { useScrolled } from './useScrolled'
+export { useScrollReset } from './useScrollReset'
 export { useMobileMenu } from './useMobileMenu'
 export { useTypeWriter } from './useTypeWriter'
 export { useDarkMode, type ThemeMode } from './useDarkMode'
