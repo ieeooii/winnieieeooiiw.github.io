@@ -8,10 +8,10 @@ export const ko: Translations = {
     hireMe: '함께 일해요',
   },
   hero: {
-    sentence1: 'Frontend engineer.',
-    sentence2prefix: 'I turn problems into ',
-    sentence2suffix: '',
-    words: ['systems', 'architectures', 'AI workflows', 'solutions', 'products', 'experiences'],
+    sentence1: '프론트엔드 엔지니어.',
+    sentence2prefix: '문제를 ',
+    sentence2suffix: ' 바꿉니다.',
+    words: ['구조로', '시스템으로', 'AI 워크플로우로', '솔루션으로', '제품으로', '경험으로'],
     badges: {
       exp: { label: '경력', title: '6+ YRS', sub: 'FRONTEND' },
       proj: { label: '프로젝트', sub: 'COMPLETED' },

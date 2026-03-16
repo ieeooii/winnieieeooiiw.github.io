@@ -27,7 +27,7 @@ export const Hero = () => {
                 aria-atomic="true"
               >{displayed}</span>
             </span>
-            {t.hero.sentence2suffix}
+            {t.hero.sentence2suffix && <><br />{t.hero.sentence2suffix}</>}
           </h1>
 
           <div className={s.badgeRow}>

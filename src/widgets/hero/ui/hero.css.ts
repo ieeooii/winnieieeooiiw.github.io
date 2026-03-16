@@ -25,7 +25,7 @@ export const container = style({
   position: 'relative',
   zIndex: 1,
   display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
+  gridTemplateColumns: '3fr 2fr',
   gap: vars.space[12],
   alignItems: 'center',
   height: '100%',
@@ -65,7 +65,6 @@ export const heading = style({
   letterSpacing: vars.letterSpacing.tight,
   lineHeight: vars.lineHeight.tight,
   marginBottom: 0,
-  maxWidth: '14ch',
 })
 
 export const headingNoWrap = style({
@@ -79,12 +78,6 @@ export const headingNoWrap = style({
 
 export const headingHighlight = style({
   display: 'inline-block',
-  minWidth: '10ch',
-  '@media': {
-    '(max-width: 640px)': {
-      minWidth: 'unset',
-    },
-  },
 })
 
 export const headingHighlightText = style({

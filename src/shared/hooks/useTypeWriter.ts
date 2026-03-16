@@ -29,6 +29,11 @@ export const useTypeWriter = (words: string[], options?: UseTypeWriterOptions) =
       return () => clearTimeout(timeout)
     }
 
+    if (!isDeleting && displayed.length > currentWord.length) {
+      const timeout = setTimeout(() => setDisplayed(''), 0)
+      return () => clearTimeout(timeout)
+    }
+
     if (!isDeleting && displayed.length === currentWord.length) {
       const timeout = setTimeout(() => setIsDeleting(true), pauseAfterType)
       return () => clearTimeout(timeout)
