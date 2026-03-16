@@ -19,6 +19,7 @@ globalStyle('body', {
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
   overflowX: 'hidden',
+  transition: 'background-color 0.2s ease, color 0.2s ease',
 })
 
 globalStyle('a', {

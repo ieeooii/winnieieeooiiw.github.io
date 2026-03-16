@@ -11,7 +11,7 @@ const headerBase = style({
 })
 
 export const header = style([headerBase, {
-  backgroundColor: 'rgba(243, 244, 246, 0.8)',
+  backgroundColor: vars.color.navbarBg,
   backdropFilter: 'blur(12px)',
   WebkitBackdropFilter: 'blur(12px)',
 }])
@@ -144,6 +144,38 @@ export const desktopOnly = style({
   '@media': {
     '(max-width: 640px)': {
       display: 'none',
+    },
+  },
+})
+
+export const themeToggle = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '40px',
+  height: '40px',
+  background: 'none',
+  border: 'none',
+  borderRadius: vars.radii.full,
+  color: vars.color.gray[500],
+  cursor: 'pointer',
+  transition: vars.transition.fast,
+  flexShrink: 0,
+  selectors: {
+    '&:hover': {
+      color: vars.color.dark,
+      backgroundColor: vars.color.gray[200],
+    },
+  },
+})
+
+export const mobileRight = style({
+  display: 'none',
+  alignItems: 'center',
+  gap: vars.space[2],
+  '@media': {
+    '(max-width: 640px)': {
+      display: 'flex',
     },
   },
 })

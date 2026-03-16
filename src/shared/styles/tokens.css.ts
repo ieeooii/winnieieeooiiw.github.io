@@ -1,27 +1,109 @@
-import { createGlobalTheme } from '@vanilla-extract/css'
+import { createGlobalTheme, createThemeContract } from '@vanilla-extract/css'
 
-export const vars = createGlobalTheme(':root', {
+export const vars = createThemeContract({
   color: {
-    brand: '#5dd98f',
-    brandHover: '#4dcc82',
-    brandMuted: 'rgba(93, 217, 143, 0.15)',
-    dark: '#111111',
-    white: '#ffffff',
-    nameText: '#e5fff3',
+    brand: null,
+    brandHover: null,
+    brandMuted: null,
+    dark: null,
+    white: null,
+    nameText: null,
+    navbarBg: null,
     semantic: {
-      problem: '#e05252',
-      result: '#5b8dee',
+      problem: null,
+      result: null,
     },
     gray: {
-      50: '#fafafa',
-      100: '#f3f4f6',
-      200: '#e5e7eb',
-      300: '#d1d5db',
-      400: '#9ca3af',
-      500: '#6b7280',
-      700: '#374151',
+      '50': null,
+      '100': null,
+      '200': null,
+      '300': null,
+      '400': null,
+      '500': null,
+      '700': null,
     },
   },
+  font: {
+    body: null,
+    mono: null,
+  },
+  fontWeight: {
+    normal: null,
+    medium: null,
+    semibold: null,
+    bold: null,
+    extrabold: null,
+  },
+  fontSize: {
+    badge: null,
+    badgeTitle: null,
+    xs: null,
+    sm: null,
+    base: null,
+    lg: null,
+    xl: null,
+    '2xl': null,
+    '3xl': null,
+    '4xl': null,
+    '5xl': null,
+    '6xl': null,
+  },
+  space: {
+    '1': null,
+    '2': null,
+    '3': null,
+    '4': null,
+    '5': null,
+    '6': null,
+    '8': null,
+    '12': null,
+    '16': null,
+    '20': null,
+    '24': null,
+    '32': null,
+  },
+  radii: {
+    sm: null,
+    md: null,
+    lg: null,
+    xl: null,
+    full: null,
+  },
+  letterSpacing: {
+    tighter: null,
+    tight: null,
+    normal: null,
+    wide: null,
+    wider: null,
+    widest: null,
+  },
+  lineHeight: {
+    none: null,
+    tight: null,
+    snug: null,
+    normal: null,
+    relaxed: null,
+  },
+  transition: {
+    fast: null,
+    base: null,
+    slow: null,
+    navbar: null,
+  },
+  shadow: {
+    sm: null,
+    card: null,
+  },
+  zIndex: {
+    sticky: null,
+    modal: null,
+  },
+  layout: {
+    navbarHeight: null,
+  },
+})
+
+const staticVars = {
   font: {
     body: "'Inter', sans-serif",
     mono: "'Fira Code', 'Cascadia Code', monospace",
@@ -48,18 +130,18 @@ export const vars = createGlobalTheme(':root', {
     '6xl': '3.75rem',
   },
   space: {
-    1: '0.25rem',
-    2: '0.5rem',
-    3: '0.75rem',
-    4: '1rem',
-    5: '1.25rem',
-    6: '1.5rem',
-    8: '2rem',
-    12: '3rem',
-    16: '4rem',
-    20: '5rem',
-    24: '6rem',
-    32: '8rem',
+    '1': '0.25rem',
+    '2': '0.5rem',
+    '3': '0.75rem',
+    '4': '1rem',
+    '5': '1.25rem',
+    '6': '1.5rem',
+    '8': '2rem',
+    '12': '3rem',
+    '16': '4rem',
+    '20': '5rem',
+    '24': '6rem',
+    '32': '8rem',
   },
   radii: {
     sm: '4px',
@@ -89,10 +171,6 @@ export const vars = createGlobalTheme(':root', {
     slow: '0.3s ease',
     navbar: '0.3s ease',
   },
-  shadow: {
-    sm: '0 1px 3px rgba(0,0,0,0.08)',
-    card: '0 1px 8px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04)',
-  },
   zIndex: {
     sticky: '50',
     modal: '100',
@@ -100,4 +178,64 @@ export const vars = createGlobalTheme(':root', {
   layout: {
     navbarHeight: '80px',
   },
+}
+
+createGlobalTheme(':root', vars, {
+  color: {
+    brand: '#5dd98f',
+    brandHover: '#4dcc82',
+    brandMuted: 'rgba(93, 217, 143, 0.15)',
+    dark: '#111111',
+    white: '#ffffff',
+    nameText: '#e5fff3',
+    navbarBg: 'rgba(243, 244, 246, 0.85)',
+    semantic: {
+      problem: '#e05252',
+      result: '#5b8dee',
+    },
+    gray: {
+      '50': '#fafafa',
+      '100': '#f3f4f6',
+      '200': '#e5e7eb',
+      '300': '#d1d5db',
+      '400': '#9ca3af',
+      '500': '#6b7280',
+      '700': '#374151',
+    },
+  },
+  shadow: {
+    sm: '0 1px 3px rgba(0,0,0,0.08)',
+    card: '0 1px 8px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04)',
+  },
+  ...staticVars,
+})
+
+createGlobalTheme('[data-theme="dark"]', vars, {
+  color: {
+    brand: '#5dd98f',
+    brandHover: '#4dcc82',
+    brandMuted: 'rgba(93, 217, 143, 0.12)',
+    dark: '#f0f0f0',
+    white: '#242424',
+    nameText: 'rgba(93, 217, 143, 0.6)',
+    navbarBg: 'rgba(28, 28, 28, 0.85)',
+    semantic: {
+      problem: '#f87171',
+      result: '#7fa8f5',
+    },
+    gray: {
+      '50': '#181818',
+      '100': '#1c1c1c',
+      '200': '#2a2a2a',
+      '300': '#3d3d3d',
+      '400': '#6b7280',
+      '500': '#9ca3af',
+      '700': '#d1d5db',
+    },
+  },
+  shadow: {
+    sm: '0 1px 3px rgba(0,0,0,0.4)',
+    card: '0 1px 8px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06)',
+  },
+  ...staticVars,
 })
