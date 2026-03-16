@@ -5,6 +5,10 @@ import { getProjects } from '../data/projects'
 import { useLanguage } from '../../../shared/i18n'
 import * as s from './portfolio.css'
 
+type FilterKey = 'all' | 'SaaS' | 'E-Commerce' | 'CLO Virtual Fashion'
+
+const FILTER_KEYS: FilterKey[] = ['all', 'SaaS', 'E-Commerce', 'CLO Virtual Fashion']
+
 const CARD_GRADIENTS = [
   'linear-gradient(135deg, #c8f5dc, #90e8b8)',
   'linear-gradient(135deg, #cce0fd, #99c4fb)',
@@ -18,10 +22,9 @@ export const PortfolioPage = () => {
   const { t, lang } = useLanguage()
   const projects = getProjects(lang)
 
-  const FILTERS = [t.portfolio.filterAll, 'SaaS', 'E-Commerce', 'CLO Virtual Fashion']
-  const [activeFilter, setActiveFilter] = useState(t.portfolio.filterAll)
+  const [activeFilter, setActiveFilter] = useState<FilterKey>('all')
 
-  const filtered = activeFilter === t.portfolio.filterAll
+  const filtered = activeFilter === 'all'
     ? projects
     : activeFilter === 'CLO Virtual Fashion'
       ? projects.filter(p => p.company === activeFilter)
@@ -36,13 +39,13 @@ export const PortfolioPage = () => {
         </header>
 
         <div className={s.filterRow}>
-          {FILTERS.map(f => (
+          {FILTER_KEYS.map(key => (
             <button
-              key={f}
-              className={activeFilter === f ? s.filterTagActive : s.filterTag}
-              onClick={() => setActiveFilter(f)}
+              key={key}
+              className={activeFilter === key ? s.filterTagActive : s.filterTag}
+              onClick={() => setActiveFilter(key)}
             >
-              {f}
+              {key === 'all' ? t.portfolio.filterAll : key}
             </button>
           ))}
         </div>
