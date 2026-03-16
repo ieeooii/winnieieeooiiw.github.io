@@ -1,25 +1,39 @@
 import { useEffect, useState } from 'react'
 
-type Theme = 'light' | 'dark'
+export type ThemeMode = 'light' | 'dark' | 'system'
 
 const STORAGE_KEY = 'theme'
+const CYCLE: ThemeMode[] = ['light', 'dark', 'system']
 
-function getInitialTheme(): Theme {
-  if (typeof window === 'undefined') return 'light'
-  const stored = localStorage.getItem(STORAGE_KEY) as Theme | null
-  if (stored) return stored
+function getInitialMode(): ThemeMode {
+  if (typeof window === 'undefined') return 'system'
+  return (localStorage.getItem(STORAGE_KEY) as ThemeMode | null) ?? 'system'
+}
+
+function resolveTheme(mode: ThemeMode): 'light' | 'dark' {
+  if (mode !== 'system') return mode
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
 export function useDarkMode() {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme)
+  const [mode, setMode] = useState<ThemeMode>(getInitialMode)
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : ''
-    localStorage.setItem(STORAGE_KEY, theme)
-  }, [theme])
+    const apply = () => {
+      document.documentElement.dataset.theme = resolveTheme(mode) === 'dark' ? 'dark' : ''
+    }
 
-  const toggle = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
+    apply()
+    localStorage.setItem(STORAGE_KEY, mode)
 
-  return { theme, toggle }
+    if (mode === 'system') {
+      const mq = window.matchMedia('(prefers-color-scheme: dark)')
+      mq.addEventListener('change', apply)
+      return () => mq.removeEventListener('change', apply)
+    }
+  }, [mode])
+
+  const toggle = () => setMode((m) => CYCLE[(CYCLE.indexOf(m) + 1) % CYCLE.length])
+
+  return { mode, toggle }
 }

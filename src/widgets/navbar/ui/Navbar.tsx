@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'wouter'
 import { Button, button } from '../../../shared/ui'
 import { MAILTO } from '../../../shared/config/contact'
-import { useScrolled, useMobileMenu, useDarkMode } from '../../../shared/hooks'
+import { useScrolled, useMobileMenu, useDarkMode, type ThemeMode } from '../../../shared/hooks'
 import { isActiveRoute } from '../../../shared/utils'
 import * as s from './navbar.css'
 
@@ -13,22 +13,29 @@ const NAV_ITEMS = [
 
 // ── Sub-components ────────────────────────────────────────────────────────────
 
-const ThemeToggle = ({ theme, onToggle }: { theme: 'light' | 'dark'; onToggle: () => void }) => (
-  <button className={s.themeToggle} aria-label="Toggle dark mode" onClick={onToggle}>
-    {theme === 'dark' ? (
+const ThemeToggle = ({ mode, onToggle }: { mode: ThemeMode; onToggle: () => void }) => (
+  <button className={s.themeToggle} aria-label="Toggle theme" onClick={onToggle}>
+    {mode === 'light' && (
       <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="12" cy="12" r="5" />
         <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
       </svg>
-    ) : (
+    )}
+    {mode === 'dark' && (
       <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </svg>
+    )}
+    {mode === 'system' && (
+      <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M8 21h8M12 17v4" />
       </svg>
     )}
   </button>
 )
 
-const DesktopNav = ({ pathname, theme, onThemeToggle }: { pathname: string; theme: 'light' | 'dark'; onThemeToggle: () => void }) => (
+const DesktopNav = ({ pathname, mode, onThemeToggle }: { pathname: string; mode: ThemeMode; onThemeToggle: () => void }) => (
   <div className={s.right}>
     <nav className={s.pillGroup} aria-label="Primary navigation">
       {NAV_ITEMS.map(({ label, href }) => (
@@ -37,7 +44,7 @@ const DesktopNav = ({ pathname, theme, onThemeToggle }: { pathname: string; them
         </Link>
       ))}
     </nav>
-    <span className={s.desktopOnly}><ThemeToggle theme={theme} onToggle={onThemeToggle} /></span>
+    <span className={s.desktopOnly}><ThemeToggle mode={mode} onToggle={onThemeToggle} /></span>
     <Button as="a" href={MAILTO} className={`${button.primary} ${s.desktopOnly}`}>
       Hire me
       <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
@@ -79,16 +86,16 @@ export const Navbar = () => {
   const [pathname] = useLocation()
   const scrolled = useScrolled()
   const { open, toggle } = useMobileMenu(pathname)
-  const { theme, toggle: toggleTheme } = useDarkMode()
+  const { mode, toggle: toggleTheme } = useDarkMode()
 
   return (
     <>
       <header className={scrolled ? s.header : s.headerTransparent}>
         <div className={s.inner}>
           <Link href="/" className={s.logo}>ieeooii</Link>
-          <DesktopNav pathname={pathname} theme={theme} onThemeToggle={toggleTheme} />
+          <DesktopNav pathname={pathname} mode={mode} onThemeToggle={toggleTheme} />
           <div className={s.mobileRight}>
-            <ThemeToggle theme={theme} onToggle={toggleTheme} />
+            <ThemeToggle mode={mode} onToggle={toggleTheme} />
             <HamburgerButton open={open} onToggle={toggle} />
           </div>
         </div>
