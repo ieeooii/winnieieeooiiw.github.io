@@ -5,9 +5,9 @@ import { getProjects } from '../data/projects'
 import { useLanguage } from '../../../shared/i18n'
 import * as s from './portfolio.css'
 
-type FilterKey = 'all' | 'SaaS' | 'E-Commerce' | 'CLO Virtual Fashion'
+type FilterKey = 'all' | 'SaaS' | 'E-Commerce'
 
-const FILTER_KEYS: FilterKey[] = ['all', 'SaaS', 'E-Commerce', 'CLO Virtual Fashion']
+const FILTER_KEYS: FilterKey[] = ['all', 'SaaS', 'E-Commerce']
 
 const CARD_GRADIENTS = [
   'linear-gradient(135deg, #c8f5dc, #90e8b8)',
@@ -26,9 +26,7 @@ export const PortfolioPage = () => {
 
   const filtered = activeFilter === 'all'
     ? projects
-    : activeFilter === 'CLO Virtual Fashion'
-      ? projects.filter(p => p.company === activeFilter)
-      : projects.filter(p => p.category === activeFilter)
+    : projects.filter(p => p.category === activeFilter)
 
   return (
     <main className={s.page}>
