@@ -131,7 +131,7 @@ export const glowBlob = style({
 })
 
 globalStyle(`[data-theme="dark"] .${glowBlob}`, {
-  color: '#33674a',
+  color: '#099f7b47',
 })
 
 export const glow = style({
