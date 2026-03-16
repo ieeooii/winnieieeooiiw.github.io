@@ -1,125 +1,119 @@
+import { useLanguage } from '../../../shared/i18n'
 import * as s from './about.css'
 
-export const AboutPage = () => (
-  <main className={s.page}>
-    <div className={`${s.container} ${s.containerPadding}`}>
-      <header className={s.gridHeader}>
-        <h1 className={s.gridTitle}>About</h1>
-      </header>
+export const AboutPage = () => {
+  const { t } = useLanguage()
+  const a = t.about
 
-      <p className={s.tagline}>WOOJIN LEE</p>
-      <h2 className={s.name}>문제를 구조로 바꾸는 프론트엔드 엔지니어</h2>
+  return (
+    <main className={s.page}>
+      <div className={`${s.container} ${s.containerPadding}`}>
+        <header className={s.gridHeader}>
+          <h1 className={s.gridTitle}>{a.pageTitle}</h1>
+        </header>
 
-      <p className={s.bio}>
-        저는 화면을 구현하는 개발자를 넘어, 문제를 구조로 해결하는 프론트엔드 엔지니어입니다.
-        CLO Virtual Fashion에서 근무하며 기능 개발에 머무르지 않고, 서비스 전반의 문제를 정의하고
-        기술적 대안을 설계하는 역할을 수행해왔습니다. 레거시 One-Repo 구조로 인한 성능 저하와
-        복잡한 의존성 문제를 해결하기 위해 모노레포 전환과 App Router 기반 아키텍처를 설계했고,
-        그 결과 로딩 속도 40% 개선과 핵심 성능 지표 35% 향상을 이끌어냈습니다. 또한 Next.js 기반
-        공통 에러 핸들링 라이브러리를 설계해 사용자 경험을 개선하는 동시에, 에러 모니터링 효율을
-        분 단위로 단축했습니다. 디자인 시스템 번들 최적화, 코드 분할, 공통 툴링 구축을 통해 팀
-        전체의 개발 생산성과 일관성을 높였으며, 퍼널 개선 프로젝트에서는 로그 설계부터 UX 개선까지
-        주도해 유료 전환율을 단계적으로 14% 이상 향상시켰습니다. 저는 단기적인 기능 구현보다,
-        장기적으로 유지 가능한 구조와 팀의 성장에 기여하는 엔지니어를 지향합니다.
-      </p>
+        <p className={s.tagline}>WOOJIN LEE</p>
+        <h2 className={s.name}>{a.headline}</h2>
+        <p className={s.bio}>{a.bio}</p>
 
-      <div className={s.section}>
-        <h2 className={s.sectionTitle}>Experience</h2>
-        <a href="https://www.clovirtualfashion.com/" target="_blank" rel="noopener noreferrer" className={s.companyName}>CLO Virtual Fashion Inc.</a>
-        <div className={s.expList}>
-          <div className={s.expItem}>
-            <span className={s.expRole}>Frontend Engineer</span>
-            <span className={s.expMeta}>2022. 02 – 현재</span>
-            <p className={s.expDesc}>
-              <a href="https://clo-set.com" target="_blank" rel="noopener noreferrer" className={s.expLink}>CLO-SET | CLO's Next digital fashion Platform</a><br />
-              Hugo Boss, GAP, Bestseller 등 글로벌 패션 회사에서 사용 중인 플랫폼으로, 디자인·개발·생산·리테일·소비로 이어지는 의류 Lifecycle 클라우드 기반 3D 의상 SaaS
+        <div className={s.section}>
+          <h2 className={s.sectionTitle}>{a.sectionExp}</h2>
+          <a href="https://www.clovirtualfashion.com/" target="_blank" rel="noopener noreferrer" className={s.companyName}>{a.companyName}</a>
+          <div className={s.expList}>
+            <div className={s.expItem}>
+              <span className={s.expRole}>{a.exp1.role}</span>
+              <span className={s.expMeta}>{a.exp1.period}</span>
+              <p className={s.expDesc}>
+                <a href="https://clo-set.com" target="_blank" rel="noopener noreferrer" className={s.expLink}>{a.exp1.projectName}</a><br />
+                {a.exp1.desc}
+              </p>
+            </div>
+
+            <div className={s.expItem}>
+              <span className={s.expRole}>{a.exp2.role}</span>
+              <span className={s.expMeta}>{a.exp2.period}</span>
+              <p className={s.expDesc}>
+                <a href="https://connect.clo-set.com" target="_blank" rel="noopener noreferrer" className={s.expLink}>{a.exp2.projectName}</a><br />
+                {a.exp2.desc}
+              </p>
+            </div>
+
+            <div className={s.expItem}>
+              <span className={s.expRole}>{a.exp3.role}</span>
+              <span className={s.expMeta}>{a.exp3.period}</span>
+              <p className={s.expDesc}>{a.exp3.desc}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className={s.section}>
+          <h2 className={s.sectionTitle}>{a.sectionEdu}</h2>
+          <div className={s.itemList}>
+            <div className={s.item}>
+              <div className={s.itemBody}>
+                <span className={s.itemTitle}>{a.edu1.title}</span>
+                <span className={s.itemSub}>{a.edu1.sub}</span>
+              </div>
+              <span className={s.itemPeriod}>August 2025</span>
+            </div>
+
+            <div className={s.item}>
+              <div className={s.itemBody}>
+                <span className={s.itemTitle}>{a.edu2.title}</span>
+                <span className={s.itemSub}>{a.edu2.sub}</span>
+              </div>
+              <span className={s.itemPeriod}>August 2018</span>
+            </div>
+          </div>
+        </div>
+
+        <div className={s.section}>
+          <h2 className={s.sectionTitle}>{a.sectionPub}</h2>
+          <a
+            href="https://hanyang.dcollection.net/srch/srchDetail/200000889057"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={s.pubTitle}
+          >
+            Session-based Enhanced Model Using BERT for Personalized Web Interface Recommendation
+          </a>
+          <p className={s.pubMeta}>Hanyang University, Graduate School of Engineering · August 21, 2025</p>
+          <p className={s.pubKeywords}>Session-based · Recommendation · BERT · Transformer · Machine Learning · Deep Learning</p>
+          <details className={s.pubDetails}>
+            <summary className={s.pubSummary}>{a.pubAbstractLabel}</summary>
+            <p className={s.pubAbstract}>
+              In recent years, transformer-based models and session-based personalization studies have been actively
+              conducted. This study aims to solve the problem of increasing churn and low residual rate caused by
+              providing a uniform web interface that does not take into account the characteristics of users in a B2B
+              service environment. To address this issue, we propose an approach to learn the user-feature interaction
+              in a session by entering the user event sequence and privilege information, and to recommend a
+              personalized web interface. The proposed model, SpriBERT (Session-based Personalized Recommender
+              Interface using BERT), combines BERT (Bidirectional Encoder Representations from Transformers) and MLP
+              (Multi-Layer Perceptron) to predict the association between users and functions based on the interaction
+              between users and functions in a session. Considering that information on user preference is limited in
+              session-based scenarios, the model calculates a personalization score based on the user's permissions
+              and event data in each session. One of the most comprehensive datasets, the RetailRocket dataset, was
+              reorganized and utilized for the B2B environment, and the recommendation performance was evaluated
+              through three representative HR, MRR, and nDCG indicators. As a result, the SpriBERT model recorded
+              0.468 at HR@10, 0.317 at MRR@10, and 0.672 at nDCG@10, which shows superior performance in terms of
+              precision and ranking-based evaluation compared to Baseline.
             </p>
-          </div>
+          </details>
+        </div>
 
-          <div className={s.expItem}>
-            <span className={s.expRole}>Frontend Developer</span>
-            <span className={s.expMeta}>2020. 11 – 2022. 01</span>
-            <p className={s.expDesc}>
-              <a href="https://connect.clo-set.com" target="_blank" rel="noopener noreferrer" className={s.expLink}>CONNECT - The Best 3D Clothing Models</a><br />
-              3D 의상 공유, 커뮤니케이션, 판매, 구매 글로벌 디지털 의상 커뮤니티 Open Marketplace | E-Commerce 서비스
-            </p>
-          </div>
-
-          <div className={s.expItem}>
-            <span className={s.expRole}>Web Developer</span>
-            <span className={s.expMeta}>2019. 11. 18 – 2020. 10</span>
-            <p className={s.expDesc}>NXP(New Experience Platform) Team</p>
+        <div className={s.section}>
+          <h2 className={s.sectionTitle}>{a.sectionTraining}</h2>
+          <div className={s.itemList}>
+            <div className={s.item}>
+              <div className={s.itemBody}>
+                <span className={s.itemTitle}>CodeStates Software Engineering Program</span>
+                <span className={s.itemSub}>Pre Course 32nd · Advanced Immersive Course 18th</span>
+              </div>
+              <span className={s.itemPeriod}>August 2019</span>
+            </div>
           </div>
         </div>
       </div>
-
-      <div className={s.section}>
-        <h2 className={s.sectionTitle}>Education</h2>
-        <div className={s.itemList}>
-          <div className={s.item}>
-            <div className={s.itemBody}>
-              <span className={s.itemTitle}>한양대학교 대학원 공학석사</span>
-              <span className={s.itemSub}>컴퓨터공학 전공 · GPA 4.17 / 4.5</span>
-            </div>
-            <span className={s.itemPeriod}>August 2025</span>
-          </div>
-
-          <div className={s.item}>
-            <div className={s.itemBody}>
-              <span className={s.itemTitle}>시각디자인학 전공</span>
-              <span className={s.itemSub}>전문학사 GPA 4.2 / 4.5 · 학사 GPA 3.89 / 4.5</span>
-            </div>
-            <span className={s.itemPeriod}>August 2018</span>
-          </div>
-        </div>
-      </div>
-
-      <div className={s.section}>
-        <h2 className={s.sectionTitle}>Publication</h2>
-        <a
-          href="https://hanyang.dcollection.net/srch/srchDetail/200000889057"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={s.pubTitle}
-        >
-          Session-based Enhanced Model Using BERT for Personalized Web Interface Recommendation
-        </a>
-        <p className={s.pubMeta}>Hanyang University, Graduate School of Engineering · August 21, 2025</p>
-        <p className={s.pubKeywords}>Session-based · Recommendation · BERT · Transformer · Machine Learning · Deep Learning</p>
-        <details className={s.pubDetails}>
-          <summary className={s.pubSummary}>Abstract ↓</summary>
-          <p className={s.pubAbstract}>
-            In recent years, transformer-based models and session-based personalization studies have been actively
-            conducted. This study aims to solve the problem of increasing churn and low residual rate caused by
-            providing a uniform web interface that does not take into account the characteristics of users in a B2B
-            service environment. To address this issue, we propose an approach to learn the user-feature interaction
-            in a session by entering the user event sequence and privilege information, and to recommend a
-            personalized web interface. The proposed model, SpriBERT (Session-based Personalized Recommender
-            Interface using BERT), combines BERT (Bidirectional Encoder Representations from Transformers) and MLP
-            (Multi-Layer Perceptron) to predict the association between users and functions based on the interaction
-            between users and functions in a session. Considering that information on user preference is limited in
-            session-based scenarios, the model calculates a personalization score based on the user's permissions
-            and event data in each session. One of the most comprehensive datasets, the RetailRocket dataset, was
-            reorganized and utilized for the B2B environment, and the recommendation performance was evaluated
-            through three representative HR, MRR, and nDCG indicators. As a result, the SpriBERT model recorded
-            0.468 at HR@10, 0.317 at MRR@10, and 0.672 at nDCG@10, which shows superior performance in terms of
-            precision and ranking-based evaluation compared to Baseline.
-          </p>
-        </details>
-      </div>
-
-      <div className={s.section}>
-        <h2 className={s.sectionTitle}>Training / Certification</h2>
-        <div className={s.itemList}>
-          <div className={s.item}>
-            <div className={s.itemBody}>
-              <span className={s.itemTitle}>CodeStates Software Engineering Program</span>
-              <span className={s.itemSub}>Pre Course 32nd · Advanced Immersive Course 18th</span>
-            </div>
-            <span className={s.itemPeriod}>August 2019</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-)
+    </main>
+  )
+}

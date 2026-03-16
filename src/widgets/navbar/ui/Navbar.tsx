@@ -3,13 +3,11 @@ import { Button, button } from '../../../shared/ui'
 import { MAILTO } from '../../../shared/config/contact'
 import { useScrolled, useMobileMenu, useDarkMode, type ThemeMode } from '../../../shared/hooks'
 import { isActiveRoute } from '../../../shared/utils'
+import { useLanguage } from '../../../shared/i18n'
 import * as s from './navbar.css'
 
-const NAV_ITEMS = [
-  { label: 'Home', href: '/' },
-  { label: 'Projects', href: '/projects' },
-  { label: 'About', href: '/about' },
-]
+const NAV_ITEMS_KEYS = ['home', 'projects', 'about'] as const
+const NAV_HREFS = { home: '/', projects: '/projects', about: '/about' }
 
 // ── Sub-components ────────────────────────────────────────────────────────────
 
@@ -35,24 +33,43 @@ const ThemeToggle = ({ mode, onToggle }: { mode: ThemeMode; onToggle: () => void
   </button>
 )
 
-const DesktopNav = ({ pathname, mode, onThemeToggle }: { pathname: string; mode: ThemeMode; onThemeToggle: () => void }) => (
-  <div className={s.right}>
-    <nav className={s.pillGroup} aria-label="Primary navigation">
-      {NAV_ITEMS.map(({ label, href }) => (
-        <Link key={label} href={href} className={isActiveRoute(href, pathname) ? button.navPillActive : button.navPill}>
-          {label}
-        </Link>
-      ))}
-    </nav>
-    <span className={s.desktopOnly}><ThemeToggle mode={mode} onToggle={onThemeToggle} /></span>
-    <Button as="a" href={MAILTO} className={`${button.primary} ${s.desktopOnly}`}>
-      Hire me
-      <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5 12h14M12 5l7 7-7 7" />
-      </svg>
-    </Button>
-  </div>
+const LangToggle = ({ lang, onToggle }: { lang: 'ko' | 'en'; onToggle: () => void }) => (
+  <button className={s.langToggle} aria-label="Toggle language" onClick={onToggle}>
+    {lang === 'ko' ? 'EN' : 'KO'}
+  </button>
 )
+
+const DesktopNav = ({
+  pathname,
+  mode,
+  onThemeToggle,
+}: {
+  pathname: string
+  mode: ThemeMode
+  onThemeToggle: () => void
+}) => {
+  const { t, lang, toggle: toggleLang } = useLanguage()
+
+  return (
+    <div className={s.right}>
+      <nav className={s.pillGroup} aria-label="Primary navigation">
+        {NAV_ITEMS_KEYS.map((key) => (
+          <Link key={key} href={NAV_HREFS[key]} className={isActiveRoute(NAV_HREFS[key], pathname) ? button.navPillActive : button.navPill}>
+            {t.nav[key]}
+          </Link>
+        ))}
+      </nav>
+      <span className={s.desktopOnly}><ThemeToggle mode={mode} onToggle={onThemeToggle} /></span>
+      <span className={s.desktopOnly}><LangToggle lang={lang} onToggle={toggleLang} /></span>
+      <Button as="a" href={MAILTO} className={`${button.primary} ${s.desktopOnly}`}>
+        {t.nav.hireMe}
+        <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </Button>
+    </div>
+  )
+}
 
 const HamburgerButton = ({ open, onToggle }: { open: boolean; onToggle: () => void }) => (
   <button className={s.hamburger} aria-label="Toggle menu" aria-expanded={open} onClick={onToggle}>
@@ -68,17 +85,21 @@ const HamburgerButton = ({ open, onToggle }: { open: boolean; onToggle: () => vo
   </button>
 )
 
-const MobileMenu = ({ pathname }: { pathname: string }) => (
-  <div className={s.mobileMenu} aria-label="Mobile navigation">
-    <nav className={s.mobileNavList}>
-      {NAV_ITEMS.map(({ label, href }) => (
-        <Link key={label} href={href} className={isActiveRoute(href, pathname) ? s.mobileNavItemActive : s.mobileNavItem}>
-          {label}
-        </Link>
-      ))}
-    </nav>
-  </div>
-)
+const MobileMenu = ({ pathname }: { pathname: string }) => {
+  const { t } = useLanguage()
+
+  return (
+    <div className={s.mobileMenu} aria-label="Mobile navigation">
+      <nav className={s.mobileNavList}>
+        {NAV_ITEMS_KEYS.map((key) => (
+          <Link key={key} href={NAV_HREFS[key]} className={isActiveRoute(NAV_HREFS[key], pathname) ? s.mobileNavItemActive : s.mobileNavItem}>
+            {t.nav[key]}
+          </Link>
+        ))}
+      </nav>
+    </div>
+  )
+}
 
 // ── Navbar ────────────────────────────────────────────────────────────────────
 
@@ -87,6 +108,7 @@ export const Navbar = () => {
   const scrolled = useScrolled()
   const { open, toggle } = useMobileMenu(pathname)
   const { mode, toggle: toggleTheme } = useDarkMode()
+  const { lang, toggle: toggleLang } = useLanguage()
 
   return (
     <>
@@ -96,6 +118,7 @@ export const Navbar = () => {
           <DesktopNav pathname={pathname} mode={mode} onThemeToggle={toggleTheme} />
           <div className={s.mobileRight}>
             <ThemeToggle mode={mode} onToggle={toggleTheme} />
+            <LangToggle lang={lang} onToggle={toggleLang} />
             <HamburgerButton open={open} onToggle={toggle} />
           </div>
         </div>

@@ -169,6 +169,30 @@ export const themeToggle = style({
   },
 })
 
+export const langToggle = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '40px',
+  padding: `0 ${vars.space[3]}`,
+  background: 'none',
+  border: 'none',
+  borderRadius: vars.radii.full,
+  color: vars.color.gray[500],
+  cursor: 'pointer',
+  fontSize: vars.fontSize.sm,
+  fontWeight: vars.fontWeight.semibold,
+  letterSpacing: vars.letterSpacing.wide,
+  transition: vars.transition.fast,
+  flexShrink: 0,
+  selectors: {
+    '&:hover': {
+      color: vars.color.dark,
+      backgroundColor: vars.color.gray[200],
+    },
+  },
+})
+
 export const mobileRight = style({
   display: 'none',
   alignItems: 'center',

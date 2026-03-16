@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { useLocation } from 'wouter'
 import { tag } from '../../../shared/ui'
-import { PROJECTS } from '../data/projects'
+import { getProjects } from '../data/projects'
+import { useLanguage } from '../../../shared/i18n'
 import * as s from './portfolio.css'
-
-const FILTERS = ['All', 'SaaS', 'E-Commerce', 'CLO Virtual Fashion']
 
 const CARD_GRADIENTS = [
   'linear-gradient(135deg, #c8f5dc, #90e8b8)',
@@ -16,22 +15,24 @@ const CARD_GRADIENTS = [
 
 export const PortfolioPage = () => {
   const [, navigate] = useLocation()
-  const [activeFilter, setActiveFilter] = useState('All')
+  const { t, lang } = useLanguage()
+  const projects = getProjects(lang)
 
-  const filtered = activeFilter === 'All'
-    ? PROJECTS
+  const FILTERS = [t.portfolio.filterAll, 'SaaS', 'E-Commerce', 'CLO Virtual Fashion']
+  const [activeFilter, setActiveFilter] = useState(t.portfolio.filterAll)
+
+  const filtered = activeFilter === t.portfolio.filterAll
+    ? projects
     : activeFilter === 'CLO Virtual Fashion'
-      ? PROJECTS.filter(p => p.company === activeFilter)
-      : PROJECTS.filter(p => p.category === activeFilter)
+      ? projects.filter(p => p.company === activeFilter)
+      : projects.filter(p => p.category === activeFilter)
 
   return (
     <main className={s.page}>
       <div className={s.gridContainer}>
         <header className={s.gridHeader}>
-          <h1 className={s.gridTitle}>Projects</h1>
-          <p className={s.gridSubtitle}>
-            Frontend engineering work across product, infrastructure, and developer experience.
-          </p>
+          <h1 className={s.gridTitle}>{t.portfolio.title}</h1>
+          <p className={s.gridSubtitle}>{t.portfolio.subtitle}</p>
         </header>
 
         <div className={s.filterRow}>

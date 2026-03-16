@@ -1,19 +1,14 @@
 import { GlowBlob } from './GlowBlob'
 import { BadgeCard } from '../../../shared/ui/badge/BadgeCard'
-import { PROJECTS } from '../../../pages/portfolio/data/projects'
+import { getProjects } from '../../../pages/portfolio/data/projects'
 import { useTypeWriter } from '../../../shared/hooks'
+import { useLanguage } from '../../../shared/i18n'
 import * as s from './hero.css'
 
-const WORDS = ['systems', 'architectures', 'AI workflows', 'solutions', 'products', 'experiences']
-
-const BADGES = [
-  { label: 'Experience', title: '6+ YRS', sub: 'FRONTEND' },
-  { label: 'Projects', title: `${PROJECTS.length}`, sub: 'COMPLETED' },
-  { label: 'Focus', title: 'REACT', sub: 'TYPESCRIPT' },
-]
-
 export const Hero = () => {
-  const displayed = useTypeWriter(WORDS)
+  const { t, lang } = useLanguage()
+  const displayed = useTypeWriter(t.hero.words)
+  const projectCount = getProjects(lang).length
 
   return (
     <section className={s.section} id="home">
@@ -21,9 +16,9 @@ export const Hero = () => {
       <div className={s.container}>
         <div className={s.content}>
           <h1 className={s.heading}>
-            <span className={s.headingNoWrap}>Frontend engineer.</span>
+            <span className={s.headingNoWrap}>{t.hero.sentence1}</span>
             <br />
-            I turn problems into{' '}
+            {t.hero.sentence2prefix}
             <span className={s.headingHighlight}>
               <span
                 className={s.headingHighlightText}
@@ -31,12 +26,13 @@ export const Hero = () => {
                 aria-atomic="true"
               >{displayed}</span>
             </span>
+            {t.hero.sentence2suffix}
           </h1>
 
           <div className={s.badgeRow}>
-            {BADGES.map(({ label, title, sub }) => (
-              <BadgeCard key={label} label={label} title={title} sub={sub} />
-            ))}
+            <BadgeCard label={t.hero.badges.exp.label} title={t.hero.badges.exp.title} sub={t.hero.badges.exp.sub} />
+            <BadgeCard label={t.hero.badges.proj.label} title={`${projectCount}`} sub={t.hero.badges.proj.sub} />
+            <BadgeCard label={t.hero.badges.focus.label} title={t.hero.badges.focus.title} sub={t.hero.badges.focus.sub} />
           </div>
         </div>
 
