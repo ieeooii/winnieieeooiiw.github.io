@@ -35,7 +35,7 @@ const ThemeToggle = ({ mode, onToggle }: { mode: ThemeMode; onToggle: () => void
 
 const LangToggle = ({ lang, onToggle }: { lang: 'ko' | 'en'; onToggle: () => void }) => (
   <button className={s.langToggle} aria-label="Toggle language" onClick={onToggle}>
-    {lang === 'ko' ? 'EN' : 'KO'}
+    {lang === 'ko' ? 'KO' : 'EN'}
   </button>
 )
 
