@@ -19,7 +19,7 @@ export const ko: Translations = {
     },
   },
   footer: {
-    tagline: '문제는 구조가 됩니다.\n— AI는 그저 제 작업 방식입니다.',
+    tagline: '문제를 구조로 바꾸다.\n— AI는 일하는 방법론이다.',
     contact: '연락처',
     copyright: '© 2026 Woojin Lee. All rights reserved.',
   },
@@ -58,6 +58,9 @@ export const ko: Translations = {
     sectionPub: 'Publication',
     pubAbstractLabel: 'Abstract ↓',
     sectionTraining: 'Training / Certification',
+  },
+  projects: {
+    viewAll: '전체 프로젝트\n보러가기',
   },
   portfolio: {
     title: 'Projects',

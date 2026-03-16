@@ -44,4 +44,7 @@ export type Translations = {
     subtitle: string
     filterAll: string
   }
+  projects: {
+    viewAll: string
+  }
 }

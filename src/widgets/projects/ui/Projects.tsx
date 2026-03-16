@@ -1,15 +1,18 @@
 import { useHashLocation } from 'wouter/use-hash-location'
 import { Tag, tag } from '../../../shared/ui'
-import { PROJECTS } from '../../../pages/portfolio/data/projects'
+import { getProjects } from '../../../pages/portfolio/data/projects'
+import { useLanguage } from '../../../shared/i18n'
 import * as s from './projects.css'
 
 const FEATURED_IDS = ['monorepo', 'error-system', 'pricing']
 
 export const Projects = () => {
   const [, navigate] = useHashLocation()
+  const { t, lang } = useLanguage()
+  const projects = getProjects(lang)
   const featured = FEATURED_IDS
-    .map(id => PROJECTS.find(p => p.id === id))
-    .filter(Boolean) as typeof PROJECTS
+    .map(id => projects.find(p => p.id === id))
+    .filter(Boolean) as ReturnType<typeof getProjects>
 
   return (
     <section className={s.section} id="works">
@@ -48,14 +51,18 @@ export const Projects = () => {
           {/* CTA slot */}
           <div
             className={s.ctaCard}
-            aria-label="View all projects"
+            aria-label={t.projects.viewAll}
             onClick={() => navigate('/projects')}
             style={{ cursor: 'pointer' }}
           >
             <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M19 14l-7 7m0 0l-7-7m7 7V3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
             </svg>
-            <p className={s.ctaText}>/ View all<br />projects /</p>
+            <p className={s.ctaText}>
+              {t.projects.viewAll.split('\n').map((line, i, arr) => (
+                <span key={i}>{i === 0 ? `/ ${line}` : line}{i < arr.length - 1 ? <br /> : ' /'}</span>
+              ))}
+            </p>
           </div>
         </div>
       </div>

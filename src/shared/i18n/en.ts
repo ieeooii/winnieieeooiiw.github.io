@@ -62,6 +62,9 @@ export const en: Translations = {
     pubAbstractLabel: 'Abstract ↓',
     sectionTraining: 'Training / Certification',
   },
+  projects: {
+    viewAll: 'View all\nprojects',
+  },
   portfolio: {
     title: 'Projects',
     subtitle: 'Frontend engineering work across product, infrastructure, and developer experience.',
