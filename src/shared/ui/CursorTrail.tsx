@@ -3,7 +3,7 @@ import { vars } from '../styles/tokens.css'
 
 export const CursorTrail = () => {
   const dotRef = useRef<SVGSVGElement>(null)
-  const [visible] = useState(() => !window.matchMedia('(pointer: coarse)').matches)
+  const [visible] = useState(() => window.matchMedia('(pointer: fine) and (hover: hover)').matches)
 
   useEffect(() => {
     if (!visible) return
