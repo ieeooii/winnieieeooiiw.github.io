@@ -212,12 +212,12 @@ createGlobalTheme(':root', vars, {
 
 createGlobalTheme('[data-theme="dark"]', vars, {
   color: {
-    brand: '#5dd98f',
-    brandHover: '#4dcc82',
-    brandMuted: 'rgba(93, 217, 143, 0.12)',
+    brand: '#1f894e',
+    brandHover: '#1a7a45',
+    brandMuted: 'rgba(31, 137, 78, 0.15)',
     dark: '#f0f0f0',
     white: '#242424',
-    nameText: 'rgba(93, 217, 143, 0.6)',
+    nameText: 'rgba(31, 137, 78, 0.7)',
     navbarBg: 'rgba(28, 28, 28, 0.85)',
     semantic: {
       problem: '#f87171',
