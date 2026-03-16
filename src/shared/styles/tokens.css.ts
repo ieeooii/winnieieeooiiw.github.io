@@ -217,7 +217,7 @@ createGlobalTheme('[data-theme="dark"]', vars, {
     brandMuted: 'rgba(9, 159, 123, 0.15)',
     dark: '#f0f0f0',
     white: '#242424',
-    nameText: '#002a20b3',
+    nameText: '#001813',
     navbarBg: 'rgba(28, 28, 28, 0.85)',
     semantic: {
       problem: '#f87171',
