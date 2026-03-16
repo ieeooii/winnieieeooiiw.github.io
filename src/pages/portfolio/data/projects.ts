@@ -35,7 +35,7 @@ function parseProject(path: string, content: string): Project {
   const company = getTableValue(content, '회사') || getTableValue(content, 'Company')
   const category = getTableValue(content, '카테고리') || getTableValue(content, 'Category')
   const period = getTableValue(content, '개발 기간') || getTableValue(content, 'Period')
-  const stackRaw = getTableValue(content, '기술 스택') || getTableValue(content, 'Stack')
+  const stackRaw = getTableValue(content, '기술 스택') || getTableValue(content, 'Tech Stack') || getTableValue(content, 'Stack')
   const stack = stackRaw.split(',').map(s => s.trim()).filter(Boolean)
 
   return { id, title, company, category, period, stack, rawContent: content }

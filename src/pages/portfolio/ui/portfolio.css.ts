@@ -24,7 +24,7 @@ export const gridContainer = style({
 })
 
 export const gridHeader = style({
-  marginBottom: vars.space[32],
+  marginBottom: '12rem',
   display: 'flex',
   alignItems: 'flex-start',
   justifyContent: 'space-between',
@@ -57,7 +57,7 @@ export const filterRow = style({
   display: 'flex',
   flexWrap: 'wrap',
   gap: vars.space[2],
-  marginBottom: vars.space[20],
+  marginBottom: vars.space[24],
 })
 
 const filterBase = style({
@@ -90,7 +90,7 @@ export const filterTagActive = style([filterBase, {
 export const projectGrid = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
-  columnGap: vars.space[12],
+  columnGap: vars.space[16],
   rowGap: vars.space[12],
   '@media': {
     '(max-width: 1024px)': {

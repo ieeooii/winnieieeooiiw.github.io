@@ -5,7 +5,7 @@ export const ko: Translations = {
     home: '홈',
     projects: '프로젝트',
     about: '소개',
-    hireMe: '채용 문의',
+    hireMe: '함께 일해요',
   },
   hero: {
     sentence1: 'Frontend engineer.',
@@ -61,7 +61,7 @@ export const ko: Translations = {
   },
   portfolio: {
     title: 'Projects',
-    subtitle: '제품, 인프라, 개발자 경험 전반에 걸친 프론트엔드 엔지니어링 작업.',
+    subtitle: 'Frontend engineering work across product, infrastructure, and developer experience.',
     filterAll: '전체',
   },
 }
