@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css'
+import { globalStyle, style } from '@vanilla-extract/css'
 import { vars } from '../../../shared/styles/tokens.css'
 
 export const section = style({
@@ -127,6 +127,11 @@ export const glowBlob = style({
   inset: 0,
   zIndex: 0,
   pointerEvents: 'none',
+  color: vars.color.brand,
+})
+
+globalStyle(`[data-theme="dark"] .${glowBlob}`, {
+  color: '#3dba74',
 })
 
 export const glow = style({
