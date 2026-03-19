@@ -1,22 +1,19 @@
 import { getTableValue, getPeriodStart } from '../../../shared/utils'
 import type { Lang } from '../../../shared/i18n'
 
-const rawFilesKo = import.meta.glob<string>('/project/*.md', {
+const rawFilesKo = import.meta.glob<string>('/project/ko/*.md', {
   query: '?raw',
   import: 'default',
   eager: true,
 })
 
-const rawFilesEn = import.meta.glob<string>('/project/*.en.md', {
+const rawFilesEn = import.meta.glob<string>('/project/en/*.md', {
   query: '?raw',
   import: 'default',
   eager: true,
 })
 
-// Filter out .en.md files from the base ko map
-const koFiles = Object.fromEntries(
-  Object.entries(rawFilesKo).filter(([p]) => !p.endsWith('.en.md'))
-)
+const koFiles = rawFilesKo
 
 export type Project = {
   id: string
@@ -44,7 +41,7 @@ function parseProject(path: string, content: string): Project {
 export function getProjects(lang: Lang = 'ko'): Project[] {
   return Object.entries(koFiles)
     .map(([path, koContent]) => {
-      const enKey = path.replace('.md', '.en.md')
+      const enKey = path.replace('/project/ko/', '/project/en/')
       const content = lang === 'en' ? (rawFilesEn[enKey] ?? koContent) : koContent
       return parseProject(path, content)
     })
