@@ -11,11 +11,23 @@
 
 ## 소개
 
-Free / Academic / Pro / Enterprise 4개 플랜 구조에서 embed 횟수·렌더링 용량·파일 업로드·Workroom 생성·API 토큰 등 5가지 이상의 독립적인 사용량 제한 시스템을 구현했다. 한도 초과 시 업그레이드 유도 플로우와 퍼널 분석 로깅까지 포함한다.
+가격 정책 개편 시 유료 전환율 저하 문제를 데이터 기반으로 해결한 1단계(2022)와, Free / Academic / Pro / Enterprise 4개 플랜 구조에서 embed 횟수·렌더링 용량·파일 업로드·Workroom 생성·API 토큰 등 5가지 이상의 독립적인 사용량 제한 시스템을 구현한 2단계(2024 ~ 2025)로 나뉜다. 한도 초과 시 업그레이드 유도 플로우와 퍼널 분석 로깅까지 포함한다.
 
 ---
 
 ## 주요 구현
+
+### | FE 로깅 설계 및 구현
+- **Solve**: DE·DA와 이벤트 스펙 협의. 클릭·뷰·CTA 등 전환 퍼널 핵심 지점에 trackEvent() 기반 로깅 구현.
+
+---
+
+### | 퍼널 분석 기반 UX 개선
+- **Solve**: 퍼널 분석을 통해 전환 효과가 낮은 구간을 식별하고 개선된 UX·UI를 개발 및 적용.
+- **Result**: 가격 정책 개편 초기 유료 전환율 약 +10% 달성. 퍼널 분석 기반 UX 개선으로 추가 +4% 향상 (총 14%↑).
+- **Insight**: 이벤트마다 trackEvent()를 직접 호출하는 방식으로 구현했으며, HOC나 Custom Hook 기반 로깅 모듈로 추상화하면 관심사 분리와 유지보수 측면에서 더 적합.
+
+---
 
 ### | 글로벌 UsageLimitExceededModal 단일화
 
@@ -38,6 +50,13 @@ Free / Academic / Pro / Enterprise 4개 플랜 구조에서 embed 횟수·렌더
 - **Problem**: Space 구조 복사는 여러 단계의 API 호출을 순차 처리하는 플로우인데, 중간 단계에서 workroom 생성 한도를 초과해도 사용자에게 아무런 안내 없이 복사가 실패했다. 복사 완료 후 home store의 `itemData`에 `newSpaceId`가 반영되지 않아 UI가 갱신되지 않는 버그도 있었다.
 - **Solve**: 복사 플로우의 각 단계에서 한도 초과 응답 감지 시 `UsageLimitExceededModal` 트리거. `newSpaceId`를 home store의 `itemData`에 추가하여 복사 후 UI 즉시 반영.
 - **Result**: 복사 중 한도 초과 시 명확한 안내 제공, 복사 완료 후 UI 정합성 확보
+
+---
+
+### | next/dynamic으로 번들 분리
+- **Problem**: `PreLimitAlertBanner` 컴포넌트는 사용량 한도 임박 소수 사용자에게만 표시되지만, 정적 import로 처리되어 모든 사용자의 초기 번들에 포함됐다.
+- **Solve**: `next/dynamic`을 사용한 동적 import로 전환해, 실제로 배너가 필요한 시점에만 청크를 로드하도록 변경.
+- **Result**: 초기 번들 사이즈 감소, 대부분의 사용자는 불필요한 코드를 로드하지 않음
 
 ---
 
