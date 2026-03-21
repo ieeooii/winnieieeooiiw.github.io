@@ -1,4 +1,9 @@
-# Monorepo Migration & Web Platform Renewal
+---
+thumbnail: /images/projects/202305-monorepo-3d-viewer-renewal.png
+gradient: linear-gradient(135deg, #eaeaed, #d0d2d8)
+---
+
+# Multi-App Codebase Consolidation & Web Platform Performance Improvement
 
 | Field | Details |
 |-------|---------|
@@ -12,6 +17,10 @@
 ## Overview
 
 Resolved increasing build times, excessive code dependencies, and deteriorating Core Web Vitals from the legacy One-Repo structure. Solely led the entire process: initial design of CLO-SET v3's yarn workspaces-based monorepo, building a shared API client package, and redesigning the App Router-based architecture. The monorepo migration achieved 40% loading speed improvement and 35% Core Web Vitals improvement.
+
+## Key Features
+
+![Monorepo 3D Viewer Renewal](/images/projects/202305-monorepo-3d-viewer-renewal.png)
 
 ## Key Implementations
 
@@ -44,7 +53,7 @@ Resolved increasing build times, excessive code dependencies, and deteriorating 
 - **Solve**: Enforced commit conventions via commitlint + Husky. Applied consistent lint rules across packages via a shared ESLint config package. Configured esbuild-based package builds and Slack webhook build notifications.
 - **Result**: Style-related comments in PR reviews decreased; automated CI verification enabled.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 - Initial monorepo structural decisions determined the direction for tens of packages, so I approached this carefully. This project made it tangible just how much the version abstraction of shared packages reduces migration costs.
 - Getting the shared API package interface right upfront meant the subsequent v2→v3 API migration required only internal package changes with no app code changes — an impressive outcome.

@@ -1,4 +1,9 @@
-# 모노레포 도입 및 웹 플랫폼 리뉴얼
+---
+thumbnail: /images/projects/202305-monorepo-3d-viewer-renewal.png
+gradient: linear-gradient(135deg, #eaeaed, #d0d2d8)
+---
+
+# 멀티 앱 코드베이스 통합 및 웹 플랫폼 성능 개선
 
 | 항목 | 내용 |
 |------|------|
@@ -12,6 +17,10 @@
 ## 소개
 
 레거시 One-Repo 구조로 인한 빌드 타임 증가와 과도한 코드 의존성, Core Web Vitals 지표 악화 문제 해결. CLO-SET v3 프로젝트의 yarn workspaces 기반 모노레포를 초기 설계하고, 공통 API 클라이언트 패키지 구축 및 App Router 기반 아키텍처 재설계까지 전 과정을 주도했다. 모노레포 전환으로 로딩 속도 40% 개선, 핵심 성능 지표 35% 향상.
+
+## 주요 기능
+
+![모노레포 3D 뷰어 리뉴얼](/images/projects/202305-monorepo-3d-viewer-renewal.png)
 
 ## 주요 구현
 
@@ -44,7 +53,7 @@
 - **Solve**: commitlint + Husky로 커밋 컨벤션 강제. ESLint 공유 config 패키지로 일관된 린트 규칙 적용. esbuild 기반 패키지 빌드 설정, Slack webhook 연동 빌드 알림 구성.
 - **Result**: PR 리뷰에서 스타일 지적이 줄고, CI에서 자동 검증 가능해짐.
 
-## 회고
+## 회고 / 아쉬웠던 점
 
 - 모노레포 초기 구조 결정이 이후 수십 개 패키지의 방향을 결정하는 만큼 신중하게 접근했다. 공통 패키지의 버전 추상화가 마이그레이션 비용을 얼마나 줄여주는지 실감할 수 있었던 프로젝트였다.
 - 초기에 공통 API 패키지 인터페이스를 잘 잡아둔 덕분에 이후 v2→v3 API 마이그레이션이 앱 코드 변경 없이 패키지 내부만 수정하면 됐던 점이 인상적이었다.

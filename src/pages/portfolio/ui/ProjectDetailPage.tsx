@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import rehypeRaw from 'rehype-raw'
 import { useParams } from 'wouter'
 import { getProjects } from '../data/projects'
 import { useLanguage } from '../../../shared/i18n'
@@ -15,7 +16,20 @@ export const ProjectDetailPage = () => {
     <main className={s.page}>
       <div className={s.detailContainer}>
         <div className={s.markdownBody}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{project.rawContent}</ReactMarkdown>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
+            components={{
+              img: ({ src, alt }) => (
+                <figure className={s.figure}>
+                  <img src={src} alt={alt} className={s.figureImg} />
+                  {alt && <figcaption className={s.figureCaption}>{alt}</figcaption>}
+                </figure>
+              ),
+            }}
+          >
+            {project.rawContent}
+          </ReactMarkdown>
         </div>
       </div>
     </main>

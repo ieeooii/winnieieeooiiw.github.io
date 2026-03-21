@@ -1,4 +1,9 @@
-# 3D Viewer Pin Annotation & Thread Comment Collaboration
+---
+thumbnail: /images/projects/202312-annotation-thumbnail.png
+gradient: linear-gradient(135deg, #d4e8ec, #a8cdd2)
+---
+
+# 3D Viewer Position-based Comment & Thread Collaboration
 
 | Field | Details |
 |-------|---------|
@@ -13,6 +18,17 @@
 ## Overview
 
 Developed two comment systems simultaneously as collaboration features. Annotation pins are placed on the 3D viewer canvas to attach comments to specific positions, while Comment is a general thread system on content pages. Both systems support text + image attachments, @mentions, and nested replies. The editor (`CommentEditor.tsx`) and mention components are shared, with each system composing them as needed.
+
+## Key Features
+
+<div class="img-row-2">
+
+![Annotation Button](/images/projects/202005-comment-annotation-button.png)
+![Annotation Copy Modal](/images/projects/202005-comment-annotation-modal.png)
+![Annotation Copying](/images/projects/202005-comment-annotation-copying.png)
+![Annotation Copied](/images/projects/202005-comment-annotation-copied.png)
+
+</div>
 
 ## Key Implementations
 
@@ -37,6 +53,6 @@ Developed two comment systems simultaneously as collaboration features. Annotati
 - **Solve**: Separated into `AnnotationCommentReplyItem.tsx` (Thread level) and `AnnotationCommentChildItem.tsx` (Reply level). Added `event.stopPropagation()` in the Reply-level keyboard handler to prevent bubbling to the Thread level. Managed open/close state independently at each level with local state.
 - **Result**: Independent keyboard interactions at both comment hierarchy levels; ESC events no longer unintentionally propagate across levels
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 Editor components have abundant UX requirements and edge cases. This work gave me a clear understanding that "event delegation and `stopPropagation` work in opposite directions" — delegation leverages bubbling while `stopPropagation` breaks it. When using both patterns together, which level should break the chain must be decided during component hierarchy design.

@@ -27,6 +27,6 @@ Designed and implemented a priority-based banner queue system to handle complex 
 - **Solve**: Included `groupId` in the localStorage key, designing the format as `{bannerType}_{groupId}`. Added defensive code to check for the existence of `value` before the expiry check. Extracted the expiry check logic into a dedicated utility.
 - **Result**: Independent banner dismissal state per group; edge cases in localStorage parsing handled defensively
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 The hotfix happened right after deploying this system. This was a firsthand lesson that client storage must always be parsed defensively under the assumption that "data may be missing or malformed." After this, I made it a habit to always check for type and existence before accessing localStorage.

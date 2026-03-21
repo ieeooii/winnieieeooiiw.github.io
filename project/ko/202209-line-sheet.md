@@ -1,4 +1,9 @@
-# Line Sheet — 패션 상품 기획용 인터랙티브 스프레드시트 개발
+---
+thumbnail: /images/projects/202209-line-sheet-list-view.png
+gradient: linear-gradient(135deg, #e8f0fc, #c8d8f8)
+---
+
+# 패션 시즌 상품 기획용 인터랙티브 스프레드시트 개발
 
 | 항목 | 내용 |
 |------|------|
@@ -13,6 +18,18 @@
 ## 소개
 
 패션 MD(머천다이저)가 시즌별 상품 기획·관리에 사용하는 스프레드시트형 문서를 CLOSET 안에서 3D 의류 에셋과 연동한 인터랙티브 Line Sheet(시즌별 상품 목록표)로 구현했다. Beta(썸네일 그리드 + 무한스크롤) → Phase 1(AG Grid 인라인 편집) → Phase 2(Excel Export) 단계별로 개발했다.
+
+## 주요 기능
+
+<div class="img-row-2">
+
+![Line Sheet 리스트 뷰](/images/projects/202209-line-sheet-list-view.png)
+![Line Sheet 썸네일 뷰](/images/projects/202209-line-sheet-thumbnail-view.png)
+![Line Sheet 썸네일 상세](/images/projects/202209-line-sheet-thumbnail-detail.png)
+![Line Sheet 로딩 상태](/images/projects/202209-line-sheet-loading.png)
+![Company Library](/images/projects/202209-line-sheet-company-library.png)
+
+</div>
 
 ## 주요 구현
 
@@ -39,6 +56,6 @@
 - **Solve**: AG Grid의 `rowSpan` 콜백을 컬럼 정의에 추가하고, spanning 대상 셀에 `.show-cell` CSS 클래스를 동적으로 부여해 병합된 셀만 보이도록 처리. 배경색과 보더 스타일도 병합 셀 기준으로 별도 조정.
 - **Result**: 1:N 컬러웨이 구조가 시각적으로 자연스럽게 병합 표시되어 스프레드시트 UX와 동일한 수준의 가독성 확보
 
-## 회고
+## 회고 / 아쉬웠던 점
 
 AG Grid는 낮은 추상화 수준 덕분에 세밀한 커스터마이징이 가능했지만, React 단방향 데이터 흐름과 AG Grid 자체 내부 상태가 충돌하는 케이스를 여러 번 마주쳤다. 특히 AG Grid 셀 안에서 React 컴포넌트(Select, Datepicker 등)를 렌더링할 때 `forwardRef` 처리와 `next/dynamic` 중복 import 문제가 예상보다 복잡했다. 서드파티 라이브러리를 프레임워크와 통합할 때는 각 라이브러리의 라이프사이클이 어떻게 충돌할 수 있는지를 먼저 파악해야 한다는 것을 배웠다.

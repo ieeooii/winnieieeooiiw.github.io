@@ -1,4 +1,9 @@
-# Content Move Modal Development
+---
+thumbnail: /images/projects/202007-move.png
+gradient: linear-gradient(135deg, #d8eef8, #b0d4ec)
+---
+
+# Content Move Feature Development
 
 | Field | Details |
 |-------|---------|
@@ -12,6 +17,10 @@
 ## Overview
 
 Developed the full Move UI for relocating 3D clothing content items to other spaces (Workroom / Season). A composite flow supporting single-item moves, multi-select (MultiSelect) bulk moves, and workroom/season-level moves. Designed a 3-step modal chain of **"Select Space → Confirm Move → Complete"**, with the core technical challenge being real-time validation of permissions and depth limits while navigating a space hierarchy via a lazy-loaded tree. The `SelectSpaceTree` component was designed from the start to be reusable for Copy functionality as well, ensuring UI consistency between both features.
+
+## Key Features
+
+![Content Move](/images/projects/202007-move.png)
 
 ## Key Implementations
 
@@ -45,6 +54,6 @@ Developed the full Move UI for relocating 3D clothing content items to other spa
 - The tree component is dynamically imported via `next/dynamic` with SSR disabled — the tree menu's scrollbar and position calculations operate based on the browser DOM.
 - The recently moved spaces list ("Recent" tab) is asynchronously loaded from the store for quick access to frequently used locations.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 The most complex part of this feature was "state management in the modal chain." Each step needed to be independent, yet the overall flow had to be orchestrated by a single controller. Initially tried managing all step state in the parent component, but as steps increased, props multiplied and it became hard to track which state was used at which step. The structure became simpler once each step component owned its own open/close state and only data needed between steps (selected space info) was lifted up. Fixing the "list not refreshing after move complete" bug also reaffirmed that **side effects occurring in components separated from their parent (like modals) must be explicitly surfaced via callback props**.

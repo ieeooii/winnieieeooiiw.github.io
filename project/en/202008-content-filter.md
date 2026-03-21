@@ -59,6 +59,6 @@ A filter system for the 3D clothing content list page that lets users combine co
 - Replaced with design system's `PickerFrame` / `PickerDropdown` common components to centralize dropdown open/close state management and outside click detection.
 - Discovered implicit dependencies between filter components during migration and explicitly redefined the props interface.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 The most critical decision in filter system design was **"using the URL as the single source of truth."** Placing filter state in the URL makes sharing, history tracking, and refresh restoration all naturally work — but requires a serialization/deserialization layer that updates the URL on every state change and restores state on URL changes. Judging that the UX benefits justified this complexity, shallow routing resolved the performance concern. This work also taught me through hands-on practice that state like sort method and view mode that represents "personal user preference" is better suited for LocalStorage/Cookie rather than URL.

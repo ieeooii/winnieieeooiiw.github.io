@@ -111,3 +111,57 @@ globalStyle(`${markdownBody} a`, {
   color: vars.color.brand,
   textDecoration: 'underline',
 })
+
+globalStyle(`${markdownBody} pre`, {
+  backgroundColor: '#1e1e2e',
+  color: '#cdd6f4',
+  borderRadius: vars.radii.lg,
+  padding: `${vars.space[5]} ${vars.space[6]}`,
+  overflowX: 'auto',
+  margin: `${vars.space[4]} 0 ${vars.space[6]}`,
+  fontSize: vars.fontSize.sm,
+  lineHeight: '1.7',
+  fontFamily: vars.font.mono,
+})
+
+globalStyle(`${markdownBody} pre code`, {
+  background: 'none',
+  padding: 0,
+  fontSize: 'inherit',
+  color: 'inherit',
+  borderRadius: 0,
+  fontFamily: 'inherit',
+})
+
+globalStyle(`${markdownBody} code`, {
+  backgroundColor: vars.color.gray[200],
+  color: vars.color.dark,
+  fontFamily: vars.font.mono,
+  fontSize: '0.875em',
+  padding: `2px ${vars.space[2]}`,
+  borderRadius: vars.radii.sm,
+})
+
+globalStyle(`${markdownBody} .img-row-2`, {
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
+  gap: vars.space[4],
+  margin: `${vars.space[8]} 0`,
+})
+
+globalStyle(`${markdownBody} .img-row-3`, {
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr 1fr',
+  gap: vars.space[4],
+  margin: `${vars.space[8]} 0`,
+})
+
+globalStyle(`${markdownBody} .img-row-2 p, ${markdownBody} .img-row-3 p`, {
+  display: 'contents',
+  margin: 0,
+})
+
+globalStyle(`${markdownBody} .img-row-2 figure, ${markdownBody} .img-row-3 figure`, {
+  margin: 0,
+  maxWidth: 'none',
+})

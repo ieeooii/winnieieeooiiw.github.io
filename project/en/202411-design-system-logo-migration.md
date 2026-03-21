@@ -33,6 +33,6 @@ Replaced all legacy `CLOSETLogo` components scattered across the service with th
 - Multiview: a page showing multiple content items simultaneously — verified that the variant is applied consistently when the same user's logo renders across multiple instances
 - Each case confirmed directly in the staging environment to complete migration without visual regression
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 Migration work is easily underestimated as "not real feature development," but it actually requires **understanding all usage contexts of the existing component and mapping them accurately to the new interface**. Especially when a new attribute like the plan-based variant is added that didn't exist in the original component, it's not a simple swap — it requires understanding the business logic at each usage site to inject the correct value. This experience reinforced that **when migrating a component to a design system, you need to first specify interface differences, then list per-usage-site discrepancies and verify sequentially**.

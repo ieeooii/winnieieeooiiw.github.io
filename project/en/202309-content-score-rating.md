@@ -1,4 +1,4 @@
-# Content Score / Rating Feature Development
+# Content Completeness Score & Rating Feature
 
 | Field | Details |
 |-------|---------|
@@ -33,6 +33,6 @@ A Score/Rating feature for evaluating the quality of 3D clothing content with st
 - Designed a drill-down hierarchy where clicking the summary score display component opens the per-item score detail modal.
 - Represented per-item weights and calculation methods in breakdown form for user comprehension.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 Optimistic Update significantly improves UX, but failing to handle rollback logic carefully causes data inconsistency in failure cases. Implementing React Query's `onMutate → onError → onSettled` cycle fully for the first time in this work taught me that **optimistic update is only complete when both the "success path" and "failure path" are designed together**. It also confirmed that permission-based UI branching is far better for maintainability when approached as "component mode switching" rather than "conditional handling."

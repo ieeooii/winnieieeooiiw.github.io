@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/202007-trash-setting.png
+gradient: linear-gradient(135deg, #e8e8e8, #c8c8c8)
+---
+
 # Trash — Deleted Item Restore Feature Development
 
 | Field | Details |
@@ -12,6 +17,10 @@
 ## Overview
 
 The Trash tab in Company Settings, where administrators can view deleted content items in a paginated list and restore them individually or in bulk. Consistently handling list refresh, selection state reset, and modal feedback after restore completion were the key design elements. Implemented a pattern where the design system's `Table` component is controlled via an **imperative ref pattern** to trigger deselection externally.
+
+## Key Features
+
+![Trash Setting](/images/projects/202007-trash-setting.png)
 
 ## Key Implementations
 
@@ -34,6 +43,6 @@ The Trash tab in Company Settings, where administrators can view deleted content
 - Restore complete: displays completion modal via `isCompleteModalOpen` state, then resets all feedback state at once via `clearStatus()`.
 - Completion modal and warning modal are lazy-loaded via `next/dynamic` to exclude them from the initial bundle — most users rarely encounter error or completion states.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 The Trash feature looks simple, but "how cleanly to clean up state after restore completion" determines UX quality. The `TableHandle` ref pattern seems contrary to React's declarative paradigm, but it is a useful escape hatch when selection reset for a component that manages its own internal state (like a table) must be triggered externally. This taught me that the design system component must expose an appropriate imperative API via `useImperativeHandle` for such control to be possible — meaning **when designing a component, you must also consider in advance what external commands might be needed**.

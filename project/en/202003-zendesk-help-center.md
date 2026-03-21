@@ -1,4 +1,9 @@
-# CLO-SET Customer Support Help Center — Zendesk Guide Custom Theme
+---
+thumbnail: /images/projects/202003-zendesk-helpcenter.png
+gradient: linear-gradient(135deg, #d8d8d8, #b0b0b0)
+---
+
+# Help Center Build — Custom Theme for External CMS
 
 | Field | Details |
 |-------|---------|
@@ -13,6 +18,10 @@
 ## Overview
 
 Built a self-service help center for CLO-SET's global customers on Zendesk Guide, and designed and implemented a custom theme aligned with CLO-SET brand identity. Fully customized Zendesk's default Copenhagen theme to deliver a help center with a Getting Started · Feature Manual · CLO-SET News · FAQ category structure and a hero search UI. The help center served as the primary self-service support channel for fashion brand customers worldwide to resolve CLO-SET usage questions on their own.
+
+## Key Features
+
+![Help Center Main](/images/projects/202003-zendesk-helpcenter.png)
 
 ## Key Implementations
 
@@ -31,6 +40,6 @@ Built a self-service help center for CLO-SET's global customers on Zendesk Guide
 - **Solve**: Used Zendesk Guide's `{{t 'key'}}` helper to separate UI strings into locale files. Utilized Zendesk's built-in i18n structure so the language auto-switches based on URL structure (`/hc/en-us`, `/hc/ko`, etc.).
 - **Result**: Built with English as default and extensible to additional languages. Established foundation for serving a global customer base.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 Zendesk Guide is a platform with limited flexibility, so the key was to first understand "how far can customization go." Once the Handlebars template and manifest variable system were understood, the implementation itself wasn't much different from standard HTML/CSS work — but implementing design intent within platform constraints was a different kind of problem-solving from typical web development. Working through this taught me that delivering a consistent brand experience across the service UI and the help center directly impacts customer trust, and that the UI/UX of support channels is also part of the product.

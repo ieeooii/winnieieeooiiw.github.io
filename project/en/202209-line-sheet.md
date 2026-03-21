@@ -1,4 +1,9 @@
-# Line Sheet — Interactive Fashion Merchandise Planning Spreadsheet
+---
+thumbnail: /images/projects/202209-line-sheet-list-view.png
+gradient: linear-gradient(135deg, #e8f0fc, #c8d8f8)
+---
+
+# Interactive Seasonal Merchandise Planning Spreadsheet
 
 | Field | Details |
 |-------|---------|
@@ -13,6 +18,18 @@
 ## Overview
 
 Implemented an interactive Line Sheet (seasonal product listing document) inside CLOSET, linking 3D fashion assets with the spreadsheet-style documents fashion MDs (Merchandisers) use for seasonal product planning and management. Developed in three phases: Beta (thumbnail grid + infinite scroll) → Phase 1 (AG Grid inline editing) → Phase 2 (Excel Export).
+
+## Key Features
+
+<div class="img-row-2">
+
+![Line Sheet List View](/images/projects/202209-line-sheet-list-view.png)
+![Line Sheet Thumbnail View](/images/projects/202209-line-sheet-thumbnail-view.png)
+![Line Sheet Thumbnail Detail](/images/projects/202209-line-sheet-thumbnail-detail.png)
+![Line Sheet Loading State](/images/projects/202209-line-sheet-loading.png)
+![Company Library](/images/projects/202209-line-sheet-company-library.png)
+
+</div>
 
 ## Key Implementations
 
@@ -39,6 +56,6 @@ Implemented an interactive Line Sheet (seasonal product listing document) inside
 - **Solve**: Added `rowSpan` callback to column definitions and dynamically assigned `.show-cell` CSS class to spanning target cells so only merged cells are visible. Separately adjusted background and border styles to align with merged cells.
 - **Result**: The 1:N colorway structure is visually merged naturally, achieving spreadsheet-level readability
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 AG Grid's low abstraction level enables fine-grained customization, but I repeatedly encountered cases where React's unidirectional data flow conflicted with AG Grid's internal state. In particular, `forwardRef` handling and `next/dynamic` duplicate import issues when rendering React components (Select, Datepicker, etc.) inside AG Grid cells were more complex than expected. When integrating third-party libraries with a framework, the key lesson is: understand how each library's lifecycle may conflict before starting.

@@ -26,6 +26,6 @@ Fixed two bugs in the CLOSET content search page and Room (workspace unit for st
 - **Solve**: In the copy mutation's `onSuccess` callback, explicitly ordered: first rollback the temporary item inserted by optimistic update, then `queryClient.invalidateQueries` to invalidate the list cache and refetch the latest state from the server.
 - **Result**: List duplicates after copying fully resolved; count accuracy maintained
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 "Bugs that don't reproduce on Mac" are always hard to debug. The Virtuoso bug was impossible to reproduce without a HiDPI environment, reinforcing that establishing a reproduction environment is a prerequisite for debugging. I learned that UI logic involving pixel-level calculations can vary subtly across OS/resolution/browser combinations, and that explicit `Math.floor/ceil` or fetch state guards are better defenses than integer comparisons that rely on assumptions.

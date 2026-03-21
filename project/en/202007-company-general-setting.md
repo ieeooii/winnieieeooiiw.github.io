@@ -39,6 +39,6 @@ The Company General Setting page where fashion brand administrators configure co
 - Developed `CompanyCurrencyUnitSetting` for setting currency units — receives `getCurrencyUnit` / `updateCurrencyUnit` as injected props to separate fetch and update operations.
 - On viewer option toggle (image viewer / pattern viewer activation) changes, calls `store.reloadItems()` to immediately refresh the content list.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 Settings pages look like "simple forms," but each item is connected to a different API and must handle individual failure cases and loading states. Managing toggle options as a declarative config array has a slightly higher upfront design cost, but the benefit is that new options can be added later without touching component code. This work reaffirmed that knowing when to abstract a repeating pattern is the essence of good design.

@@ -1,4 +1,9 @@
-# CLO-SET Admin Backoffice Project Architecture
+---
+thumbnail: /images/projects/202101-backoffice-admin.svg
+gradient: linear-gradient(135deg, #e8eaf0, #c8ccd8)
+---
+
+# Internal Admin Backoffice Initial Architecture
 
 | Field | Details |
 |-------|---------|
@@ -22,8 +27,6 @@ Participated from the ground up in the internal admin backoffice project that op
 - **Solve**: Isolated all template-specific code under `components/template/` and `pages/template/`, and separated shared admin UI into a `common/` namespace (e.g., `components/common/sidebar/`). Batch-updated import paths for 109 files, and updated all path references in `src/routes/templateRoutes.tsx`, `basicLayoutRoutes.tsx`, and `Routes.tsx`. Also converted React imports from `import React from 'react'` to `import * as React from 'react'` for consistency in the TypeScript strict environment.
 - **Result**: Complete separation of business code and template code; established a foundation where subsequent domain additions (Groups, Member, Marketplace, etc.) consistently follow the `src/components/{domain}/`, `src/containers/{domain}/`, `src/api/{domain}/` pattern.
 
-### Final Directory Convention
-
 ```
 src/
 ├── api/            # Domain-specific API request functions (groups, member, marketplace, ...)
@@ -38,8 +41,6 @@ src/
 ├── types/          # TypeScript type definitions (by domain)
 └── modules/        # Pure utility functions
 ```
-
----
 
 ## Key Implementations — State Management Architecture
 
@@ -88,22 +89,13 @@ const responseInterceptor = (response) => {
 
 - **Result**: Auth and transformation logic fully removed from API call code; backend response format changes handled at a single location.
 
----
-
 ## Key Implementations — GitHub Collaboration Workflow Setup
 
-### Issue Template Design (BUG_REPORT / FEATURE_TASK)
+### GitHub Issue & PR Template Design
 
-- **Problem**: When bug reports and feature requests are submitted in free-form, essential information like reproduction conditions and expected behavior is often missing, increasing communication overhead.
-- **Solve**: Created two templates: `.github/ISSUE_TEMPLATE/BUG_REPORT.md` (reproduction steps, expected behavior, environment info) and `FEATURE_TASK.md` (feature description, implementation checklist). Guides issue authors to provide structured information according to the template.
-
-### PR Template — 6 Checklist Types by Branch Type
-
-- **Problem**: During code reviews, reviewers had to repeatedly ask questions like "did you do a sanity test?" and "is QA complete?" PRs with different purposes — feature, fix, hotfix, deployment, documentation, code-review — were forced into the same format, creating noise from irrelevant items.
-- **Solve**: Designed `.github/PULL_REQUEST_TEMPLATE.md` as a single file with sections separated by HTML comments (`<!-- FEATURE BRANCH -->`). FEATURE PRs include 5 mandatory checklist items: sanity test / UX & SMOKE test / QA test / test code written / issue linked. HOTFIX PRs are simplified to 2 items: QA test / preview branch tested. A `[TICKET-NUMBER]` bracket format guide for automatic Jira issue linking is specified in the template.
+- **Issue Template**: Two templates — `.github/ISSUE_TEMPLATE/BUG_REPORT.md` (reproduction steps, expected behavior, environment info) and `FEATURE_TASK.md` (feature description, implementation checklist) — to prevent missing essential information.
+- **PR Template**: Designed as a single file with sections separated by HTML comments (`<!-- FEATURE BRANCH -->`). FEATURE PRs include 5 mandatory checklist items: sanity test / UX & SMOKE test / QA test / test code written / issue linked. HOTFIX PRs simplified to 2 items.
 - **Result**: Structure ensuring PR authors check through the list without omissions; reduced repetitive reviewer questions.
-
----
 
 ## Key Implementations — DX Pipeline (Quality Automation)
 
@@ -111,9 +103,9 @@ const responseInterceptor = (response) => {
 
 - **Problem**: As team size grew, commit message formats varied widely, and cases of code with lint errors or type errors being pushed directly appeared.
 - **Solve**: Configured 3-stage Git hooks with Husky:
-  - **pre-commit**: `lint-staged` runs ESLint + Prettier auto-fix only on staged files (significant speed improvement over checking all files)
+  - **pre-commit**: `lint-staged` runs ESLint + Prettier auto-fix only on staged files
   - **commit-msg**: `commitlint` enforces Conventional Commits format (`feat:`, `fix:`, `chore:`, etc.)
-  - **pre-push**: Sequentially runs `tsc --noEmit` (type check) → `jest --verbose` (full tests) → `eslint` to block code with type errors or test failures from being pushed to remote branches
+  - **pre-push**: Sequentially runs `tsc --noEmit` → `jest --verbose` → `eslint` to block code with type errors or test failures from being pushed
 
 ```bash
 # .husky/pre-commit
@@ -127,15 +119,10 @@ yarn tsc --noEmit && yarn test:ci && yarn lint
 ```
 
 - **Result**: Unified commit message format improves git log readability; code with type errors or test failures blocked from entering remote branches.
+- ESLint: TypeScript parser (`@typescript-eslint/parser`) + React Hooks rules for static validation of type safety and Hook usage.
+- Prettier: `singleQuote: true`, `trailingComma: 'all'`, `printWidth: 100` to unify code style across the team.
 
-### ESLint + Prettier Integrated Configuration
-
-- ESLint configuration with TypeScript parser (`@typescript-eslint/parser`) and React Hooks rules (`eslint-plugin-react-hooks`) for static validation of type safety and Hook usage rules.
-- Prettier settings like `singleQuote: true`, `trailingComma: 'all'`, `printWidth: 100` specified in `.prettierrc` to unify code style across the entire team.
-
----
-
-## Key Implementations — Tech Stack Selection Rationale
+## Tech Stack Selection Rationale
 
 | Area | Choice | Rationale |
 |------|--------|-----------|
@@ -148,8 +135,6 @@ yarn tsc --noEmit && yarn test:ci && yarn lint
 | Build | Webpack 4 + Express | SPA without SSR + proxy server |
 | Design System | In-house design system | CLO-SET brand consistency |
 
----
-
-## Retrospective
+## Retrospective / Lessons Learned
 
 Investing in "a structure that won't break even as the team grows" rather than "code that works right now" provided tangible benefits in scaling the project over four years. In particular, establishing the domain-based directory convention early meant almost no discussion cost of "where to create the file" each time a new domain like Groups, Marketplace, or Member was added. On the other hand, maintaining the Webpack 4-based custom build scripts became a burden during version upgrades — had we designed with Next.js or Vite from the start, the build maintenance cost could have been reduced.

@@ -1,4 +1,4 @@
-# 3D Garment Embed Viewer Development
+# Embeddable 3D Garment Viewer
 
 | Field | Details |
 |-------|---------|
@@ -52,6 +52,6 @@ An Embed Viewer feature that allows garment content in various formats — 3D cl
 - Controlled texture quality at two levels — high-quality / optimized — to ensure stable playback even in embed environments (low-spec devices, low bandwidth).
 - Offered Depth Peeling technique as an option for accurate rendering of translucent materials (see-through, lace, etc.).
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 The requirement that "a single URL must completely reproduce various states" influenced the overall design. Using query parameters simply as initial values versus maintaining the store state and URL as a synchronized single source of truth (SSoT) is vastly different in implementation complexity. Initially mixed the two approaches, but the structure became simpler once parameters were read only at initialization and the store was trusted thereafter. Features like domain whitelist validation where a "trust boundary" clearly exists between client and server were a reminder that no matter how well the client blocks, server-side verification must be the foundation.

@@ -1,4 +1,4 @@
-# SaaS Marketplace Upload Feature Development (deprecated)
+# Marketplace 3D Garment Listing Feature
 
 | Field | Details |
 |-------|---------|
@@ -11,7 +11,16 @@
 
 ## Overview
 
-A feature for CLO-SET users to upload and list 3D clothing content for sale across two channels: the CLO marketplace (CLOSET) or the MD-exclusive store (MD_STORE). Structured as a **2-step modal flow** — Step 1 captures basic information (title, code, description, tags, thumbnail, additional images), and Step 2 captures category, clothing style, and pricing information. Removed from the context menu in March 2021 and currently deprecated.
+A feature for CLO-SET users to upload and list 3D clothing content for sale across two channels:
+
+## Key Features
+
+<div class="img-row-2">
+
+![Marketplace Listing](/images/projects/202007-closet-marketplace.png)
+![Upload Form](/images/projects/202007-closet-upload-form.png)
+
+</div> the CLO marketplace (CLOSET) or the MD-exclusive store (MD_STORE). Structured as a **2-step modal flow** — Step 1 captures basic information (title, code, description, tags, thumbnail, additional images), and Step 2 captures category, clothing style, and pricing information. Removed from the context menu in March 2021 and currently deprecated.
 
 ## Key Implementations
 
@@ -43,6 +52,6 @@ A feature for CLO-SET users to upload and list 3D clothing content for sale acro
 - Managed marketplace upload status via a `Status` enum (PENDING / CONFIRMED / REJECTED / WITHDRAW / UPDATED / WAITING_AGAIN). Context menu visibility (`isWithdraw`, etc.) and guidance messages vary per status, derived from `item-store`.
 - After withdrawal (`withdrawMarketPlace`) completes, immediately clears `marketPlaceInfo` to synchronize UI state.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 This feature was effectively deprecated when removed from the context menu in March 2021. The store-level encapsulation of the 2-step flow and market type branching itself worked well during development, but ultimately the service direction changed and the feature was withdrawn. This experience with **completely removing UI components and the store while retaining the API layer when a feature is deprecated** taught me that evaluating dependency scope by layer is important when deleting features.

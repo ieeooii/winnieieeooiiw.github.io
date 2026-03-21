@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/202106-sign-in.png
+gradient: linear-gradient(135deg, #ede8e0, #d8d0c4)
+---
+
 # Sign In / Sign Up Authentication Flow Redesign
 
 | Field | Details |
@@ -15,6 +20,18 @@
 Fully redesigned the SCSS-based legacy authentication flow to Emotion.js. Solely owned the entire authentication scope: Sign In/Up, password find/reset/set/change, OAuth error handling, re-registration blocking, account lock, and Open Redirect security vulnerability fix.
 
 **Scope**: Sign In / Sign Up / Find·Reset·Set·Change Password / OAuth (Google, external SW) / Email Verify / SSO / Re-registration flow / Paid account re-registration prevention
+
+## Key Features
+
+<div class="img-row-2">
+
+![Sign In](/images/projects/202106-sign-in.png)
+![Sign Up](/images/projects/202106-sign-up.png)
+![Find Password](/images/projects/202106-find-password.png)
+![Set Password](/images/projects/202106-set-password.png)
+![Change Password](/images/projects/202106-change-password.png)
+
+</div>
 
 ## Key Implementations
 
@@ -48,6 +65,6 @@ Fully redesigned the SCSS-based legacy authentication flow to Emotion.js. Solely
 - **Solve**: Explicitly blocked cases where `returnUrl` is the string `"undefined"` in `checkDomain`. Fixed the base URL removal logic so domain validation works correctly. Separately fixed the SW login redirect path.
 - **Result**: Open Redirect vulnerability fully closed; redirect security in the authentication flow strengthened
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 Sign In/Up is the first entry point to the service and the most security-sensitive area. How thoroughly error scenarios are handled determines the quality of the user experience. OAuth errors, account locks, and re-registration blocking are invisible in the happy path but actually encountered by a significant number of users. The Open Redirect vulnerability found in 2024 left the lesson: when validating URL parameters, always handle edge cases like string `"undefined"` and `"null"` — not just empty values.

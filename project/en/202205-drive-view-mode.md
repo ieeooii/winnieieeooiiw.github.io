@@ -1,4 +1,4 @@
-# 3D Garment Colorway View Mode
+# 3D Garment Color Variant View Mode
 
 | Field | Details |
 |-------|---------|
@@ -31,6 +31,6 @@ A feature for managing color variants (Colorways — color-specific versions of 
 - **Solve**: Developed new `ColorwayItemTextField.tsx` (colorway name inline editing). Added a Select dropdown UI to `ColorwayInfoItem.tsx`. Integrated with the status change API via `useLineSheetColorwayStatusMutation.tsx` hook. Fixed the API parameter bug.
 - **Result**: Colorway workflow inline editing available on the content detail page; API error resolved
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 The hardest part was "presenting the same data in different ways." Style item view and colorway view use the same API data but are represented entirely differently. This made me think carefully about where to transform data — the API layer, the store, or the component. I chose component-level transformation, which had the advantage of enabling instant switching without API re-calls, but at the cost of increased component complexity. In similar situations going forward, I'd also consider handling data transformation at the query layer via React Query's `select` option.

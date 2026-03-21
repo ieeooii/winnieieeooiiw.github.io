@@ -1,4 +1,4 @@
-# Line Sheet Settings — Status / Customer Type / Sales Channel / Store Type
+# Merchandise Planning Sheet Settings — Status · Customer Type · Sales Channel · Store Type
 
 | Field | Details |
 |-------|---------|
@@ -33,6 +33,6 @@ A settings page where fashion brand administrators register, edit, delete, and r
 - **Solve**: Designed 4 independent sub-modules under the `rangePlan` store: `status`, `customerType`, `salesChannel`, `storeType`. Each sub-module owns only its own `initList`, `addItem`, `updateItem`, `deleteItem`, and `changeOrder` actions. The `LineSheetSetting` component calls the appropriate sub-module's `setInitData` based on `selectedSegment`.
 - **Result**: State isolation between tabs; each domain's CRUD logic managed independently.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 The fact that all 4 types share the same structure naturally led to "building the common component first and having each domain layer on top." When the structure was complete — where a single `segments` array declaration connects the SegmentControl UI, dynamic component loading, and tab-switch data initialization — I got a real feel for the **advantages of data-driven design**. Adding a new type works simply by adding one item to the array.

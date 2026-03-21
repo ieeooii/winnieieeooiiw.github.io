@@ -1,4 +1,4 @@
-# nProgress Page Transition Indicator
+# Page Transition Loading Indicator
 
 | Field | Details |
 |-------|---------|
@@ -32,6 +32,6 @@ Introduced nProgress to display a thin progress bar at the top of the screen whe
 - **Solve**: Set `useEffect`'s dependency array to `[]` (mount once) so handlers are registered only once. Cleanup function explicitly removes handlers via `router.events.off()` for complete cleanup on unmount. Added nProgress style customization to `globals.css` to match service brand colors (Primary Color).
 - **Result**: Stable operation without duplicate event handler registration; consistent visual experience with brand colors.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 Introducing nProgress is small in code volume, but it directly implements the UI/UX principle that "users must be able to see the current state of the system" (Nielsen's Heuristic #1: **Visibility of System Status**). This work in particular made it clear that client-side routing in SPAs (Single Page Applications) bypasses the browser's default feedback mechanism, and that **the application layer must compensate for this**. A small improvement with a tangible effect on the perceived performance of the entire service.

@@ -92,7 +92,7 @@ Proactively proposed this work, judging that showing a blank screen or spinner d
 - **Solve**: Connected arrow rotation CSS transform to the isOpen state; fixed activeIndex to work correctly in both controlled and uncontrolled modes.
 - **Result**: Consistent dropdown UX.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 - The branch strategy used stable/release/develop three tiers, but with 40–50 components it hit limits managing everything on a single develop branch. Per-component independent branches would have made local testing and version management easier.
 - Repeated design system component work taught me that "API design for component users" is as important as the implementation itself. Patterns like ConfigProvider — securing extensibility while avoiding dependency conflicts — show how getting the initial pattern right enables future language additions with only internal changes.

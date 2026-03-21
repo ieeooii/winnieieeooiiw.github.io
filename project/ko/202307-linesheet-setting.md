@@ -1,4 +1,4 @@
-# Line Sheet 설정 — Status / Customer Type / Sales Channel / Store Type
+# 상품 기획 시트 설정 — 상태 · 고객사 유형 · 판매 채널 · 매장 유형
 
 | 항목 | 내용 |
 |------|------|
@@ -33,6 +33,6 @@
 - **Solve**: `rangePlan` 스토어 하위에 `status`, `customerType`, `salesChannel`, `storeType` 4개 서브 모듈을 독립적으로 설계. 각 서브 모듈은 자신의 `initList`, `addItem`, `updateItem`, `deleteItem`, `changeOrder` 액션만 소유. `LineSheetSetting` 컴포넌트는 `selectedSegment`에 따라 적절한 서브 모듈의 `setInitData`를 호출.
 - **Result**: 탭 간 상태 격리, 각 도메인의 CRUD 로직 독립 관리
 
-## 회고
+## 회고 / 아쉬웠던 점
 
 4개 타입이 동일한 구조를 가진다는 점에서 "공통 컴포넌트를 먼저 만들고 각 도메인이 그 위에 올라타는 방식"이 자연스럽게 도출됐다. `segments` 배열 선언 하나로 SegmentControl UI, 동적 컴포넌트 로딩, 탭 전환 시 데이터 초기화가 모두 연결되는 구조가 완성됐을 때, **데이터 주도(data-driven) 설계의 장점**을 실감했다. 새 타입 추가 시 배열에 항목 하나를 추가하는 것만으로 동작한다.

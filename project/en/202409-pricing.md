@@ -58,6 +58,6 @@ Divided into Phase 1 (2022) — data-driven resolution of paid conversion rate d
 - **Result**: Funnel event type contracts typed; main UX unaffected even during log server outages
 - **Insight**: Payment/plan domains have complex business rules and many edge cases. This work made it clear that plan policies should be managed as data (config) and plan types should never be hardcoded directly in UI code.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 When a plan like Academic doesn't fit the existing binary (Enterprise / non-Enterprise) framework, the cost of finding and updating all scattered conditionals throughout the code is high. Building the global limit-exceeded interceptor pattern and funnel analysis proxy log system together enabled closing the "implement feature → measure conversion → improve" cycle.

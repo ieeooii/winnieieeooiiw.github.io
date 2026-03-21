@@ -1,4 +1,4 @@
-# Brand Admin Settings — Workflow & Range Plan Configuration
+# Brand Admin Settings — Workflow & Season Planning Configuration
 
 | Field | Details |
 |-------|---------|
@@ -26,6 +26,6 @@ An Admin settings page where fashion brand managers can create, edit, delete, an
 - **Solve**: ① Added a dedicated valid check function for `None` type. ② Added `SettingInputNewItem` state reset logic to the cancel button click event. ③ Implemented a date validation function and applied it to the input field.
 - **Result**: Invalid data transmission to server blocked; UI state properly reset after canceling edits
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 Admin settings pages carry the misconception of being technically simple, but in practice there were more edge cases than expected — input validation, state resets, order change API synchronization, etc. Designing the shared component first meant that when Customer Type settings were added, the layout code was almost entirely reusable. This project reinforced the lesson: when you see a repeating pattern, abstract it before the third usage site appears.

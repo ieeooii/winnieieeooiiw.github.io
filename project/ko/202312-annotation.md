@@ -1,4 +1,9 @@
-# 3D 뷰어 핀 어노테이션 & 스레드 코멘트 협업 기능 개발
+---
+thumbnail: /images/projects/202312-annotation-thumbnail.png
+gradient: linear-gradient(135deg, #d4e8ec, #a8cdd2)
+---
+
+# 3D 뷰어 위치 기반 코멘트 & 스레드 협업 기능 개발
 
 | 항목 | 내용 |
 |------|------|
@@ -13,6 +18,17 @@
 ## 소개
 
 협업 기능으로 두 종류의 코멘트 시스템을 동시에 개발했다. Annotation은 3D 뷰어 캔버스 위에 핀을 꽂아 특정 위치에 코멘트를 다는 시스템이고, Comment는 콘텐츠 페이지에 일반 스레드 형태로 달리는 시스템이다. 두 시스템 모두 텍스트 + 이미지 첨부·멘션(@mention)·대댓글(reply)을 지원하며, 에디터(`CommentEditor.tsx`)와 멘션 컴포넌트는 공통화하고 각 시스템이 조합하는 방식으로 설계했다.
+
+## 주요 기능
+
+<div class="img-row-2">
+
+![어노테이션 버튼](/images/projects/202005-comment-annotation-button.png)
+![어노테이션 복사 모달](/images/projects/202005-comment-annotation-modal.png)
+![어노테이션 복사 중](/images/projects/202005-comment-annotation-copying.png)
+![어노테이션 복사 완료](/images/projects/202005-comment-annotation-copied.png)
+
+</div>
 
 ## 주요 구현
 
@@ -37,6 +53,6 @@
 - **Solve**: `AnnotationCommentReplyItem.tsx`(Thread 레벨)와 `AnnotationCommentChildItem.tsx`(Reply 레벨)로 계층 분리. Reply 레벨의 키보드 핸들러에서 `event.stopPropagation()`을 호출하여 Thread 레벨까지 버블링 차단. 각 레벨의 open/close 상태를 독립적인 로컬 state로 관리.
 - **Result**: 2단계 댓글 계층에서 독립적인 키보드 인터랙션 동작, ESC 이벤트가 계층 간 의도치 않게 전파되지 않음
 
-## 회고
+## 회고 / 아쉬웠던 점
 
 에디터 컴포넌트는 UX 요구사항이 많고 엣지 케이스가 풍부한 영역이다. 특히 이 작업에서 "이벤트 위임과 `stopPropagation`은 서로 반대 방향으로 작용한다"는 것을 명확히 이해하게 됐다. 이벤트 위임은 버블링을 이용하는 것이고 `stopPropagation`은 그것을 끊는 것이기 때문에, 두 패턴을 함께 쓸 때는 어느 레벨에서 끊어야 하는지를 컴포넌트 계층 설계 단계에서 미리 정해야 한다.

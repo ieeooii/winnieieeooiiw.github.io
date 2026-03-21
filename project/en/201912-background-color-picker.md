@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/201912-color-picker-pc.png
+gradient: linear-gradient(135deg, #fce4f0, #f9b8d8)
+---
+
 # 3D Garment Viewer Background Color Customization
 
 | Field | Details |
@@ -13,6 +18,10 @@
 ## Overview
 
 A feature for customizing the background color of the 3D garment viewer in two modes: Preset (predefined backgrounds) and Custom Color (user-defined). To handle the structural challenge of color state being simultaneously referenced and modified in three places — ViewerTools, RenderSettings, and ModalCreateSpace — a single MobX-based store was designed. This was the first MobX store I independently architected after joining the company.
+
+## Key Features
+
+![Color Palette](/images/projects/201912-color-picker-pc.png)
 
 ## Key Implementations
 
@@ -31,6 +40,6 @@ A feature for customizing the background color of the 3D garment viewer in two m
 - **Solve**: Extracted ColorPicker as an independent component where each usage site passes only the required props. Unified i18n keys for a single application pass.
 - **Result**: Eliminated code duplication, applied i18n universally, established a structure where new usage sites simply import the component
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 This experience made me realize that when multiple components share a single state, the state should be lifted to a single source of truth rather than copying it into each component — a hands-on lesson in "where should state live?"

@@ -112,12 +112,21 @@ export const cardThumb = style({
   aspectRatio: '4 / 3',
   marginBottom: vars.space[6],
   overflow: 'hidden',
+  position: 'relative',
   transition: 'transform 0.5s ease',
   selectors: {
     [`${projectCard}:hover &`]: {
       transform: 'scale(1.02)',
     },
   },
+})
+
+export const cardThumbImg = style({
+  position: 'absolute',
+  inset: 0,
+  backgroundSize: 'contain',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
 })
 
 export const cardTitle = style({
@@ -138,6 +147,30 @@ export const cardTagRow = style({
   },
 })
 
+
+// ── Figure / image caption ────────────────────────────────────────────────────
+
+export const figure = style({
+  margin: `${vars.space[8]} auto`,
+  maxWidth: '680px',
+})
+
+export const figureImg = style({
+  width: 'auto',
+  maxWidth: '100%',
+  maxHeight: '480px',
+  height: 'auto',
+  borderRadius: vars.radii.lg,
+  display: 'block',
+  margin: '0 auto',
+})
+
+export const figureCaption = style({
+  marginTop: vars.space[2],
+  fontSize: vars.fontSize.sm,
+  color: vars.color.gray[400],
+  textAlign: 'center',
+})
 
 // ── Detail page ───────────────────────────────────────────────────────────────
 

@@ -1,4 +1,9 @@
-# CLO-SET 고객 지원 헬프센터 구축 — Zendesk Guide 커스텀 테마
+---
+thumbnail: /images/projects/202003-zendesk-helpcenter.png
+gradient: linear-gradient(135deg, #d8d8d8, #b0b0b0)
+---
+
+# 고객 지원 헬프센터 구축 — 서드파티 CMS 커스텀 테마 개발
 
 | 항목 | 내용 |
 |------|------|
@@ -12,7 +17,11 @@
 
 ## 소개
 
-CLO-SET의 글로벌 고객을 위한 셀프서비스 헬프센터를 Zendesk Guide 기반으로 구축하고, CLO-SET 브랜드 아이덴티티에 맞는 커스텀 테마를 설계·구현했다. Zendesk가 제공하는 기본 Copenhagen 테마를 전면 커스터마이징하여, Getting Started · Feature Manual · CLO-SET News · FAQ 카테고리 구조와 히어로 검색 UI를 갖춘 헬프센터를 제공했다. 전 세계 패션 브랜드 고객이 CLO-SET 사용법을 스스로 해결할 수 있는 1차 지원 채널로 운영됐다.
+CLO-SET의 글로벌 고객을 위한 셀프서비스 헬프센터를 Zendesk Guide 기반으로 구축하고, CLO-SET 브랜드 아이덴티티에 맞는 커스텀 테마를 설계·구현했다.
+
+## 주요 기능
+
+![헬프센터 메인](/images/projects/202003-zendesk-helpcenter.png) Zendesk가 제공하는 기본 Copenhagen 테마를 전면 커스터마이징하여, Getting Started · Feature Manual · CLO-SET News · FAQ 카테고리 구조와 히어로 검색 UI를 갖춘 헬프센터를 제공했다. 전 세계 패션 브랜드 고객이 CLO-SET 사용법을 스스로 해결할 수 있는 1차 지원 채널로 운영됐다.
 
 ## 주요 구현
 
@@ -31,6 +40,6 @@ CLO-SET의 글로벌 고객을 위한 셀프서비스 헬프센터를 Zendesk Gu
 - **Solve**: Zendesk Guide의 `{{t 'key'}}` 헬퍼를 활용해 UI 문자열을 locale 파일로 분리. URL 구조(`/hc/en-us`, `/hc/ko` 등)에 따라 언어가 자동 전환되도록 Zendesk 내장 i18n 구조를 활용.
 - **Result**: 영어 기본, 추가 언어 확장 가능한 구조로 구축. 글로벌 고객 대상 서비스 운영 기반 마련
 
-## 회고
+## 회고 / 아쉬웠던 점
 
 Zendesk Guide는 자유도가 제한된 플랫폼이라 "어디까지 커스터마이징 가능한가"를 먼저 파악하는 것이 핵심이었다. Handlebars 템플릿과 manifest 변수 시스템을 이해하고 나면 구현 자체는 HTML/CSS 작업과 크게 다르지 않았지만, 플랫폼 제약 안에서 디자인 의도를 구현하는 것이 일반 웹 개발과는 다른 종류의 문제 해결이었다. 서비스 UI와 동일한 브랜드 경험을 헬프센터까지 일관되게 가져가는 것이 고객 신뢰도에 직접 영향을 준다는 점에서, 지원 채널의 UI/UX도 제품의 일부임을 배웠다.

@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/202007-direct-upload.png
+gradient: linear-gradient(135deg, #d8d9dd, #b5b8c4)
+---
+
 # 그래픽 소프트웨어 → 플랫폼 직접 3D 파일 업로드 기능 개발
 
 | 항목 | 내용 |
@@ -13,6 +18,18 @@
 ## 소개
 
 CLO 소프트웨어에서 작업한 3D 의류 파일(`.zprj`, `.zpac` 등)을 CLOSET에 직접 업로드하는 기능이다. 파일 선택 → 스타일 아이템 매핑 → 어셈블리 그룹핑 → 렌더링 설정의 멀티 스텝 플로우로, 여러 3D 파일을 한꺼번에 처리하고 각 파일이 어떤 스타일 아이템에 속하는지를 사용자가 직접 매핑하는 구조다.
+
+## 주요 기능
+
+<div class="img-row-2">
+
+![Direct Upload 메인](/images/projects/202007-direct-upload.png)
+![파일 찾기 모달](/images/projects/202007-direct-upload-browse-modal.png)
+![최근 파일 모달](/images/projects/202007-direct-upload-recent-modal.png)
+![업로드 드롭다운](/images/projects/202005-upload-dropdown.png)
+![업로드 모달](/images/projects/202005-upload-modal.png)
+
+</div>
 
 ## 주요 구현
 
@@ -36,6 +53,6 @@ CLO 소프트웨어에서 작업한 3D 의류 파일(`.zprj`, `.zpac` 등)을 CL
 - **Solve**: Emotion.js 기반으로 전면 마이그레이션. 조건부 스타일은 `css` prop과 template literal로 처리하여 조건별 스타일이 명확히 파악되도록 수정. label `htmlFor` 속성 수정으로 접근성 버그 해소.
 - **Result**: 디자인 시스템 토큰 적용 가능, 스타일 조건 추적 용이, 접근성 개선
 
-## 회고
+## 회고 / 아쉬웠던 점
 
 Direct Upload는 CLO 소프트웨어와 CLOSET 웹 서비스가 연결되는 접점이라 파일 포맷 변화나 렌더링 스펙 변경에 영향을 자주 받았다. 가장 큰 교훈은 상태의 "소유권"을 명확히 해야 한다는 것이다. 여러 상태가 하나의 컴포넌트에 혼재하면 어느 하나가 변경될 때 다른 상태에 의도치 않은 부수 효과가 생긴다. 이 경험 이후 "이 상태는 누가 소유하고, 언제 초기화되어야 하는가"를 먼저 설계하는 습관이 생겼다.

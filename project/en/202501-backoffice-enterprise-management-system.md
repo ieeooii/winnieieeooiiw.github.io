@@ -1,4 +1,4 @@
-# CLO-SET Enterprise Group Management Admin System
+# Enterprise Customer Group Management Admin System
 
 | Field | Details |
 |-------|---------|
@@ -105,6 +105,6 @@ Designed and built from scratch a Groups section in the admin for managing CLO-S
 
 ---
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 Designing the entire Groups domain from scratch over 6 months made me realize what matters for "keeping the component structure stable as features accumulate." Experiencing `GroupInformationTable` accumulating growing responsibilities — manager CRUD, currency change — confirmed that separating each action into dedicated modal components with the container only handling orchestration is advantageous for maintainability. Using searchParams as a state store was a good decision for URL sharing and history management, but bugs arose as initialization and parsing logic scattered across multiple components — next time, abstracting URL state management into a single hook would be more appropriate.

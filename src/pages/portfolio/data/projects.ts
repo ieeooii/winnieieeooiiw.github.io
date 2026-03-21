@@ -22,10 +22,27 @@ export type Project = {
   category: string
   period: string
   stack: string[]
+  thumbnail: string | null
+  gradient: string | null
   rawContent: string
 }
 
-function parseProject(path: string, content: string): Project {
+function parseFrontmatter(raw: string): { data: Record<string, string>; content: string } {
+  const match = raw.match(/^---\n([\s\S]*?)\n---\n/)
+  if (!match) return { data: {}, content: raw }
+  const data: Record<string, string> = {}
+  match[1].split('\n').forEach(line => {
+    const colonIdx = line.indexOf(':')
+    if (colonIdx === -1) return
+    const key = line.slice(0, colonIdx).trim()
+    const val = line.slice(colonIdx + 1).trim()
+    if (key) data[key] = val
+  })
+  return { data, content: raw.slice(match[0].length) }
+}
+
+function parseProject(path: string, raw: string): Project {
+  const { data, content } = parseFrontmatter(raw)
   const titleLine = content.split('\n').find(l => l.startsWith('# '))
   const title = titleLine ? titleLine.slice(2).trim() : ''
   const id = path.split('/').pop()!.replace('.md', '').replace(/^\d{6}-/, '')
@@ -34,8 +51,10 @@ function parseProject(path: string, content: string): Project {
   const period = getTableValue(content, '개발 기간') || getTableValue(content, 'Period')
   const stackRaw = getTableValue(content, '기술 스택') || getTableValue(content, 'Tech Stack') || getTableValue(content, 'Stack')
   const stack = stackRaw.split(',').map(s => s.trim()).filter(Boolean)
+  const thumbnail = data['thumbnail'] ?? null
+  const gradient = data['gradient'] ?? null
 
-  return { id, title, company, category, period, stack, rawContent: content }
+  return { id, title, company, category, period, stack, thumbnail, gradient, rawContent: content }
 }
 
 export function getProjects(lang: Lang = 'ko'): Project[] {

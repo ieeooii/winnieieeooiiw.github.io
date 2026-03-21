@@ -1,4 +1,4 @@
-# Brand Category Settings — Multi-Level Hierarchy Tree CRUD
+# Brand Category Settings — Multi-Level Hierarchy Management
 
 | Field | Details |
 |-------|---------|
@@ -39,6 +39,6 @@ A settings page for fashion brand administrators to manage clothing categories i
 - Developed full category reset (`CategoryResetOption`) and copy category structure from another company (`CategoryResetOption`) features — supports fashion brands in reusing existing structures during initial setup.
 - Implemented a confirmation modal including a warning message (multilingual emphasis via `Trans` component) that deleting a category will cascade-delete all sub-categories.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 The key to the column tree was how concisely "the currently open path" could be represented. A single `openedCategoryIdxes` array represents the entire tree's open state, and the logic that traverses this array with `reduce` produces the column list to display. Initially tried managing separate state per depth, but ultimately realized that the unidirectional transformation structure of "path array → column calculation" is much simpler and more predictable. This work taught me that **representing UI state with the minimum information of "current selection path" and deriving everything else is valid even for complex tree UIs**.

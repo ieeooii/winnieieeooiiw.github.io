@@ -1,4 +1,9 @@
-# Open Market Store — 3D Garment Listing Feature & Launch
+---
+thumbnail: /images/projects/202011-connect-upload-step0.png
+gradient: linear-gradient(135deg, #c8d8f8, #a0b8f0)
+---
+
+# 3D Garment Open Market Launch — Product Listing Feature
 
 | Field | Details |
 |-------|---------|
@@ -12,7 +17,19 @@
 
 ## Overview
 
-Fully designed and developed the new upload page for the 3D fashion asset marketplace CLO-SET. Structured as a multi-step flow: basic info → file attachments → category → pricing → market info. The same components were later reused on the Edit page.
+Fully designed and developed the new upload page for CONNECT — a global digital fashion community service for sharing, communicating, selling, and buying 3D garments. Structured as a multi-step flow: basic info → file attachments → category → pricing → market info. The same components were later reused on the Edit page.
+
+## Key Features
+
+<div class="img-row-2">
+
+![Upload Step 0](/images/projects/202011-connect-upload-step0.png)
+![Upload Step 1](/images/projects/202011-connect-upload-step1.png)
+![Upload Step 2](/images/projects/202011-connect-upload-step2.png)
+![Upload Step 2 Pricing](/images/projects/202011-connect-upload-step2-price.png)
+![Upload Edit Mode](/images/projects/202011-connect-upload-edit-mode.png)
+
+</div>
 
 ## Key Implementations
 
@@ -35,6 +52,8 @@ Fully designed and developed the new upload page for the 3D fashion asset market
 - **Result**: Introduced behavior-driven tests with react-testing-library; achieved ~70% test coverage
 - **Insight**: Tests were written depending on implementation details and kept breaking on every refactor. I later realized RTL's core is user behavior-based verification, and tests should be designed from the user's interaction perspective, not the internal implementation.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 Identifying the reuse scope before building components and designing them as shared components was effective in reducing later maintenance costs. Shared UI atom components like `BackgroundLayout`, `Tag`, `EditableTextArea`, and `ToastsBox` applied consistent styles across the entire form — this was a key outcome of this project.
+
+I also have lingering regrets about the category data structure. Dealing with the server's tree-structured response as-is led to performance issues from nested traversal. In hindsight, designing the data as a flat array with only a `depth` field would have been better. Even when the UI needs to look like a tree, keeping the underlying data flat and using `depth` to represent indentation level would have offered meaningful performance benefits for both rendering and state management.

@@ -1,4 +1,4 @@
-# Error System
+# Frontend Error Handling System
 
 | Field | Details |
 |-------|---------|
@@ -58,6 +58,6 @@ A three-phase error system build. Phase 1 (2022.09–2023.02) addressed the prob
 - **Solve**: Separated SSR error handling utilities aligned with Next.js `error.tsx` / `global-error.tsx` into a dedicated package.
 - **Result**: Consistent error handling in both CSR and SSR environments.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 Error handling easily gets deprioritized below feature development, but proactively building it as a package meant the cost of error handling for new apps added later was nearly zero. This project was the first time I personally felt the impact of partial error boundary patterns on user experience.

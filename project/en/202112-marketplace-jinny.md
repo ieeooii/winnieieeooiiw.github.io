@@ -1,4 +1,9 @@
-# B2C — Jinny 3D Fitting Software Landing Page
+---
+thumbnail: /images/projects/202112-connect-jinny-landing-hero.png
+gradient: linear-gradient(135deg, #fce0ea, #f8b8cc)
+---
+
+# 3D Fitting Software Introduction Landing Page
 
 | Field | Details |
 |-------|---------|
@@ -14,6 +19,16 @@
 
 Developed a service introduction page for the Jinny software launch, comprising Introduction, section list, download, and channel areas. Recognizing that Swiper was used repeatedly across the main banner, image viewer, and related items list, extracted `CarouselSwiper`, `BaseSwiperNavigation`, and `SwiperNavigation` as shared components for reuse.
 
+## Key Features
+
+<div class="img-row-3">
+
+![Jinny Landing Hero](/images/projects/202112-connect-jinny-landing-hero.png)
+![Jinny Slider](/images/projects/202112-connect-jinny-slider.png)
+![Jinny Landing Footer](/images/projects/202112-connect-jinny-landing-footer.png)
+
+</div>
+
 ## Key Implementations
 
 ### Jinny Page UI and API Integration
@@ -26,6 +41,6 @@ Developed a service introduction page for the Jinny software launch, comprising 
 - **Solve**: Configured sitemap, structured HTML semantics, and applied SSR for search engine indexing and initial traffic acquisition
 - **Result**: Page indexed on Google search for "Jinny" [Link](https://www.google.com/search?q=Jinny&rlz=1C5MACD_enKR1139KR1139&oq=Jin&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQRRg5Mg0IAhAAGIMBGLEDGIAEMgwIAxAuGEMYgAQYigUyEwgEEC4YgwEYxwEYsQMY0QMYgAQyBwgFEAAYgAQyDAgGEC4YQxiABBiKBTIGCAcQRRg80gEIMTg2MWowajGoAgCwAgA&sourceid=chrome&ie=UTF-8)
 
-## Retrospective
+## Retrospective / Lessons Learned
 - The SEO issue was partially addressed by adding meta tags via `next/head`, but fundamental limitations of the CSR structure prevented a complete fix. Applying SSG (Static Site Generation) would have pre-generated HTML for crawlers to properly read content, and per-page OG metadata would have been reliably provided.
 - Identifying the reuse scope before building components and designing them as shared components was effective in reducing later maintenance costs.

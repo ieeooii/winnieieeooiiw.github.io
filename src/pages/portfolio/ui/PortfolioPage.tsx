@@ -55,10 +55,11 @@ export const PortfolioPage = () => {
               className={s.projectCard}
               onClick={() => navigate(`/projects/${project.id}`)}
             >
-              <div
-                className={s.cardThumb}
-                style={{ background: CARD_GRADIENTS[i % CARD_GRADIENTS.length] }}
-              />
+              <div className={s.cardThumb} style={{ background: project.gradient ?? CARD_GRADIENTS[i % CARD_GRADIENTS.length] }}>
+                {project.thumbnail && (
+                  <div className={s.cardThumbImg} style={{ backgroundImage: `url(${project.thumbnail})` }} />
+                )}
+              </div>
               <h3 className={s.cardTitle}>{project.title}</h3>
               <div className={s.cardTagRow}>
                 {project.stack.slice(0, 3).map((tech) => (

@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/202007-direct-upload.png
+gradient: linear-gradient(135deg, #d8d9dd, #b5b8c4)
+---
+
 # Direct 3D File Upload from Graphics Software to Platform
 
 | Field | Details |
@@ -13,6 +18,18 @@
 ## Overview
 
 A feature that enables direct upload of 3D garment files (`.zprj`, `.zpac`, etc.) from CLO software into CLOSET. The flow spans multiple steps: file selection → style item mapping → assembly grouping → rendering settings. Multiple 3D files can be processed at once, with users manually mapping each file to its corresponding style item.
+
+## Key Features
+
+<div class="img-row-2">
+
+![Direct Upload Main](/images/projects/202007-direct-upload.png)
+![Browse File Modal](/images/projects/202007-direct-upload-browse-modal.png)
+![Recent File Modal](/images/projects/202007-direct-upload-recent-modal.png)
+![Upload Dropdown](/images/projects/202005-upload-dropdown.png)
+![Upload Modal](/images/projects/202005-upload-modal.png)
+
+</div>
 
 ## Key Implementations
 
@@ -36,6 +53,6 @@ A feature that enables direct upload of 3D garment files (`.zprj`, `.zpac`, etc.
 - **Solve**: Full migration to Emotion.js. Conditional styles handled via `css` prop and template literals for clear per-condition style visibility. Fixed the label `htmlFor` attribute to resolve the accessibility bug.
 - **Result**: Design system tokens applicable, conditional styles traceable, accessibility improved
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 Direct Upload is the bridge between CLO software and the CLOSET web service, frequently impacted by file format changes or rendering spec updates. The biggest lesson was the importance of clear state "ownership." When multiple states coexist in a single component, any one change can unintentionally affect others. After this project, I made it a habit to always design upfront: "who owns this state, and when should it be reset?"

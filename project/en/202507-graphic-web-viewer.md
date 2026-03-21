@@ -49,6 +49,6 @@ Separated the package structure into three concerns:
 - **Solve**: Preserved the current viewing option state in an atom during colorway change, and re-applied after engine re-initialization completes.
 - **Result**: User settings maintained after colorway changes.
 
-## Retrospective
+## Retrospective / Lessons Learned
 
 This is the project I contributed to the longest and across the widest scope. The core of this project was designing the abstraction layer aligned with React paradigms rather than using the engine team's API directly. It was also the first project where I introduced Jotai — for viewer-like cases where state is distributed across many components, I found atom-based state management to be far more flexible than Context.
