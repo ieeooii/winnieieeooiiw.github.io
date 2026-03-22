@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/202007-closet-upload-form.png
+gradient: linear-gradient(135deg, #e0e7ff, #c7d2fe)
+---
+
 # 마켓플레이스 상품 등록 기능 개발
 
 | 항목 | 내용 |
