@@ -3,7 +3,7 @@ thumbnail: /images/projects/202007-closet-upload-form.png
 gradient: linear-gradient(135deg, #e0e7ff, #c7d2fe)
 ---
 
-# Marketplace Garment Listing Feature
+# Marketplace Garment Listing Feature (deprecated)
 
 | Field | Details |
 |-------|---------|
