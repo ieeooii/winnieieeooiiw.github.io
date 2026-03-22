@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #d8d8d8, #b0b0b0)
 | 기술 스택 | Zendesk Guide, Handlebars.js, HTML, CSS, JavaScript |
 | 개발 기간 | 2020.03 ~ 2020.05 |
 | 인원 | 프론트엔드 (담당) |
-| 서비스 링크 | support.clo-set.com |
+| 서비스 링크 | [support.clo-set.com](https://support.clo-set.com) |
 
 ## 소개
 

@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #e8e8e8, #c8c8c8)
 | 기술 스택 | Next.js, TypeScript, MobX, Emotion (jQuery → React 마이그레이션) |
 | 개발 기간 | 2020.07 ~ 2020.09 |
 | 인원 | 프론트엔드 1, 백엔드 1 (프론트엔드 담당) |
-| 서비스 링크 | style.clo-set.com |
+| 서비스 링크 | [style.clo-set.com](https://style.clo-set.com) |
 
 ## 소개
 

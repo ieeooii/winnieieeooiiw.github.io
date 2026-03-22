@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #b3f0ee, #60ddd8)
 | 기술 스택 | Next.js, TypeScript, SCSS, MobX |
 | 개발 기간 | 2020.03 ~ 2020.04 |
 | 인원 | 프론트엔드 1, 프로덕트 디자이너 1 (프론트엔드 담당) |
-| 서비스 링크 | style.clo-set.com/aboutus |
+| 서비스 링크 | [style.clo-set.com/aboutus](https://style.clo-set.com/aboutus) |
 
 ## 소개
 

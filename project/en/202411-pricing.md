@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
 | Tech Stack | Next.js, TypeScript, React Query, MobX |
 | Period | 2024.09 – 2024.11 |
 | Team | Frontend 4, Backend 3, Product Designer 2, PM 3 (Usage limit system owner) |
-| Service Link | https://style.clo-set.com/service/pricing |
+| Service Link | [style.clo-set.com/service/pricing](https://style.clo-set.com/service/pricing) |
 
 ## Overview
 

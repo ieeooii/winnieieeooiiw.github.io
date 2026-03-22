@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #f8d7da, #f5c6cb)
 | Tech Stack | Next.js (App Router), TypeScript, React Query v5, Emotion.js, Storybook, Datadog, next/font |
 | Period | 2024.09 – 2025.03 |
 | Team | Frontend 1, Backend 1, Product Designer 1 (Frontend owner) |
-| Service Link | style.clo-set.com |
+| Service Link | [style.clo-set.com](https://style.clo-set.com) |
 | Blog | [Next.js App Router Error Handling](https://ieeooii.notion.site/Next-js-40774c0161f04c4484a28a9c34d510c5?pvs=143) / [Next.js 14 App Router SSR Custom Error](https://ieeooii.notion.site/Next-js-14-app-router-SSR-Custom-error-22fd2142e651439ea74820342ee0a12d?pvs=143) |
 
 ## Overview

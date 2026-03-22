@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #fce0ea, #f8b8cc)
 | 기술 스택 | Next.js, TypeScript, Emotion.js, Swiper |
 | 개발 기간 | 2021.12 |
 | 인원 | 프론트엔드 1, 백엔드 1, 프로덕트 디자이너 1 (프론트엔드 담당) |
-| 서비스 링크 | https://connect.clo-set.com/ko/jinny |
+| 서비스 링크 | [connect.clo-set.com/ko/jinny](https://connect.clo-set.com/ko/jinny) |
 
 ## 소개
 

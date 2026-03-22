@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #fce0ea, #f8b8cc)
 | Tech Stack | Next.js, TypeScript, Emotion.js, Swiper |
 | Period | 2021.12 |
 | Team | Frontend 1, Backend 1, Product Designer 1 (Frontend owner) |
-| Service Link | https://connect.clo-set.com/ko/jinny |
+| Service Link | [connect.clo-set.com/ko/jinny](https://connect.clo-set.com/ko/jinny) |
 
 ## Overview
 

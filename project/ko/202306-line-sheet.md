@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #e8f0fc, #c8d8f8)
 | 기술 스택 | Next.js, TypeScript, AG Grid, React Query, Emotion.js |
 | 개발 기간 | 2022.09 ~ 2023.06 (Beta → Phase 1 → Phase 2) |
 | 인원 | 프론트엔드 1, 백엔드 1, 프로덕트 디자이너 1, 기획자 1 (프론트엔드 담당) |
-| 서비스 링크 | style.clo-set.com |
+| 서비스 링크 | [style.clo-set.com](https://style.clo-set.com) |
 
 ## 소개
 

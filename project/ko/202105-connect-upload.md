@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #c8d8f8, #a0b8f0)
 | 기술 스택 | Next.js, TypeScript, Redux (Toolkit + Saga), Emotion.js, Jest, React Testing Library |
 | 개발 기간 | 2020.11 ~ 2021.05 |
 | 인원 | 프론트엔드 1, 백엔드 1, 프로덕트 디자이너 1 (프론트엔드 담당) |
-| 서비스 링크 | https://connect.clo-set.com/ko/upload |
+| 서비스 링크 | [connect.clo-set.com/ko/upload](https://connect.clo-set.com/ko/upload) |
 | 블로그 | [Emotion.js](https://ieeooii.notion.site/Emotion-js-361f27a6ae014131b770b8341b46cbde?pvs=143) |
 
 ## 소개

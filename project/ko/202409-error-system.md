@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #f8d7da, #f5c6cb)
 | 기술 스택 | Next.js (App Router), TypeScript, React Query v5, Emotion.js, Storybook, Datadog, next/font |
 | 개발 기간 | 2024.09 ~ 2025.03 |
 | 인원 | 프론트엔드 1, 백엔드 1, 프로덕트 디자이너 1 (프론트엔드 담당) |
-| 서비스 링크 | style.clo-set.com |
+| 서비스 링크 | [style.clo-set.com](https://style.clo-set.com) |
 | 블로그 | [Next.js App Router 에러 핸들링](https://ieeooii.notion.site/Next-js-40774c0161f04c4484a28a9c34d510c5?pvs=143) / [Next.js 14 App Router SSR Custom Error](https://ieeooii.notion.site/Next-js-14-app-router-SSR-Custom-error-22fd2142e651439ea74820342ee0a12d?pvs=143) |
 
 ## 소개

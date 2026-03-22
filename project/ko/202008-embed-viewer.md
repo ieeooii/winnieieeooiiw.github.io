@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #e8e8e8, #c8c8c8)
 | 기술 스택 | Next.js, TypeScript, MobX, SCSS, CLO 3D 엔진 SDK, Emotion |
 | 개발 기간 | 2020.07 ~ 2020.08 |
 | 인원 | 프론트엔드 2, 백엔드 2, 디자이너 1, 기획자 1 (프론트엔드 담당) |
-| 서비스 링크 | style.clo-set.com |
+| 서비스 링크 | [style.clo-set.com](https://style.clo-set.com) |
 | 관련 문서 | support.clo-set.com/hc/en-us/articles/45303195817497-Embed-Viewer |
 
 ## 소개

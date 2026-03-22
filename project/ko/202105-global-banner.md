@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #fde8e8, #fbc8c8)
 | 기술 스택 | Next.js, TypeScript, React Query |
 | 개발 기간 | 2021.05 |
 | 인원 | 프론트엔드 1 (담당) |
-| 서비스 링크 | style.clo-set.com |
+| 서비스 링크 | [style.clo-set.com](https://style.clo-set.com) |
 
 ## 소개
 

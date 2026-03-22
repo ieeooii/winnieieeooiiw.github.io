@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
 | Tech Stack | Next.js, TypeScript, React Query, Virtuoso |
 | Period | 2024.08 – 2024.09 |
 | Team | Frontend (owner) |
-| Service Link | style.clo-set.com |
+| Service Link | [style.clo-set.com](https://style.clo-set.com) |
 
 ## Overview
 

@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #e0f2fe, #bae6fd)
 | Tech Stack | React 19, TypeScript, Vite, Jotai, TanStack React Query, Emotion, Socket.io, 3D Engine API |
 | Period | 2025.07 – 2026.03 |
 | Team | Frontend 1, Backend 2, Graphics Engineer 1, Product Designer 2 (Frontend owner) |
-| Service Link | style.clo-set.com |
+| Service Link | [style.clo-set.com](https://style.clo-set.com) |
 
 ## Overview
 

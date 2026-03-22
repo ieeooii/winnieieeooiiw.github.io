@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #c8d8f8, #a0b8f0)
 | Tech Stack | Next.js, TypeScript, Redux (Toolkit + Saga), Emotion.js, Jest, React Testing Library |
 | Period | 2020.11 – 2021.05 |
 | Team | Frontend 1, Backend 1, Product Designer 1 (Frontend owner) |
-| Service Link | https://connect.clo-set.com/ko/upload |
+| Service Link | [connect.clo-set.com/ko/upload](https://connect.clo-set.com/ko/upload) |
 | Blog | [Emotion.js](https://ieeooii.notion.site/Emotion-js-361f27a6ae014131b770b8341b46cbde?pvs=143) |
 
 ## Overview

@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #e8e8e8, #c8c8c8)
 | Tech Stack | Next.js, TypeScript, MobX, Emotion (migrated from jQuery → React) |
 | Period | 2020.07 – 2020.09 |
 | Team | Frontend 1, Backend 1 (Frontend owner) |
-| Service Link | style.clo-set.com |
+| Service Link | [style.clo-set.com](https://style.clo-set.com) |
 
 ## Overview
 

@@ -13,7 +13,7 @@ gradient: linear-gradient(135deg, #f0fdf4, #dcfce7)
 | 기술 스택 | Next.js, TypeScript, MobX, react-sortablejs, Emotion |
 | 개발 기간 | 2020.07 ~ 2020.12 |
 | 인원 | 프론트엔드 1, 백엔드 1, 프로덕트 디자이너 1 (프론트엔드 담당) |
-| 서비스 링크 | style.clo-set.com |
+| 서비스 링크 | [style.clo-set.com](https://style.clo-set.com) |
 
 ## 소개
 
