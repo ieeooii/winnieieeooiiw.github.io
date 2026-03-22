@@ -3,37 +3,50 @@ thumbnail: /images/projects/202105-global-banner.webp
 gradient: linear-gradient(135deg, #fde8e8, #fbc8c8)
 ---
 
-# Notification Global Banner System
+# Notification Global Banner System Development
 
 | Field | Details |
-|-------|---------|
+|------|------|
 | Company | CLO Virtual Fashion |
 | Category | SaaS |
 | Service | CLO-SET |
 | Tech Stack | Next.js, TypeScript, React Query |
 | Period | 2021.05 |
-| Team | Frontend 1 (owner) |
+| Team | Frontend 1 (in charge) |
 | Service Link | [style.clo-set.com](https://style.clo-set.com) |
 
 ## Overview
 
-![Usage Limit Exceeded Banner — among Global Banners/Modals](/images/projects/202105-global-banner.webp)
+![Global banner/modal usage limit notification banner](/images/projects/202105-global-banner.webp)
 
-Designed and implemented a priority-based banner queue system to handle complex scenarios where multiple banners — email verification, marketing consent, announcements, etc. — can simultaneously meet their display conditions.
+Designed and implemented a priority-based banner queue system to handle situations where multiple banners (email unverified, usage limit approaching, announcements, etc.) may simultaneously meet display conditions. Banners are displayed one at a time in sequence; closing one automatically advances to the next. Each banner's display status depends on API data.
 
 ## Key Implementations
 
-### Async liveSteps Queue Design
+### Priority Array Queue + Async Condition Check for Sequential Multi-Banner Display
 
-- **Problem**: Each banner's display condition depended on async API data, making synchronous calculation at mount time impossible. The legacy structure managed Enterprise-exclusive steps in a separate array, requiring updates in two places when adding a new banner type.
-- **Solve**: Refactored `liveSteps` to be calculated as an `async` function returning a Promise. `GlobalRootTopBanner` waits for async data before determining `currentStep`. Enterprise-specific branching is handled inside the `liveSteps` calculation logic, unifying the banner queue itself.
-- **Result**: Adding a new banner type requires only inserting a single step into the `liveSteps` array; Enterprise / standard plan branching unified
+- **Problem**: Multiple banners like email unverified and usage limit approaching can satisfy conditions simultaneously. Each banner's display condition depends on async API data, making it impossible to synchronously calculate priority at mount time. Managing Enterprise-specific banners in a separate array also meant modifying multiple places when adding new banner types.
+- **Solve**: Constructed a queue as an array of banner types sorted by priority. Designed the queue calculation function as async to check each banner's display condition asynchronously before returning the actual list of banners to display. Closing a banner dequeues it from the front and auto-displays the next. In Enterprise environments, queue entry is blocked at the plan condition check stage.
+- **Result**: Extensible structure where adding a banner type requires only adding one entry to the queue array; Enterprise / general plan branching unified.
 
-### localStorage Per-Group State Management
-- **Problem**: Using only the banner type as the localStorage key would cause a banner dismissed in group A to appear dismissed in group B as well (CLOSET users can belong to multiple groups). There was also a history of a hotfix immediately after deployment due to missing handling of localStorage values without a `value` key.
-- **Solve**: Included `groupId` in the localStorage key, designing the format as `{bannerType}_{groupId}`. Added defensive code to check for the existence of `value` before the expiry check. Extracted the expiry check logic into a dedicated utility.
-- **Result**: Independent banner dismissal state per group; edge cases in localStorage parsing handled defensively
+### groupId Scope Key + Expiration-Based localStorage for Banner Dismissal State Isolation
+
+- **Problem**: Constructing localStorage keys with only banner type (without group ID) caused banners dismissed in Group A to appear dismissed in Group B as well (users can belong to multiple groups). Also, an edge case where the `value` key was missing from localStorage data was not handled, causing a hotfix immediately after deployment.
+- **Solve**: Included group ID in localStorage keys for independent keys per group. Added defensive code to check for required field existence before expiration checking. Extracted expiration check logic into a separate utility.
+- **Result**: Independent banner dismissal state per group; localStorage parsing edge cases defended.
+
+### Custom localStorage Wrapper with Expiration Time for Safe Client State Management
+
+- **Problem**: The banner's "dismiss for today" feature needs to expire exactly after one day. The browser's native localStorage doesn't provide expiration functionality and requires separate implementation. If expired items aren't automatically removed, stale state persists and banners never display again.
+- **Solve**: Implemented a custom localStorage wrapper that stores values along with expiration timestamps. On read, it automatically checks expiration and immediately deletes expired items while returning the default value. Banner dismissal state is configured with 1-day expiration.
+- **Result**: Abstracted expiration functionality over browser-native localStorage; expired banner dismissal states auto-reset ensuring banner re-display the next day.
+
+### next/dynamic Lazy Loading to Exclude Banner Components from Initial Bundle
+
+- **Problem**: Banner components are conditional UI that only display when conditions are met, yet static imports include them in the initial bundle at all times.
+- **Solve**: Dynamically imported each banner component with `next/dynamic` so they load only at actual render time.
+- **Result**: Banner components excluded from initial bundle, preventing unnecessary bundle size increase.
 
 ## Retrospective / Lessons Learned
 
-The hotfix happened right after deploying this system. This was a firsthand lesson that client storage must always be parsed defensively under the assumption that "data may be missing or malformed." After this, I made it a habit to always check for type and existence before accessing localStorage.
+The post-deployment hotfix occurred because the required field absence in localStorage stored data was not handled. I learned firsthand that client storage must always be parsed defensively under the premise that "data might not exist, and the format might be wrong." After this, I developed a habit of always adding type checks and existence verification first when accessing localStorage code.

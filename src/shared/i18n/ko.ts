@@ -68,8 +68,8 @@ export const ko: Translations = {
     filterAll: '전체',
     searchPlaceholder: '프로젝트 검색 (제목, 기술 스택, 회사)',
     noResults: '검색 결과가 없습니다.',
-    prevProject: '이전 프로젝트',
-    nextProject: '다음 프로젝트',
+    prevProject: '이전 페이지',
+    nextProject: '다음 페이지',
     saasImageNotice: '이미지 내 의상은 직접 제작했거나 플랫폼 기본 제공 콘텐츠입니다.',
   },
 }

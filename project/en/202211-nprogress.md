@@ -17,26 +17,28 @@ gradient: linear-gradient(135deg, #f1f3f7, #e2e6ed)
 
 ## Overview
 
+![Page Transition Loading Indicator](/images/projects/202211-nprogress.webp)
+
 Introduced nProgress to display a thin progress bar at the top of the screen when Next.js client-side routing begins a page transition. Next.js CSR (Client Side Routing) transitions pages without a traditional full page reload, so the browser's default loading indicator does not appear. This created a **"Feedback Gap"** where users felt nothing was happening after clicking — nProgress was implemented to immediately communicate that a page transition is in progress.
 
 ## Key Implementations
 
-### Next.js Router Event Lifecycle Binding
+### Router Event Binding — Shallow Routing Exclusion and Zombie State Prevention on Error
 
-- **Problem**: Simply starting/completing nProgress globally causes two problems. First, when a page transition is very fast (cache hit, etc.), the progress bar flickers briefly — a **Flash effect**. Second, when a routing error (`routeChangeError`) occurs, the progress bar gets stuck incomplete — a **zombie state**.
+- **Problem**: Simply starting/completing nProgress globally causes two problems. First, Shallow routing (transitions where only the URL changes without re-requesting the entire page) also triggers the progress bar, creating unnecessary visual noise. Second, when a routing error (`routeChangeError`) occurs, the progress bar gets stuck incomplete — a **zombie state**.
 - **Solve**: Bound nProgress to three Next.js Router events:
-  - `routeChangeStart` → `NProgress.start()` — show progress bar immediately when transition begins
+  - `routeChangeStart` → checks `shallow` parameter; skips if shallow route transition, otherwise calls `NProgress.start()`
   - `routeChangeComplete` → `NProgress.done()` — end progress bar when transition completes
   - `routeChangeError` → `NProgress.done()` — ensure progress bar ends even on error
 
-  Configured `NProgress.configure({ minimum: 0.08, speed: 400, trickleSpeed: 200 })` to adjust minimum display time and animation speed to prevent Flash effects. Tuned so that the progress bar is barely noticeable for sub-100ms instant transitions.
-- **Result**: Immediate visual feedback on all page transitions; no zombie state on routing errors.
+  Configured `NProgress.configure({ showSpinner: false })` to disable the spinner, showing only the top progress bar.
+- **Result**: Progress bar displayed only on actual page transitions; no zombie state on routing errors.
 
-### `_app.tsx` Global Lifecycle Management & Memory Leak Prevention
+### Independent Component Separation and Emotion Theme Color Dynamic Integration
 
-- **Problem**: When registering Router event handlers in `_app.tsx` without cleanup, each render registers new handlers, potentially causing nProgress to be called multiple times or creating memory leaks.
-- **Solve**: Set `useEffect`'s dependency array to `[]` (mount once) so handlers are registered only once. Cleanup function explicitly removes handlers via `router.events.off()` for complete cleanup on unmount. Added nProgress style customization to `globals.css` to match service brand colors (Primary Color).
-- **Result**: Stable operation without duplicate event handler registration; consistent visual experience with brand colors.
+- **Problem**: Registering Router event handlers without cleanup on every render causes duplicate handler registration, potentially making nProgress called multiple times or creating memory leaks. Also, hardcoding the progress bar color requires separate modification when the design system theme changes.
+- **Solve**: Separated nProgress into a dedicated component placed at the top of the global layout for common application across all layout types. Set `useEffect` dependency array to `[]` (mount once) so handlers are registered only once, with cleanup explicitly removing handlers via `router.events.off()`. Used Emotion's `Global` component and `useTheme()` hook to inject `theme.colors.PRIMARY` as a CSS variable, dynamically linking the progress bar color to the design system theme.
+- **Result**: Stable operation without duplicate event handler registration; progress bar color automatically reflects design system Primary Color changes.
 
 ## Retrospective / Lessons Learned
 

@@ -234,6 +234,7 @@ export const projectNavBtn = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
+  textAlign: 'left',
   gap: vars.space[1],
   cursor: 'pointer',
   border: 'none',

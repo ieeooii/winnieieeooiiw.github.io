@@ -3,50 +3,103 @@ thumbnail: /images/projects/202007-company-general-setting.webp
 gradient: linear-gradient(135deg, #e0f2fe, #bae6fd)
 ---
 
-# Storage General Settings Page
+# Storage General Setting Page Development
 
 | Field | Details |
-|-------|---------|
+|------|------|
 | Company | CLO Virtual Fashion |
 | Category | SaaS |
 | Service | CLO-SET |
-| Tech Stack | Next.js, TypeScript, MobX, Emotion (migrated from jQuery → React) |
-| Period | 2020.07 – 2020.09 |
-| Team | Frontend 1 (owner) |
+| Tech Stack | Next.js, TypeScript, MobX, Emotion (jQuery → React migration) |
+| Period | 2020.07 ~ 2020.09 |
+| Team | Frontend 1 (in charge) |
 | Service Link | [style.clo-set.com](https://style.clo-set.com) |
 
 ## Overview
 
-The Company General Setting page where fashion brand administrators configure company information (name, logo, color), feature activation options (workroom, linesheet, access permissions, viewer), and measurement/currency units. Because the settings items are varied and each is connected to a separate API call, a design was created to **manage toggle options as a declarative data structure (config array)**. Includes confirmation flows for destructive actions like company deletion and transfer that cannot be undone.
+A Company General Setting page where fashion brand administrators configure company information (name, logo, color), feature activation options (Workroom, Line Sheet, access permissions, viewer), and measurement/currency units. Since settings are diverse and each is linked to different API calls, **toggle options were designed as a declarative data structure (config array)**. Confirmation flows for destructive actions like company deletion and transfer are also included.
 
-![Storage Root Settings Page](/images/projects/202007-company-general-setting.webp)
+The page store was separated into root store → page-specific store using the Composition pattern. All API actions use `@action.bound` to guarantee `this` binding, and state changes after async completion are always wrapped in `runInAction` to comply with MobX strict mode.
+
+![Storage General Setting page](/images/projects/202007-company-general-setting.webp)
 
 ## Key Implementations
 
-### Declarative Config Pattern for Toggle Options
+### Declarative Config Pattern Design for Toggle Options
 
-- **Problem**: Five or more toggle options — UseCompanyRoom / UseLine / UseAccessiblePeople / ActiveImageViewer / ActivePatternViewer — each called a different API, and each toggle had different modal titles, contents, and on/off labels. Creating separate components or conditional branches per toggle would widen the scope of changes when a new toggle is added.
-- **Solve**: Declared each toggle option declaratively as a `CompanyOptionType[]` array — specifying required properties as data: `isOn`, `onToggle`, `modalTitle`, `modalContents`, `onValue/offValue`, etc. The `CompanyOptionList` component iterates over this array to render a consistent toggle UI. Options requiring custom components (measurement unit selector, currency unit selector) are injected via a `component` property.
-- **Result**: Extensible structure where a new toggle option can be applied simply by adding one item to the array.
+- **Problem**: 5+ toggle options each call different APIs, and each toggle has different modal titles, content, and on/off labels. Creating separate components or conditional branches for each toggle would widen the code change scope when adding new toggles.
+- **Solve**: Defined each toggle option's properties (active state, handler, confirmation modal content, on/off labels) as a type and managed them declaratively in a config array. The toggle list component iterates this array to render consistent UI. Items requiring custom UI (measurement unit selector, currency unit selector) are handled via a `customNode` property that injects `ReactNode`.
+- **Result**: An extensible structure where new toggle options can be applied by simply adding one entry to the array.
+
+```typescript
+interface ToggleOption {
+  isOn?: boolean;
+  onToggle?: () => void;
+  onLabel?: string;
+  offLabel?: string;
+  confirmTitle?: string;    // Omit to execute immediately without confirmation modal
+  confirmMessage?: string;
+  customNode?: ReactNode;   // Render custom component instead of toggle
+}
+```
+
+The toggle list component processes toggles by either executing immediately or going through a confirmation modal based on the presence of `confirmMessage`. Modal content is reset after the closing animation completes to prevent flickering during close.
+
+```typescript
+const handleToggle = (option: ToggleOption): void => {
+  if (!option.confirmMessage) {
+    option.onToggle?.();   // Execute immediately for toggles that don't need confirmation
+    return;
+  }
+  showConfirmModal(option);  // Route through modal for toggles that need confirmation
+};
+```
+
+---
 
 ### Company Name Change — Real-Time Validation
 
-- **Problem**: If a company name input containing special characters or prohibited characters is sent to the server, the backend returns an error. From the user's perspective, receiving real-time validation feedback during input is a better UX than receiving a failure message after pressing the save button.
-- **Solve**: Validated input in real time using the `checkFilenameValidity()` utility function. When invalid, passed a `helpMessage` to the `SettingInput` component to display an inline error message. On the `onBlur` event, blocked the API call itself if the input is invalid at the time of server submission. Character limit managed via the `CHARACTER_LIMIT.SPACE_NAME` constant applied uniformly to the input field's `maxLength`.
-- **Result**: Invalid names blocked from reaching the server entirely; users receive immediate feedback during input.
+- **Problem**: When special or prohibited characters are included in the company name input and sent to the server, the backend returns an error. From the user's perspective, receiving real-time feedback during input is better UX than getting a failure message after pressing the save button.
+- **Solve**: Real-time validation of input values using a validation utility function. When invalid, a `helpMessage` is passed to the input component to display an inline error message. API calls are blocked if the value is invalid at `onBlur`. Character limits are managed as shared constants and applied uniformly via `maxLength`. Store actions also have early returns when the value is empty or identical to the existing value, blocking unnecessary API calls.
+- **Result**: Invalid names are completely prevented from being sent to the server; users receive immediate feedback during input.
 
-### Destructive Actions — Company Deletion / Transfer
+---
 
-- **Problem**: Company deletion is an irreversible action that permanently deletes all content and settings. Company transfer (Transfer) is conditionally displayed based on plan conditions and has a separate accept/reject flow. Providing these two actions as plain buttons creates a risk of accidental execution.
-- **Solve**: Applied a "type the name to confirm" pattern by passing the company name to `ItemDeleteModal` for deletion. After deletion, automatically redirects to the dashboard. `CompanyTransferContainer` is conditionally rendered based on plan conditions. Used a `CompanyInfoSettingModal` enum to manage the currently open modal type as a single state, preventing multiple modals from opening simultaneously.
-- **Result**: Double confirmation flow for destructive actions implemented; modal state conflicts prevented.
+### Company Deletion / Transfer Destructive Action Handling
+
+- **Problem**: Company deletion is an irreversible action that permanently deletes all content and settings. Company transfer visibility depends on plan conditions, with separate accept/reject flows. Both actions risk accidental execution if provided as simple buttons.
+- **Solve**: Applied a "type the name to confirm" pattern for company deletion. Auto-redirect to dashboard after deletion. Transfer component is conditionally rendered based on plan conditions. Open modal type is managed as a single enum state to prevent multiple modals from opening simultaneously. Transfer flow state is created as a local store scoped to the component lifecycle, isolated from the page store.
+- **Result**: Double confirmation flow for destructive actions; modal state conflict prevention.
+
+```typescript
+// Manage open modal as a single enum value — two modals cannot be open simultaneously
+enum ActiveModal { CONFIRM, DELETE, ERROR }
+
+const [activeModal, setActiveModal] = useState<ActiveModal>();
+const isDeleteOpen = activeModal === ActiveModal.DELETE;
+```
+
+---
 
 ### Measurement Unit / Currency Unit Settings
 
-- Developed `CompanyMeasurementUnitSetting` for changing 3D pattern measurement units (INCH/CM/MM) — prevents duplicate requests with `isMeasurementUnitUpdating` loading state during unit change API calls.
-- Developed `CompanyCurrencyUnitSetting` for setting currency units — receives `getCurrencyUnit` / `updateCurrencyUnit` as injected props to separate fetch and update operations.
-- On viewer option toggle (image viewer / pattern viewer activation) changes, calls `store.reloadItems()` to immediately refresh the content list.
+- **Problem**: Measurement unit changes need to synchronize with an external service along with the main settings save. Sequential calls increase wait time, and re-changes during updates can cause duplicate requests.
+- **Solve**: Parallel API calls with `Promise.all` to reduce wait time. Loading flag to block re-requests before completion. Currency unit component has query and update actions injected via props so the component doesn't depend on the API structure.
+- **Result**: Reduced update response time, duplicate request prevention, currency unit component reusability secured.
+
+```typescript
+// Parallel update of two systems then batch state update via runInAction
+await Promise.all([
+  api.updatePrimary(params),
+  api.syncExternal(params),
+]);
+
+runInAction(() => {
+  this.value = newValue;
+  this.isLoading = false;
+});
+```
 
 ## Retrospective / Lessons Learned
 
-Settings pages look like "simple forms," but each item is connected to a different API and must handle individual failure cases and loading states. Managing toggle options as a declarative config array has a slightly higher upfront design cost, but the benefit is that new options can be added later without touching component code. This work reaffirmed that knowing when to abstract a repeating pattern is the essence of good design.
+A settings page may look like a "simple form," but each item is connected to a different API and needs its own failure case and loading state handling. The approach of managing toggle options declaratively as a config array has a slightly higher initial design cost, but the advantage is that component code doesn't need to be touched each time a new option is added. This project reconfirmed that the core of design is judging the right time to abstract repeated patterns.

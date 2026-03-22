@@ -3,113 +3,101 @@ thumbnail: /images/projects/202501-backoffice-enterprise.svg
 gradient: linear-gradient(135deg, #e8eaf0, #c8ccd8)
 ---
 
-# Backoffice Enterprise Groups Domain Design & Build
+# Backoffice Enterprise Groups Domain Design and Construction
 
 | Field | Details |
-|-------|---------|
+|------|------|
 | Company | CLO Virtual Fashion |
 | Category | Internal Admin Tool |
 | Service | CLO-SET Admin |
 | Tech Stack | React 17, TypeScript 4.5, Redux, Redux-Saga, Styled Components, Axios, react-export-excel |
-| Period | 2025.01 – 2025.02 |
-| Team | Frontend 1 (owner), Backend 1+, PM 1 |
-| Service Link | Internal admin (private) |
+| Period | 2025.01 ~ 2025.02 |
+| Team | Frontend 1 (in charge), Backend 1+, PM 1 |
+| Service Link | Internal Admin (Private) |
 
 ## Overview
 
-Designed and built from scratch a Groups section in the admin for managing CLO-SET Enterprise plan customer accounts (Groups) — including account status, billing history, usage, and operational notes. Solely developed 7 sub-features and 40+ new components over 6 months, covering everything from group list search filters to the group detail page (info table, members, usage, plan history, billing history, comments). Led the entire frontend process from API design collaboration and component structure decisions through to deployment.
+Designed and built the Groups section from scratch for unified management of CLO-SET Enterprise plan client accounts (Groups) — including account status, payment history, usage, and operational notes — in the admin panel. From group list query and search filters to group detail pages (info table, members, usage, plan history, billing history, comments), a total of 7 sub-features and 40+ new components were developed solo over 6 months. Led the entire frontend process from API design coordination, component structure decisions, to deployment.
 
 ## Key Implementations — Groups List & Search Filter
 
-### SearchFilter + AutocompleteInput Component Design
+### Compound Search Filter — URL State Serialization
 
-- **Problem**: Internal operations teams needed to filter hundreds of Enterprise groups by plan type, payment method, assigned CLO-SET manager, and keyword combinations. The Groups list page itself didn't exist in the existing admin, and the manager field required autocomplete with dynamically changing options.
-- **Solve**: Designed a new `SearchFilter.tsx` component — plan type and payment method use `CheckboxFilterElement`, while manager uses `AutocompleteInput.tsx` that fetches candidate options from the API and filters based on typing. Serialized filter conditions into URL `searchParams` so state is preserved after refresh. Centralized filter option constants in `constants/groups/filter.ts` to avoid hardcoding options in UI code.
-- **Result**: 4-type compound filtering — plan type, payment method, manager (autocomplete), keyword — with URL serialization enabling filter state sharing.
+- **Problem**: The internal operations team needed to narrow down hundreds of Enterprise groups by combinations of plan type, payment method, assigned manager, and keywords. The admin previously had no Groups list page at all, and the manager field required an autocomplete approach with dynamically changing options.
+- **Solve**: Newly designed the search filter component with plan type and payment method as checkbox filters, and manager as an autocomplete input that filters candidates from an API on typing. Serialized filter conditions to `searchParams` in the URL for state persistence after refresh. Centralized filter option constants in a separate module to avoid hardcoding options in UI code.
+- **Result**: 4-type compound filter (plan type, payment method, manager autocomplete, keyword); filter state shareable via URL serialization.
 
-### GroupListTable Conditional Row Styling + Excel Export
+### Conditional Row Styling and Excel Export
 
-- **Problem**: Short-term subscription groups nearing subscription end were hard to identify visually in the list. The operations team needed to export the currently displayed list as a spreadsheet for sharing, but no Excel export feature existed anywhere.
-- **Solve**: Added `rowStyle` logic to `GroupListTable.tsx` applying conditional background color to rows where the subscription end date is within a certain period. Added exception handling so that styling is not applied when the subscription end date is `null` or the plan type is FREE. For Excel export, used `react-export-excel-xlsx-fix` — separated export-specific column definitions in `GroupListColumns.tsx` and implemented `.xlsx` file generation in `GroupList.tsx` based on current filter result data. Also added error handling for export failures.
-- **Result**: Visual identification of at-risk short-term subscription groups; immediate Excel download of current filter results.
-
----
+- **Problem**: Short-term subscription groups approaching subscription end were difficult to visually identify in the list. The operations team needed to extract the currently displayed list as a spreadsheet for sharing, but no Excel export feature existed anywhere.
+- **Solve**: Added conditional background color logic for rows with subscription end dates within a certain period. Applied exception handling to not apply styling when subscription end date is `null` or plan type is FREE. For Excel export, utilized `react-export-excel-xlsx-fix` with export-specific column definitions separated, generating `.xlsx` files based on current filter result data. Added error handling for export failures.
+- **Result**: Visual identification of at-risk short-term subscription groups; immediate Excel download of current filtered results.
 
 ## Key Implementations — Group Detail Page
 
-### Group Detail Layout & Routing Design
+### Detail Page Layout and Nested Routing
 
-- **Problem**: There was no detail page to navigate to when clicking a specific group from the group list. The detail page was planned to have multiple tabs (Overview, Billing History, etc.), so URL changes needed to occur on tab navigation while the shared layout (group name, top info) remained stable.
-- **Solve**: Separated `GroupDetail.tsx` (page), `GroupDetailContainer.tsx` (layout and data fetching), and `GroupOverviewTabContainer.tsx` (Overview tab content) hierarchically. Added nested routes under `/groups/:groupId` in the router so tab transitions are trackable via URL changes.
+- **Problem**: No detail page existed when clicking a specific group from the list. The detail page was planned to consist of multiple tabs (Overview, Billing History, etc.), requiring URL changes on tab navigation while maintaining the common layout (group name, top info).
+- **Solve**: Hierarchically separated page, layout, and tab content. Added nested routes under `/groups/:groupId` in the router so tab switching is trackable via URL changes.
 
-### GroupInformationTable + CLOSETManagerModal CRUD
+### Group Info Table and Manager CRUD
 
-- **Problem**: Group basic information (plan type, payment method, member count, manager, etc.) needed to be viewable on a single screen with the ability to change the manager. Managers required a multi-add/delete structure, but no reusable patterns existed in the existing admin components.
-- **Solve**: Built `GroupInformationTable.tsx` based on a common `InformationTable.tsx` component, with the manager edit cell opening `CLOSETManagerModal.tsx` to add/remove managers via POST/DELETE APIs. Discovered a bug where the internal list state wasn't reset when the modal closed, and explicitly added state reset logic on `onClose`. Decoupled data fetching logic from UI by separating the manager list into a `useMembersManagersQuery.tsx` custom hook.
-- **Result**: Group info viewing and manager CRUD handled from a single screen.
+- **Problem**: Group basic information (plan type, payment method, member count, manager, etc.) needed to be viewed on a single screen with the ability to change managers. Manager required multi-add/delete capability, but no reusable patterns existed among existing admin components.
+- **Solve**: Composed the group info table using a common info table component base, with a modal opening from the manager edit cell for adding/deleting managers via POST/DELETE APIs. Discovered a bug where the internal list state wasn't reset when closing the modal and explicitly added state initialization logic on `onClose`. Decoupled manager list data fetching into a custom hook from the UI.
+- **Result**: Group info view and manager CRUD processable on a single screen.
 
-### Payment Currency Change Modal
+### Billing Currency Change Modal
 
-- **Problem**: Operations cases arose where a specific Enterprise group's billing currency (KRW, USD, etc.) needed to be changed, but there was no way to do it in the admin — requiring direct requests to the backend each time.
-- **Solve**: Developed `GroupPaymentCurrencyEditModal.tsx` (96 lines) and integrated it into `GroupInformationTable`. Designed to dynamically fetch the currency list from the Currency API to avoid hardcoding, and pre-filled the current currency value as the modal's initial state for improved UX.
-- **Result**: Operations team can change group billing currency directly in the admin; backend dependency eliminated.
+- **Problem**: Operational cases arose requiring billing currency changes (KRW, USD, etc.) for specific Enterprise groups, but no admin method existed for direct modification, requiring backend requests each time.
+- **Solve**: Newly developed a currency change modal integrated into the group info table. Currency list is dynamically queried from a Currency API to avoid hardcoding, and pre-filled the modal initial state with the current currency value for improved UX.
+- **Result**: Operations team can directly change group billing currency in the admin; backend dependency removed.
 
----
+## Key Implementations — Billing History & Invoice
 
-## Key Implementations — Billing History & Invoices
+### Billing History Table and Invoice Modal
 
-### GroupBillingHistoryTable + Invoice Modal
+- **Problem**: Enterprise groups' complete billing history needed to be queryable, with individual invoices outputtable in a printable format. Invoice layout required complex composition including brand stamp images, amount calculations, and product specification tables.
+- **Solve**: Developed billing history table and invoice modal as role-separated components. Displayed brand stamp SVG image on completed invoices and added common number utility functions for payment amount formatting.
+- **Result**: Completed group billing history list query and individual invoice detail view functionality.
 
-- **Problem**: Enterprise group billing history needed to be viewable in full, with individual invoices printable. Invoice layout required complex elements: CLO-SET brand stamp image, amount calculations, and a product details table.
-- **Solve**: Developed `GroupBillingHistoryColumns.tsx` (145 lines), `GroupBillingHistoryTable.tsx` (177 lines), and `GroupBillingHistoryContainer.tsx`. The invoice modal was separated into role-specific components — `GroupBillingHistoryInvoiceModal.tsx`, `GroupInvoiceFigure.tsx`, `GroupInvoiceInformation.tsx`, `GroupInvoiceTable.tsx` — totaling 437 lines. Displayed a brand stamp SVG image on completed payment invoices and added common number utility functions for payment amount formatting.
-- **Result**: Group billing history list view and single invoice detail functionality complete.
+### Billing History Dynamic Date Display and Data Bug
 
-### Billing History Caption Dynamic Date Display + Data Bug Fix
-
-- **Problem**: Billing history caption was hardcoded as a static string and wasn't refreshing based on the viewing date. Separately, a bug was found where group billing history data was fetched incorrectly, causing the operations team to see wrong history.
-- **Solve**: Updated caption to display the current date dynamically using `new Date()`. Tracked down and fixed the billing history data bug by identifying an API parameter binding error.
-
----
+- **Problem**: Billing history caption was hardcoded as a static string and didn't update based on query date. Separately, a bug was causing group billing history data to be incorrectly queried, with the operations team viewing incorrect records.
+- **Solve**: Modified caption to dynamically display current date with `new Date()`. Traced and fixed an API parameter binding error for the billing history data bug.
 
 ## Key Implementations — Plan History & Usage
 
-### GroupPlanHistoryTable + Pagination
+### Plan History Pagination
 
-- **Problem**: Group plan change history needed to be viewable chronologically. Rendering all data at once without pagination was expected to degrade performance for groups with a large history.
-- **Solve**: Developed `GroupPlanHistoryTable.tsx` with a `NewDataTableBody`-based table, adding a page change handler and loading state propagation. Unified the plan history operator label as "CLO-SET Manager" for expression consistency.
-- **Result**: Paginated plan change history viewing supported; operator filter label clarified.
+- **Problem**: Group plan change history needed to be viewable chronologically. For groups with many history records, rendering all data at once without pagination would degrade performance.
+- **Solve**: Developed the plan history table with page change handlers and loading state propagation. Unified plan history operator labels for expression consistency.
+- **Result**: Plan change history pagination query supported; operator labels clarified.
 
-### GroupUsageAccordionBox Usage Tracking
+### Usage Query and Load Complete Event Integration
 
-- **Problem**: There was no view for seeing a group's storage, rendering, and other usage at a glance. A timing issue occurred where other components couldn't recognize when usage data fetching had completed.
-- **Solve**: Structured `GroupUsageAccordionBox.tsx` as an Accordion UI and separated usage data fetching logic into a `useCLOSETGroupsUsage.tsx` custom hook. Added an `onFetchComplete` interface that calls a callback after fetching completes, enabling parent components to recognize when usage loading is done. Also added unit conversion functions to the number utility for usage metric formatting.
-- **Result**: Real-time group usage viewing provided; usage load completion event integration supported.
+- **Problem**: No view existed for quick overview of group storage, rendering, and other usage metrics. After fetching usage data, other components couldn't recognize the completion timing, causing timing issues.
+- **Solve**: Composed usage in Accordion UI and separated data fetching logic into a custom hook. Added a callback interface invoked after fetch completion so parent components can recognize usage loading completion. Added unit conversion functions to number utilities for usage value formatting.
+- **Result**: Real-time group usage query provided; usage load complete event integration enabled.
 
----
+## Key Implementations — Group Comment CRUD
 
-## Key Implementations — Group Comments CRUD
+### Operations Memo CRUD Full Implementation
 
-### Operations Notes (Comments) Feature Full Implementation
-
-- **Problem**: The operations team had no way to leave internal notes about specific groups. The existing `CommentTable.tsx` was tightly coupled to the member detail page and couldn't be reused directly for the group domain.
-- **Solve**: Developed `GroupComment.tsx`, `GroupCommentTable.tsx`, `GroupAddCommentModal.tsx`, and `GroupCommentListColumns.tsx` (535+ lines total). Encapsulated comment CRUD API integration in a `useCLOSETGroupsCommentsQuery.tsx` custom hook. Made `CommentList.tsx`'s `setIsEditing` prop optional to enable reuse in both member detail and group contexts. Discovered and fixed a bug where comment timestamps weren't displayed in KST, updating the date format logic accordingly.
-- **Result**: Group-level operational note create/update/delete complete; KST-based date display corrected.
-
----
+- **Problem**: No functionality existed for operations team to leave internal memos on specific groups. The existing comment component was tightly coupled to the member detail page and couldn't be directly reused for the group domain.
+- **Solve**: Newly developed comment list, registration modal, and column definitions. Encapsulated comment CRUD API integration in custom hooks. Adjusted the existing comment component's edit prop to optional, enabling interface reuse for both member detail and group contexts. Discovered and fixed a bug where comment registration timestamps weren't displayed in KST.
+- **Result**: Group-level operations memo create/edit/delete completed; KST-based date display corrected.
 
 ## Key Implementations — Common Design
 
-### searchParams-Based Filter State Management Bug Fix
+### URL searchParams Filter Reset Bug
 
-- **Problem**: A bug existed where after applying a manager filter in the group list and pressing the reset button, the manager filter key was not completely removed from URL searchParams.
-- **Solve**: Updated the reset logic to explicitly remove the manager filter key, rather than batch-resetting all searchParams at once.
+- **Problem**: After applying a manager filter on the group list, pressing the reset button didn't completely remove the manager filter from URL searchParams.
+- **Solve**: Modified the reset logic to batch-reset all searchParams, explicitly removing the manager filter key.
 
-### API Custom Hook Design Pattern
+### API Custom Hook Design Pattern Establishment
 
-- Designed 7+ custom hooks for Groups domain data fetching — group list, detail, comments, usage, members, managers — consistently structured under a `hooks/groups/` directory. API request functions are separated into their own layer so hooks don't depend on fetching implementation details. Types are centralized per domain in a single file, enabling single-point updates when API schemas change.
-
----
+Designed 7+ custom hooks for group list, detail, comments, usage, members, and manager queries across the entire Groups domain with a consistent structure. Separated API request functions into a separate layer so hooks don't depend on data fetching implementation details. Centralized types in per-domain single files so API schema changes can be modified at a single point.
 
 ## Retrospective / Lessons Learned
 
-Designing the entire Groups domain from scratch over 6 months made me realize what matters for "keeping the component structure stable as features accumulate." Experiencing `GroupInformationTable` accumulating growing responsibilities — manager CRUD, currency change — confirmed that separating each action into dedicated modal components with the container only handling orchestration is advantageous for maintainability. Using searchParams as a state store was a good decision for URL sharing and history management, but bugs arose as initialization and parsing logic scattered across multiple components — next time, abstracting URL state management into a single hook would be more appropriate.
+Designing the entire Groups domain from scratch over 6 months, I realized what's important for "component structure not to waver as features grow." Experiencing responsibilities increasingly accumulating on the group info table — manager CRUD, currency changes, etc. — confirmed that separating each action into a separate modal component with the container handling only orchestration is advantageous for maintainability. Also, using searchParams as a state store was a good choice for URL sharing and history management, but bugs arose as initialization and parsing logic scattered across multiple components — next time, abstracting URL state management into a single hook would be more appropriate.

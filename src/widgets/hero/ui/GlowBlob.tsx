@@ -1,22 +1,46 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { glowBlob } from './hero.css'
+import glowBlobLight from '../../../assets/glow-blob-light.svg'
+import glowBlobDark from '../../../assets/glow-blob-dark.svg'
+
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+
+function getTheme(): 'dark' | 'light' {
+  return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
+}
 
 export const GlowBlob = () => {
   const svgRef = useRef<SVGSVGElement>(null)
+  const [theme, setTheme] = useState<'dark' | 'light'>(getTheme)
 
   useEffect(() => {
+    if (isSafari) {
+      const observer = new MutationObserver(() => setTheme(getTheme()))
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+      return () => observer.disconnect()
+    }
+
     const handle = () => {
       const svg = svgRef.current
       if (!svg) return
-      if (document.hidden) {
-        svg.pauseAnimations()
-      } else {
-        svg.unpauseAnimations()
-      }
+      if (document.hidden) svg.pauseAnimations()
+      else svg.unpauseAnimations()
     }
     document.addEventListener('visibilitychange', handle)
     return () => document.removeEventListener('visibilitychange', handle)
   }, [])
+
+  if (isSafari) {
+    return (
+      <div className={glowBlob} aria-hidden="true">
+        <img
+          src={theme === 'dark' ? glowBlobDark : glowBlobLight}
+          alt=""
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      </div>
+    )
+  }
 
   return (
     <div className={glowBlob} aria-hidden="true">

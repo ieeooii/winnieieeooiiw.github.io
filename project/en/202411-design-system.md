@@ -3,108 +3,185 @@ thumbnail: /images/projects/202411-design-system.svg
 gradient: linear-gradient(135deg, #fce7f3, #ede9fe)
 ---
 
-# Design System Build
+# Design System Architecture
 
 | Field | Details |
-|-------|---------|
+|------|------|
 | Company | CLO Virtual Fashion |
 | Category | ETC |
 | Service | CLO-SET |
 | Tech Stack | React, TypeScript, Emotion.js, Storybook, Rollup, tippy.js |
-| Period | 2021.06 – 2024.11 |
-| Team | Frontend 4, Product Designer 2 (bundle optimization sole lead, component development contributor) |
-| Service Link | Internal (not public) |
+| Period | 2021.06 ~ 2024.11 |
+| Team | Frontend 4, Product Designer 2 (Bundle optimization sole lead, component development participation) |
+| Service Link | Internal (Private) |
 
 ## Overview
 
-Built and evolved the design system across four phases. Phase 1 (2021.06–2022.08) resolved UX inconsistencies from duplicate components and bundle size issues, achieving an 82% bundle size reduction and Lighthouse score of 95. Followed by service-specific component additions (2022.03–2022.12), internal design system v1 common component proposals and designs (2022.07–2024.11), and design system v2 (2023.07–2023.12).
+Built and evolved the design system across four phases. Phase 1 (2021.06 ~ 2022.08) resolved UX inconsistency and bundle size issues from duplicate components, achieving 82% bundle size reduction. This was followed by CLOSET service-specific component additions (2022.03 ~ 2022.12), company-wide design system v1 common component proposal and design (2022.07 ~ 2024.11), and design system v2 construction (2023.07 ~ 2023.12) achieving a Lighthouse score of 95.
 
-## Key Implementations — Bundle Optimization & Foundation (Phase 1)
+## Key Implementations — Bundle Optimization and Foundation Design
 
 ### Bundle Optimization
-- **Problem**: Duplicate component implementations causing UX inconsistencies and slower development velocity; increasing design system bundle size degrading initial load performance
-- **Solve**: Enabled tree-shaking via Rollup named exports and `sideEffects: false`, so only actually used components are included in the bundle. Converted to ESM format and used Rollup externals to eliminate duplicate bundling of React and Emotion. Moved Emotion.js to peerDependencies so it's managed as a single instance at the application level. Measured pre/post optimization with bundle analyzer to verify 82% reduction.
-- **Result**: Design system bundle size reduced by 82% (Client: 2.55MB → 72.66KB / Node.js: 2.54MB → 126.01KB). Initial JS load reduced from 398KB to 185KB. Lighthouse performance score reached 95.
+
+- **Problem**: The design system package was distributed as a single CJS bundle, causing the entire bundle to be included even when only a few components were used. Shared dependencies like React and Emotion were duplicated within the package, inflating the client bundle to 2.55 MB with initial JS load size of 398 KB.
+
+- **Solve**: Optimization was carried out along three axes.
+
+  1. **Tree-shaking enablement**: Switched Rollup to named exports and declared `"sideEffects": false` so only actually imported components are included in the final bundle. Converted from CJS to ESM format enabling bundlers to statically analyze usage.
+
+  2. **Duplicate bundle removal**: Added React, ReactDOM, Emotion, and other dependencies that host applications necessarily possess to Rollup externals and moved them to `peerDependencies`. Improved the structure so installing applications share a single instance. Emotion specifically was critical for functional stability since having two or more instances causes CSS-in-JS style conflicts.
+
+  3. **Measurement-based optimization**: Visualized pre/post bundle composition with bundle analyzer to identify unnecessarily included modules and verify reduction figures.
+
+- **Result**:
+  - Design system bundle size **82% reduction** (Client: 2.55 MB → 72.66 KB / Node.js: 2.54 MB → 126.01 KB)
+  - Application initial JS load size 398 KB → 185 KB
+  - Lighthouse performance score **95** achieved
 
 ### Component Design Patterns
-- **Solve**: Designed Headless component-based architecture for per-service style extensibility. Implemented flexible composition using the Compound Component pattern. Form components support both Controlled and Uncontrolled modes.
 
-### Design Token System
-- **Solve**: Designed a common style system based on Design Tokens to minimize color and typography discrepancies between designers and developers.
+- **Problem**: The initial design system had styles tightly coupled to components, requiring component duplication or endless props addition to accommodate subtly different design requirements per service. This increased maintenance complexity and made APIs unstable.
 
-### Component Documentation Environment (Storybook)
-- **Solve**: Built a component-level documentation and testing environment using Storybook, improving communication efficiency between design and development. Documented each component's props, states, and edge cases as Stories alongside the code.
-- **Result**: Reduced spec mismatches between design and development; edge cases discovered proactively during the documentation process
+- **Solve**: Combined two patterns to achieve both extensibility and consistency.
 
-## Key Implementations — Service-Specific Components (Phase 2)
+  1. **Headless components**: Designed to handle only state logic and accessibility (ARIA), with styles injected externally. Each service can freely customize visual presentation via CSS-in-JS `css` prop or `styled`.
 
-### Tooltip.tsx / TooltipMenu.tsx
-- **Problem**: Tooltips were needed across the service, but each component was directly importing `tippy.js` or implementing tooltips in its own way. `@tippyjs/react` had a constraint preventing simultaneous use of `visible` and `trigger` props.
-- **Solve**: Designed `BaseTooltip.tsx` as the base layer, with `Tooltip` (standard) and `TooltipMenu` (menu-style) variants built on top. Controlled/uncontrolled mode is automatically determined by the presence of the `visible` prop. Exposed service-relevant props: `fixedPosition`, `showShadow`, `zIndex`, `TextButton`. Wrote Storybook MDX documentation.
-- **Result**: Consistent Tooltip UX across the service; eliminated duplicate direct tippy.js usage
+  2. **Compound Component pattern**: For example, `<Select>`, `<Select.Option>`, `<Select.Group>` — parent-child components share internal state through Context, allowing component consumers to directly control layout and composition while state synchronization happens automatically.
 
-### PickerFrame.tsx / PickerDropdown.tsx
-- **Problem**: Every dropdown selection UI component like `FilterCategory.tsx` was independently implementing open/close state, position calculation, and outside-click detection, leading to severe code duplication. Dropdowns needed to be hidden without `display: none` (to avoid layout recalculation).
-- **Solve**: Designed `PickerFrame.tsx` (dropdown container) and `PickerDropdown.tsx` (dropdown panel) as separate components. Used `width: 0` in hidden state to conceal without layout impact. Migrated `FilterCategory.tsx` to this component and extracted common styles to `shared/styles/select.ts`.
-- **Result**: Dropdown logic centralized; new Select-type components can be built on top of PickerFrame, improving development speed
+  3. **Controlled / Uncontrolled unified interface**: Form-related components automatically branch between controlled/uncontrolled mode internally based on `value` prop presence, maintaining a single API for simple uncontrolled usage and complex controlled form usage.
 
-### Thumbnail.tsx (Lazy Load + Ratio)
-- **Problem**: Thumbnail images were used throughout the service (content lists, Line Sheet thumbnails, etc.), but each usage site independently implemented lazy loading and aspect ratio handling. Empty space before images loaded was causing layout shifts.
-- **Solve**: Developed `useBackgroundImageLazyLoad.ts` custom hook and embedded it in `Thumbnail.tsx`. Applied `aspect-ratio` CSS dynamically via `ratio` prop. Used `blankContent` type to show skeleton before image load. Immediately utilized in `LineSheetThumbnailImage.tsx`.
-- **Result**: Lazy loading and layout shift prevention handled in one component; duplicate implementations eliminated
+### Design Token System Construction
 
-### Icon Components
-Added service-specific icons (`ExcelLineSheetIcon`, `ColorwayIcon`, `InfoTextIcon`, `ChangeOrderIcon`, `HandleOrderIcon`, `SortUpListIcon`, `SortDownListIcon`, `CopyIcon`, `QRIcon`, `UmmIcon`, etc.) to the design system. Implemented as SVG components controllable via `size` and `color` props.
+- **Problem**: Color, typography, and spacing values were hardcoded per component, causing inconsistencies between designers and developers. Renaming colors in Figma required searching for related strings in code, and tracking impact scope during brand renewals was difficult.
 
-## Common Components (Phase 3)
+- **Solve**: Defined color, typography, spacing, and elevation as TypeScript objects in a token file as a single entry point. Connected to ThemeProvider to enforce components referencing styles only through token keys. Documented a 1:1 mapping convention between Figma token names and code constant names to reduce designer-developer communication costs.
 
-### Skeleton Component (2022.07–2022.09)
-Proactively proposed this work, judging that showing a blank screen or spinner during loading states was bad for user experience.
-- **Problem**: No Skeleton components existed; loading states were handled only with blank screens or spinners.
-- **Solve**: Designed Headless UI structure based on `BaseSkeleton.tsx`. Implemented an extensible structure combining `shape (rectangle/circle)`, `variant`, and `animation (wave/pulse/false)` props. Used `:empty` CSS selector to automatically show skeleton UI for `undefined`, `null`, or `boolean`. Added Context Provider for batch-controlling animation defaults across specific areas.
-- **Result**: Applied to both clo-set and connect services. Can accommodate diverse Skeleton requirements without structural changes.
+- **Result**: Brand color updates can be batch-applied across the entire service by modifying only the token file. Dark mode support minimized by swapping only color values at the token layer.
 
-### FileExtension Component (2022.08–2022.09)
-- **Problem**: Each service displayed file extensions differently. The `clo3dExtensionList` utility was managed scattered across components, causing policy inconsistencies.
-- **Solve**: Developed new `FileExtension.tsx` component. Classified extension types, mapped icons, and handled unsupported format fallback via `isNotSupported` prop. Reorganized `utils.ts` and `types.ts` to consolidate the extension list into a single source. Structured for single-location updates when adding new CLO3D extensions like `.hpos` and `.zth`.
-- **Result**: Consistent file extension representation across the service; no omissions when adding new extensions.
+### Component Documentation Environment Setup (Storybook)
 
-### Thumbnail Component Improvements (2022.08–2023.03)
-- **Problem**: Image and icon rendering logic were mixed in a single `Thumbnail.tsx`, making maintenance difficult. With virtual window implementation, Thumbnail images outside the viewport were loading immediately, causing unnecessary network requests.
-- **Solve**: Separated into `ThumbnailInnerImage.tsx` (external images), `ThumbnailInnerIcon.tsx` (SVG icons), and `ThumbnailInner.tsx`. Added `lazyLoad` prop to load images only when entering the viewport when used with a virtual window.
-- **Result**: Each inner component independently modifiable; unnecessary image loads eliminated for performance improvements.
+- **Problem**: Component usage could only be understood by reading code directly, resulting in low team component reuse rates. Edge cases were frequently missed when adding new components.
 
-### ConfigProvider — Design System i18n Support (2022.10–2022.12)
-- **Problem**: Hardcoded component text prevented multilingual service support. Bundling an i18n library directly risked conflicts with each app's existing dependencies.
-- **Solve**: Designed `ConfigProvider` using React Context. Apps inject translated text using their preferred i18n solution into the Provider, which downstream components consume. Adding Spanish, Japanese, and Portuguese later required only modifying `locales.ts`.
-- **Result**: Apps maintain their own i18n solution freely while customizing design system component text. Initial design's extensible structure minimized cost of adding new languages.
+- **Solve**: Used Storybook to spec components' props, states, and edge cases as Stories. Wrote design intent, usage guidelines, and prop descriptions together in MDX format. Configured Controls panel so designers could interactively explore prop combinations. Story writing itself served as a test for reviewing component API design.
 
-### CLOSET Brand Logo SVG Component (2024.11)
-- **Problem**: Image-based logos couldn't change color via CSS, causing each service to handle dark mode differently. Each service was managing logo image files independently.
-- **Solve**: Developed `CLOSETEmblem.tsx` and `CLOSETLogo.tsx` as SVG components with customization props: `variant`, `opacity`, `id`, etc. Removed the legacy `ClosetBIIcon.tsx`.
-- **Result**: Consistent brand presentation including dark mode. Services no longer need to manage image files individually.
+- **Result**: Reduced component spec inconsistency between design and development. Story writing process discovered edge cases in advance.
 
-## Key Implementations — CLO-SET v3 Design System v2 (Phase 4)
-**Implemented Components**: Badge family (BadgeDot/BadgeIcon/BadgeImage/BadgeCounter/BadgeLabel/BadgeMarker) / BasePopover / IconButton·IconToggle / Thumbnail·FileExtension / BreadCrumbs / ColorwaySelect / MenuListItem / BaseDropdown, etc.
+## Key Implementations — Service-Specific Components
+
+### Tooltip / TooltipMenu
+
+- **Problem**: Tooltips were needed across the service, but each component was directly using tooltip libraries or implementing them differently. The library used (`@tippyjs/react`) had a limitation where `visible` prop and `trigger` prop couldn't be used simultaneously.
+
+- **Solve**: Designed the base layer (`BaseTooltip`) first, then implemented two variants on top — standard tooltip and menu-style tooltip. Internally auto-branched between controlled/uncontrolled mode based on `visible` prop presence to work around the library limitation. Exposed service-relevant options (fixed position, shadow, z-index) as props and wrote Storybook documentation alongside.
+
+- **Result**: Consistent Tooltip UX across the entire service; eliminated duplicate direct library usage.
+
+### Dropdown-Based Component Design
+
+- **Problem**: Every component needing dropdown selection UI was independently implementing open/close state management, position calculation, and outside click detection, causing heavy code duplication. Hiding with `display: none` caused DOM layout recalculation every time the dropdown closed, impacting performance.
+
+- **Solve**: Designed dropdown container and dropdown panel as separate concerns. Used `width: 0; overflow: hidden` instead of `display: none` for hidden state, maintaining DOM presence without affecting layout. Migrated existing category filter components to this component base and extracted common styles into a separate module, establishing a structure where subsequent Select-family components are built on a common layer.
+
+- **Result**: Centralized dropdown-related logic. Subsequent new Select-family component additions developed faster by building on the base component.
+
+### Thumbnail (Lazy Load + ratio)
+
+- **Problem**: Images were used across the service in content lists, line sheet thumbnails, etc., but each usage independently implemented lazy load logic and ratio handling. Empty space before image loading caused layout shifts (CLS).
+
+- **Solve**: Developed a custom hook using `IntersectionObserver` that sets the image src only on viewport entry, built into the Thumbnail component. Dynamically applied `aspect-ratio` CSS via a `ratio` prop to eliminate layout shift before and after image loading. Added an option to display skeleton UI before image load.
+
+- **Result**: Image lazy load and CLS prevention handled in a single component; duplicate implementations eliminated.
+
+### Icon Component Additions
+
+Added service domain-specific icons (line sheet, colorway, order change, sort, copy, QR, etc.) to the design system. Converted SVGs to React components controllable via `size` and `color` props, removing image file dependencies.
+
+## Key Implementations — Common Components
+
+### Skeleton Component
+
+A self-proposed initiative based on the judgment that showing blank screens or simple spinners during loading states creates poor user experience.
+
+- **Problem**: No Skeleton component existed; loading states were handled only with blank screens or spinners. Loading UI implementation varied per screen, lacking consistency.
+
+- **Solve**: Designed the base Skeleton component as a Headless structure with three extension mechanisms.
+
+  1. **Props composition**: Designed to express various forms from a single component by combining `shape(rectangle/circle)`, `variant`, `animation(wave/pulse/false)` props.
+
+  2. **`:empty` CSS selector utilization**: Leveraged the principle that the `:empty` CSS pseudo-class matches when child elements are `undefined`, `null`, `boolean`, or other values that produce no render output, enabling automatic skeleton UI display when data is absent without separate conditional branching.
+
+  3. **Context-based batch control**: Context Provider enables batch control of animation defaults for specific areas, allowing page-level toggling of all loading animations at once.
+
+- **Result**: Actually applied across multiple services. Subsequent various Skeleton requirements handled without structural changes.
+
+### FileExtension Component
+
+- **Problem**: File extension display was implemented separately per service with inconsistent presentation. Supported extension list utilities were scattered per component causing policy inconsistencies, requiring multiple file modifications when adding new formats.
+
+- **Solve**: Newly developed a FileExtension component unifying extension type classification, icon mapping, and unsupported format fallback handling in a single component. Organized extension lists as a Single Source of Truth so new format additions require modification at only one point to reflect across the entire service.
+
+- **Result**: Consistent file extension presentation across the service. Prevented omissions when adding new extensions.
+
+### Thumbnail Component Improvement
+
+- **Problem**: Image rendering and icon rendering logic were mixed in a single Thumbnail component, making maintenance difficult. In virtual window implementations, images outside the viewport were immediately loaded, causing unnecessary network requests.
+
+- **Solve**: Split the single component into three role-based components — external URL image handler, SVG icon handler, branching logic handler. Added a `lazyLoad` prop to enable loading images only on viewport entry in virtual window environments. Reused existing lazy load hooks for feature extension without duplicate implementation.
+
+- **Result**: Each internal component can be modified independently. Unnecessary image loads eliminated for network performance improvement.
+
+### ConfigProvider — Design System Internationalization Support
+
+- **Problem**: Internal component text (button labels, empty state messages, etc.) was hardcoded, making multilingual service application impossible. Embedding an i18n library directly in the design system risked version conflicts with each app's dependencies.
+
+- **Solve**: Designed a React Context-based `ConfigProvider` so the design system doesn't depend on a specific i18n solution. Each app injects text objects translated with its own i18n solution into `ConfigProvider`, and child components read translated text from Context. English text is provided as fallback default values so it works even without `ConfigProvider`. Established an extensible structure from the start where Spanish, Japanese, and Portuguese support expansion only requires modifying app-side locale configuration files.
+
+- **Result**: Apps can freely maintain their own i18n solutions while customizing design system component text. The initial extensible design minimized internal design system modification costs when adding languages.
+
+### Brand Logo SVG Component
+
+- **Problem**: Image file-based logos couldn't have colors changed via CSS, with each service handling dark mode adaptation differently. Logo image files were scattered across services making brand renewal consistency difficult.
+
+- **Solve**: Developed emblem and logotype as SVG inline components using `currentColor` to control color via CSS `color` property alone. Supported customization props including `variant` and `opacity`; removed legacy image-based components.
+
+- **Result**: Brand expression consistency including dark mode secured. No need for per-service image file management.
+
+## Key Implementations — Design System v2
+
+Fully redesigned the design system for the v3 renewal project. Focused on improving API consistency and extensibility based on v1 component design experience.
+
+**Key implemented components**: Badge family (Dot / Icon / Image / Counter / Label / Marker) / BasePopover / IconButton, IconToggle / Thumbnail, FileExtension / BreadCrumbs / ColorwaySelect / MenuListItem / BaseDropdown, etc.
 
 ### Badge Family Components
-- **Problem**: Badges were scattered across different components by position/content type with no consistency.
-- **Solve**: Unified BadgeDot/Icon/Image/Counter/Label/Marker under a single naming convention with a consistent props structure.
-- **Result**: Reduced designer-developer communication overhead; new badge types can reuse existing patterns.
 
-### IconToggle `disabledIcon` Bug Fix
-- **Problem**: In `disabled` state, `disabledIcon` was not rendered and the default icon was shown instead.
-- **Solve**: Fixed the conditional render priority so that the `disabled` prop checks for `disabledIcon` existence first.
-- **Result**: Disabled state icons display correctly across all DS usage sites.
+- **Problem**: Badges were scattered across different component names and props structures by position and content type, causing confusion about which component to modify when designers requested new badge types.
 
-### `ColorwaySelect` Arrow & `BaseDropdown` activeIndex Bug
-- **Problem**: The arrow icon direction didn't reverse when the dropdown was open, and activeIndex was not syncing with external state.
-- **Solve**: Connected arrow rotation CSS transform to the isOpen state; fixed activeIndex to work correctly in both controlled and uncontrolled modes.
-- **Result**: Consistent dropdown UX.
+- **Solve**: Implemented six variants (Dot / Icon / Image / Counter / Label / Marker) under the `Badge` namespace with unified naming conventions and props interfaces. Each variant inherits a common base layer sharing position and size tokens.
+
+- **Result**: Reduced designer-developer communication cost. Pattern reusable when adding new badge types.
+
+### Disabled State Icon Render Priority Bug
+
+- **Problem**: A bug where `disabledIcon` prop wasn't rendered in `disabled` state, outputting the default icon instead. A priority error in conditional render logic checked the default icon prop before checking `disabled` status.
+
+- **Solve**: Fixed the conditional render logic evaluation order to first check `disabledIcon` existence when in `disabled` state.
+
+- **Result**: Disabled state icons correctly displayed across all design system usage points.
+
+### Dropdown Icon Rotation and Selection State Synchronization Bug
+
+- **Problem**: Two simultaneous bugs — the arrow icon rotation direction wasn't inverted in dropdown open state, and changing the selection index state externally didn't synchronize with the dropdown's internal selection state.
+
+- **Solve**: Directly linked the icon rotation CSS `transform` condition to the open state, and fixed the selection index to work correctly in both controlled mode (external state priority) and uncontrolled mode (internal state usage).
+
+- **Result**: Dropdown UX consistency secured.
 
 ## Retrospective / Lessons Learned
 
-- The branch strategy used stable/release/develop three tiers, but with 40–50 components it hit limits managing everything on a single develop branch. Per-component independent branches would have made local testing and version management easier.
-- Repeated design system component work taught me that "API design for component users" is as important as the implementation itself. Patterns like ConfigProvider — securing extensibility while avoiding dependency conflicts — show how getting the initial pattern right enables future language additions with only internal changes.
-- Early debates within the team about how abstract the Base layer should be were valuable. I learned that identifying actual usage patterns first and designing components reverse-engineered from real needs is more effective.
-- Writing Storybook documentation alongside implementation also helped catch component edge cases early.
+- **Branch strategy limitations**: Configured with 3 stages (stable, release, develop), but as component count grew to 40-50, frequent conflicts occurred from multiple component work on a single develop branch. Per-component independent branches with feature flags would have been more conducive to parallel work and local testing.
+
+- **API design is as important as implementation**: Through repeated component work, I learned that "API design for component consumers" is as important as internal implementation. Designs like `ConfigProvider` that secure extensibility while avoiding dependency conflicts minimize subsequent language or feature addition costs when the right abstraction level is established early. Conversely, I also experienced that over-abstraction from early optimization causes APIs to become complicated when they don't match actual usage patterns.
+
+- **Base abstraction level determination**: There were many team discussions early in component design about how far to set the Base layer. I learned that collecting actual service usage patterns first and extracting commonalities in reverse is more practical than top-down abstraction.
+
+- **Storybook's dual effect**: Introduced as a documentation tool, but the process of writing Stories itself served as a testing role that discovered component edge cases and props API design flaws in advance. Including Storybook writing as a required step in the component development workflow contributed to long-term quality improvement as documentation became a design verification tool.

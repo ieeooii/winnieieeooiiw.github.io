@@ -3,66 +3,73 @@ thumbnail: /images/projects/202505-pricing.webp
 gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
 ---
 
-# Pricing Plan & Usage Limit System
+# Plan-Based Pricing & Usage Limit System Development
 
 | Field | Details |
-|-------|---------|
+|------|------|
 | Company | CLO Virtual Fashion |
 | Category | SaaS |
-| Service | CLO-SET |
+| Service | CLOSET |
 | Tech Stack | Next.js, TypeScript, React Query, MobX |
-| Period | 2024.09 – 2024.11 |
-| Team | Frontend 4, Backend 3, Product Designer 2, PM 3 (Usage limit system owner) |
+| Period | 2024.09 ~ 2024.11 |
+| Team | Frontend 4, Backend 3, Product Designer 2, PM 3 (Usage limit system in charge) |
 | Service Link | [style.clo-set.com/service/pricing](https://style.clo-set.com/service/pricing) |
 
 ## Overview
 
-Divided into Phase 1 (2022) — data-driven resolution of paid conversion rate decline during pricing policy revision — and Phase 2 (2024–2025) — implementing five or more independent usage limit systems across the Free / Academic / Pro / Enterprise four-plan structure.
+![Pricing page](/images/projects/202505-pricing.webp)
 
-## Key Implementations — Paid Conversion Rate Improvement (Phase 1)
+Divided into Phase 1 (2022) which solved the paid conversion rate decline problem during pricing policy reform using a data-driven approach, and Phase 2 (2024 ~ 2025) which implemented 5+ independent usage limit systems including embed counts, rendering capacity, file uploads, Workroom creation, and API tokens across the Free / Academic / Pro / Enterprise 4-plan structure. Includes upgrade-inducing flows on limit exceedance and funnel analysis logging.
 
-### FE Logging Design & Implementation
-- **Solve**: Coordinated event specs with DE/DA. Implemented `trackEvent()`-based logging at key conversion funnel touchpoints — clicks, views, CTAs, etc.
+## Key Implementations
 
-### Funnel Analysis-Based UX Improvement
-- **Solve**: Identified low-conversion segments via funnel analysis and developed/applied improved UX/UI.
-- **Result**: Achieved ~+10% paid conversion rate at pricing policy rollout. Additional +4% improvement from funnel analysis-based UX improvements (total +14% increase).
-- **Insight**: Implemented by calling `trackEvent()` directly per event. Abstracting into an HOC or Custom Hook-based logging module would be more appropriate for separation of concerns and maintainability.
+### Conversion Funnel Logging Design
 
-## Key Implementations — Per-Plan Usage Limit System (Phase 2)
+- **Solve**: Coordinated event specs with DE/DA. Implemented event tracking logging at key conversion funnel points including clicks, views, and CTAs.
 
-### Global UsageLimitExceededModal Unification
+### Funnel Analysis-Based Conversion Rate Improvement
 
-- **Problem**: Initially, each feature (embed, rendering, workroom, etc.) had its own separate limit modal component. UI/UX differed per feature, and some features had bugs with incorrect upgrade button links. The same guidance text was duplicated across 5+ locations.
-- **Solve**: Leveraged the common error response pattern the server returns for all limit exceedances to extract the upgrade prompt modal as a global component. Receives limit-exceeded context via props to display appropriate guidance and links. Unified upgrade button links to shared constants.
-- **Result**: 5 modal components → 1 unified modal; consistent upgrade prompt UX across all features; incorrect link bugs resolved
+- **Solve**: Identified low-conversion segments through funnel analysis and developed and applied improved UX/UI.
+- **Result**: Achieved approximately +10% paid conversion rate at pricing policy reform launch. Additional +4% improvement through funnel analysis-based UX improvements (total 14% increase).
+- **Insight**: Implemented by directly calling tracking functions per event; abstracting into HOC or Custom Hook-based logging modules would be more suitable for concern separation and maintainability.
+
+### Global Unification of Limit Exceeded Modals
+
+- **Problem**: Initially, each feature (embed, rendering, workroom, etc.) had separate limit modal components. UI/UX differed per feature, and upgrade button links were incorrectly connected in some features. The same guidance text was duplicated across 5+ locations.
+- **Solve**: Leveraged the common error response returned by the server on limit exceedance to extract the upgrade-inducing modal as a global component. Receives limit exceedance context via props to display appropriate guidance text and links. Unified upgrade button links as common constants.
+- **Result**: Modal components consolidated from 5 to 1; consistent upgrade-inducing UX across all features; incorrect link bugs resolved.
 
 ### Academic Plan Exception Handling
-- **Problem**: Academic plan wasn't treated identically to Pro in certain API response cases. Existing code only branched on Enterprise vs. non-Enterprise, so Academic users sometimes received incorrect limits or wrong plan upgrade prompts.
-- **Solve**: Added a plan type parameter to all usage-related API calls. Separated Academic conditions to reprocess direct upload rendering limits, embed limits, and API token availability according to Academic plan criteria.
-- **Result**: Correct usage limits applied to all four plans: Free / Academic / Pro / Enterprise
 
-### Copy Space Structure Usage Limit
-- **Problem**: Space structure copying involves sequential multi-step API calls. When the workroom creation limit was exceeded mid-process, copying silently failed with no user guidance. There was also a bug where `newSpaceId` wasn't reflected in home store's `itemData` after copying, leaving the UI unupdated.
-- **Solve**: Triggered `UsageLimitExceededModal` upon detecting a limit-exceeded response at each step in the copy flow. Added `newSpaceId` to home store's `itemData` for immediate UI refresh after copying.
-- **Result**: Clear guidance provided when limit is exceeded mid-copy; UI consistency maintained after copy completion
+- **Problem**: The Academic plan had cases where it wasn't processed identically to Pro in API responses. Existing code used a binary branching of Enterprise vs. non-Enterprise only, causing incorrect limits applied to Academic users or wrong plan upgrade guidance displayed.
+- **Solve**: Added plan type parameter to all usage-related API calls. Separately branched Academic conditions to reprocess rendering limits, embed limits, and API token availability to Academic-specific standards.
+- **Result**: Accurate usage limits applied across all 4 plans: Free / Academic / Pro / Enterprise.
 
-### Bundle Splitting with next/dynamic
-- **Problem**: The `PreLimitAlertBanner` component is only displayed to a small number of users approaching their usage limit, but was statically imported and included in every user's initial bundle.
-- **Solve**: Switched to dynamic import via `next/dynamic` so the chunk only loads when the banner is actually needed.
-- **Result**: Reduced initial bundle size; most users no longer load unnecessary code
+### Space Copy Flow Limit Exceedance Handling
 
-### Pricing Page Redesign — Main Features Section
-- **Problem**: The existing Pricing page only had a plan price comparison table, making it difficult for users to understand feature differences between plans. Important information like rendering capacity limits and additional billing policies was inaccurately expressed in multiple languages.
-- **Solve**: Developed new "Main Features for All Plans" section. Defined per-plan features as card data structures with support article links (`href`). Accurately corrected rendering capacity limit and additional billing policy text across 6 language JSONs.
-- **Result**: Feature comparison between plans now possible on the Pricing page; direct links to support documents enable self-service
+- **Problem**: Space structure copying is a flow that sequentially processes multiple API calls, but when workroom creation limits were exceeded mid-flow, the copy silently failed without any user notification. New items also weren't reflected in the list state after copy completion, leaving the UI un-updated.
+- **Solve**: Triggered upgrade-inducing modal on limit exceedance response detection at each copy flow step. Added the created item ID to the list state after copy so UI reflects immediately.
+- **Result**: Clear guidance provided on limit exceedance during copy; UI consistency secured after copy completion.
 
-### Event Log Proxy API (Conversion Funnel Analysis)
-- **Problem**: ① Payload structures varied across events, causing parameter errors to only be discovered at runtime. ② Session ID generation used the `shortid` library with collision risk and deprecation issues. ③ Log API call failures propagated errors upward, redirecting users to an error page.
-- **Solve**: Designed Next.js API Route as a proxy layer to handle CORS issues and prevent auth token exposure from direct client-side external API calls. Explicitly defined per-event `stepData` types in `types/proxy.ts` so client and API Route share the same types. Replaced `shortid` with `uuid` v4. Wrapped log calls in `try-catch` for fire-and-forget processing.
-- **Result**: Funnel event type contracts typed; main UX unaffected even during log server outages
-- **Insight**: Payment/plan domains have complex business rules and many edge cases. This work made it clear that plan policies should be managed as data (config) and plan types should never be hardcoded directly in UI code.
+### Conditional Component next/dynamic Lazy Loading
+
+- **Problem**: Usage limit approaching notification banners are displayed to only a minority of users but were included in all users' initial bundles via static import.
+- **Solve**: Switched to dynamic import using `next/dynamic`, loading chunks only when banners are actually needed.
+- **Result**: Initial bundle size reduced; most users don't load unnecessary code.
+
+### Pricing Page Plan Feature Comparison Section
+
+- **Problem**: The existing Pricing page only had a plan price comparison table, making it difficult for users to understand feature differences between plans. Important information like rendering capacity limits and additional fee policies were inaccurately expressed across multiple languages.
+- **Solve**: Newly developed a "Main Features for All Plans" section. Defined plan-specific features as card data structures with support article link connections. Accurately corrected rendering capacity limit and additional fee policy text across 6-language JSON files.
+- **Result**: Plan feature comparison available on the Pricing page; self-service enabled through direct support document links.
+
+### Next.js API Route Proxy — Type-Safe Funnel Logging
+
+- **Problem**: (1) Multiple events had different payload structures, causing parameter errors discovered only at runtime. (2) Session ID generation used the `shortid` library with collision potential and deprecation issues. (3) Log API call failures propagated errors upstream, redirecting users to error pages.
+- **Solve**: Designed Next.js API Route as a proxy layer to avoid CORS issues and auth token exposure from direct client external API calls. Explicitly defined per-event payload types so client and API Route share identical types. Replaced `shortid` → `uuid` v4. Wrapped log calls in `try-catch` for fire-and-forget handling.
+- **Result**: Funnel event type contracts typed; no main UX impact even during log server outages.
+- **Insight**: The payment/plan domain has complex business rules and many exception cases. This project clearly demonstrated the need for a design that manages plan policies as data (config) rather than hardcoding plan types in UI code.
 
 ## Retrospective / Lessons Learned
 
-When a plan like Academic doesn't fit the existing binary (Enterprise / non-Enterprise) framework, the cost of finding and updating all scattered conditionals throughout the code is high. Building the global limit-exceeded interceptor pattern and funnel analysis proxy log system together enabled closing the "implement feature → measure conversion → improve" cycle.
+When plans that don't fit the existing binary (Enterprise / non-Enterprise) approach — like Academic — are added, the cost of finding and modifying scattered conditional statements throughout the code was high. Building a global interceptor pattern for common limit exceedance handling and a funnel analysis proxy log system together enabled closing the "feature implementation → conversion measurement → improvement" cycle.
