@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/202105-global-banner.png
+gradient: linear-gradient(135deg, #fde8e8, #fbc8c8)
+---
+
 # Notification Global Banner System
 
 | Field | Details |
@@ -11,6 +16,8 @@
 | Service Link | style.clo-set.com |
 
 ## Overview
+
+![Usage Limit Exceeded Banner — among Global Banners/Modals](/images/projects/202105-global-banner.png)
 
 Designed and implemented a priority-based banner queue system to handle complex scenarios where multiple banners — email verification, marketing consent, announcements, etc. — can simultaneously meet their display conditions.
 

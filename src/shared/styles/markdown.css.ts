@@ -147,6 +147,7 @@ globalStyle(`${markdownBody} .img-row-2`, {
   gridTemplateColumns: '1fr 1fr',
   gap: vars.space[4],
   margin: `${vars.space[8]} 0`,
+  alignItems: 'center',
 })
 
 globalStyle(`${markdownBody} .img-row-3`, {

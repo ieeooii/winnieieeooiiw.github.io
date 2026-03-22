@@ -7,6 +7,7 @@
 | Service | CLO-SET |
 | Tech Stack | Next.js, TypeScript, nprogress |
 | Period | 2022.11 |
+| Team | Frontend 1, Product Designer 1 (Frontend owner) |
 | Service Link | style.clo-set.com |
 
 ## Overview

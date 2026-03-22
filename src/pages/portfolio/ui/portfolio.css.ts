@@ -109,10 +109,11 @@ export const projectCard = style({
 })
 
 export const cardThumb = style({
-  aspectRatio: '4 / 3',
+  aspectRatio: '3 / 2',
   marginBottom: vars.space[6],
   overflow: 'hidden',
   position: 'relative',
+  padding: vars.space[6],
   transition: 'transform 0.5s ease',
   selectors: {
     [`${projectCard}:hover &`]: {
@@ -123,10 +124,16 @@ export const cardThumb = style({
 
 export const cardThumbImg = style({
   position: 'absolute',
-  inset: 0,
+  top: '50%',
+  left: vars.space[6],
+  right: vars.space[6],
+  transform: 'translateY(-50%)',
+  height: '260px',
   backgroundSize: 'contain',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
+  borderRadius: vars.radii.lg,
+  overflow: 'hidden',
 })
 
 export const cardTitle = style({

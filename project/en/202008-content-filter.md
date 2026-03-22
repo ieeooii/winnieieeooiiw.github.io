@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/202008-content-filter.png
+gradient: linear-gradient(135deg, #f1f5f9, #e2e8f0)
+---
+
 # Content Filter System Development
 
 | Field | Details |
@@ -7,11 +12,21 @@
 | Service | CLO-SET |
 | Tech Stack | Next.js, TypeScript, MobX, Emotion |
 | Period | 2020.08 |
+| Team | Frontend 1, Backend 1, Product Designer 1 (Frontend owner) |
 | Service Link | style.clo-set.com |
 
 ## Overview
 
 A filter system for the 3D clothing content list page that lets users combine content type, workflow, category, search scope, sorting, and other filters to find desired content. Designed to use **URL query parameters as the single source of truth (SSoT)**, serializing filter state into the URL so that sharing the page reproduces the same filter state. State is distributed across three layers — URL / LocalStorage / Cookie — each according to its purpose, and managed centrally by MobX `FilterStore`. After the initial implementation, features such as category AND/OR logical operators, colorway view mode, and workflow V3 API migration were incrementally added.
+
+## Key Features
+
+<div class="img-row-2">
+
+![Content Filter System](/images/projects/202008-content-filter.png)
+![Workflow Settings](/images/projects/202008-content-filter-workflow.png)
+
+</div>
 
 ## Key Implementations
 

@@ -5,9 +5,9 @@ import { getProjects } from '../data/projects'
 import { useLanguage } from '../../../shared/i18n'
 import * as s from './portfolio.css'
 
-type FilterKey = 'all' | 'SaaS' | 'E-Commerce'
+type FilterKey = 'all' | 'SaaS' | 'E-Commerce' | 'Internal Admin Tool' | 'ETC'
 
-const FILTER_KEYS: FilterKey[] = ['all', 'SaaS', 'E-Commerce']
+const FILTER_KEYS: FilterKey[] = ['all', 'SaaS', 'E-Commerce', 'Internal Admin Tool', 'ETC']
 
 const CARD_GRADIENTS = [
   'linear-gradient(135deg, #c8f5dc, #90e8b8)',

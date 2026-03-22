@@ -1,4 +1,4 @@
-import { getTableValue, getPeriodStart } from '../../../shared/utils'
+import { getTableValue, getPeriodEnd } from '../../../shared/utils'
 import type { Lang } from '../../../shared/i18n'
 
 const rawFilesKo = import.meta.glob<string>('/project/ko/*.md', {
@@ -64,7 +64,7 @@ export function getProjects(lang: Lang = 'ko'): Project[] {
       const content = lang === 'en' ? (rawFilesEn[enKey] ?? koContent) : koContent
       return parseProject(path, content)
     })
-    .sort((a, b) => getPeriodStart(b.period) - getPeriodStart(a.period))
+    .sort((a, b) => getPeriodEnd(b.period) - getPeriodEnd(a.period))
 }
 
 // Keep PROJECTS as a convenience export (Korean default)

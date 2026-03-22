@@ -35,13 +35,17 @@ export const projectCard = style({
 
 export const imageWrap = style({
   overflow: 'hidden',
-  backgroundColor: vars.color.white,
-  minHeight: '200px',
+  height: '220px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: vars.space[6],
 })
 
 export const image = style({
-  width: '100%',
-  height: 'auto',
+  maxWidth: '100%',
+  maxHeight: '100%',
+  objectFit: 'contain',
   transition: `transform ${vars.transition.slow}`,
 
   selectors: {
@@ -80,6 +84,13 @@ export const ctaCard = style({
   borderRadius: vars.radii.xl,
   textAlign: 'center',
   gap: vars.space[6],
+  cursor: 'pointer',
+  transition: `transform ${vars.transition.slow}`,
+  selectors: {
+    '&:hover': {
+      transform: 'scale(1.02)',
+    },
+  },
 })
 
 export const ctaText = style({

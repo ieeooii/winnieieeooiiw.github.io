@@ -5,7 +5,7 @@ import { getProjects } from '../../../pages/portfolio/data/projects'
 import { useLanguage } from '../../../shared/i18n'
 import * as s from './projects.css'
 
-const FEATURED_IDS = ['monorepo', 'error-system', 'pricing']
+const FEATURED_IDS = ['monorepo', 'design-system', 'error-system']
 
 export const Projects = () => {
   const [, navigate] = useHashLocation()
@@ -32,7 +32,14 @@ export const Projects = () => {
               onClick={() => navigate(`/projects/${project.id}`)}
               style={{ cursor: 'pointer' }}
             >
-              <div className={s.imageWrap} />
+              <div
+                className={s.imageWrap}
+                style={{ background: project.gradient ?? '#f1f5f9' }}
+              >
+                {project.thumbnail && (
+                  <img src={project.thumbnail} alt={project.title} className={s.image} />
+                )}
+              </div>
               <div className={s.projectInfo}>
                 <h3 className={s.projectTitle}>{project.title}</h3>
                 <div className={s.tagRow}>
