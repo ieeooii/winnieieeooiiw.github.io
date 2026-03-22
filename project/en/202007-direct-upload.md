@@ -38,11 +38,6 @@ A feature that enables direct upload of 3D garment files (`.zprj`, `.zpac`, etc.
 - Wrote behavior-driven tests with Enzyme
 - Migrated a jQuery-built page to React.js
 
-### Upload to Marketplace Popup
-- **Problem**: Step 2's price calculation logic was reading values directly from UI inputs, causing a sync bug where the result didn't update immediately when the discount rate changed. Some key customers were also using IE, requiring IE file upload compatibility.
-- **Solve**: Unified price/discount state as MobX observables in the store. Changed `RightPriceCalculation.tsx` to subscribe to observable store values for automatic updates. Resolved IE file upload with a polyfill.
-- **Result**: Price calculation updates instantly on discount rate change; IE compatibility secured
-
 ### ItemSelectModal Refactoring
 - **Problem**: `ItemSelectModal.tsx` was managing selected file list, per-assembly grouping structure, selection state reset on group switch, and auto-numbering counter all in a single file. Entangled state dependencies caused repeated bugs where switching groups corrupted the selection state of other groups.
 - **Solve**: Migrated to TypeScript and separated state by responsibility. Extracted assembly grouping logic as a standalone module, clearly limiting the scope of selection state resets to the current group only. Added "Keep current thumbnail" checkbox and auto-numbering tooltip. Saved rendering settings to localStorage for restoration on revisit.

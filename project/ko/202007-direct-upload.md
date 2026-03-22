@@ -38,11 +38,6 @@ CLO 소프트웨어에서 작업한 3D 의류 파일(`.zprj`, `.zpac` 등)을 CL
 - Enzyme  으로 행위 주도 테스트 코드 작성
 - jQuery  로 개발된 페이지를  React.js  마이그레이션
 
-### Upload to Marketplace 팝업
-- **Problem**: Step 2의 가격 계산 로직이 UI 입력값을 직접 읽는 방식이어서 할인율 변경 시 계산 결과가 즉시 갱신되지 않는 동기화 버그가 있었다. 또한 당시 주요 고객사가 IE를 사용하는 경우가 있어 IE 파일 업로드 호환성도 필요했다.
-- **Solve**: store에서 가격/할인 상태를 MobX observable로 일원화. `RightPriceCalculation.tsx`가 store의 observable 값을 구독하여 자동 갱신되도록 변경. IE 파일 업로드는 폴리필 적용으로 해결.
-- **Result**: 할인율 변경 시 가격 계산 즉시 반영, IE 호환성 확보
-
 ### ItemSelectModal 리팩토링
 - **Problem**: `ItemSelectModal.tsx`가 단일 파일에 선택된 파일 목록·어셈블리별 그룹핑 구조·그룹 간 전환 시 선택 상태 초기화·auto-numbering 카운터를 모두 관리하고 있었다. 상태 의존성이 뒤엉켜 그룹을 전환할 때 다른 그룹의 선택 상태가 오염되는 버그가 반복 발생했다.
 - **Solve**: TypeScript로 전환하며 상태를 역할별로 분리. 어셈블리 그룹핑 로직을 별도 모듈로 추출하고, 그룹 전환 시 해당 그룹의 선택 상태만 초기화되도록 범위를 명확히 제한. "Keep current thumbnail" 체크박스 기능과 auto-numbering 툴팁 추가. 렌더링 설정 값은 localStorage에 저장하여 재방문 시 복원.
