@@ -10,7 +10,7 @@ gradient: linear-gradient(135deg, #eaeaed, #d0d2d8)
 | Company | CLO Virtual Fashion |
 | Category | SaaS |
 | Service | CLO-SET |
-| Tech Stack | Next.js (App Router), Vite, React.js, TypeScript, TanStack Query, Jotai, Yarn Berry PnP, Rollup, esbuild, Emotion, i18next, Socket.io, ESLint, Husky, commitlint, axios |
+| Tech Stack | Next.js (App Router), Vite, React.js, TypeScript, TanStack Query, Jotai, Yarn Berry PnP, Rollup, esbuild, SWC, Emotion, i18next, Socket.io, ESLint, Husky, commitlint, axios |
 | Period | 2023.05 – 2024.03 |
 | Team | Frontend 1, DevOps 1, Product Designer 1, Backend 1 (Frontend sole lead) |
 | Service Link | [style.clo-set.com](https://style.clo-set.com) |

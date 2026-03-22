@@ -10,7 +10,7 @@ gradient: linear-gradient(135deg, #eaeaed, #d0d2d8)
 | 회사 | CLO Virtual Fashion |
 | 카테고리 | SaaS |
 | 서비스 | CLO-SET |
-| 기술 스택 | Next.js (App Router), Vite, React.js, TypeScript, TanStack Query, Jotai, Yarn Berry PnP, Rollup, esbuild, Emotion, i18next, Socket.io, ESLint, Husky, commitlint, axios |
+| 기술 스택 | Next.js (App Router), Vite, React.js, TypeScript, TanStack Query, Jotai, Yarn Berry PnP, Rollup, esbuild, SWC, Emotion, i18next, Socket.io, ESLint, Husky, commitlint, axios |
 | 개발 기간 | 2023.05 ~ 2024.03 |
 | 인원 | 프론트엔드 1, 데브옵스 1, 프로덕트 디자이너 1, 백엔드 1 (프론트엔드 단독 주도) |
 | 서비스 링크 | [style.clo-set.com](https://style.clo-set.com) |

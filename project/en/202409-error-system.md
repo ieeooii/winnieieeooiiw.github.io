@@ -10,7 +10,7 @@ gradient: linear-gradient(135deg, #f8d7da, #f5c6cb)
 | Company | CLO Virtual Fashion |
 | Category | ETC |
 | Service | CLO-SET |
-| Tech Stack | Next.js (App Router), TypeScript, React Query v5, Emotion.js, Storybook, Datadog, next/font |
+| Tech Stack | Next.js (App Router), TypeScript, React Query v5, Emotion.js, Storybook, Datadog, next/font, Rollup, Axios |
 | Period | 2024.09 – 2025.03 |
 | Team | Frontend 1, Backend 1, Product Designer 1 (Frontend owner) |
 | Service Link | [style.clo-set.com](https://style.clo-set.com) |

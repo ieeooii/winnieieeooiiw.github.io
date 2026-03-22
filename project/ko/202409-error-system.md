@@ -10,7 +10,7 @@ gradient: linear-gradient(135deg, #f8d7da, #f5c6cb)
 | 회사 | CLO Virtual Fashion |
 | 카테고리 | ETC |
 | 서비스 | CLO-SET |
-| 기술 스택 | Next.js (App Router), TypeScript, React Query v5, Emotion.js, Storybook, Datadog, next/font |
+| 기술 스택 | Next.js (App Router), TypeScript, React Query v5, Emotion.js, Storybook, Datadog, next/font, Rollup, Axios |
 | 개발 기간 | 2024.09 ~ 2025.03 |
 | 인원 | 프론트엔드 1, 백엔드 1, 프로덕트 디자이너 1 (프론트엔드 담당) |
 | 서비스 링크 | [style.clo-set.com](https://style.clo-set.com) |
