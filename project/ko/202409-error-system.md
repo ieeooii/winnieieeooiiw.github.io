@@ -10,26 +10,27 @@ gradient: linear-gradient(135deg, #f8d7da, #f5c6cb)
 | 회사 | CLO Virtual Fashion |
 | 카테고리 | ETC |
 | 서비스 | CLO-SET |
-| 기술 스택 | Next.js, Next.js (App Router), TypeScript, React Query v5, Emotion.js, Storybook, Datadog, next/font |
+| 기술 스택 | Next.js (App Router), TypeScript, React Query v5, Emotion.js, Storybook, Datadog, next/font |
 | 개발 기간 | 2024.09 ~ 2025.03 |
 | 인원 | 프론트엔드 1, 백엔드 1, 프로덕트 디자이너 1 (프론트엔드 담당) |
 | 서비스 링크 | style.clo-set.com |
+| 블로그 | [Next.js App Router 에러 핸들링](https://ieeooii.notion.site/Next-js-40774c0161f04c4484a28a9c34d510c5?pvs=143) / [Next.js 14 App Router SSR Custom Error](https://ieeooii.notion.site/Next-js-14-app-router-SSR-Custom-error-22fd2142e651439ea74820342ee0a12d?pvs=143) |
 
 ## 소개
 
 총 세 단계로 진행된 에러 시스템 구축 작업이다. 1단계(2024.09 ~ 2024.10)에서는 단일 에러 페이지로 인한 사용자 기능 전면 차단 문제와 비효율적인 에러 모니터링을 개선했다. UX 관점 반대 의견을 에러 케이스 전수 분석 및 발표로 설득하고 공통 에러 핸들링 라이브러리를 전담 설계·구현했다. 2단계(2024.10 ~ 2024.12)에서는 콘텐츠 앱의 에러 경험 체계화와 Next.js 성능 개선을 진행했고, 3단계(2024.12 ~ 2025.03)에서는 앱별로 분산되어 있던 에러 처리 UI를 통합하는 에러 UI 패키지와 SSR 전용 패키지를 단독으로 설계·구축했다.
 
-<div class="img-row-2">
+<div class="img-row-3">
 
+![Route Group 기반 에러 Boundary 설계안](/images/projects/202409-error-system-route-group.webp)
 ![에러 Boundary 아키텍처 설계안](/images/projects/error-handling-case.png)
 ![에러 케이스 유형 정리](/images/projects/error-edge-case.png)
 
 </div>
 
+<div class="img-row-3">
+
 ![Toast·인라인 에러·뷰어 에러가 공존하는 화면](/images/projects/error-overview.png)
-
-<div class="img-row-2">
-
 ![모달 내 Toast 에러 (Modal 스코프)](/images/projects/error-modal-toast.png)
 ![인증 앱 Toast 에러 (Trace ID 포함)](/images/projects/error-auth-toast.png)
 

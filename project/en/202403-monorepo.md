@@ -14,6 +14,7 @@ gradient: linear-gradient(135deg, #eaeaed, #d0d2d8)
 | Period | 2023.05 – 2024.03 |
 | Team | Frontend 1, DevOps 1, Product Designer 1, Backend 1 (Frontend sole lead) |
 | Service Link | style.clo-set.com |
+| Blog | [Monorepo — Yarn vs Lerna vs Turbo](https://ieeooii.notion.site/Monorepo-Yarn-vs-Lerna-vs-Turbo-5fc49b69b2c54a18ac1d1bc7677af536?pvs=143) |
 
 ## Overview
 

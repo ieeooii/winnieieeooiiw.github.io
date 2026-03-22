@@ -14,6 +14,7 @@ gradient: linear-gradient(135deg, #eaeaed, #d0d2d8)
 | 개발 기간 | 2023.05 ~ 2024.03 |
 | 인원 | 프론트엔드 1, 데브옵스 1, 프로덕트 디자이너 1, 백엔드 1 (프론트엔드 단독 주도) |
 | 서비스 링크 | style.clo-set.com |
+| 블로그 | [Monorepo — Yarn vs Lerna vs Turbo](https://ieeooii.notion.site/Monorepo-Yarn-vs-Lerna-vs-Turbo-5fc49b69b2c54a18ac1d1bc7677af536?pvs=143) |
 
 ## 소개
 
