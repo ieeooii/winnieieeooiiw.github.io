@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202207-drive-view-mode-colorway.png
+thumbnail: /images/projects/202207-drive-view-mode-colorway.webp
 gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
 ---
 

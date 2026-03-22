@@ -1,9 +1,9 @@
 ---
-thumbnail: /images/projects/202008-content-filter-workflow.png
+thumbnail: /images/projects/202008-content-filter-workflow.webp
 gradient: linear-gradient(135deg, #e8eaf0, #c8ccd8)
 ---
 
-# Brand Admin Settings — Workflow & Season Planning Configuration
+# Brand Admin Workflow Settings Page
 
 | Field | Details |
 |-------|---------|

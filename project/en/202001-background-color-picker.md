@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202001-background-color-picker.png
+thumbnail: /images/projects/202001-background-color-picker.webp
 gradient: linear-gradient(135deg, #fce4f0, #f9b8d8)
 ---
 
@@ -21,7 +21,7 @@ A feature for customizing the background color of the 3D garment viewer in two m
 
 ## Key Features
 
-![Color Palette](/images/projects/201912-color-picker-pc.png)
+![Color Palette](/images/projects/201912-color-picker-pc.webp)
 
 ## Key Implementations
 

@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202305-monorepo-3d-viewer-renewal.png
+thumbnail: /images/projects/202305-monorepo-3d-viewer-renewal.webp
 gradient: linear-gradient(135deg, #eaeaed, #d0d2d8)
 ---
 
@@ -22,7 +22,7 @@ Resolved increasing build times, excessive code dependencies, and deteriorating 
 
 ## Key Features
 
-![Monorepo 3D Viewer Renewal](/images/projects/202305-monorepo-3d-viewer-renewal.png)
+![Monorepo 3D Viewer Renewal](/images/projects/202305-monorepo-3d-viewer-renewal.webp)
 
 ## Key Implementations
 

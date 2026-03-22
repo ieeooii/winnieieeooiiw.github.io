@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-closet-upload-form.png
+thumbnail: /images/projects/202007-closet-upload-form.webp
 gradient: linear-gradient(135deg, #e0e7ff, #c7d2fe)
 ---
 
@@ -23,8 +23,8 @@ CLO-SET 사용자가 3D 의류 콘텐츠를 CLO 마켓플레이스(CLOSET) 또�
 
 <div class="img-row-2">
 
-![마켓플레이스 목록](/images/projects/202007-closet-marketplace.png)
-![상품 등록 폼](/images/projects/202007-closet-upload-form.png)
+![마켓플레이스 목록](/images/projects/202007-closet-marketplace.webp)
+![상품 등록 폼](/images/projects/202007-closet-upload-form.webp)
 
 </div>
 

@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202011-connect-upload-step0.png
+thumbnail: /images/projects/202011-connect-upload-step0.webp
 gradient: linear-gradient(135deg, #c8d8f8, #a0b8f0)
 ---
 
@@ -24,11 +24,11 @@ Fully designed and developed the new upload page for CONNECT — a global digita
 
 <div class="img-row-2">
 
-![Upload Step 0](/images/projects/202011-connect-upload-step0.png)
-![Upload Step 1](/images/projects/202011-connect-upload-step1.png)
-![Upload Step 2](/images/projects/202011-connect-upload-step2.png)
-![Upload Step 2 Pricing](/images/projects/202011-connect-upload-step2-price.png)
-![Upload Edit Mode](/images/projects/202011-connect-upload-edit-mode.png)
+![Upload Step 0](/images/projects/202011-connect-upload-step0.webp)
+![Upload Step 1](/images/projects/202011-connect-upload-step1.webp)
+![Upload Step 2](/images/projects/202011-connect-upload-step2.webp)
+![Upload Step 2 Pricing](/images/projects/202011-connect-upload-step2-price.webp)
+![Upload Edit Mode](/images/projects/202011-connect-upload-edit-mode.webp)
 
 </div>
 

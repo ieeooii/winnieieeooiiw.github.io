@@ -1,9 +1,9 @@
 ---
-thumbnail: /images/projects/202007-company-general-setting.png
+thumbnail: /images/projects/202007-company-general-setting.webp
 gradient: linear-gradient(135deg, #e0f2fe, #bae6fd)
 ---
 
-# Storage Root Settings Page
+# Storage General Settings Page
 
 | Field | Details |
 |-------|---------|
@@ -19,7 +19,7 @@ gradient: linear-gradient(135deg, #e0f2fe, #bae6fd)
 
 The Company General Setting page where fashion brand administrators configure company information (name, logo, color), feature activation options (workroom, linesheet, access permissions, viewer), and measurement/currency units. Because the settings items are varied and each is connected to a separate API call, a design was created to **manage toggle options as a declarative data structure (config array)**. Includes confirmation flows for destructive actions like company deletion and transfer that cannot be undone.
 
-![Storage Root Settings Page](/images/projects/202007-company-general-setting.png)
+![Storage Root Settings Page](/images/projects/202007-company-general-setting.webp)
 
 ## Key Implementations
 

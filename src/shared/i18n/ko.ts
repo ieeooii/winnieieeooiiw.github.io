@@ -70,5 +70,6 @@ export const ko: Translations = {
     noResults: '검색 결과가 없습니다.',
     prevProject: '이전 프로젝트',
     nextProject: '다음 프로젝트',
+    saasImageNotice: '이미지 내 의상은 직접 제작했거나 플랫폼 기본 제공 콘텐츠입니다.',
   },
 }

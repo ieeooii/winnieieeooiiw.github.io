@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202112-connect-jinny-landing-hero.png
+thumbnail: /images/projects/202112-connect-jinny-landing-hero.webp
 gradient: linear-gradient(135deg, #fce0ea, #f8b8cc)
 ---
 
@@ -21,9 +21,9 @@ Jinny 소프트웨어 출시에 맞춰 소개(Introduction)·섹션 리스트·�
 
 <div class="img-row-3">
 
-![Jinny 랜딩 히어로](/images/projects/202112-connect-jinny-landing-hero.png)
-![Jinny 슬라이더](/images/projects/202112-connect-jinny-slider.png)
-![Jinny 랜딩 푸터](/images/projects/202112-connect-jinny-landing-footer.png)
+![Jinny 랜딩 히어로](/images/projects/202112-connect-jinny-landing-hero.webp)
+![Jinny 슬라이더](/images/projects/202112-connect-jinny-slider.webp)
+![Jinny 랜딩 푸터](/images/projects/202112-connect-jinny-landing-footer.webp)
 
 </div>
 

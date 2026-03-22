@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202408-linesheet-setting-status.png
+thumbnail: /images/projects/202408-linesheet-setting-status.webp
 gradient: linear-gradient(135deg, #e8eaf0, #c8ccd8)
 ---
 
@@ -21,11 +21,11 @@ gradient: linear-gradient(135deg, #e8eaf0, #c8ccd8)
 
 <div class="img-row-2">
 
-![Line Sheet 설정 — Status](/images/projects/202408-linesheet-setting-status.png)
-![Line Sheet 설정 — Customer Type](/images/projects/202408-linesheet-setting-customer-type.png)
-![Line Sheet 설정 — Sales Channel](/images/projects/202408-linesheet-setting-sales-channel.png)
-![Line Sheet 설정 — Store Type](/images/projects/202408-linesheet-setting-store-type.png)
-![Line Sheet 설정 — Colorway](/images/projects/202408-linesheet-setting-colorway.png)
+![Line Sheet 설정 — Status](/images/projects/202408-linesheet-setting-status.webp)
+![Line Sheet 설정 — Customer Type](/images/projects/202408-linesheet-setting-customer-type.webp)
+![Line Sheet 설정 — Sales Channel](/images/projects/202408-linesheet-setting-sales-channel.webp)
+![Line Sheet 설정 — Store Type](/images/projects/202408-linesheet-setting-store-type.webp)
+![Line Sheet 설정 — Colorway](/images/projects/202408-linesheet-setting-colorway.webp)
 
 </div>
 

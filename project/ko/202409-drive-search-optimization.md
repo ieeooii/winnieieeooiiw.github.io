@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202409-drive-search-before.png
+thumbnail: /images/projects/202409-drive-search-before.webp
 gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
 ---
 
@@ -19,9 +19,9 @@ gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
 
 <div class="img-row-3">
 
-![검색 전](/images/projects/202409-drive-search-before.png)
-![검색 중](/images/projects/202409-drive-search-loading.png)
-![검색 후](/images/projects/202409-drive-search-after.png)
+![검색 전](/images/projects/202409-drive-search-before.webp)
+![검색 중](/images/projects/202409-drive-search-loading.webp)
+![검색 후](/images/projects/202409-drive-search-after.webp)
 
 </div>
 

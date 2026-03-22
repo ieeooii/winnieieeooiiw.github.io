@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202003-about-us-video-color-after.png
+thumbnail: /images/projects/202003-about-us-video-color-after.webp
 gradient: linear-gradient(135deg, #b3f0ee, #60ddd8)
 ---
 
@@ -21,27 +21,27 @@ Developed static pages for CLO Virtual Fashion's B2B marketing and legal purpose
 
 <div class="img-row-3">
 
-![Responsive — PC](/images/projects/202003-about-us-responsive-pc.png)
-![Responsive — Tablet](/images/projects/202003-about-us-responsive-tablet.png)
-![Responsive — Mobile](/images/projects/202003-about-us-responsive-mobile.png)
+![Responsive — PC](/images/projects/202003-about-us-responsive-pc.webp)
+![Responsive — Tablet](/images/projects/202003-about-us-responsive-tablet.webp)
+![Responsive — Mobile](/images/projects/202003-about-us-responsive-mobile.webp)
 
 </div>
 
 <div class="img-row-2">
 
-![Video background color mismatch — before fix](/images/projects/202003-about-us-video-color-before.png)
-![Video background color mismatch — after fix](/images/projects/202003-about-us-video-color-after.png)
+![Video background color mismatch — before fix](/images/projects/202003-about-us-video-color-before.webp)
+![Video background color mismatch — after fix](/images/projects/202003-about-us-video-color-after.webp)
 
 </div>
 
 <div class="img-row-2">
 
-![Query string id scroll — before click](/images/projects/202003-about-us-querystring-before.png)
-![Query string id scroll — after click (?id=application)](/images/projects/202003-about-us-querystring-after.png)
+![Query string id scroll — before click](/images/projects/202003-about-us-querystring-before.webp)
+![Query string id scroll — after click (?id=application)](/images/projects/202003-about-us-querystring-after.webp)
 
 </div>
 
-![Privacy Policy Page](/images/projects/202003-tos-privacy.png)
+![Privacy Policy Page](/images/projects/202003-tos-privacy.webp)
 
 ## Key Implementations
 

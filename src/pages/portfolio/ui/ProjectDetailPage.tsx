@@ -19,6 +19,9 @@ export const ProjectDetailPage = () => {
   return (
     <main className={s.page}>
       <div className={s.detailContainer}>
+        {project.category === 'SaaS' && (
+          <p className={s.saasNotice}>ℹ️ {t.portfolio.saasImageNotice}</p>
+        )}
         <div className={s.markdownBody}>
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}

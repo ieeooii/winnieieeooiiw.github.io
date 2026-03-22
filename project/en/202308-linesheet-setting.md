@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202408-linesheet-setting-status.png
+thumbnail: /images/projects/202408-linesheet-setting-status.webp
 gradient: linear-gradient(135deg, #e8eaf0, #c8ccd8)
 ---
 
@@ -21,11 +21,11 @@ A settings page where fashion brand administrators register, edit, delete, and r
 
 <div class="img-row-2">
 
-![Line Sheet Settings — Status](/images/projects/202408-linesheet-setting-status.png)
-![Line Sheet Settings — Customer Type](/images/projects/202408-linesheet-setting-customer-type.png)
-![Line Sheet Settings — Sales Channel](/images/projects/202408-linesheet-setting-sales-channel.png)
-![Line Sheet Settings — Store Type](/images/projects/202408-linesheet-setting-store-type.png)
-![Line Sheet Settings — Colorway](/images/projects/202408-linesheet-setting-colorway.png)
+![Line Sheet Settings — Status](/images/projects/202408-linesheet-setting-status.webp)
+![Line Sheet Settings — Customer Type](/images/projects/202408-linesheet-setting-customer-type.webp)
+![Line Sheet Settings — Sales Channel](/images/projects/202408-linesheet-setting-sales-channel.webp)
+![Line Sheet Settings — Store Type](/images/projects/202408-linesheet-setting-store-type.webp)
+![Line Sheet Settings — Colorway](/images/projects/202408-linesheet-setting-colorway.webp)
 
 </div>
 

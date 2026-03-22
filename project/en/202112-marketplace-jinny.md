@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202112-connect-jinny-landing-hero.png
+thumbnail: /images/projects/202112-connect-jinny-landing-hero.webp
 gradient: linear-gradient(135deg, #fce0ea, #f8b8cc)
 ---
 
@@ -23,9 +23,9 @@ Developed a service introduction page for the Jinny software launch, comprising 
 
 <div class="img-row-3">
 
-![Jinny Landing Hero](/images/projects/202112-connect-jinny-landing-hero.png)
-![Jinny Slider](/images/projects/202112-connect-jinny-slider.png)
-![Jinny Landing Footer](/images/projects/202112-connect-jinny-landing-footer.png)
+![Jinny Landing Hero](/images/projects/202112-connect-jinny-landing-hero.webp)
+![Jinny Slider](/images/projects/202112-connect-jinny-slider.webp)
+![Jinny Landing Footer](/images/projects/202112-connect-jinny-landing-footer.webp)
 
 </div>
 

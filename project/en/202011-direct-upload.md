@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-direct-upload.png
+thumbnail: /images/projects/202007-direct-upload.webp
 gradient: linear-gradient(135deg, #d8d9dd, #b5b8c4)
 ---
 
@@ -23,11 +23,11 @@ A feature that enables direct upload of 3D garment files (`.zprj`, `.zpac`, etc.
 
 <div class="img-row-2">
 
-![Direct Upload Main](/images/projects/202007-direct-upload.png)
-![Browse File Modal](/images/projects/202007-direct-upload-browse-modal.png)
-![Recent File Modal](/images/projects/202007-direct-upload-recent-modal.png)
-![Upload Dropdown](/images/projects/202005-upload-dropdown.png)
-![Upload Modal](/images/projects/202005-upload-modal.png)
+![Direct Upload Main](/images/projects/202007-direct-upload.webp)
+![Browse File Modal](/images/projects/202007-direct-upload-browse-modal.webp)
+![Recent File Modal](/images/projects/202007-direct-upload-recent-modal.webp)
+![Upload Dropdown](/images/projects/202005-upload-dropdown.webp)
+![Upload Modal](/images/projects/202005-upload-modal.webp)
 
 </div>
 

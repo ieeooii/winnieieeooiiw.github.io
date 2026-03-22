@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-move.png
+thumbnail: /images/projects/202007-move.webp
 gradient: linear-gradient(135deg, #d8eef8, #b0d4ec)
 ---
 
@@ -21,7 +21,7 @@ Developed the full Move UI for relocating 3D clothing content items to other spa
 
 ## Key Features
 
-![Content Move](/images/projects/202007-move.png)
+![Content Move](/images/projects/202007-move.webp)
 
 ## Key Implementations
 

@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202005-webhook-trigger.png
+thumbnail: /images/projects/202005-webhook-trigger.webp
 gradient: linear-gradient(135deg, #d0d4dc, #b0b5c0)
 ---
 
@@ -23,8 +23,8 @@ Developed the Developer settings page and Webhook trigger UI enabling CLOSET API
 
 <div class="img-row-2">
 
-![Webhook Trigger Settings](/images/projects/202005-webhook-trigger.png)
-![API Token Settings](/images/projects/202005-webhook-api-token.png)
+![Webhook Trigger Settings](/images/projects/202005-webhook-trigger.webp)
+![API Token Settings](/images/projects/202005-webhook-api-token.webp)
 
 </div>
 

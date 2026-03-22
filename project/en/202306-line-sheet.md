@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202209-line-sheet-list-view.png
+thumbnail: /images/projects/202209-line-sheet-list-view.webp
 gradient: linear-gradient(135deg, #e8f0fc, #c8d8f8)
 ---
 
@@ -23,10 +23,10 @@ Implemented an interactive Line Sheet (seasonal product listing document) inside
 
 <div class="img-row-2">
 
-![Line Sheet List View](/images/projects/202209-line-sheet-list-view.png)
-![Line Sheet Thumbnail View](/images/projects/202209-line-sheet-thumbnail-detail.png)
-![Line Sheet Loading State](/images/projects/202209-line-sheet-loading.png)
-![Company Library](/images/projects/202209-line-sheet-company-library.png)
+![Line Sheet List View](/images/projects/202209-line-sheet-list-view.webp)
+![Line Sheet Thumbnail View](/images/projects/202209-line-sheet-thumbnail-detail.webp)
+![Line Sheet Loading State](/images/projects/202209-line-sheet-loading.webp)
+![Company Library](/images/projects/202209-line-sheet-company-library.webp)
 
 </div>
 

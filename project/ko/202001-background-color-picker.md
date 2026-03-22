@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202001-background-color-picker.png
+thumbnail: /images/projects/202001-background-color-picker.webp
 gradient: linear-gradient(135deg, #fce4f0, #f9b8d8)
 ---
 
@@ -19,7 +19,7 @@ gradient: linear-gradient(135deg, #fce4f0, #f9b8d8)
 
 3D 의류 뷰어에서 배경색을 Preset(미리 정의된 배경) / Custom Color(사용자 직접 등록) 두 모드로 커스터마이징하는 기능이다. 색상 선택 시 3D 뷰어에 실시간 미리보기가 반영되어야 하고, 여러 UI 진입점에서 동일한 색상 상태를 참조해야 하는 구조적 요구사항이 있었다. 입사 후 MobX 스토어를 처음으로 직접 주도 설계한 기능이다.
 
-![컬러 팔레트](/images/projects/201912-color-picker-pc.png)
+![컬러 팔레트](/images/projects/201912-color-picker-pc.webp)
 
 ## 주요 구현
 

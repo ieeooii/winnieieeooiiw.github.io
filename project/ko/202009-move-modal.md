@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-move.png
+thumbnail: /images/projects/202007-move.webp
 gradient: linear-gradient(135deg, #d8eef8, #b0d4ec)
 ---
 
@@ -19,7 +19,7 @@ gradient: linear-gradient(135deg, #d8eef8, #b0d4ec)
 
 3D 의류 콘텐츠 파일을 다른 스토리지(parent storage / child storage)로 이동하는 Move 기능의 UI 전체를 개발했다. 단일 파일 이동부터 다중 선택(MultiSelect) 일괄 이동, 스토리지 단위 이동까지 지원하는 복합 플로우다. **"공간 선택 → 이동 확인 → 완료"** 3단계 모달 체인을 설계했으며, 공간 계층 구조를 지연 로딩(Lazy Load) 트리로 탐색하면서 권한·깊이 제한을 실시간으로 검증하는 것이 핵심 기술 과제였다. 이후 Copy 기능도 동일한 공간 선택 트리 컴포넌트를 재사용하도록 설계하여 두 기능의 UI 일관성을 확보했다.
 
-![콘텐츠 이동](/images/projects/202007-move.png)
+![콘텐츠 이동](/images/projects/202007-move.webp)
 
 ## 주요 구현
 

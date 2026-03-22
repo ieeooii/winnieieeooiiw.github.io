@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202003-zendesk-helpcenter.png
+thumbnail: /images/projects/202003-zendesk-helpcenter.webp
 gradient: linear-gradient(135deg, #d8d8d8, #b0b0b0)
 ---
 
@@ -21,7 +21,7 @@ Built a self-service help center for CLO-SET's global customers on Zendesk Guide
 
 ## Key Features
 
-![Help Center Main](/images/projects/202003-zendesk-helpcenter.png)
+![Help Center Main](/images/projects/202003-zendesk-helpcenter.webp)
 
 ## Key Implementations
 

@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202202-mobile-viewer-3d.png
+thumbnail: /images/projects/202202-mobile-viewer-3d.webp
 gradient: linear-gradient(135deg, #dde8f0, #b8ccd8)
 ---
 
@@ -21,9 +21,9 @@ gradient: linear-gradient(135deg, #dde8f0, #b8ccd8)
 
 <div class="img-row-3">
 
-![3D 뷰어 전체 화면](/images/projects/202202-mobile-viewer-3d.png)
-![콘텐츠 정보 패널](/images/projects/202202-mobile-viewer-info.png)
-![컬러웨이 선택 UI](/images/projects/202202-mobile-viewer-colorway.png)
+![3D 뷰어 전체 화면](/images/projects/202202-mobile-viewer-3d.webp)
+![콘텐츠 정보 패널](/images/projects/202202-mobile-viewer-info.webp)
+![컬러웨이 선택 UI](/images/projects/202202-mobile-viewer-colorway.webp)
 
 </div>
 

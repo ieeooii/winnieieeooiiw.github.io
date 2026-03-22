@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-embed-viewer.png
+thumbnail: /images/projects/202007-embed-viewer.webp
 gradient: linear-gradient(135deg, #e8e8e8, #c8c8c8)
 ---
 

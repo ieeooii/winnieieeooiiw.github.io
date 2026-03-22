@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202207-drive-view-mode-colorway.png
+thumbnail: /images/projects/202207-drive-view-mode-colorway.webp
 gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
 ---
 
@@ -19,8 +19,8 @@ gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
 
 <div class="img-row-2">
 
-![컬러웨이 뷰 모드](/images/projects/202207-drive-view-mode-colorway.png)
-![워크룸 뷰](/images/projects/202207-drive-view-mode-workroom.png)
+![컬러웨이 뷰 모드](/images/projects/202207-drive-view-mode-colorway.webp)
+![워크룸 뷰](/images/projects/202207-drive-view-mode-workroom.webp)
 
 </div>
 

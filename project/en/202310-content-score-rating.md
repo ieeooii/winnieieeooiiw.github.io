@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202310-content-score-rating-panel.png
+thumbnail: /images/projects/202310-content-score-rating-panel.webp
 gradient: linear-gradient(135deg, #f0f0e8, #d8d8c0)
 ---
 

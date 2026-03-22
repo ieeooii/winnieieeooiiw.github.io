@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202008-content-filter.png
+thumbnail: /images/projects/202008-content-filter.webp
 gradient: linear-gradient(135deg, #f1f5f9, #e2e8f0)
 ---
 
@@ -23,8 +23,8 @@ A filter system for the 3D clothing content list page that lets users combine co
 
 <div class="img-row-2">
 
-![Content Filter System](/images/projects/202008-content-filter.png)
-![Workflow Settings](/images/projects/202008-content-filter-workflow.png)
+![Content Filter System](/images/projects/202008-content-filter.webp)
+![Workflow Settings](/images/projects/202008-content-filter-workflow.webp)
 
 </div>
 

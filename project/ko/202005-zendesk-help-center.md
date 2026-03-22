@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202003-zendesk-helpcenter.png
+thumbnail: /images/projects/202003-zendesk-helpcenter.webp
 gradient: linear-gradient(135deg, #d8d8d8, #b0b0b0)
 ---
 
@@ -19,7 +19,7 @@ gradient: linear-gradient(135deg, #d8d8d8, #b0b0b0)
 
 CLO-SET의 글로벌 고객을 위한 셀프서비스 헬프센터를 Zendesk Guide 기반으로 구축하고, CLO-SET 브랜드 아이덴티티에 맞는 커스텀 테마를 설계·구현했다. Zendesk 기본 Copenhagen 테마를 전면 커스터마이징하여, Getting Started · Feature Manual · CLO-SET News · FAQ 카테고리 구조와 히어로 검색 UI를 갖춘 헬프센터를 제공했다. 전 세계 패션 브랜드 고객이 CLO-SET 사용법을 스스로 해결할 수 있는 1차 지원 채널로 운영됐다.
 
-![헬프센터 메인](/images/projects/202003-zendesk-helpcenter.png)
+![헬프센터 메인](/images/projects/202003-zendesk-helpcenter.webp)
 
 ## 주요 구현
 

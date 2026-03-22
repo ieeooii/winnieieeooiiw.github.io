@@ -73,5 +73,6 @@ export const en: Translations = {
     noResults: 'No results found.',
     prevProject: 'Prev',
     nextProject: 'Next',
+    saasImageNotice: 'Garment images are self-created or default content provided by the platform.',
   },
 }

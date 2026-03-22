@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202211-nprogress.png
+thumbnail: /images/projects/202211-nprogress.webp
 gradient: linear-gradient(135deg, #f1f3f7, #e2e6ed)
 ---
 
@@ -17,7 +17,7 @@ gradient: linear-gradient(135deg, #f1f3f7, #e2e6ed)
 
 ## 소개
 
-![페이지 전환 로딩 인디케이터](/images/projects/202211-nprogress.png)
+![페이지 전환 로딩 인디케이터](/images/projects/202211-nprogress.webp)
 
 Next.js 클라이언트 사이드 라우팅 시 페이지 전환이 시작되면 화면 상단에 얇은 진행 바(progress bar)를 표시하는 nProgress를 도입했다. Next.js의 CSR(Client Side Routing)은 전통적인 full page reload 없이 페이지를 전환하기 때문에, 브라우저 기본 로딩 인디케이터가 표시되지 않는다. 이로 인해 사용자가 클릭 후 아무 반응이 없는 것처럼 느끼는 **"피드백 공백(Feedback Gap)"** 문제가 있었고, nProgress를 통해 페이지 전환 중임을 즉각적으로 전달하는 UX를 구현했다.
 

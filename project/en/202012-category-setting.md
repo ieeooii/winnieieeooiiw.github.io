@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-category-filter.png
+thumbnail: /images/projects/202007-category-filter.webp
 gradient: linear-gradient(135deg, #f0fdf4, #dcfce7)
 ---
 
@@ -21,8 +21,8 @@ A settings page for fashion brand administrators to manage clothing categories i
 
 <div class="img-row-2">
 
-![Category Settings Page](/images/projects/202007-category-setting.png)
-![Category Filter](/images/projects/202007-category-filter.png)
+![Category Settings Page](/images/projects/202007-category-setting.webp)
+![Category Filter](/images/projects/202007-category-filter.webp)
 
 </div>
 

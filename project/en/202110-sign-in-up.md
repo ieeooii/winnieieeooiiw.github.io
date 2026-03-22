@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202106-sign-in.png
+thumbnail: /images/projects/202106-sign-in.webp
 gradient: linear-gradient(135deg, #ede8e0, #d8d0c4)
 ---
 
@@ -25,11 +25,11 @@ Migrated and fully redesigned the jQuery + Less CSS legacy authentication flow t
 
 <div class="img-row-2">
 
-![Sign In](/images/projects/202106-sign-in.png)
-![Sign Up](/images/projects/202106-sign-up.png)
-![Find Password](/images/projects/202106-find-password.png)
-![Set Password](/images/projects/202106-set-password.png)
-![Change Password](/images/projects/202106-change-password.png)
+![Sign In](/images/projects/202106-sign-in.webp)
+![Sign Up](/images/projects/202106-sign-up.webp)
+![Find Password](/images/projects/202106-find-password.webp)
+![Set Password](/images/projects/202106-set-password.webp)
+![Change Password](/images/projects/202106-change-password.webp)
 
 </div>
 

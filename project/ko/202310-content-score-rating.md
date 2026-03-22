@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202310-content-score-rating-panel.png
+thumbnail: /images/projects/202310-content-score-rating-panel.webp
 gradient: linear-gradient(135deg, #f0f0e8, #d8d8c0)
 ---
 
@@ -21,8 +21,8 @@ gradient: linear-gradient(135deg, #f0f0e8, #d8d8c0)
 
 <div class="img-row-2">
 
-![콘텐츠 점수 패널](/images/projects/202310-content-score-rating-panel.png)
-![점수 입력 모달](/images/projects/202310-content-score-rating-modal.png)
+![콘텐츠 점수 패널](/images/projects/202310-content-score-rating-panel.webp)
+![점수 입력 모달](/images/projects/202310-content-score-rating-modal.webp)
 
 </div>
 

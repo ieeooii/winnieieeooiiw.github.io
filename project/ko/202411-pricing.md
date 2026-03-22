@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202505-pricing.png
+thumbnail: /images/projects/202505-pricing.webp
 gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
 ---
 
@@ -17,7 +17,7 @@ gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
 
 ## 소개
 
-![Pricing 페이지](/images/projects/202505-pricing.png)
+![Pricing 페이지](/images/projects/202505-pricing.webp)
 
 가격 정책 개편 시 유료 전환율 저하 문제를 데이터 기반으로 해결한 1단계(2022)와, Free / Academic / Pro / Enterprise 4개 플랜 구조에서 embed 횟수·렌더링 용량·파일 업로드·Workroom 생성·API 토큰 등 5가지 이상의 독립적인 사용량 제한 시스템을 구현한 2단계(2024 ~ 2025)로 나뉜다. 한도 초과 시 업그레이드 유도 플로우와 퍼널 분석 로깅까지 포함한다.
 

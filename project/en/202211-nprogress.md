@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202211-nprogress.png
+thumbnail: /images/projects/202211-nprogress.webp
 gradient: linear-gradient(135deg, #f1f3f7, #e2e6ed)
 ---
 

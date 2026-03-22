@@ -3,7 +3,7 @@ thumbnail: /images/projects/graphic-web-viewer-thumb.svg
 gradient: linear-gradient(135deg, #e0f2fe, #bae6fd)
 ---
 
-# 3D Graphic Web Viewer Full Renewal
+# React Abstraction Layer for 3D Engine API & Viewer Renewal
 
 | Field | Details |
 |-------|---------|

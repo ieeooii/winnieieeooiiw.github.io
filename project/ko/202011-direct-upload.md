@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-direct-upload.png
+thumbnail: /images/projects/202007-direct-upload.webp
 gradient: linear-gradient(135deg, #d8d9dd, #b5b8c4)
 ---
 
@@ -21,11 +21,11 @@ CLO 소프트웨어에서 작업한 3D 의류 파일(`.zprj`, `.zpac` 등)을 CL
 
 <div class="img-row-2">
 
-![Direct Upload 메인](/images/projects/202007-direct-upload.png)
-![파일 찾기 모달](/images/projects/202007-direct-upload-browse-modal.png)
-![최근 파일 모달](/images/projects/202007-direct-upload-recent-modal.png)
-![업로드 드롭다운](/images/projects/202005-upload-dropdown.png)
-![업로드 모달](/images/projects/202005-upload-modal.png)
+![Direct Upload 메인](/images/projects/202007-direct-upload.webp)
+![파일 찾기 모달](/images/projects/202007-direct-upload-browse-modal.webp)
+![최근 파일 모달](/images/projects/202007-direct-upload-recent-modal.webp)
+![업로드 드롭다운](/images/projects/202005-upload-dropdown.webp)
+![업로드 모달](/images/projects/202005-upload-modal.webp)
 
 </div>
 

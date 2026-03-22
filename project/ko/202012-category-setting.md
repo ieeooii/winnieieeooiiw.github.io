@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-category-filter.png
+thumbnail: /images/projects/202007-category-filter.webp
 gradient: linear-gradient(135deg, #f0fdf4, #dcfce7)
 ---
 
@@ -21,8 +21,8 @@ gradient: linear-gradient(135deg, #f0fdf4, #dcfce7)
 
 <div class="img-row-2">
 
-![카테고리 설정 페이지](/images/projects/202007-category-setting.png)
-![카테고리 필터](/images/projects/202007-category-filter.png)
+![카테고리 설정 페이지](/images/projects/202007-category-setting.webp)
+![카테고리 필터](/images/projects/202007-category-filter.webp)
 
 </div>
 

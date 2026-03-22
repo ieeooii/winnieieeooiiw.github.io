@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202008-content-filter-workflow.png
+thumbnail: /images/projects/202008-content-filter-workflow.webp
 gradient: linear-gradient(135deg, #e8eaf0, #c8ccd8)
 ---
 
@@ -19,7 +19,7 @@ gradient: linear-gradient(135deg, #e8eaf0, #c8ccd8)
 
 패션 브랜드 관리자가 워크플로우(Draft / In Review / Approved 등 작업 상태)를 직접 등록·수정·삭제하고 순서를 정할 수 있는 Admin 설정 페이지다. 드래그 앤 드롭 가능한 공통 Setting 컴포넌트 레이어를 먼저 설계하고, 각 도메인이 그 위에 올라타는 구조를 잡았다.
 
-![워크플로우 설정](/images/projects/202008-content-filter-workflow.png)
+![워크플로우 설정](/images/projects/202008-content-filter-workflow.webp)
 
 ## 주요 구현
 

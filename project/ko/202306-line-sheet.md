@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202209-line-sheet-list-view.png
+thumbnail: /images/projects/202209-line-sheet-list-view.webp
 gradient: linear-gradient(135deg, #e8f0fc, #c8d8f8)
 ---
 
@@ -21,10 +21,10 @@ gradient: linear-gradient(135deg, #e8f0fc, #c8d8f8)
 
 <div class="img-row-2">
 
-![Line Sheet 리스트 뷰](/images/projects/202209-line-sheet-list-view.png)
-![Line Sheet 썸네일 뷰](/images/projects/202209-line-sheet-thumbnail-detail.png)
-![Line Sheet 로딩 상태](/images/projects/202209-line-sheet-loading.png)
-![Company Library](/images/projects/202209-line-sheet-company-library.png)
+![Line Sheet 리스트 뷰](/images/projects/202209-line-sheet-list-view.webp)
+![Line Sheet 썸네일 뷰](/images/projects/202209-line-sheet-thumbnail-detail.webp)
+![Line Sheet 로딩 상태](/images/projects/202209-line-sheet-loading.webp)
+![Company Library](/images/projects/202209-line-sheet-company-library.webp)
 
 </div>
 

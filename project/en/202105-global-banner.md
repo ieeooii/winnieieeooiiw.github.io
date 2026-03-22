@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202105-global-banner.png
+thumbnail: /images/projects/202105-global-banner.webp
 gradient: linear-gradient(135deg, #fde8e8, #fbc8c8)
 ---
 
@@ -17,7 +17,7 @@ gradient: linear-gradient(135deg, #fde8e8, #fbc8c8)
 
 ## Overview
 
-![Usage Limit Exceeded Banner — among Global Banners/Modals](/images/projects/202105-global-banner.png)
+![Usage Limit Exceeded Banner — among Global Banners/Modals](/images/projects/202105-global-banner.webp)
 
 Designed and implemented a priority-based banner queue system to handle complex scenarios where multiple banners — email verification, marketing consent, announcements, etc. — can simultaneously meet their display conditions.
 

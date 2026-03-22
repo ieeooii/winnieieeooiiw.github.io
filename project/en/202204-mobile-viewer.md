@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202202-mobile-viewer-3d.png
+thumbnail: /images/projects/202202-mobile-viewer-3d.webp
 gradient: linear-gradient(135deg, #dde8f0, #b8ccd8)
 ---
 
@@ -23,9 +23,9 @@ A mobile-dedicated viewer page for 3D garments, providing basic 3D garment info,
 
 <div class="img-row-3">
 
-![Full-screen 3D Viewer](/images/projects/202202-mobile-viewer-3d.png)
-![Content Info Panel](/images/projects/202202-mobile-viewer-info.png)
-![Colorway Selection UI](/images/projects/202202-mobile-viewer-colorway.png)
+![Full-screen 3D Viewer](/images/projects/202202-mobile-viewer-3d.webp)
+![Content Info Panel](/images/projects/202202-mobile-viewer-info.webp)
+![Colorway Selection UI](/images/projects/202202-mobile-viewer-colorway.webp)
 
 </div>
 

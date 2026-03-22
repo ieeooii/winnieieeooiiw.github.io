@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202409-drive-search-before.png
+thumbnail: /images/projects/202409-drive-search-before.webp
 gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
 ---
 

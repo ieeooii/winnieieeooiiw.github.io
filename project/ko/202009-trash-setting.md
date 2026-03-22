@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-trash-setting.png
+thumbnail: /images/projects/202007-trash-setting.webp
 gradient: linear-gradient(135deg, #e8e8e8, #c8c8c8)
 ---
 
@@ -19,7 +19,7 @@ gradient: linear-gradient(135deg, #e8e8e8, #c8c8c8)
 
 Company Setting의 Trash 탭으로, 관리자가 삭제된 콘텐츠 항목을 페이지네이션 목록으로 조회하고 다중 선택·일괄 복원하는 기능이다. 삭제 항목 조회, 체크박스 다중 선택·일괄 복원, 변환 오류 항목 선택 비활성화, 완료·오류 상태별 모달 피드백을 포함한다. 복원 완료 후 목록 갱신, 선택 상태 초기화, 모달 피드백까지 일관되게 처리하는 것이 핵심 설계 요소였다. 디자인 시스템의 `Table` 컴포넌트를 **명령형(imperative) ref 패턴**으로 제어하여 선택 해제를 외부에서 트리거하는 방식을 구현했다.
 
-![휴지통 설정](/images/projects/202007-trash-setting.png)
+![휴지통 설정](/images/projects/202007-trash-setting.webp)
 
 ## 주요 구현
 

@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-annotation.png
+thumbnail: /images/projects/202007-annotation.webp
 gradient: linear-gradient(135deg, #d4e8ec, #a8cdd2)
 ---
 
@@ -21,10 +21,10 @@ Developed two comment systems simultaneously as collaboration features. Annotati
 
 <div class="img-row-2">
 
-![Annotation Button](/images/projects/202005-comment-annotation-button.png)
-![Annotation Copy Modal](/images/projects/202005-comment-annotation-modal.png)
-![Annotation Copying](/images/projects/202005-comment-annotation-copying.png)
-![Annotation Copied](/images/projects/202005-comment-annotation-copied.png)
+![Annotation Button](/images/projects/202005-comment-annotation-button.webp)
+![Annotation Copy Modal](/images/projects/202005-comment-annotation-modal.webp)
+![Annotation Copying](/images/projects/202005-comment-annotation-copying.webp)
+![Annotation Copied](/images/projects/202005-comment-annotation-copied.webp)
 
 </div>
 

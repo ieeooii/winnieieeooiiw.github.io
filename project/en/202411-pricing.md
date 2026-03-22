@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202505-pricing.png
+thumbnail: /images/projects/202505-pricing.webp
 gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
 ---
 

@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202008-content-filter.png
+thumbnail: /images/projects/202008-content-filter.webp
 gradient: linear-gradient(135deg, #f1f5f9, #e2e8f0)
 ---
 
@@ -21,7 +21,7 @@ gradient: linear-gradient(135deg, #f1f5f9, #e2e8f0)
 
 <div class="img-row-2">
 
-![콘텐츠 필터 시스템](/images/projects/202008-content-filter.png)
+![콘텐츠 필터 시스템](/images/projects/202008-content-filter.webp)
 
 </div>
 

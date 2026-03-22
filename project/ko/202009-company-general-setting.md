@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-company-general-setting.png
+thumbnail: /images/projects/202007-company-general-setting.webp
 gradient: linear-gradient(135deg, #e0f2fe, #bae6fd)
 ---
 
@@ -21,7 +21,7 @@ gradient: linear-gradient(135deg, #e0f2fe, #bae6fd)
 
 페이지 스토어는 루트 스토어 → 페이지 전용 스토어를 Composition 패턴으로 분리했다. 모든 API 액션에 `@action.bound`를 적용해 `this` 바인딩을 보장하고, 비동기 완료 후 상태 변경은 항상 `runInAction`으로 감싸 MobX strict mode를 준수했다.
 
-![Storage General Setting 페이지](/images/projects/202007-company-general-setting.png)
+![Storage General Setting 페이지](/images/projects/202007-company-general-setting.webp)
 
 ## 주요 구현
 

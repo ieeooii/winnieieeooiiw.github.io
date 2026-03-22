@@ -3,7 +3,7 @@ thumbnail: /images/projects/202411-design-system.svg
 gradient: linear-gradient(135deg, #fce7f3, #ede9fe)
 ---
 
-# Design System
+# Design System Build
 
 | Field | Details |
 |-------|---------|

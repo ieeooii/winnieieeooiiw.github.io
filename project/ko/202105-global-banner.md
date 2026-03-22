@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202105-global-banner.png
+thumbnail: /images/projects/202105-global-banner.webp
 gradient: linear-gradient(135deg, #fde8e8, #fbc8c8)
 ---
 
@@ -17,7 +17,7 @@ gradient: linear-gradient(135deg, #fde8e8, #fbc8c8)
 
 ## 소개
 
-![글로벌 배너/모달 중 사용량 초과 알림 배너](/images/projects/202105-global-banner.png)
+![글로벌 배너/모달 중 사용량 초과 알림 배너](/images/projects/202105-global-banner.webp)
 
 이메일 미인증·사용량 한도 임박·공지 등 여러 배너가 동시에 표시 조건을 만족할 수 있는 상황을 처리하기 위해, 우선순위 기반 배너 큐 시스템을 설계·구현했다. 배너를 하나씩 순차 표시하고 닫으면 다음 배너로 자동 진행하며, 각 배너의 표시 여부는 API 데이터에 의존한다.
 

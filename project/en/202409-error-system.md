@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/error-overview.png
+thumbnail: /images/projects/error-overview.webp
 gradient: linear-gradient(135deg, #f8d7da, #f5c6cb)
 ---
 

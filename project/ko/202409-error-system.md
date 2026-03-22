@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/error-overview.png
+thumbnail: /images/projects/error-overview.webp
 gradient: linear-gradient(135deg, #f8d7da, #f5c6cb)
 ---
 
@@ -23,16 +23,16 @@ gradient: linear-gradient(135deg, #f8d7da, #f5c6cb)
 <div class="img-row-3">
 
 ![Route Group 기반 에러 Boundary 설계안](/images/projects/202409-error-system-route-group.webp)
-![에러 Boundary 아키텍처 설계안](/images/projects/error-handling-case.png)
-![에러 케이스 유형 정리](/images/projects/error-edge-case.png)
+![에러 Boundary 아키텍처 설계안](/images/projects/error-handling-case.webp)
+![에러 케이스 유형 정리](/images/projects/error-edge-case.webp)
 
 </div>
 
 <div class="img-row-3">
 
-![Toast·인라인 에러·뷰어 에러가 공존하는 화면](/images/projects/error-overview.png)
-![모달 내 Toast 에러 (Modal 스코프)](/images/projects/error-modal-toast.png)
-![인증 앱 Toast 에러 (Trace ID 포함)](/images/projects/error-auth-toast.png)
+![Toast·인라인 에러·뷰어 에러가 공존하는 화면](/images/projects/error-overview.webp)
+![모달 내 Toast 에러 (Modal 스코프)](/images/projects/error-modal-toast.webp)
+![인증 앱 Toast 에러 (Trace ID 포함)](/images/projects/error-auth-toast.webp)
 
 </div>
 

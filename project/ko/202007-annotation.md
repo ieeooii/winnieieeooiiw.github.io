@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-annotation.png
+thumbnail: /images/projects/202007-annotation.webp
 gradient: linear-gradient(135deg, #d4e8ec, #a8cdd2)
 ---
 
@@ -21,10 +21,10 @@ gradient: linear-gradient(135deg, #d4e8ec, #a8cdd2)
 
 <div class="img-row-2">
 
-![어노테이션 버튼](/images/projects/202005-comment-annotation-button.png)
-![어노테이션 복사 모달](/images/projects/202005-comment-annotation-modal.png)
-![어노테이션 복사 중](/images/projects/202005-comment-annotation-copying.png)
-![어노테이션 복사 완료](/images/projects/202005-comment-annotation-copied.png)
+![어노테이션 버튼](/images/projects/202005-comment-annotation-button.webp)
+![어노테이션 복사 모달](/images/projects/202005-comment-annotation-modal.webp)
+![어노테이션 복사 중](/images/projects/202005-comment-annotation-copying.webp)
+![어노테이션 복사 완료](/images/projects/202005-comment-annotation-copied.webp)
 
 </div>
 

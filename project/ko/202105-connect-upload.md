@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202011-connect-upload-step0.png
+thumbnail: /images/projects/202011-connect-upload-step0.webp
 gradient: linear-gradient(135deg, #c8d8f8, #a0b8f0)
 ---
 
@@ -22,11 +22,11 @@ gradient: linear-gradient(135deg, #c8d8f8, #a0b8f0)
 
 <div class="img-row-2">
 
-![업로드 Step 0](/images/projects/202011-connect-upload-step0.png)
-![업로드 Step 1](/images/projects/202011-connect-upload-step1.png)
-![업로드 Step 2](/images/projects/202011-connect-upload-step2.png)
-![업로드 Step 2 가격 설정](/images/projects/202011-connect-upload-step2-price.png)
-![업로드 편집 모드](/images/projects/202011-connect-upload-edit-mode.png)
+![업로드 Step 0](/images/projects/202011-connect-upload-step0.webp)
+![업로드 Step 1](/images/projects/202011-connect-upload-step1.webp)
+![업로드 Step 2](/images/projects/202011-connect-upload-step2.webp)
+![업로드 Step 2 가격 설정](/images/projects/202011-connect-upload-step2-price.webp)
+![업로드 편집 모드](/images/projects/202011-connect-upload-edit-mode.webp)
 
 </div>
 

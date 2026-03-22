@@ -209,6 +209,18 @@ export const detailContainer = style({
   },
 })
 
+export const saasNotice = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: vars.space[2],
+  marginBottom: vars.space[8],
+  padding: `${vars.space[3]} ${vars.space[4]}`,
+  borderRadius: vars.radii.md,
+  backgroundColor: vars.color.brandMuted,
+  fontSize: vars.fontSize.sm,
+  color: vars.color.gray[700],
+})
+
 export const projectNav = style({
   display: 'flex',
   justifyContent: 'space-between',

@@ -47,6 +47,7 @@ export type Translations = {
     noResults: string
     prevProject: string
     nextProject: string
+    saasImageNotice: string
   }
   projects: {
     viewAll: string

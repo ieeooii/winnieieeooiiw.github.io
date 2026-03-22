@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202003-about-us-video-color-after.png
+thumbnail: /images/projects/202003-about-us-video-color-after.webp
 gradient: linear-gradient(135deg, #b3f0ee, #60ddd8)
 ---
 
@@ -21,27 +21,27 @@ CLO Virtual Fashion의 기업의 B2B 서비스 소개(About Us)·지원(Support)
 
 <div class="img-row-3">
 
-![반응형 — PC](/images/projects/202003-about-us-responsive-pc.png)
-![반응형 — 태블릿](/images/projects/202003-about-us-responsive-tablet.png)
-![반응형 — 모바일](/images/projects/202003-about-us-responsive-mobile.png)
+![반응형 — PC](/images/projects/202003-about-us-responsive-pc.webp)
+![반응형 — 태블릿](/images/projects/202003-about-us-responsive-tablet.webp)
+![반응형 — 모바일](/images/projects/202003-about-us-responsive-mobile.webp)
 
 </div>
 
 <div class="img-row-2">
 
-![영상 단색 배경 색상 편차 수정 전](/images/projects/202003-about-us-video-color-before.png)
-![영상 단색 배경 색상 편차 수정 후](/images/projects/202003-about-us-video-color-after.png)
+![영상 단색 배경 색상 편차 수정 전](/images/projects/202003-about-us-video-color-before.webp)
+![영상 단색 배경 색상 편차 수정 후](/images/projects/202003-about-us-video-color-after.webp)
 
 </div>
 
 <div class="img-row-2">
 
-![Query string id 기반 스크롤 — 클릭 전](/images/projects/202003-about-us-querystring-before.png)
-![Query string id 기반 스크롤 — 클릭 후 (?id=application)](/images/projects/202003-about-us-querystring-after.png)
+![Query string id 기반 스크롤 — 클릭 전](/images/projects/202003-about-us-querystring-before.webp)
+![Query string id 기반 스크롤 — 클릭 후 (?id=application)](/images/projects/202003-about-us-querystring-after.webp)
 
 </div>
 
-![Privacy Policy 페이지](/images/projects/202003-tos-privacy.png)
+![Privacy Policy 페이지](/images/projects/202003-tos-privacy.webp)
 
 ## 주요 구현
 

@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-embed-viewer.png
+thumbnail: /images/projects/202007-embed-viewer.webp
 gradient: linear-gradient(135deg, #e8e8e8, #c8c8c8)
 ---
 
@@ -30,9 +30,9 @@ gradient: linear-gradient(135deg, #e8e8e8, #c8c8c8)
 
 <div class="img-row-2">
 
-![Embed Viewer 옵션 설정](/images/projects/202007-embed-viewer.png)
-![Embed Viewer iframe 코드](/images/projects/202007-embed-viewer-iframe.png)
-![Embed Viewer 공개 확인 모달](/images/projects/202007-embed-viewer-publish.png)
+![Embed Viewer 옵션 설정](/images/projects/202007-embed-viewer.webp)
+![Embed Viewer iframe 코드](/images/projects/202007-embed-viewer-iframe.webp)
+![Embed Viewer 공개 확인 모달](/images/projects/202007-embed-viewer-publish.webp)
 
 </div>
 

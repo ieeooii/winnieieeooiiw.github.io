@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-closet-upload-form.png
+thumbnail: /images/projects/202007-closet-upload-form.webp
 gradient: linear-gradient(135deg, #e0e7ff, #c7d2fe)
 ---
 
@@ -25,8 +25,8 @@ Structured as a **2-step modal flow** — Step 1 captures basic information (tit
 
 <div class="img-row-2">
 
-![Marketplace Listing](/images/projects/202007-closet-marketplace.png)
-![Upload Form](/images/projects/202007-closet-upload-form.png)
+![Marketplace Listing](/images/projects/202007-closet-marketplace.webp)
+![Upload Form](/images/projects/202007-closet-upload-form.webp)
 
 </div>
 

@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202005-webhook-trigger.png
+thumbnail: /images/projects/202005-webhook-trigger.webp
 gradient: linear-gradient(135deg, #d0d4dc, #b0b5c0)
 ---
 
@@ -21,8 +21,8 @@ CLOSET API를 외부 시스템에서 호출할 수 있는 Developer 설정 페�
 
 <div class="img-row-2">
 
-![Webhook 트리거 설정](/images/projects/202005-webhook-trigger.png)
-![API 토큰 설정](/images/projects/202005-webhook-api-token.png)
+![Webhook 트리거 설정](/images/projects/202005-webhook-trigger.webp)
+![API 토큰 설정](/images/projects/202005-webhook-api-token.webp)
 
 </div>
 

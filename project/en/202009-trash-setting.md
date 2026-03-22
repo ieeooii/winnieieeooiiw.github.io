@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202007-trash-setting.png
+thumbnail: /images/projects/202007-trash-setting.webp
 gradient: linear-gradient(135deg, #e8e8e8, #c8c8c8)
 ---
 
@@ -21,7 +21,7 @@ The Trash tab in Company Settings, where administrators can view deleted content
 
 ## Key Features
 
-![Trash Setting](/images/projects/202007-trash-setting.png)
+![Trash Setting](/images/projects/202007-trash-setting.webp)
 
 ## Key Implementations
 

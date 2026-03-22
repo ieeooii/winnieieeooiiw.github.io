@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202106-sign-in.png
+thumbnail: /images/projects/202106-sign-in.webp
 gradient: linear-gradient(135deg, #ede8e0, #d8d0c4)
 ---
 
@@ -30,11 +30,11 @@ jQuery + Less CSS 기반 레거시 인증 플로우를 React + Emotion.js 기반
 
 <div class="img-row-2">
 
-![로그인](/images/projects/202106-sign-in.png)
-![회원가입](/images/projects/202106-sign-up.png)
-![비밀번호 찾기](/images/projects/202106-find-password.png)
-![비밀번호 설정](/images/projects/202106-set-password.png)
-![비밀번호 변경](/images/projects/202106-change-password.png)
+![로그인](/images/projects/202106-sign-in.webp)
+![회원가입](/images/projects/202106-sign-up.webp)
+![비밀번호 찾기](/images/projects/202106-find-password.webp)
+![비밀번호 설정](/images/projects/202106-set-password.webp)
+![비밀번호 변경](/images/projects/202106-change-password.webp)
 
 </div>
 

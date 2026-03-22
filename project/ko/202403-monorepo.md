@@ -1,5 +1,5 @@
 ---
-thumbnail: /images/projects/202305-monorepo-3d-viewer-renewal.png
+thumbnail: /images/projects/202305-monorepo-3d-viewer-renewal.webp
 gradient: linear-gradient(135deg, #eaeaed, #d0d2d8)
 ---
 
@@ -20,7 +20,7 @@ gradient: linear-gradient(135deg, #eaeaed, #d0d2d8)
 
 레거시 One-Repo 구조로 인한 빌드 타임 증가와 과도한 코드 의존성, Core Web Vitals 지표 악화 문제 해결. CLO-SET v3 프로젝트의 yarn workspaces 기반 모노레포를 초기 설계하고, 공통 API 클라이언트 패키지 구축 및 App Router 기반 아키텍처 재설계까지 전 과정을 주도했다. 모노레포 전환으로 로딩 속도 40% 개선, 핵심 성능 지표 35% 향상.
 
-![모노레포 3D 뷰어 리뉴얼](/images/projects/202305-monorepo-3d-viewer-renewal.png)
+![모노레포 3D 뷰어 리뉴얼](/images/projects/202305-monorepo-3d-viewer-renewal.webp)
 
 ## 주요 구현
 
