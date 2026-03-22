@@ -12,7 +12,7 @@ gradient: linear-gradient(135deg, #fce7f3, #ede9fe)
 | 서비스 | CLO-SET |
 | 기술 스택 | React, TypeScript, Emotion.js, Storybook, Rollup, tippy.js |
 | 개발 기간 | 2021.06 ~ 2024.11 |
-| 인원 | 프론트엔드 4 (번들 최적화 단독 주도, 컴포넌트 개발 참여) |
+| 인원 | 프론트엔드 4, 프로덕트 디자이너 2 (번들 최적화 단독 주도, 컴포넌트 개발 참여) |
 | 서비스 링크 | 사내 내부 (비공개) |
 
 ## 소개

@@ -12,7 +12,7 @@ gradient: linear-gradient(135deg, #fce7f3, #ede9fe)
 | Service | CLO-SET |
 | Tech Stack | React, TypeScript, Emotion.js, Storybook, Rollup, tippy.js |
 | Period | 2021.06 – 2024.11 |
-| Team | Frontend 4 (bundle optimization sole lead) / Frontend (sole design & implementation) |
+| Team | Frontend 4, Product Designer 2 (bundle optimization sole lead, component development contributor) |
 | Service Link | Internal (not public) |
 
 ## Overview
