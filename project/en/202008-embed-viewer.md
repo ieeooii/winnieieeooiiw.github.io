@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/202007-embed-viewer.png
+gradient: linear-gradient(135deg, #e8e8e8, #c8c8c8)
+---
+
 # Embed Viewer
 
 | Field | Details |

@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/202207-drive-view-mode-colorway.png
+gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
+---
+
 # Color Variant View Mode
 
 | Field | Details |

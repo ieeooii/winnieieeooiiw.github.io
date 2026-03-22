@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useLocation } from 'wouter'
-import { tag } from '../../../shared/ui'
+import { tag, SearchInput } from '../../../shared/ui'
 import { getProjects } from '../data/projects'
 import { useLanguage } from '../../../shared/i18n'
 import * as s from './portfolio.css'
@@ -23,10 +23,21 @@ export const PortfolioPage = () => {
   const projects = getProjects(lang)
 
   const [activeFilter, setActiveFilter] = useState<FilterKey>('all')
+  const [searchQuery, setSearchQuery] = useState('')
 
-  const filtered = activeFilter === 'all'
-    ? projects
-    : projects.filter(p => p.category === activeFilter)
+  const filtered = useMemo(() => {
+    const q = searchQuery.toLowerCase().trim()
+    return projects
+      .filter(p => activeFilter === 'all' || p.category === activeFilter)
+      .filter(p => {
+        if (!q) return true
+        return (
+          p.title.toLowerCase().includes(q) ||
+          p.company.toLowerCase().includes(q) ||
+          p.stack.some(tech => tech.toLowerCase().includes(q))
+        )
+      })
+  }, [projects, activeFilter, searchQuery])
 
   return (
     <main className={s.page}>
@@ -36,7 +47,7 @@ export const PortfolioPage = () => {
           <p className={s.gridSubtitle}>{t.portfolio.subtitle}</p>
         </header>
 
-        <div className={s.filterRow}>
+        <div className={s.filterRowLast}>
           {FILTER_KEYS.map(key => (
             <button
               key={key}
@@ -46,9 +57,18 @@ export const PortfolioPage = () => {
               {key === 'all' ? t.portfolio.filterAll : key}
             </button>
           ))}
+          <SearchInput
+            style={{ marginLeft: 'auto' }}
+            placeholder={t.portfolio.searchPlaceholder}
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+          />
         </div>
 
         <section className={s.projectGrid}>
+          {filtered.length === 0 && (
+            <p className={s.noResults}>{t.portfolio.noResults}</p>
+          )}
           {filtered.map((project, i) => (
             <article
               key={project.id}

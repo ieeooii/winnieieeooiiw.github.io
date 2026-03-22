@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/error-overview.png
+gradient: linear-gradient(135deg, #f8d7da, #f5c6cb)
+---
+
 # Frontend Error Handling System
 
 | Field | Details |
@@ -6,8 +11,8 @@
 | Category | ETC |
 | Service | CLO-SET |
 | Tech Stack | Next.js, Next.js (App Router), TypeScript, React Query v5, Emotion.js, Storybook, Datadog, next/font |
-| Period | 2023.09 – 2023.10 |
-| Team | Frontend 1, Backend 1, Product Designer 1 (Frontend lead) |
+| Period | 2024.09 – 2025.03 |
+| Team | Frontend 1, Backend 1, Product Designer 1 (Frontend owner) |
 | Service Link | style.clo-set.com |
 
 ## Overview

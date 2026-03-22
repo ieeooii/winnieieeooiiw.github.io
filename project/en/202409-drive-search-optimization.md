@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/202409-drive-search-before.png
+gradient: linear-gradient(135deg, #e8f0e8, #c8d8c8)
+---
+
 # Content Search & Folder List Virtual Scroll Performance Optimization
 
 | Field | Details |
@@ -7,7 +12,7 @@
 | Service | CLO-SET |
 | Tech Stack | Next.js, TypeScript, React Query, Virtuoso |
 | Period | 2024.08 – 2024.09 |
-| Team | Frontend (sole owner) |
+| Team | Frontend (owner) |
 | Service Link | style.clo-set.com |
 
 ## Overview

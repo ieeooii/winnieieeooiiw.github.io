@@ -66,5 +66,7 @@ export const ko: Translations = {
     title: 'Projects',
     subtitle: 'Frontend engineering work across product, infrastructure, and developer experience.',
     filterAll: '전체',
+    searchPlaceholder: '프로젝트 검색 (제목, 기술 스택, 회사)',
+    noResults: '검색 결과가 없습니다.',
   },
 }

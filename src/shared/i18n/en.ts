@@ -69,5 +69,7 @@ export const en: Translations = {
     title: 'Projects',
     subtitle: 'Frontend engineering work across product, infrastructure, and developer experience.',
     filterAll: 'All',
+    searchPlaceholder: 'Search projects (title, tech stack, company)',
+    noResults: 'No results found.',
   },
 }

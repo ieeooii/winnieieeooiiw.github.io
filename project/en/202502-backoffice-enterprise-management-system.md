@@ -12,7 +12,7 @@ gradient: linear-gradient(135deg, #e8eaf0, #c8ccd8)
 | Service | CLO-SET Admin |
 | Tech Stack | React 17, TypeScript 4.5, Redux, Redux-Saga, Styled Components, Axios, react-export-excel |
 | Period | 2025.01 – 2025.02 |
-| Team | Frontend 1 (sole owner), Backend 1+, PM 1 |
+| Team | Frontend 1 (owner), Backend 1+, PM 1 |
 | Service Link | Internal admin (private) |
 
 ## Overview

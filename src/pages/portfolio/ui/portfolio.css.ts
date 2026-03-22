@@ -53,11 +53,28 @@ export const gridTitle = style({
   color: vars.color.dark,
 })
 
+
 export const filterRow = style({
   display: 'flex',
   flexWrap: 'wrap',
   gap: vars.space[2],
+  marginBottom: vars.space[4],
+})
+
+export const filterRowLast = style({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: vars.space[2],
   marginBottom: vars.space[24],
+  alignItems: 'center',
+})
+
+export const noResults = style({
+  gridColumn: '1 / -1',
+  textAlign: 'center',
+  color: vars.color.gray[400],
+  fontSize: vars.fontSize.base,
+  paddingTop: vars.space[16],
 })
 
 const filterBase = style({

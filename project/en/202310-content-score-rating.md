@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/202310-content-score-rating-panel.png
+gradient: linear-gradient(135deg, #f0f0e8, #d8d8c0)
+---
+
 # Content Completeness Score & Rating Feature
 
 | Field | Details |

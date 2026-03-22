@@ -12,7 +12,7 @@ gradient: linear-gradient(135deg, #c8d8f8, #a0b8f0)
 | Service | CONNECT |
 | Tech Stack | Next.js, TypeScript, Redux (Toolkit + Saga), Emotion.js, Jest, React Testing Library |
 | Period | 2020.11 – 2021.05 |
-| Team | Frontend 1, Backend 1, Product Designer 1 (Frontend lead) |
+| Team | Frontend 1, Backend 1, Product Designer 1 (Frontend owner) |
 | Service Link | https://connect.clo-set.com/ko/upload |
 
 ## Overview
