@@ -71,5 +71,7 @@ export const en: Translations = {
     filterAll: 'All',
     searchPlaceholder: 'Search projects (title, tech stack, company)',
     noResults: 'No results found.',
+    prevProject: 'Prev',
+    nextProject: 'Next',
   },
 }

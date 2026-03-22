@@ -45,6 +45,8 @@ export type Translations = {
     filterAll: string
     searchPlaceholder: string
     noResults: string
+    prevProject: string
+    nextProject: string
   }
   projects: {
     viewAll: string

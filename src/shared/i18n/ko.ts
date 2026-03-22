@@ -68,5 +68,7 @@ export const ko: Translations = {
     filterAll: '전체',
     searchPlaceholder: '프로젝트 검색 (제목, 기술 스택, 회사)',
     noResults: '검색 결과가 없습니다.',
+    prevProject: '이전 프로젝트',
+    nextProject: '다음 프로젝트',
   },
 }

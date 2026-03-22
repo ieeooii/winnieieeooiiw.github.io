@@ -209,6 +209,51 @@ export const detailContainer = style({
   },
 })
 
+export const projectNav = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  gap: vars.space[4],
+  marginTop: vars.space[16],
+  paddingTop: vars.space[8],
+  borderTop: `1px solid ${vars.color.gray[200]}`,
+})
+
+export const projectNavBtn = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  gap: vars.space[1],
+  cursor: 'pointer',
+  border: 'none',
+  background: 'none',
+  padding: `${vars.space[3]} 0`,
+  maxWidth: '45%',
+  transition: vars.transition.fast,
+  selectors: {
+    '&:hover': { opacity: 0.6 },
+  },
+})
+
+export const projectNavBtnNext = style({
+  alignItems: 'flex-end',
+  textAlign: 'right',
+})
+
+export const projectNavLabel = style({
+  fontSize: vars.fontSize.xs,
+  fontWeight: vars.fontWeight.semibold,
+  letterSpacing: vars.letterSpacing.wider,
+  textTransform: 'uppercase',
+  color: vars.color.gray[400],
+})
+
+export const projectNavTitle = style({
+  fontSize: vars.fontSize.base,
+  fontWeight: vars.fontWeight.medium,
+  color: vars.color.dark,
+  lineHeight: vars.lineHeight.snug,
+})
+
 export const backButton = style({
   display: 'inline-flex',
   alignItems: 'center',
