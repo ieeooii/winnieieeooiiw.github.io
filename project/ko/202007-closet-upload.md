@@ -16,7 +16,7 @@ gradient: linear-gradient(135deg, #e0e7ff, #c7d2fe)
 
 ## 소개
 
-CLO-SET 사용자가 3D 의류 콘텐츠를 CLO 마켓플레이스(CLOSET) 또는 MD 전용 스토어(MD_STORE) 두 가지 채널에 업로드·판매 등록하는 기능이다.
+CLO-SET 사용자가 3D 의류 콘텐츠를 CLO 마켓플레이스(CLOSET) 또는 MD 전용 스토어(MD_STORE) 두 가지 채널에 업로드·판매 등록하는 기능이다. 이후 오픈 마켓 스토어인 CONNECT가 런칭되면서 2021.03에 deprecated되었다.
 
 ## 주요 기능
 

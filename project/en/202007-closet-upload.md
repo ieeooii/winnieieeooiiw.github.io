@@ -16,7 +16,7 @@ gradient: linear-gradient(135deg, #e0e7ff, #c7d2fe)
 
 ## Overview
 
-A feature for CLO-SET users to upload and list 3D clothing content for sale across two channels:
+A feature for CLO-SET users to upload and list 3D clothing content for sale across two channels: the CLO marketplace (CLOSET) or the MD-exclusive store (MD_STORE). Deprecated in March 2021 when CONNECT, an open market store, launched as its replacement.
 
 ## Key Features
 
