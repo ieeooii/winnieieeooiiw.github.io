@@ -20,12 +20,14 @@ A feature for CLO-SET users to upload and list 3D clothing content for sale acro
 
 ## Key Features
 
+Structured as a **2-step modal flow** — Step 1 captures basic information (title, code, description, tags, thumbnail, additional images), and Step 2 captures category, clothing style, and pricing information.
+
 <div class="img-row-2">
 
 ![Marketplace Listing](/images/projects/202007-closet-marketplace.png)
 ![Upload Form](/images/projects/202007-closet-upload-form.png)
 
-</div> the CLO marketplace (CLOSET) or the MD-exclusive store (MD_STORE). Structured as a **2-step modal flow** — Step 1 captures basic information (title, code, description, tags, thumbnail, additional images), and Step 2 captures category, clothing style, and pricing information. Removed from the context menu in March 2021 and currently deprecated.
+</div>
 
 ## Key Implementations
 
@@ -51,11 +53,13 @@ A feature for CLO-SET users to upload and list 3D clothing content for sale acro
 
 - **Problem**: Three values — original price, sales price, and discount percentage — are mutually dependent. A UX was needed where entering a discount automatically calculates the sales price, and directly entering a sales price back-calculates the discount.
 - **Solve**: Managed the three values as MobX observables, with each input handler immediately updating the related values. Included validation for abnormal inputs (e.g., sales price > original price) in the `isConfirmButton` computed to block submission entirely.
+- **Result**: Mutual calculation of the three values is automatically derived in the store; abnormal inputs automatically disable the submit button.
 
 ### Upload Status-Based UI Branching
 
-- Managed marketplace upload status via a `Status` enum (PENDING / CONFIRMED / REJECTED / WITHDRAW / UPDATED / WAITING_AGAIN). Context menu visibility (`isWithdraw`, etc.) and guidance messages vary per status, derived from `item-store`.
-- After withdrawal (`withdrawMarketPlace`) completes, immediately clears `marketPlaceInfo` to synchronize UI state.
+- **Problem**: Context menu options and guidance messages needed to differ based on upload status (pending review, approved, rejected, withdrawn, etc.).
+- **Solve**: Defined upload status as a `Status` enum (PENDING / CONFIRMED / REJECTED / WITHDRAW / UPDATED / WAITING_AGAIN). Context menu visibility (`isWithdraw`, etc.) and guidance messages are derived as computed values in `item-store`. After withdrawal (`withdrawMarketPlace`) completes, immediately clears `marketPlaceInfo` to synchronize UI state.
+- **Result**: Status-based UI branching is centralized in store computeds, eliminating conditional branching in components.
 
 ## Retrospective / Lessons Learned
 

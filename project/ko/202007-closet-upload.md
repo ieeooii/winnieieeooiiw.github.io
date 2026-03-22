@@ -20,12 +20,14 @@ CLO-SET 사용자가 3D 의류 콘텐츠를 CLO 마켓플레이스(CLOSET) 또�
 
 ## 주요 기능
 
+**2단계 스텝 모달 플로우**로 구성되어 있으며, 1단계에서 기본 정보(제목·코드·설명·태그·썸네일·추가 이미지)를, 2단계에서 카테고리·의류 스타일·가격 정보를 입력한다.
+
 <div class="img-row-2">
 
 ![마켓플레이스 목록](/images/projects/202007-closet-marketplace.png)
 ![상품 등록 폼](/images/projects/202007-closet-upload-form.png)
 
-</div> **2단계 스텝 모달 플로우**로 구성되어 있으며, 1단계에서 기본 정보(제목·코드·설명·태그·썸네일·추가 이미지)를, 2단계에서 카테고리·의류 스타일·가격 정보를 입력한다. 2021.03 컨텍스트 메뉴에서 제거되어 현재는 deprecated 상태다.
+</div>
 
 ## 주요 구현
 
@@ -51,11 +53,13 @@ CLO-SET 사용자가 3D 의류 콘텐츠를 CLO 마켓플레이스(CLOSET) 또�
 
 - **Problem**: 원가(original price), 판매가(sales price), 할인율(discount %) 세 값이 상호 의존 관계에 있다. 할인율 입력 시 판매가가 자동 계산되어야 하고, 판매가 직접 입력 시 할인율이 역산되어야 하는 UX가 필요했다.
 - **Solve**: MobX observable로 세 값을 관리하고, 각 입력 핸들러에서 나머지 연관 값을 즉시 업데이트. 판매가 > 원가인 경우 등 비정상 입력에 대한 유효성 검사를 `isConfirmButton` computed에 포함하여 제출 자체를 차단.
+- **Result**: 세 값의 상호 계산이 스토어에서 자동 파생되며, 비정상 입력 시 제출 버튼이 자동 비활성화
 
 ### 업로드 상태(Status) 기반 UI 분기
 
-- 마켓플레이스 업로드 상태를 `Status` enum(PENDING / CONFIRMED / REJECTED / WITHDRAW / UPDATED / WAITING_AGAIN)으로 관리. 각 상태에 따라 컨텍스트 메뉴 노출 여부(`isWithdraw` 등)와 안내 메시지가 달라지도록 `item-store`에서 파생 처리.
-- 철회(`withdrawMarketPlace`) 완료 후 `marketPlaceInfo`를 즉시 초기화하여 UI 상태 동기화.
+- **Problem**: 마켓플레이스 업로드 상태(심사 중·승인·거절·철회 등)에 따라 컨텍스트 메뉴 구성과 안내 메시지가 달라져야 했다.
+- **Solve**: 업로드 상태를 `Status` enum(PENDING / CONFIRMED / REJECTED / WITHDRAW / UPDATED / WAITING_AGAIN)으로 정의하고, 컨텍스트 메뉴 노출 여부(`isWithdraw` 등)와 안내 메시지를 `item-store`의 computed로 파생. 철회(`withdrawMarketPlace`) 완료 후 `marketPlaceInfo`를 즉시 초기화하여 UI 상태 동기화.
+- **Result**: 상태별 UI 분기가 스토어 computed에 집중되어 컴포넌트에서 조건 분기 제거
 
 ## 회고 / 아쉬웠던 점
 
