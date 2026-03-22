@@ -3,7 +3,7 @@ thumbnail: /images/projects/202007-direct-upload.png
 gradient: linear-gradient(135deg, #d8d9dd, #b5b8c4)
 ---
 
-# Direct 3D File Upload from Graphics Software to Platform
+# Direct File Upload from Graphics Software to Platform
 
 | Field | Details |
 |-------|---------|

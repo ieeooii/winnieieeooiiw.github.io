@@ -3,7 +3,7 @@ thumbnail: /images/projects/202209-line-sheet-list-view.png
 gradient: linear-gradient(135deg, #e8f0fc, #c8d8f8)
 ---
 
-# 패션 시즌 상품 기획용 인터랙티브 스프레드시트 개발
+# AG Grid 기반 인터랙티브 Line Sheet 개발
 
 | 항목 | 내용 |
 |------|------|

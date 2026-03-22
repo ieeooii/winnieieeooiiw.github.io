@@ -3,7 +3,7 @@ thumbnail: /images/projects/202312-annotation-thumbnail.png
 gradient: linear-gradient(135deg, #d4e8ec, #a8cdd2)
 ---
 
-# 3D Viewer Position-based Comment & Thread Collaboration
+# Viewer Position-based Comment & Thread Collaboration
 
 | Field | Details |
 |-------|---------|

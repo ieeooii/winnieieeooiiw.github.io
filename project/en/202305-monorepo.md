@@ -3,7 +3,7 @@ thumbnail: /images/projects/202305-monorepo-3d-viewer-renewal.png
 gradient: linear-gradient(135deg, #eaeaed, #d0d2d8)
 ---
 
-# Multi-App Codebase Consolidation & Web Platform Performance Improvement
+# Monorepo Migration & Platform Renewal
 
 | Field | Details |
 |-------|---------|

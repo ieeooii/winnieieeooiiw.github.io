@@ -3,7 +3,7 @@ thumbnail: /images/projects/202011-connect-upload-step0.png
 gradient: linear-gradient(135deg, #c8d8f8, #a0b8f0)
 ---
 
-# 3D Garment Open Market Launch — Product Listing Feature
+# Open Market Launch — Product Listing Feature
 
 | Field | Details |
 |-------|---------|

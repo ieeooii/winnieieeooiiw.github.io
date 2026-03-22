@@ -3,7 +3,7 @@ thumbnail: /images/projects/202112-connect-jinny-landing-hero.png
 gradient: linear-gradient(135deg, #fce0ea, #f8b8cc)
 ---
 
-# 3D 피팅 소프트웨어 신규 서비스 소개 랜딩 페이지 개발
+# 피팅 소프트웨어 신규 서비스 소개 랜딩 페이지 개발
 
 | 항목 | 내용 |
 |------|------|

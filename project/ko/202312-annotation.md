@@ -3,7 +3,7 @@ thumbnail: /images/projects/202312-annotation-thumbnail.png
 gradient: linear-gradient(135deg, #d4e8ec, #a8cdd2)
 ---
 
-# 3D 뷰어 위치 기반 코멘트 & 스레드 협업 기능 개발
+# 뷰어 위치 기반 코멘트 & 스레드 협업 기능 개발
 
 | 항목 | 내용 |
 |------|------|

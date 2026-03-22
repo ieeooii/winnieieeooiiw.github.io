@@ -3,7 +3,7 @@ thumbnail: /images/projects/202209-line-sheet-list-view.png
 gradient: linear-gradient(135deg, #e8f0fc, #c8d8f8)
 ---
 
-# Interactive Seasonal Merchandise Planning Spreadsheet
+# AG Grid-based Interactive Line Sheet
 
 | Field | Details |
 |-------|---------|

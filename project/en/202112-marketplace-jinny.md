@@ -3,7 +3,7 @@ thumbnail: /images/projects/202112-connect-jinny-landing-hero.png
 gradient: linear-gradient(135deg, #fce0ea, #f8b8cc)
 ---
 
-# 3D Fitting Software Introduction Landing Page
+# Fitting Software Introduction Landing Page
 
 | Field | Details |
 |-------|---------|

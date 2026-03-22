@@ -1,3 +1,8 @@
+---
+thumbnail: /images/projects/202106-design-system.svg
+gradient: linear-gradient(135deg, #fce7f3, #ede9fe)
+---
+
 # Design System
 
 | Field | Details |

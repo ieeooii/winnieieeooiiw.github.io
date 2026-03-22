@@ -1,4 +1,4 @@
-# Merchandise Planning Sheet Settings — Status · Customer Type · Sales Channel · Store Type
+# Line Sheet Settings — Master Data Management
 
 | Field | Details |
 |-------|---------|

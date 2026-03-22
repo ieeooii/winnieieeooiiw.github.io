@@ -3,7 +3,7 @@ thumbnail: /images/projects/202202-mobile-viewer-3d.png
 gradient: linear-gradient(135deg, #dde8f0, #b8ccd8)
 ---
 
-# 3D Garment Mobile Viewer Page
+# Mobile Viewer Page
 
 | Field | Details |
 |-------|---------|

@@ -1,4 +1,9 @@
-# Enterprise Customer Group Management Admin System
+---
+thumbnail: /images/projects/202501-backoffice-enterprise.svg
+gradient: linear-gradient(135deg, #e8eaf0, #c8ccd8)
+---
+
+# Backoffice Enterprise Groups Domain Design
 
 | Field | Details |
 |-------|---------|

@@ -3,7 +3,7 @@ thumbnail: /images/projects/201912-color-picker-pc.png
 gradient: linear-gradient(135deg, #fce4f0, #f9b8d8)
 ---
 
-# 3D 의상 뷰어 배경색 커스터마이징 기능 개발
+# 뷰어 배경색 커스터마이징 기능 개발
 
 | 항목 | 내용 |
 |------|------|

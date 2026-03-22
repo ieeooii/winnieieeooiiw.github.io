@@ -3,7 +3,7 @@ thumbnail: /images/projects/201912-color-picker-pc.png
 gradient: linear-gradient(135deg, #fce4f0, #f9b8d8)
 ---
 
-# 3D Garment Viewer Background Color Customization
+# Viewer Background Color Customization
 
 | Field | Details |
 |-------|---------|

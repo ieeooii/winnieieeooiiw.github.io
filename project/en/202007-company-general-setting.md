@@ -1,4 +1,4 @@
-# Company General Settings Page Development
+# Storage Root Settings Page
 
 | Field | Details |
 |-------|---------|

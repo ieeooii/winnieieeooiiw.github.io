@@ -1,4 +1,4 @@
-# 3D Garment Color Variant View Mode
+# Color Variant View Mode
 
 | Field | Details |
 |-------|---------|

@@ -3,7 +3,7 @@ thumbnail: /images/projects/202011-connect-upload-step0.png
 gradient: linear-gradient(135deg, #c8d8f8, #a0b8f0)
 ---
 
-# 3D 의상 오픈 마켓 출시 — 상품 등록 기능 개발
+# 오픈 마켓 출시 — 상품 등록 기능 개발
 
 | 항목 | 내용 |
 |------|------|

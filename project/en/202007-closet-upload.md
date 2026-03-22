@@ -1,4 +1,4 @@
-# Marketplace 3D Garment Listing Feature
+# Marketplace Garment Listing Feature
 
 | Field | Details |
 |-------|---------|

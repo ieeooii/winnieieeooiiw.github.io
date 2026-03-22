@@ -1,4 +1,9 @@
-# 기업 고객 그룹 관리 어드민 시스템 구축
+---
+thumbnail: /images/projects/202501-backoffice-enterprise.svg
+gradient: linear-gradient(135deg, #e8eaf0, #c8ccd8)
+---
+
+# 백오피스 Enterprise Groups 도메인 설계 및 구축
 
 | 항목 | 내용 |
 |------|------|

@@ -3,7 +3,7 @@ thumbnail: /images/projects/202007-direct-upload.png
 gradient: linear-gradient(135deg, #d8d9dd, #b5b8c4)
 ---
 
-# 그래픽 소프트웨어 → 플랫폼 직접 3D 파일 업로드 기능 개발
+# 그래픽 소프트웨어 → 플랫폼 직접 파일 업로드 기능 개발
 
 | 항목 | 내용 |
 |------|------|

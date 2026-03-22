@@ -3,7 +3,7 @@ thumbnail: /images/projects/202305-monorepo-3d-viewer-renewal.png
 gradient: linear-gradient(135deg, #eaeaed, #d0d2d8)
 ---
 
-# 멀티 앱 코드베이스 통합 및 웹 플랫폼 성능 개선
+# 모노레포 도입 및 플랫폼 리뉴얼 개발
 
 | 항목 | 내용 |
 |------|------|

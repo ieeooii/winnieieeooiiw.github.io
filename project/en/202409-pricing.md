@@ -1,4 +1,4 @@
-# Pricing Redesign & Funnel Improvement
+# Pricing Plan & Usage Limit System
 
 | Field | Details |
 |-------|---------|

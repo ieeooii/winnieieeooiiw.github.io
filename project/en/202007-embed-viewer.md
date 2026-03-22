@@ -1,4 +1,4 @@
-# Embeddable 3D Garment Viewer
+# Embed Viewer
 
 | Field | Details |
 |-------|---------|
