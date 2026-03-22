@@ -34,31 +34,31 @@ Structured as a **2-step modal flow** — Step 1 captures basic information (tit
 ### 2-Step Modal Upload Flow
 
 - **Problem**: Marketplace uploads have many input fields, creating high cognitive load if displayed all at once on a single screen. The steps needed to be separated, but data sharing between steps and validation for each step had to be handled consistently.
-- **Solve**: Managed the current step in `UploadMarketplaceStore` via a `Step` enum (STEP1 / STEP2). Declared Step 1 completion condition (`isNextButton` computed) and Step 2 completion condition (`isConfirmButton` computed) as MobX computed properties, deriving per-step validation logic from the store. Changing only the store's `stepNumber` on step transition causes the modal component to automatically switch to that step's UI.
+- **Solve**: Managed the current step in the upload store via an enum. Declared each step's completion condition as a MobX computed property, deriving per-step validation from the store. Changing only the step value on transition causes the modal component to automatically switch to that step's UI.
 - **Result**: Per-step validation managed declaratively; progress button activation automatically determined by computed values.
 
 ### Dual API Handling per Market Type
 
-- **Problem**: The CLOSET market and MD_STORE channels each used different category APIs and upload endpoints. Branching on a `MarketType` enum (CLOSET / MD_STORE) was required, and the category hierarchy also differed per channel.
-- **Solve**: Branched category fetch API calls based on `MarketType` (`getMarketplaceCategory` / `getMdStoreCategory`). Encapsulated upload form data construction (`IReqUploadMarketplace`) and API call into a single `UploadMarketplaceStore` action so that market type branching logic is not exposed in components.
+- **Problem**: The CLOSET market and MD_STORE channels each used different category APIs and upload endpoints. Branching by market type was required, and the category hierarchy also differed per channel.
+- **Solve**: Branched category fetch API calls based on market type enum. Encapsulated upload form data construction and API call into a single store action so that market type branching logic is not exposed in components.
 - **Result**: Components call only a single store action regardless of market type; market type branching is handled internally in the store.
 
-### File Attachment Store Separation (UploadMarketplaceAttachStore)
+### File Attachment Store Separation
 
 - **Problem**: Thumbnail images and additional product images have different lifecycles from the upload flow. Thumbnails are uploaded immediately with preview in Step 1, while product images support reordering in Step 2. Mixing this file state in the main store increases complexity.
-- **Solve**: Separated file attachment state (`thumbnails`, `images`, upload progress, reorder logic) into `UploadMarketplaceAttachStore`. The main store (`UploadMarketplaceStore`) handles form data, step, and upload state, and references the attachment store to integrate file data at final submission.
+- **Solve**: Separated file attachment state (thumbnail list, image list, upload progress, reorder logic) into a dedicated store. The main store handles form data, step, and upload state, and references the attachment store to integrate file data at final submission.
 - **Result**: Structure enables independent testing and modification of file attachment logic.
 
 ### Automatic Price Calculation & State Management
 
 - **Problem**: Three values — original price, sales price, and discount percentage — are mutually dependent. A UX was needed where entering a discount automatically calculates the sales price, and directly entering a sales price back-calculates the discount.
-- **Solve**: Managed the three values as MobX observables, with each input handler immediately updating the related values. Included validation for abnormal inputs (e.g., sales price > original price) in the `isConfirmButton` computed to block submission entirely.
+- **Solve**: Managed the three values as MobX observables, with each input handler immediately updating the related values. Included validation for abnormal inputs (e.g., sales price > original price) in the submission condition computed to block submission entirely.
 - **Result**: Mutual calculation of the three values is automatically derived in the store; abnormal inputs automatically disable the submit button.
 
 ### Upload Status-Based UI Branching
 
 - **Problem**: Context menu options and guidance messages needed to differ based on upload status (pending review, approved, rejected, withdrawn, etc.).
-- **Solve**: Defined upload status as a `Status` enum (PENDING / CONFIRMED / REJECTED / WITHDRAW / UPDATED / WAITING_AGAIN). Context menu visibility (`isWithdraw`, etc.) and guidance messages are derived as computed values in `item-store`. After withdrawal (`withdrawMarketPlace`) completes, immediately clears `marketPlaceInfo` to synchronize UI state.
+- **Solve**: Defined upload status (pending, approved, rejected, withdrawn, etc.) as an enum. Context menu visibility and guidance messages are derived as computed values in the store. After withdrawal completes, immediately clears upload info to synchronize UI state.
 - **Result**: Status-based UI branching is centralized in store computeds, eliminating conditional branching in components.
 
 ## Retrospective / Lessons Learned

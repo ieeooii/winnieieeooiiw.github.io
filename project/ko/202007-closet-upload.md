@@ -34,31 +34,31 @@ CLO-SET 사용자가 3D 의류 콘텐츠를 CLO 마켓플레이스(CLOSET) 또�
 ### 2단계 스텝 모달 업로드 플로우
 
 - **Problem**: 마켓플레이스 업로드는 입력 항목이 많아 단일 화면에 모두 표시하면 인지 부하가 크다. 단계별로 나눠야 하지만, 단계 간 데이터 공유와 각 단계의 유효성 검사를 일관되게 처리해야 했다.
-- **Solve**: `Step` enum(STEP1 / STEP2)으로 현재 단계를 `UploadMarketplaceStore`에서 관리. 1단계 완료 조건(`isNextButton` computed)과 2단계 완료 조건(`isConfirmButton` computed)을 MobX computed property로 선언하여 각 단계의 유효성 검사를 스토어에서 파생. 단계 전환 시 스토어의 `stepNumber`만 변경하면 모달 컴포넌트가 자동으로 해당 단계 UI로 전환.
+- **Solve**: 현재 단계를 업로드 스토어에서 enum으로 관리. 1·2단계의 완료 조건을 각각 MobX computed property로 선언하여 유효성 검사를 스토어에서 파생. 단계 전환 시 스토어의 단계값만 변경하면 모달 컴포넌트가 자동으로 해당 단계 UI로 전환.
 - **Result**: 단계별 유효성 검사가 선언적으로 관리되며, 진행 버튼 활성화 여부가 computed 값에 의해 자동 결정
 
 ### 마켓 타입별 이중 API 대응
 
-- **Problem**: CLOSET 마켓과 MD_STORE 두 채널이 각각 다른 카테고리 API와 업로드 엔드포인트를 사용했다. `MarketType` enum(CLOSET / MD_STORE)으로 분기해야 했으며, 카테고리 계층 구조도 채널마다 달랐다.
-- **Solve**: `MarketType`을 기준으로 카테고리 조회 API를 분기 호출(`getMarketplaceCategory` / `getMdStoreCategory`). 업로드 폼 데이터 구성(`IReqUploadMarketplace`)과 API 호출을 `UploadMarketplaceStore` 단일 액션으로 캡슐화하여 컴포넌트에서 마켓 타입 분기 로직이 노출되지 않도록 설계.
+- **Problem**: CLOSET 마켓과 MD_STORE 두 채널이 각각 다른 카테고리 API와 업로드 엔드포인트를 사용했다. 마켓 타입으로 분기해야 했으며, 카테고리 계층 구조도 채널마다 달랐다.
+- **Solve**: 마켓 타입 enum을 기준으로 카테고리 조회 API를 분기 호출. 업로드 폼 데이터 구성과 API 호출을 업로드 스토어의 단일 액션으로 캡슐화하여 컴포넌트에서 마켓 타입 분기 로직이 노출되지 않도록 설계.
 - **Result**: 컴포넌트는 마켓 타입에 무관하게 단일 store action만 호출, 마켓 타입별 분기는 스토어 내부에서 처리
 
-### 파일 첨부 스토어 분리 (UploadMarketplaceAttachStore)
+### 파일 첨부 스토어 분리
 
 - **Problem**: 썸네일 이미지와 추가 상품 이미지는 업로드 플로우와 생명주기가 다르다. 썸네일은 1단계에서 미리보기와 함께 즉시 업로드되고, 상품 이미지는 2단계에서 순서 변경이 가능하다. 이 파일 상태를 메인 스토어에 혼재시키면 복잡도가 높아진다.
-- **Solve**: 파일 첨부 상태(`thumbnails`, `images`, 업로드 진행률, 순서 변경 로직)를 `UploadMarketplaceAttachStore`로 분리. 메인 스토어(`UploadMarketplaceStore`)는 폼 데이터·단계·업로드 상태를 담당하고, 첨부 스토어를 참조하여 최종 제출 시 파일 데이터를 통합.
+- **Solve**: 파일 첨부 상태(썸네일·이미지 목록, 업로드 진행률, 순서 변경 로직)를 별도 스토어로 분리. 메인 스토어는 폼 데이터·단계·업로드 상태를 담당하고, 첨부 스토어를 참조하여 최종 제출 시 파일 데이터를 통합.
 - **Result**: 파일 첨부 로직의 단독 테스트 및 변경이 가능한 구조
 
 ### 가격 자동 계산 및 상태 관리
 
 - **Problem**: 원가(original price), 판매가(sales price), 할인율(discount %) 세 값이 상호 의존 관계에 있다. 할인율 입력 시 판매가가 자동 계산되어야 하고, 판매가 직접 입력 시 할인율이 역산되어야 하는 UX가 필요했다.
-- **Solve**: MobX observable로 세 값을 관리하고, 각 입력 핸들러에서 나머지 연관 값을 즉시 업데이트. 판매가 > 원가인 경우 등 비정상 입력에 대한 유효성 검사를 `isConfirmButton` computed에 포함하여 제출 자체를 차단.
+- **Solve**: MobX observable로 세 값을 관리하고, 각 입력 핸들러에서 나머지 연관 값을 즉시 업데이트. 판매가 > 원가인 경우 등 비정상 입력에 대한 유효성 검사를 제출 조건 computed에 포함하여 제출 자체를 차단.
 - **Result**: 세 값의 상호 계산이 스토어에서 자동 파생되며, 비정상 입력 시 제출 버튼이 자동 비활성화
 
 ### 업로드 상태(Status) 기반 UI 분기
 
 - **Problem**: 마켓플레이스 업로드 상태(심사 중·승인·거절·철회 등)에 따라 컨텍스트 메뉴 구성과 안내 메시지가 달라져야 했다.
-- **Solve**: 업로드 상태를 `Status` enum(PENDING / CONFIRMED / REJECTED / WITHDRAW / UPDATED / WAITING_AGAIN)으로 정의하고, 컨텍스트 메뉴 노출 여부(`isWithdraw` 등)와 안내 메시지를 `item-store`의 computed로 파생. 철회(`withdrawMarketPlace`) 완료 후 `marketPlaceInfo`를 즉시 초기화하여 UI 상태 동기화.
+- **Solve**: 업로드 상태(심사 중·승인·거절·철회 등)를 enum으로 정의하고, 컨텍스트 메뉴 노출 여부와 안내 메시지를 스토어의 computed로 파생. 철회 완료 후 업로드 정보를 즉시 초기화하여 UI 상태 동기화.
 - **Result**: 상태별 UI 분기가 스토어 computed에 집중되어 컴포넌트에서 조건 분기 제거
 
 ## 회고 / 아쉬웠던 점
