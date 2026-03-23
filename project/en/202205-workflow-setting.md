@@ -17,14 +17,16 @@ gradient: linear-gradient(135deg, #e8eaf0, #c8ccd8)
 
 ## Overview
 
-An Admin settings page where fashion brand managers can create, edit, delete, and reorder the workflow statuses (Draft / In Review / Approved, etc.), Range Plans (season/line collection planning units like SS24 / FW24), and customer types for their Line Sheet. Recognizing that Workflow and Range Plan settings were structurally nearly identical, I first designed a shared draggable Setting component layer and had each domain build on top of it.
+An Admin settings page where fashion brand managers can create, edit, delete, and reorder workflow statuses (Draft / In Review / Approved, etc.). I first designed a shared draggable Setting component layer and had each domain build on top of it.
+
+![Workflow Settings](/images/projects/202008-content-filter-workflow.webp)
 
 ## Key Implementations
 
 ### Reusable Drag-and-Drop Setting Component
 - **Problem**: Building a sortable list UI from scratch for each settings domain would cause code duplication and require repeated implementation each time a similar settings pattern was added. `react-beautiful-dnd` was mainstream at the time but had compatibility issues with React Strict Mode, and integration with the design system's drag handle icon was also needed.
 - **Solve**: Designed a full list container and individual item as independent components. Each domain component only injects data into this layer. Added a drag handle icon to the design system for consistent interaction.
-- **Result**: Same component reused across Workflow / Range Plan / Customer Type settings (3 places). New settings domains can reuse the layout component.
+- **Result**: The shared component validated in Workflow settings established a structure immediately reusable when additional settings domains were added later.
 
 ### Settings Page Tab Switch Speed: 2000ms → 250ms
 
