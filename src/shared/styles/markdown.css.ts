@@ -142,6 +142,22 @@ globalStyle(`${markdownBody} code`, {
   borderRadius: vars.radii.sm,
 })
 
+globalStyle(`${markdownBody} .img-row-1`, {
+  display: 'flex',
+  justifyContent: 'center',
+  margin: `${vars.space[8]} 0`,
+})
+
+globalStyle(`${markdownBody} .img-row-1 p`, {
+  display: 'contents',
+  margin: 0,
+})
+
+globalStyle(`${markdownBody} .img-row-1 figure`, {
+  margin: 0,
+  maxWidth: 'none',
+})
+
 globalStyle(`${markdownBody} .img-row-2`, {
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',

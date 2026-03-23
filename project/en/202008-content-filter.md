@@ -19,7 +19,7 @@ gradient: linear-gradient(135deg, #f1f5f9, #e2e8f0)
 
 A filter system for the 3D clothing content list page that combines content type, workflow, category, search scope, sorting, and other filters to find desired content. **URL query parameters are used as the single source of truth (SSoT)**, serializing filter state into the URL so that sharing a page reproduces the same filter state. State is distributed across three layers — URL / LocalStorage / Cookie — each according to its purpose, with MobX store managing them centrally. After the initial implementation, features such as category AND/OR logical operators, colorway view mode, and workflow V3 API migration were incrementally added.
 
-<div class="img-row-2">
+<div class="img-row-1">
 
 ![Content filter system](/images/projects/202008-content-filter.webp)
 

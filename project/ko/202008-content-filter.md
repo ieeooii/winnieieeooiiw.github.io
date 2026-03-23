@@ -19,7 +19,7 @@ gradient: linear-gradient(135deg, #f1f5f9, #e2e8f0)
 
 3D 의류 콘텐츠 목록 페이지에서 콘텐츠 타입·워크플로우·카테고리·검색 영역·정렬 등 다양한 필터를 조합하여 원하는 콘텐츠를 탐색하는 필터 시스템이다. **URL 쿼리 파라미터를 단일 진실 공급원(SSoT)으로 사용**하여 필터 상태를 URL에 직렬화하고, 페이지를 공유하면 동일한 필터 상태가 재현되도록 설계했다. 상태는 URL / LocalStorage / Cookie 세 계층에 목적에 맞게 분산 저장되며, MobX 스토어가 이를 통합 관리한다. 초기 구현 이후 카테고리 AND/OR 논리 연산자, 컬러웨이 뷰 모드, 워크플로우 V3 API 마이그레이션 등을 단계적으로 확장했다.
 
-<div class="img-row-2">
+<div class="img-row-1">
 
 ![콘텐츠 필터 시스템](/images/projects/202008-content-filter.webp)
 
