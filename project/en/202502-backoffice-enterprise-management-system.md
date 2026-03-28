@@ -17,7 +17,7 @@ gradient: linear-gradient(135deg, #e8eaf0, #c8ccd8)
 
 ## Overview
 
-Designed and built the Groups section from scratch for unified management of CLO-SET Enterprise plan client accounts (Groups) — including account status, payment history, usage, and operational notes — in the admin panel. From group list query and search filters to group detail pages (info table, members, usage, plan history, billing history, comments), a total of 7 sub-features and 40+ new components were developed solo over 6 months. Led the entire frontend process from API design coordination, component structure decisions, to deployment.
+Designed and built the Groups section from scratch for unified management of CLO-SET Enterprise plan client accounts (Groups) — including account status, payment history, usage, and operational notes — in the admin panel. From group list query and search filters to group detail pages (info table, members, usage, plan history, billing history, comments), a total of 7 sub-features and 40+ new components were developed solo over approximately 1 month. Led the entire frontend process from API design coordination, component structure decisions, to deployment.
 
 ## Key Implementations — Groups List & Search Filter
 
@@ -100,4 +100,4 @@ Designed 7+ custom hooks for group list, detail, comments, usage, members, and m
 
 ## Retrospective / Lessons Learned
 
-Designing the entire Groups domain from scratch over 6 months, I realized what's important for "component structure not to waver as features grow." Experiencing responsibilities increasingly accumulating on the group info table — manager CRUD, currency changes, etc. — confirmed that separating each action into a separate modal component with the container handling only orchestration is advantageous for maintainability. Also, using searchParams as a state store was a good choice for URL sharing and history management, but bugs arose as initialization and parsing logic scattered across multiple components — next time, abstracting URL state management into a single hook would be more appropriate.
+Designing the entire Groups domain from scratch over approximately 1 month, I realized what's important for "component structure not to waver as features grow." Experiencing responsibilities increasingly accumulating on the group info table — manager CRUD, currency changes, etc. — confirmed that separating each action into a separate modal component with the container handling only orchestration is advantageous for maintainability. Also, using searchParams as a state store was a good choice for URL sharing and history management, but bugs arose as initialization and parsing logic scattered across multiple components — next time, abstracting URL state management into a single hook would be more appropriate.
