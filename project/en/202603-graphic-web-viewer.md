@@ -21,6 +21,104 @@ Fully rebuilt CLO-SET's core 3D viewer feature. Solely designed and implemented 
 
 The CLO3D API provided by the engine team was in the form of a listed function catalog, with no definitions for call order or React integration approach. Relevant information was scattered across multiple locations, and more time was spent understanding the API than actually developing. Since using it directly in apps would clearly result in engine usage knowledge being scattered throughout app code, I designed a hook layer abstracting it to match React lifecycle as an independent package.
 
+## Key Features
+
+### 3D Viewer
+
+<div class="img-row-3">
+
+![3D Viewer - T-shirt](/images/projects/202603-graphic-web-viewer-3d-viewer_t-shirt.png)
+
+![Empty Viewer (No Files)](/images/projects/202603-graphic-web-viewer-blank-viewer.png)
+
+![Full Screen](/images/projects/202603-graphic-web-viewer-full-screen.png)
+
+</div>
+
+### Environment Settings / Viewing Options
+
+<div class="img-row-3">
+
+![Environment Settings - Color](/images/projects/202603-graphic-web-viewer-3d-viewer_settings_environment-color.png)
+
+![Environment Settings - Photo](/images/projects/202603-graphic-web-viewer-3d-viewer_settings_environment-photo.png)
+
+![Quality Settings](/images/projects/202603-graphic-web-viewer-3d-viewer_settings_quality.png)
+
+</div>
+
+<div class="img-row-3">
+
+![Settings Menu](/images/projects/202603-graphic-web-viewer-3d-viewer_settings.png)
+
+![Viewing Options - Garment Rendering Style](/images/projects/202603-graphic-web-viewer-3d-viewer_viewing-options.png)
+
+</div>
+
+### Render Executor
+
+<div class="img-row-3">
+
+![Render Executor - Settings](/images/projects/202603-graphic-web-viewer-3d-viewer_render-executor-settings.png)
+
+![Render Executor - Usage](/images/projects/202603-graphic-web-viewer-3d-viewer_render-executor-usage.png)
+
+![Render Executor - Server Status](/images/projects/202603-graphic-web-viewer-3d-viewer_render-executor-status.png)
+
+</div>
+
+### Colorways
+
+<div class="img-row-1">
+
+![Colorway List](/images/projects/202603-graphic-web-viewer-colorways.png)
+
+</div>
+
+### Image / Turntable Viewer
+
+<div class="img-row-3">
+
+![Image Viewer](/images/projects/202603-graphic-web-viewer-image-viewer.png)
+
+![Turntable Viewer](/images/projects/202603-graphic-web-viewer-turntable-viewer.png)
+
+</div>
+
+### Document Viewer
+
+<div class="img-row-3">
+
+![PDF Viewer](/images/projects/202603-graphic-web-viewer-doc-viewer_pdf.png)
+
+![Excel Viewer](/images/projects/202603-graphic-web-viewer-doc-viewer_xlsx.png)
+
+![Unsupported File Format](/images/projects/202603-graphic-web-viewer-etc_unsupported_preview.png)
+
+</div>
+
+### Version Management & Upload
+
+<div class="img-row-3">
+
+![Version List](/images/projects/202603-graphic-web-viewer-version-list.png)
+
+![Version Upload - Select File Format](/images/projects/202603-graphic-web-viewer-version-upload_step1.png)
+
+![Version Upload - Single File](/images/projects/202603-graphic-web-viewer-version-upload_step2_single.png)
+
+</div>
+
+<div class="img-row-3">
+
+![Version Upload - Single File Attached](/images/projects/202603-graphic-web-viewer-version-upload_step2_single_attached.png)
+
+![Version Upload - Turntable](/images/projects/202603-graphic-web-viewer-version-upload_step2_turntable.png)
+
+![Version Upload - Turntable Attached](/images/projects/202603-graphic-web-viewer-version-upload_step2_turntable_attached.png)
+
+</div>
+
 ## Key Implementations
 
 ### React StrictMode Canvas Double-Creation Issue
