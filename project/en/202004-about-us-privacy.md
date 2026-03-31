@@ -3,7 +3,7 @@ thumbnail: /images/projects/202003-about-us-video-color-after.webp
 gradient: linear-gradient(135deg, #b3f0ee, #60ddd8)
 ---
 
-# Company Introduction & Legal Document Pages
+# Company Introduction & Legal Document Responsive Pages
 
 | Field | Details |
 |-------|---------|

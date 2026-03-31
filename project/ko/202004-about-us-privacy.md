@@ -3,7 +3,7 @@ thumbnail: /images/projects/202003-about-us-video-color-after.webp
 gradient: linear-gradient(135deg, #b3f0ee, #60ddd8)
 ---
 
-# 기업 소개 & 법적 문서 페이지 개발
+# 기업 소개 & 법적 문서 반응형 페이지 개발
 
 | 항목 | 내용 |
 |------|------|
