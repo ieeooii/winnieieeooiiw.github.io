@@ -21,6 +21,105 @@ CLO-SET의 핵심 기능인 3D 뷰어를 전면 재구축했다. CLO3D 엔진을
 
 엔진팀이 제공한 CLO3D API는 함수 목록만 나열된 형태로, 호출 순서나 React 연동 방식에 대한 정의가 없었다. 관련 정보가 여러 곳에 분산되어 있어 실제 개발보다 API를 파악하는 데 더 많은 시간이 걸렸다. 이를 그대로 앱에서 쓰면 엔진 사용법이 앱 코드 전반에 흩어지는 문제가 반복될 것이 명확했기 때문에, React 생명주기에 맞게 추상화한 hook 레이어를 독립 패키지로 설계했다.
 
+## 주요 기능
+
+### 3D 뷰어
+
+<div class="img-row-3">
+
+![3D 뷰어 - T셔츠](/images/projects/202603-graphic-web-viewer-3d-viewer_t-shirt.png)
+
+![빈 뷰어 (파일 없음)](/images/projects/202603-graphic-web-viewer-blank-viewer.png)
+
+![전체 화면](/images/projects/202603-graphic-web-viewer-full-screen.png)
+
+</div>
+
+### 환경 설정 / 뷰잉 옵션
+
+<div class="img-row-3">
+
+![환경 설정 - 색상](/images/projects/202603-graphic-web-viewer-3d-viewer_settings_environment-color.png)
+
+![환경 설정 - 사진](/images/projects/202603-graphic-web-viewer-3d-viewer_settings_environment-photo.png)
+
+![품질 설정](/images/projects/202603-graphic-web-viewer-3d-viewer_settings_quality.png)
+
+</div>
+
+<div class="img-row-3">
+
+![설정 메뉴](/images/projects/202603-graphic-web-viewer-3d-viewer_settings.png)
+
+![뷰잉 옵션 - 가먼트 렌더링 스타일](/images/projects/202603-graphic-web-viewer-3d-viewer_viewing-options.png)
+
+</div>
+
+### 렌더 실행기
+
+<div class="img-row-3">
+
+![렌더 실행기 - 설정](/images/projects/202603-graphic-web-viewer-3d-viewer_render-executor-settings.png)
+
+![렌더 실행기 - 사용량](/images/projects/202603-graphic-web-viewer-3d-viewer_render-executor-usage.png)
+
+![렌더 실행기 - 서버 상태](/images/projects/202603-graphic-web-viewer-3d-viewer_render-executor-status.png)
+
+</div>
+
+### 컬러웨이
+
+<div class="img-row-1">
+
+![컬러웨이 목록](/images/projects/202603-graphic-web-viewer-colorways.png)
+
+</div>
+
+### 이미지 / 턴테이블 뷰어
+
+<div class="img-row-3">
+
+![이미지 뷰어](/images/projects/202603-graphic-web-viewer-image-viewer.png)
+
+![턴테이블 뷰어](/images/projects/202603-graphic-web-viewer-turntable-viewer.png)
+
+</div>
+
+### 문서 뷰어
+
+<div class="img-row-3">
+
+![PDF 뷰어](/images/projects/202603-graphic-web-viewer-doc-viewer_pdf.png)
+
+![Excel 뷰어](/images/projects/202603-graphic-web-viewer-doc-viewer_xlsx.png)
+
+![지원되지 않는 파일 형식](/images/projects/202603-graphic-web-viewer-etc_unsupported_preview.png)
+
+</div>
+
+### 버전 관리 및 업로드
+
+<div class="img-row-3">
+
+![버전 목록](/images/projects/202603-graphic-web-viewer-version-list.png)
+
+![버전 업로드 - 파일 형식 선택](/images/projects/202603-graphic-web-viewer-version-upload_step1.png)
+
+![버전 업로드 - 단일 파일](/images/projects/202603-graphic-web-viewer-version-upload_step2_single.png)
+
+</div>
+
+<div class="img-row-3">
+
+![버전 업로드 - 단일 파일 첨부 완료](/images/projects/202603-graphic-web-viewer-version-upload_step2_single_attached.png)
+
+![버전 업로드 - 턴테이블](/images/projects/202603-graphic-web-viewer-version-upload_step2_turntable.png)
+
+![버전 업로드 - 턴테이블 첨부 완료](/images/projects/202603-graphic-web-viewer-version-upload_step2_turntable_attached.png)
+
+</div>
+
+
 ## 주요 구현
 
 ### React StrictMode에서 canvas 이중 생성 문제
