@@ -1,0 +1,32 @@
+{
+  "enabledPlugins": {
+    "serena@claude-plugins-official": true
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'input=$(cat); cwd=$(echo \"$input\" | jq -r \".cwd\"); prompt=$(echo \"$input\" | jq -r \".prompt // empty\"); [ -n \"$prompt\" ] && echo \"$prompt\" >> \"$cwd/prompts.txt\"' 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'input=$(cat); cmd=$(echo \"$input\" | jq -r \".tool_input.command // empty\"); if echo \"$cmd\" | grep -qE \"git\\s+reset\"; then echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"PreToolUse\\\",\\\"permissionDecision\\\":\\\"deny\\\",\\\"permissionDecisionReason\\\":\\\"git reset is not allowed in this project.\\\"}}\"; fi'"
+          },
+          {
+            "type": "command",
+            "command": "bash -c 'input=$(cat); cmd=$(echo \"$input\" | jq -r \".tool_input.command // empty\"); if echo \"$cmd\" | grep -qE \"git\\s+push\\s+.*(--force-with-lease|--force|-f)\"; then echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"PreToolUse\\\",\\\"permissionDecision\\\":\\\"deny\\\",\\\"permissionDecisionReason\\\":\\\"git force push is not allowed in this project.\\\"}}\"; fi'"
+          }
+        ]
+      }
+    ]
+  }
+}
