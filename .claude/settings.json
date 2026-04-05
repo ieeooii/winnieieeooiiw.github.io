@@ -1,7 +1,4 @@
 {
-  "enabledPlugins": {
-    "serena@claude-plugins-official": true
-  },
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -9,6 +6,10 @@
           {
             "type": "command",
             "command": "bash -c 'input=$(cat); cwd=$(echo \"$input\" | jq -r \".cwd\"); prompt=$(echo \"$input\" | jq -r \".prompt // empty\"); [ -n \"$prompt\" ] && echo \"$prompt\" >> \"$cwd/prompts.txt\"' 2>/dev/null || true"
+          },
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"[TOOL PREFERENCE] When navigating or analyzing code, always prefer Serena MCP tools (find_symbol, get_symbols_overview, find_referencing_symbols, search_for_pattern, etc.) over Grep/Glob. Fall back to Grep/Glob only when Serena is unavailable or for simple file-pattern searches. This applies to every request without the user needing to mention Serena explicitly.\"}}'"
           }
         ]
       }
@@ -24,9 +25,17 @@
           {
             "type": "command",
             "command": "bash -c 'input=$(cat); cmd=$(echo \"$input\" | jq -r \".tool_input.command // empty\"); if echo \"$cmd\" | grep -qE \"git\\s+push\\s+.*(--force-with-lease|--force|-f)\"; then echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"PreToolUse\\\",\\\"permissionDecision\\\":\\\"deny\\\",\\\"permissionDecisionReason\\\":\\\"git force push is not allowed in this project.\\\"}}\"; fi'"
+          },
+          {
+            "type": "command",
+            "command": "bash -c 'input=$(cat); cwd=$(echo \"$input\" | jq -r \".cwd\"); echo \"$input\" | bash \"$cwd/.claude/hooks/check-commit-message.sh\"'"
           }
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "serena@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
   }
 }
