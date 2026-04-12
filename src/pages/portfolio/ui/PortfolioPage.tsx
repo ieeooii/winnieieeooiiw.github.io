@@ -5,9 +5,9 @@ import { getProjects } from '../data/projects'
 import { useLanguage } from '../../../shared/i18n'
 import * as s from './portfolio.css'
 
-type FilterKey = 'all' | 'SaaS' | 'E-Commerce' | 'Internal Admin Tool' | 'ETC'
+type FilterKey = 'all' | 'SaaS' | 'E-Commerce' | 'Internal Admin Tool' | 'ETC' | 'Side Project'
 
-const FILTER_KEYS: FilterKey[] = ['all', 'SaaS', 'E-Commerce', 'Internal Admin Tool', 'ETC']
+const FILTER_KEYS: FilterKey[] = ['all', 'SaaS', 'E-Commerce', 'Internal Admin Tool', 'ETC', 'Side Project']
 
 const CARD_GRADIENTS = [
   'linear-gradient(135deg, #c8f5dc, #90e8b8)',
@@ -87,7 +87,9 @@ export const PortfolioPage = () => {
                 ))}
               </div>
               <div className={s.cardTagRow}>
-                <span className={tag.brand}>{project.company}</span>
+                {project.company && (
+                  <span className={tag.brand}>{project.company}</span>
+                )}
                 {project.category && (
                   <span className={tag.brand}>{project.category}</span>
                 )}
