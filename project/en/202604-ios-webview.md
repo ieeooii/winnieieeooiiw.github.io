@@ -8,14 +8,14 @@ gradient: linear-gradient(135deg, #ffe4d6, #dbeafe)
 | Field | Details |
 |-------|---------|
 | Category | Side Project |
-| Tech Stack | React 19, TypeScript, Vite, vanilla-extract, SwiftUI, WKWebView, S3, CloudFront |
+| Tech Stack | React 19, TypeScript, Vite, vanilla-extract, WKWebView, S3, CloudFront |
 | Period | 2026.04 |
 | Team | Solo |
 | GitHub | [ieeooii/study-ios-web-view](https://github.com/ieeooii/study-ios-web-view) |
 
 ## Overview
 
-A side project directly implementing the hybrid app pattern used in real-world services. Designed a JS ↔ Swift bridge interface from scratch and built a structure for calling native features — haptics, camera, and share sheet — through an abstracted API from the web app. The React web app is deployed automatically via S3 + CloudFront + GitHub Actions, and the iOS app is built with SwiftUI + WKWebView.
+A side project directly implementing the hybrid app pattern. Designed a JS ↔ Swift bridge interface from scratch and built a structure for calling native features — haptics, camera, and share sheet — through an abstracted API from the web app. The React web app is deployed automatically via S3 + CloudFront + GitHub Actions, and the iOS app is built with SwiftUI + WKWebView.
 
 ## Key Implementations
 

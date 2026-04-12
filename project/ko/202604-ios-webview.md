@@ -15,7 +15,7 @@ gradient: linear-gradient(135deg, #ffe4d6, #dbeafe)
 
 ## 소개
 
-실서비스에서 WebView를 활용하는 하이브리드 앱 패턴을 직접 구현한 사이드 프로젝트. JS ↔ Swift 브릿지 인터페이스를 직접 설계하고, 네이티브 기능(햅틱, 카메라, 공유 시트)을 웹앱에서 추상화된 API로 호출하는 구조를 구축했다. React 웹앱은 S3 + CloudFront + GitHub Actions로 자동 배포되며, iOS 앱은 SwiftUI + WKWebView로 구현했다.
+WebView를 활용하는 하이브리드 앱 패턴을 직접 구현한 사이드 프로젝트. JS ↔ Swift 브릿지 인터페이스를 직접 설계하고, 네이티브 기능(햅틱, 카메라, 공유 시트)을 웹앱에서 추상화된 API로 호출하는 구조를 구축했다. React 웹앱은 S3 + CloudFront + GitHub Actions로 자동 배포되며, iOS 앱은 SwiftUI + WKWebView로 구현했다.
 
 ## 주요 구현
 
