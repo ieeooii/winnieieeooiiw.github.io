@@ -35,8 +35,8 @@ A side project directly implementing the hybrid app pattern. Designed a JS ↔ S
 
 <div class="img-row-3">
 
-![Event banner embedded in native feed](/images/projects/202604-ios-webview-native-home.png)
-![Event detail page](/images/projects/202604-ios-webview-event-detail.png)
+![Event banner WebView embedded in native feed](/images/projects/202604-ios-webview-native-home.png)
+![Event detail page WebView](/images/projects/202604-ios-webview-event-detail.png)
 ![Event participation complete](/images/projects/202604-ios-webview-event-detail-submit.png)
 
 </div>
@@ -51,7 +51,7 @@ A side project directly implementing the hybrid app pattern. Designed a JS ↔ S
 
 <div class="img-row-3">
 
-![Community feed](/images/projects/202604-ios-webview-feed.png)
+![Community feed WebView](/images/projects/202604-ios-webview-feed.png)
 ![Write post — image attachment](/images/projects/202604-ios-webview-feed-write.png)
 ![Native camera/gallery picker](/images/projects/202604-ios-webview-feed-camera.png)
 

@@ -35,8 +35,8 @@ WebView를 활용하는 하이브리드 앱 패턴을 직접 구현한 사이드
 
 <div class="img-row-3">
 
-![네이티브 피드에 임베드된 이벤트 배너](/images/projects/202604-ios-webview-native-home.png)
-![이벤트 상세 페이지](/images/projects/202604-ios-webview-event-detail.png)
+![네이티브 피드에 임베드된 이벤트 배너 WebView](/images/projects/202604-ios-webview-native-home.png)
+![이벤트 상세 페이지 WebView](/images/projects/202604-ios-webview-event-detail.png)
 ![이벤트 참여 완료](/images/projects/202604-ios-webview-event-detail-submit.png)
 
 </div>
@@ -49,7 +49,7 @@ WebView를 활용하는 하이브리드 앱 패턴을 직접 구현한 사이드
 
 <div class="img-row-3">
 
-![커뮤니티 피드](/images/projects/202604-ios-webview-feed.png)
+![커뮤니티 피드 WebView](/images/projects/202604-ios-webview-feed.png)
 ![글쓰기 — 이미지 첨부](/images/projects/202604-ios-webview-feed-write.png)
 ![네이티브 카메라/갤러리 호출](/images/projects/202604-ios-webview-feed-camera.png)
 
