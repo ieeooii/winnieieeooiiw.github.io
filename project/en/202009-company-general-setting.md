@@ -3,7 +3,7 @@ thumbnail: /images/projects/202007-company-general-setting.webp
 gradient: linear-gradient(135deg, #e0f2fe, #bae6fd)
 ---
 
-# Storage General Setting Page Development
+# Storage General Setting Page React Migration
 
 | Field | Details |
 |------|------|

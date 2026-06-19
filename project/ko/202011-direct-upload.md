@@ -3,7 +3,7 @@ thumbnail: /images/projects/202007-direct-upload.webp
 gradient: linear-gradient(135deg, #d8d9dd, #b5b8c4)
 ---
 
-# 그래픽 소프트웨어 → 플랫폼 직접 파일 업로드 기능 개발
+# 그래픽 소프트웨어 → 플랫폼 직접 파일 업로드 기능 React 마이그레이션
 
 | 항목 | 내용 |
 |------|------|
@@ -21,6 +21,7 @@ CLO 소프트웨어에서 작업한 3D 의류 파일(`.zprj`, `.zpac` 등)을 CL
 
 <div class="img-row-2">
 
+![CLO 3D 소프트웨어에서 직접 업로드](/images/projects/202007-direct-upload-clo3d-sw.webp)
 ![Direct Upload 메인](/images/projects/202007-direct-upload.webp)
 ![파일 찾기 모달](/images/projects/202007-direct-upload-browse-modal.webp)
 ![최근 파일 모달](/images/projects/202007-direct-upload-recent-modal.webp)

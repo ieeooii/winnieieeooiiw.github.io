@@ -3,7 +3,7 @@ thumbnail: /images/projects/202007-trash-setting.webp
 gradient: linear-gradient(135deg, #e8e8e8, #c8c8c8)
 ---
 
-# 휴지통(Trash) — 삭제 항목 복원 기능 개발
+# 휴지통(Trash) — 삭제 항목 복원 기능 React 마이그레이션
 
 | 항목 | 내용 |
 |------|------|

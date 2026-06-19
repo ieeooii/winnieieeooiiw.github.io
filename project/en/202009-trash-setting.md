@@ -3,7 +3,7 @@ thumbnail: /images/projects/202007-trash-setting.webp
 gradient: linear-gradient(135deg, #e8e8e8, #c8c8c8)
 ---
 
-# Trash — Deleted Item Restore Feature Development
+# Trash — Deleted Item Restore Feature React Migration
 
 | Field | Details |
 |-------|---------|

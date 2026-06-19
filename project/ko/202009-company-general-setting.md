@@ -3,7 +3,7 @@ thumbnail: /images/projects/202007-company-general-setting.webp
 gradient: linear-gradient(135deg, #e0f2fe, #bae6fd)
 ---
 
-# Storage General Setting 페이지 개발
+# Storage General Setting 페이지 React 마이그레이션
 
 | 항목 | 내용 |
 |------|------|

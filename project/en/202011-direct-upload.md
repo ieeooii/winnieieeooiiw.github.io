@@ -3,7 +3,7 @@ thumbnail: /images/projects/202007-direct-upload.webp
 gradient: linear-gradient(135deg, #d8d9dd, #b5b8c4)
 ---
 
-# Graphic Software → Platform Direct File Upload Feature
+# Graphic Software → Platform Direct File Upload Feature React Migration
 
 | Field | Details |
 |------|------|
@@ -21,6 +21,7 @@ A feature for directly uploading 3D garment files (`.zprj`, `.zpac`, etc.) creat
 
 <div class="img-row-2">
 
+![Direct upload from CLO 3D software](/images/projects/202007-direct-upload-clo3d-sw.webp)
 ![Direct Upload main](/images/projects/202007-direct-upload.webp)
 ![File browse modal](/images/projects/202007-direct-upload-browse-modal.webp)
 ![Recent files modal](/images/projects/202007-direct-upload-recent-modal.webp)
