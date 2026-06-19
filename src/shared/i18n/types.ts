@@ -33,11 +33,12 @@ export type Translations = {
     exp2: { role: string; period: string; projectName: string; desc: string }
     exp3: { role: string; period: string; desc: string }
     sectionEdu: string
-    edu1: { title: string; sub: string }
-    edu2: { title: string; sub: string }
+    edu1: { title: string; sub: string; date: string }
+    edu2: { title: string; sub: string; date: string }
     sectionPub: string
     pubAbstractLabel: string
     sectionTraining: string
+    training1: { date: string }
   }
   portfolio: {
     title: string

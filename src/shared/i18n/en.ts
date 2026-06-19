@@ -53,14 +53,17 @@ export const en: Translations = {
     edu1: {
       title: 'Hanyang University, M.Eng. in Computer Science',
       sub: 'Computer Science · GPA 4.17 / 4.5',
+      date: 'August 2025',
     },
     edu2: {
       title: 'Visual Communication Design',
       sub: 'Associate\'s GPA 4.2 / 4.5 · Bachelor\'s GPA 3.89 / 4.5',
+      date: 'August 2018',
     },
     sectionPub: 'Publication',
     pubAbstractLabel: 'Abstract ↓',
     sectionTraining: 'Training / Certification',
+    training1: { date: 'August 2019' },
   },
   projects: {
     viewAll: 'View all\nprojects',

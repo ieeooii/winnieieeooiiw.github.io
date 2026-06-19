@@ -50,14 +50,17 @@ export const ko: Translations = {
     edu1: {
       title: '한양대학교 대학원 공학석사',
       sub: '컴퓨터공학 전공 · GPA 4.17 / 4.5',
+      date: '2025년 8월',
     },
     edu2: {
       title: '시각디자인학 전공',
       sub: '전문학사 GPA 4.2 / 4.5 · 학사 GPA 3.89 / 4.5',
+      date: '2018년 8월',
     },
     sectionPub: 'Publication',
     pubAbstractLabel: 'Abstract ↓',
     sectionTraining: 'Training / Certification',
+    training1: { date: '2019년 8월' },
   },
   projects: {
     viewAll: '전체 프로젝트\n보러가기',

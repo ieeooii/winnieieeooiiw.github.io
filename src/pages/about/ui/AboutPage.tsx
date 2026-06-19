@@ -54,7 +54,7 @@ export const AboutPage = () => {
                 <span className={s.itemTitle}>{a.edu1.title}</span>
                 <span className={s.itemSub}>{a.edu1.sub}</span>
               </div>
-              <span className={s.itemPeriod}>August 2025</span>
+              <span className={s.itemPeriod}>{a.edu1.date}</span>
             </div>
 
             <div className={s.item}>
@@ -62,7 +62,7 @@ export const AboutPage = () => {
                 <span className={s.itemTitle}>{a.edu2.title}</span>
                 <span className={s.itemSub}>{a.edu2.sub}</span>
               </div>
-              <span className={s.itemPeriod}>August 2018</span>
+              <span className={s.itemPeriod}>{a.edu2.date}</span>
             </div>
           </div>
         </div>
@@ -109,7 +109,7 @@ export const AboutPage = () => {
                 <span className={s.itemTitle}>CodeStates Software Engineering Program</span>
                 <span className={s.itemSub}>Pre Course 32nd · Advanced Immersive Course 18th</span>
               </div>
-              <span className={s.itemPeriod}>August 2019</span>
+              <span className={s.itemPeriod}>{a.training1.date}</span>
             </div>
           </div>
         </div>
