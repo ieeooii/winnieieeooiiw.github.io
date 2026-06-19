@@ -74,5 +74,7 @@ export const ko: Translations = {
     prevProject: '이전 페이지',
     nextProject: '다음 페이지',
     saasImageNotice: '이미지 내 의상은 직접 제작했거나 플랫폼 기본 제공 콘텐츠입니다.',
+    notFound: '존재하지 않는 프로젝트입니다.',
+    backToList: '프로젝트 목록으로',
   },
 }

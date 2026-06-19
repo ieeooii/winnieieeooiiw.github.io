@@ -12,7 +12,19 @@ export const ProjectDetailPage = () => {
   const { lang, t } = useLanguage()
   const projects = getProjects(lang)
   const idx = projects.findIndex((p) => p.id === params.id)
-  const project = idx >= 0 ? projects[idx] : projects[0]
+  if (idx < 0) {
+    return (
+      <main className={s.page}>
+        <div className={s.detailContainer}>
+          <p>{t.portfolio.notFound}</p>
+          <button className={s.backButton} onClick={() => navigate('/projects')}>
+            ← {t.portfolio.backToList}
+          </button>
+        </div>
+      </main>
+    )
+  }
+  const project = projects[idx]
   const prev = idx > 0 ? projects[idx - 1] : null
   const next = idx < projects.length - 1 ? projects[idx + 1] : null
 

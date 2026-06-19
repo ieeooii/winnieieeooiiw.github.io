@@ -77,5 +77,7 @@ export const en: Translations = {
     prevProject: 'Prev',
     nextProject: 'Next',
     saasImageNotice: 'Garment images are self-created or default content provided by the platform.',
+    notFound: 'Project not found.',
+    backToList: 'Back to projects',
   },
 }
