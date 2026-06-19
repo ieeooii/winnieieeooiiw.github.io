@@ -1,8 +1,8 @@
 import { useLayoutEffect } from 'react'
-import { useHashLocation } from 'wouter/use-hash-location'
+import { useLocation } from 'wouter'
 
 export const useScrollReset = () => {
-  const [pathname] = useHashLocation()
+  const [pathname] = useLocation()
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [pathname])

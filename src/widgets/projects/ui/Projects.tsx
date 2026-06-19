@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useHashLocation } from 'wouter/use-hash-location'
+import { useLocation } from 'wouter'
 import { Tag, tag } from '../../../shared/ui'
 import { getProjects } from '../../../pages/portfolio/data/projects'
 import { useLanguage } from '../../../shared/i18n'
@@ -8,7 +8,7 @@ import * as s from './projects.css'
 const FEATURED_IDS = ['monorepo', 'design-system', 'error-system']
 
 export const Projects = () => {
-  const [, navigate] = useHashLocation()
+  const [, navigate] = useLocation()
   const { t, lang } = useLanguage()
   const featured = useMemo(() => {
     const projects = getProjects(lang)
