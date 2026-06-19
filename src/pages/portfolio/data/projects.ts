@@ -45,7 +45,8 @@ function parseProject(path: string, raw: string): Project {
   const { data, content } = parseFrontmatter(raw)
   const titleLine = content.split('\n').find(l => l.startsWith('# '))
   const title = titleLine ? titleLine.slice(2).trim() : ''
-  const id = path.split('/').pop()!.replace('.md', '').replace(/^\d{6}-/, '')
+  const filename = path.split('/').at(-1) ?? ''
+  const id = filename.replace(/\.md$/, '').replace(/^\d{6}-/, '')
   const company = getTableValue(content, '회사') || getTableValue(content, 'Company')
   const category = getTableValue(content, '카테고리') || getTableValue(content, 'Category')
   const period = getTableValue(content, '개발 기간') || getTableValue(content, 'Period')
@@ -57,15 +58,18 @@ function parseProject(path: string, raw: string): Project {
   return { id, title, company, category, period, stack, thumbnail, gradient, rawContent: content }
 }
 
+const cache: Partial<Record<Lang, Project[]>> = {}
+
 export function getProjects(lang: Lang = 'ko'): Project[] {
-  return Object.entries(koFiles)
+  const cached = cache[lang]
+  if (cached) return cached
+  const result = Object.entries(koFiles)
     .map(([path, koContent]) => {
       const enKey = path.replace('/project/ko/', '/project/en/')
       const content = lang === 'en' ? (rawFilesEn[enKey] ?? koContent) : koContent
       return parseProject(path, content)
     })
     .sort((a, b) => getPeriodEnd(b.period) - getPeriodEnd(a.period))
+  cache[lang] = result
+  return result
 }
-
-// Keep PROJECTS as a convenience export (Korean default)
-export const PROJECTS = getProjects('ko')
