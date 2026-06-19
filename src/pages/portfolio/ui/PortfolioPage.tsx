@@ -17,6 +17,11 @@ const CARD_GRADIENTS = [
   'linear-gradient(135deg, #fdfacc, #faf599)',
 ]
 
+const gradientFallback = (id: string) => {
+  const hash = [...id].reduce((acc, c) => acc + c.charCodeAt(0), 0)
+  return CARD_GRADIENTS[hash % CARD_GRADIENTS.length]
+}
+
 export const PortfolioPage = () => {
   const [, navigate] = useLocation()
   const { t, lang } = useLanguage()
@@ -69,13 +74,21 @@ export const PortfolioPage = () => {
           {filtered.length === 0 && (
             <p className={s.noResults}>{t.portfolio.noResults}</p>
           )}
-          {filtered.map((project, i) => (
+          {filtered.map((project) => (
             <article
               key={project.id}
               className={s.projectCard}
+              role="button"
+              tabIndex={0}
               onClick={() => navigate(`/projects/${project.id}`)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  navigate(`/projects/${project.id}`)
+                }
+              }}
             >
-              <div className={s.cardThumb} style={{ background: project.gradient ?? CARD_GRADIENTS[i % CARD_GRADIENTS.length] }}>
+              <div className={s.cardThumb} style={{ background: project.gradient ?? gradientFallback(project.id) }}>
                 {project.thumbnail && (
                   <div className={s.cardThumbImg} style={{ backgroundImage: `url(${project.thumbnail})` }} />
                 )}
