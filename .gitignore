@@ -26,3 +26,6 @@ prompts.txt
 
 # Serena
 .serena/
+
+# Claude
+.claude/
