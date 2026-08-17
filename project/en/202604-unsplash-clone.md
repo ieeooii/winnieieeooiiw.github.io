@@ -7,7 +7,6 @@ gradient: linear-gradient(135deg, #ececec, #c4c4c4)
 
 | Field | Details |
 |-------|---------|
-| Company | Personal Project |
 | Category | Side Project |
 | Service | Unsplash Clone |
 | Tech Stack | React 19, TypeScript, Vite 8 (rolldown), TanStack Query v5, React Router v6, Emotion, Vitest, Playwright |

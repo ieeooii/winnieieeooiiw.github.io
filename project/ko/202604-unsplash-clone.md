@@ -7,7 +7,6 @@ gradient: linear-gradient(135deg, #ececec, #c4c4c4)
 
 | 항목 | 내용 |
 |------|------|
-| 회사 | 개인 프로젝트 |
 | 카테고리 | Side Project |
 | 서비스 | Unsplash Clone |
 | 기술 스택 | React 19, TypeScript, Vite 8 (rolldown), TanStack Query v5, React Router v6, Emotion, Vitest, Playwright |

@@ -183,3 +183,10 @@ globalStyle(`${markdownBody} .img-row-2 figure, ${markdownBody} .img-row-3 figur
   margin: 0,
   maxWidth: 'none',
 })
+
+// Opt-in frame for screenshots that blend into the page background.
+// Usage in markdown: <div class="img-row-2 img-border"> … </div>
+globalStyle(`${markdownBody} .img-border img`, {
+  border: `1px solid ${vars.color.gray[200]}`,
+  boxShadow: vars.shadow.sm,
+})
