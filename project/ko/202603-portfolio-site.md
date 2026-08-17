@@ -8,11 +8,11 @@ gradient: linear-gradient(135deg, #ddf5e8, #a9e8c9)
 | 항목 | 내용 |
 |------|------|
 | 카테고리 | Side Project |
-| 서비스 | ieeooii.github.io |
-| 기술 스택 | React 19, TypeScript, Vite 7, Vanilla Extract, wouter, react-markdown, GitHub Actions, GitHub Pages |
+| 서비스 | portfolio.ieeooii.com |
+| 기술 스택 | React 19, TypeScript, Vite 7, Vanilla Extract, wouter, react-markdown, GitHub Actions, GitHub Pages, AWS Route 53 |
 | 개발 기간 | 2026.03 ~ 진행 중 |
 | 인원 | 프론트엔드 1 (개인) |
-| 서비스 링크 | [ieeooii.github.io](https://ieeooii.github.io) |
+| 서비스 링크 | [portfolio.ieeooii.com](https://portfolio.ieeooii.com) |
 
 ## 프로젝트 목적
 
@@ -69,6 +69,13 @@ gradient: linear-gradient(135deg, #ddf5e8, #a9e8c9)
 - **Problem**: 로컬에서 빌드해 산출물을 수동 배포하는 방식은 커밋과 배포 상태가 어긋날 수 있고, 타입 오류가 섞인 빌드가 그대로 올라갈 위험이 있다.
 - **Solve**: 배포 브랜치 푸시를 트리거로 GitHub Actions 파이프라인을 구성. `pnpm install --frozen-lockfile` → 타입 체크 포함 빌드(`tsc -b && vite build`) → Pages 아티팩트 업로드 → 공식 `deploy-pages` 액션으로 배포한다. 토큰 발급 없이 OIDC(`id-token`) 권한으로 인증하고, `concurrency`로 연속 푸시 시 이전 배포를 취소해 항상 최신 커밋만 반영한다.
 - **Result**: 마크다운 커밋 → 푸시만으로 몇 분 내 자동 게시. 타입 체크를 통과한 빌드만 배포되고, 배포 이력이 커밋 단위로 추적 가능
+
+### 커스텀 도메인 — Route 53 서브도메인 체계
+
+- **Problem**: 기본 제공되는 `*.github.io` 도메인은 브랜딩이 약하고, 앞으로 만들 사이드 서비스들을 각각 도메인을 새로 사지 않고 하나의 도메인 아래에서 운영하고 싶었다.
+- **Solve**: 도메인 등록(레지스트라)과 DNS 호스팅(호스팅 존)은 별개 서비스지만, 관리 지점을 하나로 모으기 위해 둘 다 AWS Route 53으로 구성했다. 루트 도메인(`ieeooii.com`)을 구매하고 호스팅 존을 생성한 뒤, `portfolio.ieeooii.com` 서브도메인에 CNAME 레코드로 GitHub Pages를 연결. 커스텀 도메인 검증 후 Let's Encrypt 인증서 자동 프로비저닝과 HTTPS 강제를 적용했다. 서비스별 서브도메인 전략이라 새 서비스가 생기면 레코드 추가만으로 같은 도메인 체계에 편입된다.
+- **Result**: `portfolio.ieeooii.com`으로 HTTPS 서빙. 도메인 1개 비용으로 서비스 수만큼 확장 가능한 네이밍 체계 확보
+- **Insight**: 방문자가 접속하면 **이름 해석까지만 Route 53**이 담당하고(CNAME → GitHub Pages), 실제 트래픽·콘텐츠 서빙·인증서 갱신은 GitHub Pages가 처리한다. DNS와 호스팅의 책임 경계를 나눠두면, 이후 특정 서브도메인만 다른 호스팅(예: Vercel, S3+CloudFront)으로 옮겨도 레코드 하나만 바꾸면 된다.
 
 ### AI 워크플로우로 콘텐츠 추가 자동화
 

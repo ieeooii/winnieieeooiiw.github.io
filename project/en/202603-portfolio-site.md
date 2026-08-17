@@ -8,11 +8,11 @@ gradient: linear-gradient(135deg, #ddf5e8, #a9e8c9)
 | Field | Details |
 |-------|---------|
 | Category | Side Project |
-| Service | ieeooii.github.io |
-| Tech Stack | React 19, TypeScript, Vite 7, Vanilla Extract, wouter, react-markdown, GitHub Actions, GitHub Pages |
+| Service | portfolio.ieeooii.com |
+| Tech Stack | React 19, TypeScript, Vite 7, Vanilla Extract, wouter, react-markdown, GitHub Actions, GitHub Pages, AWS Route 53 |
 | Period | 2026.03 ~ Ongoing |
 | Team | Frontend 1 (solo) |
-| Service Link | [ieeooii.github.io](https://ieeooii.github.io) |
+| Service Link | [portfolio.ieeooii.com](https://portfolio.ieeooii.com) |
 
 ## Purpose
 
@@ -69,6 +69,13 @@ This is the site you are looking at right now. Rather than just "a portfolio tha
 - **Problem**: Building locally and deploying artifacts by hand lets commits drift from what's live, and risks shipping a build with type errors.
 - **Solve**: A GitHub Actions pipeline triggers on pushes to the deploy branch: `pnpm install --frozen-lockfile` → type-checked build (`tsc -b && vite build`) → Pages artifact upload → the official `deploy-pages` action. Authentication uses OIDC (`id-token`) with no long-lived tokens, and `concurrency` cancels in-flight deploys on consecutive pushes so only the latest commit ships.
 - **Result**: Commit markdown, push, and it's live within minutes. Only type-check-passing builds deploy, with per-commit deployment history
+
+### Custom domain — Route 53 subdomain scheme
+
+- **Problem**: The default `*.github.io` domain is weak for branding, and future side services should live under one domain instead of buying a new one each time.
+- **Solve**: Domain registration (registrar) and DNS hosting (hosted zone) are separate services, but both were placed on AWS Route 53 to keep a single point of management. Purchased the root domain (`ieeooii.com`), created the hosted zone, and pointed the `portfolio.ieeooii.com` subdomain at GitHub Pages via a CNAME record — with custom-domain verification, automatic Let's Encrypt certificate provisioning, and enforced HTTPS. The per-service subdomain strategy means a new service joins the same domain scheme with just one more record.
+- **Result**: Served over HTTPS at `portfolio.ieeooii.com`, with a naming scheme that scales to any number of services for the cost of a single domain
+- **Insight**: When a visitor connects, **Route 53 only resolves the name** (CNAME → GitHub Pages); actual traffic, content serving, and certificate renewal are handled by GitHub Pages. Keeping the DNS/hosting responsibility boundary clean means any subdomain can later move to different hosting (Vercel, S3+CloudFront, …) by changing a single record.
 
 ### Automating content authoring with an AI workflow
 
