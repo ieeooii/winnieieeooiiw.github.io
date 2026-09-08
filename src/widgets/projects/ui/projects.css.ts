@@ -5,7 +5,6 @@ export { container } from '../../../shared/styles/layout.css'
 export const section = style({
   paddingTop: vars.space[24],
   paddingBottom: vars.space[24],
-  backgroundColor: vars.color.gray[100],
 })
 
 

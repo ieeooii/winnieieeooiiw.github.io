@@ -3,7 +3,6 @@ import { vars } from '../../../shared/styles/tokens.css'
 export { container } from '../../../shared/styles/layout.css'
 
 export const footer = style({
-  backgroundColor: vars.color.gray[100],
   color: vars.color.dark,
   paddingTop: vars.space[24],
   paddingBottom: vars.space[24],

@@ -21,6 +21,7 @@ export const vars = createThemeContract({
       '400': null,
       '500': null,
       '700': null,
+      '800': null,
     },
   },
   font: {
@@ -201,6 +202,7 @@ createGlobalTheme(':root', vars, {
       '400': '#9ca3af',
       '500': '#6b7280',
       '700': '#374151',
+      '800': '#1f2937',
     },
   },
   shadow: {
@@ -231,6 +233,7 @@ createGlobalTheme('[data-theme="dark"]', vars, {
       '400': '#6b7280',
       '500': '#9ca3af',
       '700': '#d1d5db',
+      '800': '#e5e7eb',
     },
   },
   shadow: {

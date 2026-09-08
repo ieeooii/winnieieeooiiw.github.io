@@ -38,11 +38,21 @@ export const right = style({
 })
 
 export const logo = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: vars.space[3],
   fontSize: vars.fontSize['3xl'],
   fontWeight: vars.fontWeight.extrabold,
   letterSpacing: vars.letterSpacing.tighter,
   color: vars.color.dark,
   textDecoration: 'none',
+})
+
+export const logoImg = style({
+  width: '48px',
+  height: '48px',
+  borderRadius: vars.radii.sm,
+  objectFit: 'cover',
 })
 
 export const pillGroup = style({

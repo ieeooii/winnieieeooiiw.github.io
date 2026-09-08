@@ -17,7 +17,7 @@ export const CursorTrail = () => {
       rafId = requestAnimationFrame(() => {
         const dot = dotRef.current
         if (!dot) return
-        dot.style.transform = `translate(${pending.x - 18}px, ${pending.y - 18}px)`
+        dot.style.transform = `translate(${pending.x}px, ${pending.y}px)`
       })
     }
 
@@ -31,20 +31,21 @@ export const CursorTrail = () => {
   if (!visible) return null
 
   return (
-    <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 9999 }}>
+    <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: -1 }}>
       <svg
         ref={dotRef}
-        width="36"
-        height="36"
+        width="480"
+        height="480"
         viewBox="-28 -28 56 56"
-        style={{ position: 'absolute', top: 0, left: 0, willChange: 'transform', opacity: 0.5 }}
+        style={{ position: 'absolute', top: '-240px', left: '-240px', willChange: 'transform', opacity: 0.15 }}
       >
-        <g transform="rotate(45)">
-          <circle cx="-8" cy="-8" r="12" fill={vars.color.brand} />
-          <circle cx="8" cy="-8" r="12" fill={vars.color.brand} />
-          <circle cx="-8" cy="8" r="12" fill={vars.color.brand} />
-          <circle cx="8" cy="8" r="12" fill={vars.color.brand} />
-        </g>
+        <defs>
+          <radialGradient id="cursor-glow">
+            <stop offset="0%" stopColor={vars.color.brand} stopOpacity="1" />
+            <stop offset="100%" stopColor={vars.color.brand} stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        <circle cx="0" cy="0" r="26" fill="url(#cursor-glow)" />
       </svg>
     </div>
   )

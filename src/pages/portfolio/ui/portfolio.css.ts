@@ -4,7 +4,6 @@ export { markdownBody } from '../../../shared/styles/markdown.css'
 
 export const page = style({
   minHeight: '100vh',
-  backgroundColor: vars.color.gray[100],
   paddingTop: vars.layout.navbarHeight,
 })
 

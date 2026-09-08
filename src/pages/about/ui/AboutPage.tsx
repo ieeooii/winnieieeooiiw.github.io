@@ -10,6 +10,9 @@ export const AboutPage = () => {
       <div className={`${s.container} ${s.containerPadding}`}>
         <header className={s.gridHeader}>
           <h1 className={s.gridTitle}>{a.pageTitle}</h1>
+          <div className={s.portrait}>
+            <img src="/kermit-pixel.png" alt="Kermit portrait" className={s.portraitImg} />
+          </div>
         </header>
 
         <p className={s.tagline}>WOOJIN LEE</p>

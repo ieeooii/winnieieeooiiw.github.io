@@ -20,12 +20,12 @@ const STACK: StackRow[] = [
   {
     id: 'styling',
     category: 'Styling',
-    items: ['Emotion.js', 'Tailwind CSS'],
+    items: ['Emotion.js'],
   },
   {
     id: 'tools',
     category: 'Tools',
-    items: ['Jira', 'Slack', 'GitHub', 'WebStorm', 'Visual Studio Code', 'Figma', 'Claude.ai', 'Gemini'],
+    items: ['Jira', 'Slack', 'GitHub', 'WebStorm', 'Visual Studio Code', 'Figma', 'Claude.ai'],
   },
 ]
 

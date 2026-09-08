@@ -114,7 +114,10 @@ export const Navbar = () => {
     <>
       <header className={scrolled ? s.header : s.headerTransparent}>
         <div className={s.inner}>
-          <Link href="/" className={s.logo}>ieeooii</Link>
+          <Link href="/" className={s.logo}>
+            <img src="/kermit.png" alt="" className={s.logoImg} />
+            ieeooii
+          </Link>
           <DesktopNav pathname={pathname} mode={mode} onThemeToggle={toggleTheme} />
           <div className={s.mobileRight}>
             <ThemeToggle mode={mode} onToggle={toggleTheme} />

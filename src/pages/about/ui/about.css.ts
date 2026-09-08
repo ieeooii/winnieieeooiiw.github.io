@@ -5,9 +5,44 @@ export { container } from '../../../shared/styles/layout.css'
 
 export const page = style({
   minHeight: '100vh',
-  backgroundColor: vars.color.gray[100],
   paddingTop: vars.layout.navbarHeight,
   position: 'relative',
+})
+
+// ── Portrait ──────────────────────────────────────────────────────────────────
+
+export const portrait = style({
+  position: 'absolute',
+  top: '50%',
+  right: 0,
+  transform: 'translateY(-50%)',
+  width: 'min(320px, 60vw)',
+  aspectRatio: '1',
+  borderRadius: vars.radii.full,
+  overflow: 'hidden',
+  '::after': {
+    content: '""',
+    position: 'absolute',
+    inset: 0,
+    backgroundImage: `repeating-linear-gradient(0deg, ${vars.color.gray[100]} 0 1px, transparent 1px 5px), repeating-linear-gradient(90deg, ${vars.color.gray[100]} 0 1px, transparent 1px 5px)`,
+    pointerEvents: 'none',
+  },
+  '@media': {
+    '(max-width: 768px)': {
+      position: 'relative',
+      top: 'auto',
+      right: 'auto',
+      transform: 'none',
+      margin: `${vars.space[8]} auto 0`,
+    },
+  },
+})
+
+export const portraitImg = style({
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+  imageRendering: 'pixelated',
 })
 
 export const containerPadding = style({
@@ -23,7 +58,8 @@ export const containerPadding = style({
 
 
 export const gridHeader = style({
-  marginBottom: '12rem',
+  paddingBottom: '12rem',
+  position: 'relative',
 })
 
 export const gridTitle = style({
@@ -53,8 +89,10 @@ export const name = style({
 })
 
 export const bio = style({
-  fontSize: vars.fontSize.lg,
-  color: vars.color.gray[700],
+  whiteSpace: 'pre-line',
+  wordBreak: 'keep-all',
+  fontSize: vars.fontSize.xl,
+  color: vars.color.gray[800],
   lineHeight: vars.lineHeight.relaxed,
   marginBottom: vars.space[16],
   paddingBottom: vars.space[16],
