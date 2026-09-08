@@ -116,7 +116,7 @@ export const sectionTitle = style({
   fontWeight: vars.fontWeight.semibold,
   letterSpacing: vars.letterSpacing.wider,
   textTransform: 'uppercase',
-  color: vars.color.gray[400],
+  color: vars.color.gray[500],
   marginBottom: vars.space[6],
 })
 
@@ -135,13 +135,13 @@ export const pubTitle = style({
 
 export const pubMeta = style({
   fontSize: vars.fontSize.base,
-  color: vars.color.gray[700],
+  color: vars.color.gray[800],
   marginBottom: vars.space[4],
 })
 
 export const pubKeywords = style({
   fontSize: vars.fontSize.sm,
-  color: vars.color.gray[400],
+  color: vars.color.gray[500],
   fontWeight: vars.fontWeight.semibold,
   marginBottom: vars.space[4],
 })
@@ -169,7 +169,7 @@ export const pubSummary = style({
 
 export const pubAbstract = style({
   fontSize: vars.fontSize.sm,
-  color: vars.color.gray[500],
+  color: vars.color.gray[700],
   lineHeight: vars.lineHeight.relaxed,
   paddingLeft: vars.space[4],
   borderLeft: `2px solid ${vars.color.gray[200]}`,
@@ -189,7 +189,7 @@ export const companyName = style({
 
 export const companyMeta = style({
   fontSize: vars.fontSize.sm,
-  color: vars.color.gray[400],
+  color: vars.color.gray[500],
   marginBottom: vars.space[8],
 })
 
@@ -230,22 +230,22 @@ export const expRole = style({
 
 export const expMeta = style({
   fontSize: vars.fontSize.sm,
-  color: vars.color.gray[400],
+  color: vars.color.gray[500],
 })
 
 export const expLink = style({
-  color: vars.color.gray[500],
+  color: vars.color.gray[700],
   fontWeight: vars.fontWeight.medium,
   textDecoration: 'underline',
   textUnderlineOffset: '3px',
   selectors: {
-    '&:hover': { color: vars.color.gray[700] },
+    '&:hover': { color: vars.color.gray[800] },
   },
 })
 
 export const expDesc = style({
   fontSize: vars.fontSize.sm,
-  color: vars.color.gray[500],
+  color: vars.color.gray[700],
   lineHeight: vars.lineHeight.relaxed,
   marginTop: vars.space[2],
 })
@@ -265,7 +265,7 @@ export const item = style({
 
 export const itemPeriod = style({
   fontSize: vars.fontSize.base,
-  color: vars.color.gray[400],
+  color: vars.color.gray[500],
   whiteSpace: 'nowrap',
   paddingTop: '4px',
   flexShrink: 0,
@@ -285,13 +285,13 @@ export const itemTitle = style({
 
 export const itemSub = style({
   fontSize: vars.fontSize.lg,
-  color: vars.color.gray[500],
+  color: vars.color.gray[700],
   lineHeight: vars.lineHeight.relaxed,
 })
 
 export const itemNote = style({
   fontSize: vars.fontSize.base,
-  color: vars.color.gray[400],
+  color: vars.color.gray[500],
   lineHeight: vars.lineHeight.relaxed,
   marginTop: vars.space[1],
 })
